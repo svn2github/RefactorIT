@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+<xs:element name="report">
+ 	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="info" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="exclude-filter-rules" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="rule" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+												<xs:sequence>
+													<xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded" />
+												</xs:sequence>
+												<xs:attribute name="id" type="xs:string"/>
+												<xs:attribute name="name" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+						  	</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="single-members">
+					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="unbounded">
+							<xs:any />
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="whole-types">
+					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="unbounded">
+							<xs:any />
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="date"/>
+	</xs:complexType>
+</xs:element>
+
+
+<xs:complexType name="javaElement">
+	<xs:choice minOccurs="0" maxOccurs="unbounded">
+		<xs:any />
+	</xs:choice>
+	<xs:attribute name="name" type="xs:string"/>
+</xs:complexType>
+
+
+<xs:element name="package" type="javaElement"/>
+<xs:element name="class" type="javaElement" />
+<xs:element name="interface" type="javaElement" />
+<xs:element name="method" type="javaElement" />
+<xs:element name="field" type="javaElement" />
+<xs:element name="annotation" type="javaElement" />
+<xs:element name="enum" type="javaElement" />
+<xs:element name="constructor" type="javaElement" />
+<xs:element name="initializer" type="javaElement" />
+
+</xs:schema>

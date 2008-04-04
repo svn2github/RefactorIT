@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+<!-- Sends to sysout only messages which match filter other will go to syserr -->
+<appender name="SYSOUT" class="org.apache.log4j.ConsoleAppender">
+<param name="target" value="System.out" />
+<param name="threshold" value="WARN" />
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%d %p %c - %m%n" />
+</layout>
+
+<!--<filter class="org.apache.log4j.varia.LevelRangeFilter">
+<param name="LevelMin" value="DEBUG" />
+<param name="LevelMax" value="INFO" />
+<param name="AcceptOnMatch" value="true" />
+</filter>-->
+
+</appender>
+
+<!-- appender for writing to System.err -->
+<appender name="SYSERR" class="org.apache.log4j.ConsoleAppender">
+<param name="target" value="System.err" />
+<param name="threshold" value="WARN" />
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%d %p %c - %m%n" />
+</layout>
+
+</appender>
+
+<!-- Refactorit logfile appender -->
+<appender name="LOGFILE" class="net.sf.refactorit.utils.RefactorItLogAppender">
+<param name="threshold" value="DEBUG" />
+<param name="MaxFileSize" value="1024KB" />
+<param name="maxBackupIndex" value="3" />
+
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%d %p %c - %m%n" />
+</layout>
+	
+</appender>
+
+
+<!-- development -->
+<!--<root>
+<level value="DEBUG" />
+<appender-ref ref="SYSOUT" />
+<appender-ref ref="SYSERR" />
+<appender-ref ref="LOGFILE" />
+</root>-->
+
+<!-- production -->
+<root>
+<level value="INFO" />
+<appender-ref ref="LOGFILE" />
+</root>
+
+</log4j:configuration>

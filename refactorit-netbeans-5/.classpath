@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/refactorit-netbeans"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/refactorit-core"/>
+	<classpathentry kind="lib" path="lib/openide.jar"/>
+	<classpathentry kind="lib" path="lib/openide-loaders.jar"/>
+	<classpathentry kind="lib" path="lib/org-netbeans-api-java.jar"/>
+	<classpathentry kind="lib" path="lib/org-netbeans-api-web-webmodule.jar"/>
+	<classpathentry kind="lib" path="lib/org-netbeans-modules-java-project.jar"/>
+	<classpathentry kind="lib" path="lib/org-netbeans-modules-javahelp.jar"/>
+	<classpathentry kind="lib" path="lib/org-netbeans-modules-projectapi.jar"/>
+	<classpathentry kind="lib" path="lib/org-netbeans-modules-projectuiapi.jar"/>
+	<classpathentry kind="lib" path="lib/org-openide-awt.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

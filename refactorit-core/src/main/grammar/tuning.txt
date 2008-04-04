@@ -1,0 +1,72 @@
+How to update ANTLR & grammar (Anton Safonov)
+-------------------------------------------------------------------------------
+
+1. Rename package antlr to rantlr.
+
+2. Add package (net.sf.refactorit.parser) section to the new grammar
+
+3. Make JavaLexer by means of FastJavaLexer create our TokenImpl's
+
+4. Make parser use our ASTImplFactory and TreeASTImpl
+
+5. Add end coordinates setting to following rules:
++ declaration - all asts
++ classTypeSpec
++ builtInTypeSpec
++ classDefinition
++ interfaceDefinition
++ classBlock
+  + interface Block
+  + enumBlock
+  + annotationBlock
+  - enumConstantBlock  
++ field - all asts
+  + classField
+  + interfaceField
+  + enumConstantField
+  + annotationField
++ constructorBody
++ explicitConstructorInvocation
++ arrayInitializer - special
++ parameterDeclarationList - special
++ parameterDeclaration
++ compoundStatement
++ statement - special
++ caseSList - special
++ tryBlock
++ finallyHandler
++ handler
++ expression
++ expressionList
++ unaryExpressionNotPlusMinus - 2 special
++ primaryExpression
++ newExpression - special
++ argList - special 
+
+6. Fix SL_COMMENT & ML_COMMENT to non-SKIP type, remove eating of newline() in SL
+
+7. Hack OPERATORS rules in lexer grammar to check less conditions on token generation
+
+8. Add /*METHODSTARTS*/ & /*METHODENDS*/ to parser/lexer generator, build.xml expects them
+
+9. Add stupid array handling for arrayInitializer
+
+10. Add '\0', '\1', '\2' to SL_COMMENT, ML_COMMENT and kill warnings
+
+11. Hack IDENT to not match "enum" and "assert" when they are disabled.
+
+12. Inline arraySpecOpt
+
+13. Remove ! from RBRACK in postfixExpression to generate this ast.
+
+14. charVocabulary='\u0003'..'\uFFFE';
+
+15. typeArgumentBounds must call classTypeSpec, not classOrInterfaceType
+
+16. explicitConstructorInvocation may have a typeArguments in the beginning
+
+17. add annotationFieldDefault
+
+18. add forEachColon (extra COLON node for new for loops initializer)
+
+19. add annotationMemberArrayConditional (extra EXPR node for members of array)

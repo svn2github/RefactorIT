@@ -1,0 +1,566 @@
+<project name="RefactorIT Parser" default="parser" basedir=".">
+
+	<property name="src.main.grammar.dir" value="${src.dir}/main/grammar"/>
+
+	<property name="generated.java.dir" value="${basedir}/generated/java"/>
+
+	<property name="generated.parser.dir"
+		value="${generated.java.dir}/net/sf/refactorit/parser"/>
+
+	<property name="lib.dir" value="${basedir}/lib"/>
+
+	<target name="check-parser">
+		<dependset>
+			<srcfileset dir="${src.main.grammar.dir}" includes="*.g"/>
+			<targetfileset dir="${generated.parser.dir}" includes="*"/>
+		</dependset>
+
+		<condition property="check.parser">
+			<and>
+				<available filepath="${generated.parser.dir}" file="JavaLexer.java"/>
+				<available filepath="${generated.parser.dir}" file="JavaRecognizer.java"/>
+				<available filepath="${generated.parser.dir}" file="JavaTokenTypes.java"/>
+				<available filepath="${generated.parser.dir}" file="JavaTokenTypes.txt"/>
+			</and>
+		</condition>
+	</target>
+
+	<target name="parser" depends="check-parser" unless="check.parser"
+			description="Generates parser files from grammar">
+		<java classname="rantlr.Tool" fork="yes">
+			<arg value="-o"/>
+			<arg value="${generated.parser.dir}"/>
+			<arg value="${src.main.grammar.dir}/java.g"/>
+			<classpath>
+				<pathelement location="${lib.dir}/antlr.jar"/>
+			</classpath>
+		</java>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>extends rantlr.LLkParser</replacetoken>
+            <replacevalue>extends OptimizedJavaRecognizer</replacevalue>
+    </replace>
+
+<!--    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>tokenNames = _tokenNames;</replacetoken>
+            <replacevalue>tokenNames = _tokenNames; TreeASTImpl.setVerboseStringConversion(false, tokenNames);</replacevalue>
+    </replace>-->
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>LA(1)</replacetoken>
+            <replacevalue>mLA1</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>/*METHODSTARTS*/</replacetoken>
+            <replacevalue>final ASTPair aPair = getNextASTPair(); try {</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>new ASTPair();</replacetoken>
+            <replacevalue>aPair;</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>/*METHODENDS*/</replacetoken>
+            <replacevalue>} finally {releaseASTPair(aPair);}</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken><![CDATA[		/*METHODSTARTS*/
+
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken><![CDATA[		/*METHODENDS*/
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[		/*METHODSTARTS*/
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[		/*METHODENDS*/
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[			try {   // for lexical error handling
+				]]></replacetoken>
+            <replacevalue><![CDATA[			try {   // for lexical error handling
+				if (Character.isJavaIdentifierStart(mLA1)) {
+          mIDENT(true);
+        } else ]]></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>public static final BitSet</replacetoken>
+            <replacevalue>private static final BitSet</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken>(AST)</replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaRecognizer.java">
+            <replacetoken><![CDATA[		int _saveIndex;
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[		int _saveIndex;
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[ && (true)]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>LA(1)</replacetoken>
+            <replacevalue>mLA1</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('_')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('$')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match(' ')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('\t')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('\f')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('\r')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('\n')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('.')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('+')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('-')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>match('*')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('0','9')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('\3','\uFFFE')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('a','z')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('A','Z')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('\0','\2')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('0','3')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('0','7')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('A','F')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('4','7')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('a','f')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>matchRange('1','9')</replacetoken>
+            <replacevalue>consume()</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[	Token theRetToken=null;
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[						theRetToken=_returnToken;
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[					theRetToken=_returnToken;
+]]></replacetoken>
+            <replacevalue></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>Hashtable</replacetoken>
+            <replacevalue>HashMap</replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("byte", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("byte", null), new LiteralPair("byte", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("public", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("public", null), new LiteralPair("public", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("case", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("case", null), new LiteralPair("case", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("short", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("short", null), new LiteralPair("short", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("break", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("break", null), new LiteralPair("break", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("while", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("while", null), new LiteralPair("while", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("new", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("new", null), new LiteralPair("new", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("instanceof", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("instanceof", null), new LiteralPair("instanceof", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("implements", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("implements", null), new LiteralPair("implements", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("/*$", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("/*$", null), new LiteralPair("/*$", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[new ANTLRHashString("$*///</editor-fold>", this), new Integer(]]></replacetoken>
+            <replacevalue><![CDATA[new ANTLRHashString("$*///</editor-fold>", null), new LiteralPair("$*///</editor-fold>", ]]></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("/*#", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("/*#", null), new LiteralPair("/*#", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken><![CDATA[new ANTLRHashString("#*///<editor-fold>", this), new Integer(]]></replacetoken>
+            <replacevalue><![CDATA[new ANTLRHashString("#*///<editor-fold>", null), new LiteralPair("#*///<editor-fold>", ]]></replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("//--", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("//--", null), new LiteralPair("//--", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("synchronized", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("synchronized", null), new LiteralPair("synchronized", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("float", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("float", null), new LiteralPair("float", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("package", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("package", null), new LiteralPair("package", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("return", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("return", null), new LiteralPair("return", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("throw", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("throw", null), new LiteralPair("throw", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("null", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("null", null), new LiteralPair("null", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("threadsafe", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("threadsafe", null), new LiteralPair("threadsafe", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("protected", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("protected", null), new LiteralPair("protected", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("class", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("class", null), new LiteralPair("class", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("throws", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("throws", null), new LiteralPair("throws", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("do", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("do", null), new LiteralPair("do", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("strictfp", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("strictfp", null), new LiteralPair("strictfp", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("super", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("super", null), new LiteralPair("super", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("transient", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("transient", null), new LiteralPair("transient", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("native", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("native", null), new LiteralPair("native", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("interface", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("interface", null), new LiteralPair("interface", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("final", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("final", null), new LiteralPair("final", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("if", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("if", null), new LiteralPair("if", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("double", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("double", null), new LiteralPair("double", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("volatile", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("volatile", null), new LiteralPair("volatile", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("assert", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("assert", null), new LiteralPair("assert", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("catch", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("catch", null), new LiteralPair("catch", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("try", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("try", null), new LiteralPair("try", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("enum", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("enum", null), new LiteralPair("enum", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("int", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("int", null), new LiteralPair("int", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("for", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("for", null), new LiteralPair("for", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("extends", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("extends", null), new LiteralPair("extends", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("boolean", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("boolean", null), new LiteralPair("boolean", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("char", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("char", null), new LiteralPair("char", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("private", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("private", null), new LiteralPair("private", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("default", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("default", null), new LiteralPair("default", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("false", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("false", null), new LiteralPair("false", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("this", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("this", null), new LiteralPair("this", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("static", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("static", null), new LiteralPair("static", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("abstract", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("abstract", null), new LiteralPair("abstract", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("continue", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("continue", null), new LiteralPair("continue", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("finally", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("finally", null), new LiteralPair("finally", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("else", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("else", null), new LiteralPair("else", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("import", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("import", null), new LiteralPair("import", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("void", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("void", null), new LiteralPair("void", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("switch", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("switch", null), new LiteralPair("switch", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("true", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("true", null), new LiteralPair("true", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>new ANTLRHashString("long", this), new Integer(</replacetoken>
+            <replacevalue>new ANTLRHashString("long", null), new LiteralPair("long", </replacevalue>
+    </replace>
+
+    <replace file="${generated.parser.dir}/JavaLexer.java">
+            <replacetoken>literals = new java.util.HashMap(64);</replacetoken>
+            <replacevalue>} static {literals = new java.util.HashMap(64);</replacevalue>
+    </replace>
+	</target>
+
+	<target name="clean-parser" description="Deletes generated parser files">
+		<delete dir="${generated.parser.dir}"/>
+	</target>
+
+	<target name="reparser" depends="clean-parser, parser"
+		description="Rebuilds parser files"/>
+
+</project>

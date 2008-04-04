@@ -1,0 +1,2292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!-- plugin version is provided during deployment -->
+<plugin
+   id="com.refactorit"
+   name="RefactorIT"
+   version="2.6"
+   provider-name="Aqris Software AS"
+   class="net.sf.refactorit.eclipse.RitPlugin">
+
+   <runtime>
+      <library name="refactoryEclipse.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/refactorit.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/log4j.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/antlr.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/rjasper.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/servlet-api.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/bsh.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/jsp20el.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/jsp-api.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/pmd.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/saxpath-1.0-fcs.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/jaxen-core-1.0-fcs.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/GraphLayout.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/servlet-api.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/commons-logging.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.help.ui"/>
+      <import plugin="org.eclipse.jdt"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.junit"/>
+   </requires>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="RefactorIT"
+            class="net.sf.refactorit.eclipse.RitPreferencePage"
+            id="com.refactorit.preferences.RootPreferencePage">
+      </page>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            objectClass="org.eclipse.core.resources.IProject"
+            class="net.sf.refactorit.eclipse.RitPropertyPage"
+            name="RefactorIT"
+            id="com.refactorit.RitPropertyPage">
+         <filter
+               name="nature"
+               value="org.eclipse.jdt.core.javanature">
+         </filter>
+      </page>
+      <page
+            objectClass="org.eclipse.jdt.core.IJavaProject"
+            class="net.sf.refactorit.eclipse.RitPropertyPage"
+            name="RefactorIT"
+            id="com.refactorit.RitPropertyPage">
+         <filter
+               name="nature"
+               value="org.eclipse.jdt.core.javanature">
+         </filter>
+      </page>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="RefactorIT Commands"
+            name="RefactorIT"
+            id="refactorit.category"/>
+      <!-- help -->
+      <command
+            name="Evaluate"
+            description="RefactorIT Evaluate"
+            categoryId="refactorit.category"
+            id="refactorit.action.GetLicense"/>
+      <command
+            name="About"
+            description="RefactorIT About"
+            categoryId="refactorit.category"
+            id="refactorit.action.AboutAction"/>
+      <command
+            name="RefactorIT Productivity Guide"
+            description="RefactorIT Productivity Guide"
+            categoryId="refactorit.category"
+            id="refactorit.action.productivityguide"/>
+      <!-- undo -->
+      <command
+            name="Undo"
+            description="RefactorIT Undo"
+            categoryId="refactorit.category"
+            id="refactorit.action.UndoAction"/>
+      <command
+            name="Redo"
+            description="RefactorIT Redo"
+            categoryId="refactorit.category"
+            id="refactorit.action.RedoAction"/>
+      <!-- clean -->
+      <command
+            name="Clean Cache"
+            description="RefactorIT Clean Cache"
+            categoryId="refactorit.category"
+            id="refactorit.action.CleanAction"/>
+      <!-- analyze -->
+      <command
+            name="Audit"
+            description="RefactorIT Audit"
+            categoryId="refactorit.category"
+            id="refactorit.action.AuditAction"/>
+      <keyBinding
+            command="refactorit.action.AuditAction"
+            string="Ctrl+Alt+A"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Metrics"
+            description="RefactorIT Metrics"
+            categoryId="refactorit.category"
+            id="refactorit.action.MetricsAction"/>
+      <keyBinding
+            command="refactorit.action.MetricsAction"
+            string="Ctrl+Alt+E"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <!-- search -->
+      <command
+            name="Find Duplicate Strings"
+            description="RefactorIT Find Duplicate Strings"
+            categoryId="refactorit.category"
+            id="refactorit.action.DuplicateLiteralsAction"/>
+      <command
+            name="Find Subtypes"
+            description="RefactorIT Find Subtypes"
+            categoryId="refactorit.category"
+            id="refactorit.action.SubtypesAction"/>
+      <command
+            name="FIXME Scan"
+            description="RefactorIT FIXME Scan"
+            categoryId="refactorit.category"
+            id="refactorit.action.FixmeScannerAction"/>
+      <command
+            name="Internationalization"
+            description="RefactorIT Internationalization"
+            categoryId="refactorit.category"
+            id="refactorit.action.InterAction"/>
+      <command
+            name="Show Dependencies"
+            description="RefactorIT Show Dependencies"
+            categoryId="refactorit.category"
+            id="refactorit.action.DependenciesAction"/>
+      <keyBinding
+            command="refactorit.action.DependenciesAction"
+            string="Ctrl+Alt+O"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Structure Search"
+            description="RefactorIT Structure Search"
+            categoryId="refactorit.category"
+            id="refactorit.action.FindAction"/>
+      <command
+            name="Where Caught"
+            description="RefactorIT Where Caught"
+            categoryId="refactorit.category"
+            id="refactorit.action.WhereCaughtAction"/>
+      <keyBinding
+            command="refactorit.action.WhereCaughtAction"
+            string="Ctrl+Alt+W"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <!-- diff -->
+      <command
+            name="API Diff"
+            description="RefactorIT Call Tree"
+            categoryId="refactorit.category"
+            id="refactorit.action.ApiDiffAction"/>
+      <command
+            name="API Snapshot"
+            description="RefactorIT Call Tree"
+            categoryId="refactorit.category"
+            id="refactorit.action.ApiSnapshotAction"/>
+      <!-- name -->
+      <command
+            name="Move"
+            description="RefactorIT Move Refactoring"
+            categoryId="refactorit.category"
+            id="refactorit.action.MoveAction"/>
+      <keyBinding
+            command="refactorit.action.MoveAction"
+            string="Alt+M"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Rename"
+            description="RefactorIT Rename Refactoring"
+            categoryId="refactorit.category"
+            id="refactorit.action.RenameAction"/>
+      <keyBinding
+            command="refactorit.action.RenameAction"
+            string="Alt+Y"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <!-- group1 -->
+      <command
+            name="Add Delegate Methods"
+            description="RefactorIT Add Delegate Methods"
+            categoryId="refactorit.category"
+            id="refactorit.generate.delegates"/>
+      <command
+            name="Change Method Signature"
+            description="RefactorIT Change Method Signature"
+            categoryId="refactorit.category"
+            id="refactorit.changeMethodSignature"/>
+      <command
+            name="Clean Imports"
+            description="RefactorIT Clean Imports"
+            categoryId="refactorit.category"
+            id="refactorit.action.CleanImportsAction"/>
+      <command
+            name="Convert Temp To Field"
+            description="RefactorIT Convert Temp To Field"
+            categoryId="refactorit.category"
+            id="refactorit.convert.temp.to.field"/>
+      <command
+            name="Create Constructor"
+            description="RefactorIT Create Constructor"
+            categoryId="refactorit.category"
+            id="refactorit.action.CreateConstructorAction"/>
+      <command
+            name="Create Factory Method"
+            description="RefactorIT Create Factory Method"
+            categoryId="refactorit.category"
+            id="refactorit.action.FactoryMethodAction"/>
+      <command
+            name="Create Missing Method"
+            description="RefactorIT Create Missing Method"
+            categoryId="refactorit.category"
+            id="refactorit.action.CreateNewMethod"/>
+      <keyBinding
+            command="refactorit.action.CreateNewMethod"
+            string="Ctrl+Alt+B"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Encapsulate Field"
+            description="RefactorIT Encapsulate Field"
+            categoryId="refactorit.category"
+            id="refactorit.action.EncapsulateFieldAction"/>
+      <command
+            name="Extract Method"
+            description="RefactorIT Extract Method"
+            categoryId="refactorit.category"
+            id="refactorit.action.ExtractMethodAction"/>
+      <keyBinding
+            command="refactorit.action.ExtractMethodAction"
+            string="Ctrl+Alt+X"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Extract Superclass/Interface"
+            description="RefactorIT Extract Superclass/Interface"
+            categoryId="refactorit.category"
+            id="refactorit.action.ExtractSuperAction"/>
+      <command
+            name="Inline"
+            description="RefactorIT Inline Refactoring"
+            categoryId="refactorit.category"
+            id="refactorit.action.InlineAction"/>
+      <!--
+      <keyBinding
+            command="refactorit.action.InlineAction"
+            string="Alt+I"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      -->
+      <command
+            name="Introduce Explaining Variable"
+            description="RefactorIT Introduce Explaining Variable Refactoring"
+            categoryId="refactorit.category"
+            id="refactorit.action.IntroduceTempAction"/>
+      <keyBinding
+            command="refactorit.action.IntroduceTempAction"
+            string="Ctrl+Alt+I"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Minimize Access Rights"
+            description="RefactorIT Minimize Access Rights"
+            categoryId="refactorit.category"
+            id="refactorit.action.MinimizeAccessAction"/>
+      <command
+            name="Override/Implement Methods"
+            description="RefactorIT Override/Implement Methods"
+            categoryId="refactorit.category"
+            id="refactorit.overridemethods"/>
+      <command
+            name="Pull Up / Push Down"
+            description="RefactorIT Pull Up / Push Down"
+            categoryId="refactorit.category"
+            id="refactorit.action.PullPushAction"/>
+      <command
+            name="Use Supertype Where Possible"
+            description="RefactorIT Use Supertype Where Possible"
+            categoryId="refactorit.category"
+            id="refactorit.useSuperType"/>
+      <!-- goto -->
+      <command
+            name="Go To ..."
+            description="RefactorIT Go To ..."
+            categoryId="refactorit.category"
+            id="refactorit.action.GoToAction"/>
+      <keyBinding
+            command="refactorit.action.GoToAction"
+            string="Ctrl+Alt+G"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <!-- internal -->
+      <command
+            name="ASTVisitor"
+            description="RefactorIT ASTVisitor"
+            categoryId="refactorit.category"
+            id="refactorit.action.AstVisitorAction"/>
+      <command
+            name="Visitor"
+            description="RefactorIT Visitor"
+            categoryId="refactorit.category"
+            id="refactorit.action.ClassmodelVisitorAction"/>
+      <command
+            name="Shell"
+            description="RefactorIT Shell"
+            categoryId="refactorit.category"
+            id="refactorit.action.ShellAction"/>
+      <!-- group2 -->
+      <command
+            name="Call Tree"
+            description="RefactorIT Call Tree"
+            categoryId="refactorit.category"
+            id="refactorit.action.CallTreeAction"/>
+      <keyBinding
+            command="refactorit.action.CallTreeAction"
+            string="Ctrl+Alt+V"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Draw Dependencies"
+            description="RefactorIT Draw Dependencies"
+            categoryId="refactorit.category"
+            id="refactorit.action.DrawDependenciesAction"/>
+      <keyBinding
+            command="refactorit.action.DrawDependenciesAction"
+            string="Ctrl+Alt+F"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Not Used"
+            description="RefactorIT Not Used"
+            categoryId="refactorit.category"
+            id="refactorit.action.NotUsedAction"/>
+      <command
+            name="Type Info"
+            description="RefactorIT Type Info"
+            categoryId="refactorit.category"
+            id="refactorit.action.TypeAction"/>
+      <keyBinding
+            command="refactorit.action.TypeAction"
+            string="Ctrl+Alt+T"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <command
+            name="Where Used"
+            description="RefactorIT Where Used"
+            categoryId="refactorit.category"
+            id="refactorit.action.WhereAction"/>
+      <keyBinding
+            command="refactorit.action.WhereAction"
+            string="Alt+X"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="RefactorIT ActionSet"
+            description="RefactorIT Menu"
+            visible="true"
+            id="refactorit.actionSet">
+         <menu
+               label="Refactor&amp;IT"
+               path="edit"
+               id="com.refactorit.menu">
+            <separator name="undo"/>
+            <separator name="clean"/>
+            <separator name="name"/>
+            <separator name="group1"/>
+            <separator name="goto"/>
+            <separator name="internal"/>
+            <separator name="group2"/>
+            <separator name="advanced"/>
+         </menu>
+         <menu
+               label="More..."
+               path="com.refactorit.menu/group2"
+               id="analyzeMenu">
+            <separator name="analyze"/>
+            <separator name="diff"/>
+            <separator name="search"/>
+         </menu>
+         <!-- help -->
+         <!--action
+               label="Evaluate RefactorIT"
+               definitionId="refactorit.action.GetLicense"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="help/about"
+               id="refactorit.action.GetLicense"/-->
+         <action
+               label="About RefactorIT"
+               definitionId="refactorit.action.AboutAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="help/about"
+               id="refactorit.action.AboutAction"/>
+         <action
+               label="RefactorIT Productivity Guide"
+               definitionId="refactorit.action.productivityguide"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="help/about"
+               id="refactorit.action.productivityguide"/>
+         <!-- undo -->
+         <action
+               label="Redo"
+               definitionId="refactorit.action.RedoAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/undo"
+               id="refactorit.action.RedoAction"/>
+         <action
+               label="Undo"
+               definitionId="refactorit.action.UndoAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/undo"
+               id="refactorit.action.UndoAction"/>
+         <!-- clean -->
+         <action
+               label="Clean Cache"
+               definitionId="refactorit.action.CleanAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/clean"
+               id="refactorit.action.CleanAction"/>
+         <!-- analyze -->
+         <!-- search -->
+         <action
+               label="%refactorit.action.WhereCaughtAction"
+               definitionId="refactorit.action.WhereCaughtAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               id="refactorit.action.WhereCaughtAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.FindAction"
+               definitionId="refactorit.action.FindAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               id="refactorit.action.FindAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.DependenciesAction"
+               definitionId="refactorit.action.DependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               id="refactorit.action.DependenciesAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.InterAction"
+               definitionId="refactorit.action.InterAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               id="refactorit.action.InterAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.FixmeScannerAction"
+               definitionId="refactorit.action.FixmeScannerAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               id="refactorit.action.FixmeScannerAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.SubtypesAction"
+               definitionId="refactorit.action.SubtypesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               id="refactorit.action.SubtypesAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.DuplicateLiteralsAction"
+               definitionId="refactorit.action.DuplicateLiteralsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               id="refactorit.action.DuplicateLiteralsAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <!-- diff -->
+         <action
+               label="%refactorit.action.ApiDiffAction"
+               definitionId="refactorit.action.ApiDiffAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/diff"
+               id="refactorit.action.ApiDiffAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.ApiSnapshotAction"
+               definitionId="refactorit.action.ApiSnapshotAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/analyzeMenu/diff"
+               id="refactorit.action.ApiSnapshotAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <!-- name -->
+         <action
+               label="%refactorit.action.RenameAction"
+               definitionId="refactorit.action.RenameAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/name"
+               id="refactorit.action.RenameAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <objectClass name="org.eclipse.jdt.core.ILocalVariable"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.MoveAction"
+               definitionId="refactorit.action.MoveAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/name"
+               id="refactorit.action.MoveAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <objectClass name="org.eclipse.jdt.core.ILocalVariable"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <!-- group1 -->
+         <action
+               label="%refactorit.useSuperType"
+               definitionId="refactorit.useSuperType"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.useSuperType">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.PullPushAction"
+               definitionId="refactorit.action.PullPushAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.PullPushAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.overridemethods"
+               definitionId="refactorit.overridemethods"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.overridemethods">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.MinimizeAccessAction"
+               definitionId="refactorit.action.MinimizeAccessAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.MinimizeAccessAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.IntroduceTempAction"
+               definitionId="refactorit.action.IntroduceTempAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.IntroduceTempAction">
+            <enablement>
+               <not>
+                  <or>
+                     <objectClass name="org.eclipse.core.resources.IResource"/>
+                     <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                  </or>
+               </not>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.InlineAction"
+               definitionId="refactorit.action.InlineAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.InlineAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.ExtractSuperAction"
+               definitionId="refactorit.action.ExtractSuperAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.ExtractSuperAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.ExtractMethodAction"
+               definitionId="refactorit.action.ExtractMethodAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.ExtractMethodAction">
+            <enablement>
+               <not>
+                  <or>
+                     <objectClass name="org.eclipse.core.resources.IResource"/>
+                     <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                  </or>
+               </not>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.EncapsulateFieldAction"
+               definitionId="refactorit.action.EncapsulateFieldAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.EncapsulateFieldAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CreateNewMethod"
+               definitionId="refactorit.action.CreateNewMethod"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.CreateNewMethod">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.FactoryMethodAction"
+               definitionId="refactorit.action.FactoryMethodAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.FactoryMethodAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CreateConstructorAction"
+               definitionId="refactorit.action.CreateConstructorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.CreateConstructorAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.convert.temp.to.field"
+               definitionId="refactorit.convert.temp.to.field"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.convert.temp.to.field">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ILocalVariable"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CleanImportsAction"
+               definitionId="refactorit.action.CleanImportsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.action.CleanImportsAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.changeMethodSignature"
+               definitionId="refactorit.changeMethodSignature"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.changeMethodSignature">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.generate.delegates"
+               definitionId="refactorit.generate.delegates"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group1"
+               id="refactorit.generate.delegates">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <!-- goto -->
+         <action
+               label="%refactorit.action.GoToAction"
+               definitionId="refactorit.action.GoToAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/goto"
+               id="refactorit.action.GoToAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <!-- group2 -->
+         <action
+               label="%refactorit.action.WhereAction"
+               definitionId="refactorit.action.WhereAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group2"
+               id="refactorit.action.WhereAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.TypeAction"
+               definitionId="refactorit.action.TypeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group2"
+               id="refactorit.action.TypeAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.NotUsedAction"
+               definitionId="refactorit.action.NotUsedAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group2"
+               id="refactorit.action.NotUsedAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.MetricsAction"
+               definitionId="refactorit.action.MetricsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group2"
+               id="refactorit.action.MetricsAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.DrawDependenciesAction"
+               definitionId="refactorit.action.DrawDependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group2"
+               id="refactorit.action.DrawDependenciesAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CallTreeAction"
+               definitionId="refactorit.action.CallTreeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group2"
+               id="refactorit.action.CallTreeAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.AuditAction"
+               definitionId="refactorit.action.AuditAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.menu/group2"
+               id="refactorit.action.AuditAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.core.resources.IResource"/>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <not>
+                     <or>
+                        <objectClass name="org.eclipse.core.resources.IResource"/>
+                        <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+                     </or>
+                  </not>
+               </or>
+            </enablement>
+         </action>
+      </actionSet>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            objectClass="org.eclipse.core.resources.IResource"
+            id="com.refactorit.FilePopupMenuContribution">
+         <visibility>
+            <not>
+               <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+            </not>
+         </visibility>
+         <menu
+               label="Refactor&amp;IT"
+               path="additions"
+               id="com.refactorit.filePopup">
+            <separator name="name"/>
+            <separator name="group1"/>
+            <separator name="goto"/>
+            <separator name="internal"/>
+            <separator name="group2"/>
+            <separator name="advanced"/>
+         </menu>
+         <menu
+               label="More..."
+               path="com.refactorit.filePopup/group2"
+               id="analyzeMenu">
+            <separator name="analyze"/>
+            <separator name="diff"/>
+            <separator name="search"/>
+         </menu>
+         <!-- search -->
+         <action
+               label="%refactorit.action.FindAction"
+               definitionId="refactorit.action.FindAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
+               id="com.refactorit.filePopup.FindAction"/>
+         <action
+               label="%refactorit.action.DependenciesAction"
+               definitionId="refactorit.action.DependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
+               id="com.refactorit.filePopup.DependenciesAction"/>
+         <action
+               label="%refactorit.action.InterAction"
+               definitionId="refactorit.action.InterAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
+               id="com.refactorit.filePopup.InterAction"/>
+         <action
+               label="%refactorit.action.FixmeScannerAction"
+               definitionId="refactorit.action.FixmeScannerAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
+               id="com.refactorit.filePopup.FixmeScannerAction"/>
+         <action
+               label="%refactorit.action.SubtypesAction"
+               definitionId="refactorit.action.SubtypesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
+               id="com.refactorit.filePopup.SubtypesAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.DuplicateLiteralsAction"
+               definitionId="refactorit.action.DuplicateLiteralsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
+               id="com.refactorit.filePopup.DuplicateLiteralsAction"/>
+         <!-- diff -->
+         <action
+               label="%refactorit.action.ApiDiffAction"
+               definitionId="refactorit.action.ApiDiffAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/diff"
+               id="com.refactorit.filePopup.ApiDiffAction"/>
+         <action
+               label="%refactorit.action.ApiSnapshotAction"
+               definitionId="refactorit.action.ApiSnapshotAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/analyzeMenu/diff"
+               id="com.refactorit.filePopup.ApiSnapshotAction"/>
+         <!-- name -->
+         <action
+               label="%refactorit.action.RenameAction"
+               definitionId="refactorit.action.RenameAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/name"
+               id="com.refactorit.filePopup.RenameAction"/>
+         <action
+               label="%refactorit.action.MoveAction"
+               definitionId="refactorit.action.MoveAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/name"
+               id="com.refactorit.filePopup.MoveAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <!-- group1 -->
+         <action
+               label="%refactorit.useSuperType"
+               definitionId="refactorit.useSuperType"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.useSuperType">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.PullPushAction"
+               definitionId="refactorit.action.PullPushAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.PullPushAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.overridemethods"
+               definitionId="refactorit.overridemethods"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.overridemethods">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.MinimizeAccessAction"
+               definitionId="refactorit.action.MinimizeAccessAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.MinimizeAccessAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.ExtractSuperAction"
+               definitionId="refactorit.action.ExtractSuperAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.ExtractSuperAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.EncapsulateFieldAction"
+               definitionId="refactorit.action.EncapsulateFieldAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.EncapsulateFieldAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CleanImportsAction"
+               definitionId="refactorit.action.CleanImportsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.CleanImportsAction"/>
+         <action
+               label="%refactorit.generate.delegates"
+               definitionId="refactorit.generate.delegates"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group1"
+               id="com.refactorit.filePopup.generate.delegates">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <!-- goto -->
+         <action
+               label="%refactorit.action.GoToAction"
+               definitionId="refactorit.action.GoToAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/goto"
+               id="com.refactorit.filePopup.GoToAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <!-- group2 -->
+         <action
+               label="%refactorit.action.WhereAction"
+               definitionId="refactorit.action.WhereAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group2"
+               id="com.refactorit.filePopup.WhereAction"/>
+         <action
+               label="%refactorit.action.TypeAction"
+               definitionId="refactorit.action.TypeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group2"
+               id="com.refactorit.filePopup.TypeAction"/>
+         <action
+               label="%refactorit.action.NotUsedAction"
+               definitionId="refactorit.action.NotUsedAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group2"
+               id="com.refactorit.filePopup.NotUsedAction"/>
+         <action
+               label="%refactorit.action.MetricsAction"
+               definitionId="refactorit.action.MetricsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group2"
+               id="com.refactorit.filePopup.MetricsAction"/>
+         <action
+               label="%refactorit.action.DrawDependenciesAction"
+               definitionId="refactorit.action.DrawDependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group2"
+               id="com.refactorit.filePopup.DrawDependenciesAction"/>
+         <action
+               label="%refactorit.action.CallTreeAction"
+               definitionId="refactorit.action.CallTreeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group2"
+               id="com.refactorit.filePopup.CallTreeAction"/>
+         <action
+               label="%refactorit.action.AuditAction"
+               definitionId="refactorit.action.AuditAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/group2"
+               id="com.refactorit.filePopup.AuditAction"/>
+      </objectContribution>
+
+      <objectContribution
+            adaptable="false"
+            objectClass="org.eclipse.core.resources.IResource"
+            id="com.refactorit.FilePopupMenuContributionDebug">
+         <visibility>
+            <and>
+               <systemProperty name="com.refactorit.mode" value="debug"/>
+               <not>
+                  <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
+               </not>
+            </and>
+         </visibility>
+         <!-- internal -->
+         <action
+               label="%refactorit.action.ShellAction"
+               definitionId="refactorit.action.ShellAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/internal"
+               id="com.refactorit.filePopup.ShellAction"/>
+         <action
+               label="%refactorit.action.ClassmodelVisitorAction"
+               definitionId="refactorit.action.ClassmodelVisitorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/internal"
+               id="com.refactorit.filePopup.ClassmodelVisitorAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.AstVisitorAction"
+               definitionId="refactorit.action.AstVisitorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.filePopup/internal"
+               id="com.refactorit.filePopup.AstVisitorAction">
+            <enablement>
+               <objectClass name="org.eclipse.core.resources.IFile"/>
+            </enablement>
+         </action>
+      </objectContribution>
+
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.jdt.core.IJavaElement"
+            id="com.refactorit.JavaPopupMenuContribution">
+         <menu
+               label="Refactor&amp;IT"
+               path="additions"
+               id="com.refactorit.javaPopup">
+            <separator name="name"/>
+            <separator name="group1"/>
+            <separator name="goto"/>
+            <separator name="internal"/>
+            <separator name="group2"/>
+            <separator name="advanced"/>
+         </menu>
+         <menu
+               label="More..."
+               path="com.refactorit.javaPopup/group2"
+               id="analyzeMenu">
+            <separator name="analyze"/>
+            <separator name="diff"/>
+            <separator name="search"/>
+         </menu>
+         <!-- search -->
+         <action
+               label="%refactorit.action.WhereCaughtAction"
+               definitionId="refactorit.action.WhereCaughtAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
+               id="com.refactorit.javaPopup.WhereCaughtAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.FindAction"
+               definitionId="refactorit.action.FindAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
+               id="com.refactorit.javaPopup.FindAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.DependenciesAction"
+               definitionId="refactorit.action.DependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
+               id="com.refactorit.javaPopup.DependenciesAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.InterAction"
+               definitionId="refactorit.action.InterAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
+               id="com.refactorit.javaPopup.InterAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.FixmeScannerAction"
+               definitionId="refactorit.action.FixmeScannerAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
+               id="com.refactorit.javaPopup.FixmeScannerAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.SubtypesAction"
+               definitionId="refactorit.action.SubtypesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
+               id="com.refactorit.javaPopup.SubtypesAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.DuplicateLiteralsAction"
+               definitionId="refactorit.action.DuplicateLiteralsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
+               id="com.refactorit.javaPopup.DuplicateLiteralsAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <!-- diff -->
+         <action
+               label="%refactorit.action.ApiDiffAction"
+               definitionId="refactorit.action.ApiDiffAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/diff"
+               id="com.refactorit.javaPopup.ApiDiffAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.ApiSnapshotAction"
+               definitionId="refactorit.action.ApiSnapshotAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/analyzeMenu/diff"
+               id="com.refactorit.javaPopup.ApiSnapshotAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <!-- name -->
+         <action
+               label="%refactorit.action.RenameAction"
+               definitionId="refactorit.action.RenameAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/name"
+               id="com.refactorit.javaPopup.RenameAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <objectClass name="org.eclipse.jdt.core.ILocalVariable"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.MoveAction"
+               definitionId="refactorit.action.MoveAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/name"
+               id="com.refactorit.javaPopup.MoveAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+                  <objectClass name="org.eclipse.jdt.core.ILocalVariable"/>
+               </or>
+            </enablement>
+         </action>
+         <!-- group1 -->
+         <action
+               label="%refactorit.useSuperType"
+               definitionId="refactorit.useSuperType"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.useSuperType">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.PullPushAction"
+               definitionId="refactorit.action.PullPushAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.PullPushAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.overridemethods"
+               definitionId="refactorit.overridemethods"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.overridemethods">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.MinimizeAccessAction"
+               definitionId="refactorit.action.MinimizeAccessAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.MinimizeAccessAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.InlineAction"
+               definitionId="refactorit.action.InlineAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.InlineAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.ExtractSuperAction"
+               definitionId="refactorit.action.ExtractSuperAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.ExtractSuperAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.EncapsulateFieldAction"
+               definitionId="refactorit.action.EncapsulateFieldAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.EncapsulateFieldAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CreateNewMethod"
+               definitionId="refactorit.action.CreateNewMethod"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.CreateNewMethod">
+            <enablement>
+               <objectClass name="org.eclipse.jdt.core.IMethod"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.FactoryMethodAction"
+               definitionId="refactorit.action.FactoryMethodAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.FactoryMethodAction">
+            <enablement>
+               <objectClass name="org.eclipse.jdt.core.IMethod"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CreateConstructorAction"
+               definitionId="refactorit.action.CreateConstructorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.CreateConstructorAction">
+            <enablement>
+               <objectClass name="org.eclipse.jdt.core.IField"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.convert.temp.to.field"
+               definitionId="refactorit.convert.temp.to.field"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.convert.temp.to.field">
+            <enablement>
+               <objectClass name="org.eclipse.jdt.core.ILocalVariable"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CleanImportsAction"
+               definitionId="refactorit.action.CleanImportsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.CleanImportsAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.changeMethodSignature"
+               definitionId="refactorit.changeMethodSignature"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.changeMethodSignature">
+            <enablement>
+               <objectClass name="org.eclipse.jdt.core.IMethod"/>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.generate.delegates"
+               definitionId="refactorit.generate.delegates"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group1"
+               id="com.refactorit.javaPopup.generate.delegates">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+               </or>
+            </enablement>
+         </action>
+         <!-- goto -->
+         <action
+               label="%refactorit.action.GoToAction"
+               definitionId="refactorit.action.GoToAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/goto"
+               id="com.refactorit.javaPopup.GoToAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <!-- group2 -->
+         <action
+               label="%refactorit.action.WhereAction"
+               definitionId="refactorit.action.WhereAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group2"
+               id="com.refactorit.javaPopup.WhereAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.TypeAction"
+               definitionId="refactorit.action.TypeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group2"
+               id="com.refactorit.javaPopup.TypeAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.NotUsedAction"
+               definitionId="refactorit.action.NotUsedAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group2"
+               id="com.refactorit.javaPopup.NotUsedAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.MetricsAction"
+               definitionId="refactorit.action.MetricsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group2"
+               id="com.refactorit.javaPopup.MetricsAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.DrawDependenciesAction"
+               definitionId="refactorit.action.DrawDependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group2"
+               id="com.refactorit.javaPopup.DrawDependenciesAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.CallTreeAction"
+               definitionId="refactorit.action.CallTreeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group2"
+               id="com.refactorit.javaPopup.CallTreeAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IMethod"/>
+                  <objectClass name="org.eclipse.jdt.core.IField"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.AuditAction"
+               definitionId="refactorit.action.AuditAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/group2"
+               id="com.refactorit.javaPopup.AuditAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragmentRoot"/>
+                  <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IType"/>
+               </or>
+            </enablement>
+         </action>
+      </objectContribution>
+
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.jdt.core.IJavaElement"
+            id="com.refactorit.JavaPopupMenuContributionDebug">
+         <visibility>
+            <systemProperty name="com.refactorit.mode" value="debug"/>
+         </visibility>
+         <!-- internal -->
+         <action
+               label="%refactorit.action.ShellAction"
+               definitionId="refactorit.action.ShellAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/internal"
+               id="com.refactorit.javaPopup.ShellAction"/>
+         <action
+               label="%refactorit.action.ClassmodelVisitorAction"
+               definitionId="refactorit.action.ClassmodelVisitorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/internal"
+               id="com.refactorit.javaPopup.ClassmodelVisitorAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+         <action
+               label="%refactorit.action.AstVisitorAction"
+               definitionId="refactorit.action.AstVisitorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.javaPopup/internal"
+               id="com.refactorit.javaPopup.AstVisitorAction">
+            <enablement>
+               <or>
+                  <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
+                  <objectClass name="org.eclipse.jdt.core.IMember"/>
+               </or>
+            </enablement>
+         </action>
+      </objectContribution>
+
+      <viewerContribution
+            targetID="#CompilationUnitEditorContext"
+            id="com.refactorit.EditorPopupMenuContribution">
+         <menu
+               label="Refactor&amp;IT"
+               path="additions"
+               id="com.refactorit.editorPopup">
+            <separator name="name"/>
+            <separator name="group1"/>
+            <separator name="goto"/>
+            <separator name="internal"/>
+            <separator name="group2"/>
+            <separator name="advanced"/>
+         </menu>
+         <menu
+               label="More..."
+               path="com.refactorit.editorPopup/group2"
+               id="analyzeMenu">
+            <separator name="analyze"/>
+            <separator name="diff"/>
+            <separator name="search"/>
+         </menu>
+         <!-- search -->
+         <action
+               label="%refactorit.action.WhereCaughtAction"
+               definitionId="refactorit.action.WhereCaughtAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
+               id="com.refactorit.editorPopup.WhereCaughtAction"/>
+         <action
+               label="%refactorit.action.FindAction"
+               definitionId="refactorit.action.FindAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
+               id="com.refactorit.editorPopup.FindAction"/>
+         <action
+               label="%refactorit.action.DependenciesAction"
+               definitionId="refactorit.action.DependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
+               id="com.refactorit.editorPopup.DependenciesAction"/>
+         <action
+               label="%refactorit.action.InterAction"
+               definitionId="refactorit.action.InterAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
+               id="com.refactorit.editorPopup.InterAction"/>
+         <action
+               label="%refactorit.action.FixmeScannerAction"
+               definitionId="refactorit.action.FixmeScannerAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
+               id="com.refactorit.editorPopup.FixmeScannerAction"/>
+         <action
+               label="%refactorit.action.SubtypesAction"
+               definitionId="refactorit.action.SubtypesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
+               id="com.refactorit.editorPopup.SubtypesAction"/>
+         <action
+               label="%refactorit.action.DuplicateLiteralsAction"
+               definitionId="refactorit.action.DuplicateLiteralsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
+               id="com.refactorit.editorPopup.DuplicateLiteralsAction"/>
+         <!-- diff -->
+         <action
+               label="%refactorit.action.ApiDiffAction"
+               definitionId="refactorit.action.ApiDiffAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/diff"
+               id="com.refactorit.editorPopup.ApiDiffAction"/>
+         <action
+               label="%refactorit.action.ApiSnapshotAction"
+               definitionId="refactorit.action.ApiSnapshotAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/analyzeMenu/diff"
+               id="com.refactorit.editorPopup.ApiSnapshotAction"/>
+         <!-- name -->
+         <action
+               label="%refactorit.action.RenameAction"
+               definitionId="refactorit.action.RenameAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/name"
+               id="com.refactorit.editorPopup.RenameAction"/>
+         <action
+               label="%refactorit.action.MoveAction"
+               definitionId="refactorit.action.MoveAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/name"
+               id="com.refactorit.editorPopup.MoveAction"/>
+         <!-- group1 -->
+         <action
+               label="%refactorit.useSuperType"
+               definitionId="refactorit.useSuperType"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.useSuperType"/>
+         <action
+               label="%refactorit.action.PullPushAction"
+               definitionId="refactorit.action.PullPushAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.PullPushAction"/>
+         <action
+               label="%refactorit.overridemethods"
+               definitionId="refactorit.overridemethods"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.overridemethods"/>
+         <action
+               label="%refactorit.action.MinimizeAccessAction"
+               definitionId="refactorit.action.MinimizeAccessAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.MinimizeAccessAction"/>
+         <action
+               label="%refactorit.action.IntroduceTempAction"
+               definitionId="refactorit.action.IntroduceTempAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.IntroduceTempAction"/>
+         <action
+               label="%refactorit.action.InlineAction"
+               definitionId="refactorit.action.InlineAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.InlineAction"/>
+         <action
+               label="%refactorit.action.ExtractSuperAction"
+               definitionId="refactorit.action.ExtractSuperAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.ExtractSuperAction"/>
+         <action
+               label="%refactorit.action.ExtractMethodAction"
+               definitionId="refactorit.action.ExtractMethodAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.ExtractMethodAction"/>
+         <action
+               label="%refactorit.action.EncapsulateFieldAction"
+               definitionId="refactorit.action.EncapsulateFieldAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.EncapsulateFieldAction"/>
+         <action
+               label="%refactorit.action.CreateNewMethod"
+               definitionId="refactorit.action.CreateNewMethod"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.CreateNewMethod"/>
+         <action
+               label="%refactorit.action.FactoryMethodAction"
+               definitionId="refactorit.action.FactoryMethodAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.FactoryMethodAction"/>
+         <action
+               label="%refactorit.action.CreateConstructorAction"
+               definitionId="refactorit.action.CreateConstructorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.CreateConstructorAction"/>
+         <action
+               label="%refactorit.convert.temp.to.field"
+               definitionId="refactorit.convert.temp.to.field"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.convert.temp.to.field"/>
+         <action
+               label="%refactorit.action.CleanImportsAction"
+               definitionId="refactorit.action.CleanImportsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.CleanImportsAction"/>
+         <action
+               label="%refactorit.changeMethodSignature"
+               definitionId="refactorit.changeMethodSignature"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.changeMethodSignature"/>
+         <action
+               label="%refactorit.generate.delegates"
+               definitionId="refactorit.generate.delegates"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group1"
+               id="com.refactorit.editorPopup.generate.delegates"/>
+         <!-- goto -->
+         <action
+               label="%refactorit.action.GoToAction"
+               definitionId="refactorit.action.GoToAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/goto"
+               id="com.refactorit.editorPopup.GoToAction"/>
+         <!-- group2 -->
+         <action
+               label="%refactorit.action.WhereAction"
+               definitionId="refactorit.action.WhereAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group2"
+               id="com.refactorit.editorPopup.WhereAction"/>
+         <action
+               label="%refactorit.action.TypeAction"
+               definitionId="refactorit.action.TypeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group2"
+               id="com.refactorit.editorPopup.TypeAction"/>
+         <action
+               label="%refactorit.action.NotUsedAction"
+               definitionId="refactorit.action.NotUsedAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group2"
+               id="com.refactorit.editorPopup.NotUsedAction"/>
+         <action
+               label="%refactorit.action.MetricsAction"
+               definitionId="refactorit.action.MetricsAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group2"
+               id="com.refactorit.editorPopup.MetricsAction"/>
+         <action
+               label="%refactorit.action.DrawDependenciesAction"
+               definitionId="refactorit.action.DrawDependenciesAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group2"
+               id="com.refactorit.editorPopup.DrawDependenciesAction"/>
+         <action
+               label="%refactorit.action.CallTreeAction"
+               definitionId="refactorit.action.CallTreeAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group2"
+               id="com.refactorit.editorPopup.CallTreeAction"/>
+         <action
+               label="%refactorit.action.AuditAction"
+               definitionId="refactorit.action.AuditAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/group2"
+               id="com.refactorit.editorPopup.AuditAction"/>
+      </viewerContribution>
+
+      <viewerContribution
+            targetID="#CompilationUnitEditorContext"
+            id="com.refactorit.EditorPopupMenuContributionDebug">
+         <visibility>
+            <systemProperty name="com.refactorit.mode" value="debug"/>
+         </visibility>
+         <!-- internal -->
+         <action
+               label="%refactorit.action.ShellAction"
+               definitionId="refactorit.action.ShellAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/internal"
+               id="com.refactorit.editorPopup.ShellAction"/>
+         <action
+               label="%refactorit.action.ClassmodelVisitorAction"
+               definitionId="refactorit.action.ClassmodelVisitorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/internal"
+               id="com.refactorit.editorPopup.ClassmodelVisitorAction"/>
+         <action
+               label="%refactorit.action.AstVisitorAction"
+               definitionId="refactorit.action.AstVisitorAction"
+               class="net.sf.refactorit.eclipse.RitActionDelegate"
+               menubarPath="com.refactorit.editorPopup/internal"
+               id="com.refactorit.editorPopup.AstVisitorAction"/>
+      </viewerContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            icon="icons/refactorit.gif"
+            class="net.sf.refactorit.eclipse.RitViewPart"
+            name="RefactorIT"
+            id="com.refactorit.RitViewPart">
+      </view>
+   </extension>
+
+   <extension point="org.eclipse.help.toc">
+      <toc file="toc.xml" primary="true"/>
+   </extension>
+
+   <extension point="org.eclipse.help.contexts">
+      <contexts file="contexts.xml"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.0//EN" "http://www.netbeans.org/dtds/filesystem-1_0.dtd">
+<filesystem>
+
+    <folder name="Services">
+      <folder name="JavaHelp">
+        <attr name="org-netbeans-modules-usersguide-above-regular.txt/net-sf-refactorit-helpset.xml" boolvalue="true"/>
+        <file name="net-sf-refactorit-helpset.xml" url="helpset-decl.xml"/>
+        <attr name="net-sf-refactorit-helpset.xml/org-netbeans-modules-usersguide-below-regular.txt" boolvalue="true"/>
+      </folder>
+
+      <file name="net-sf-refactorit-netbeans-common-options.settings" url="options.xml"/>
+    </folder>
+
+    <!--
+    <folder name="UI">
+        <folder name="Services">
+            <folder name="RefactorIT">
+
+                    <file name="net-sf-refactorit-netbeans-common-options.shadow">
+                        <![CDATA[Services/net-sf-refactorit-netbeans-common-options.settings
+SystemFileSystem
+]]>
+                    </file>
+
+            </folder>
+        </folder>
+    </folder>
+    -->
+
+  <folder name="Menu">
+        <!--<attr name="Tools/RefactoryActionsToplevel.instance" boolvalue="true"/>
+        <attr name="RefactoryActionsToplevel.instance/Window" boolvalue="true"/>
+        <file name="RefactoryActionsToplevel.instance" url="tools/">
+            <attr name="instanceClass" stringvalue="javax.swing.JMenu"/>
+            <attr name="instanceCreate" methodvalue="net.sf.refactorit.netbeans.common.RefactorItActionsToplevel.createMenu"/>
+        </file>-->
+
+        <folder name="Refa&amp;ctorIT">
+            <file name="RefactoryActionsToplevel.instance">
+		      <attr name="instanceClass" stringvalue="net.sf.refactorit.netbeans.common.RefactorItActionsToplevel"/>
+            </file>
+        </folder>
+
+        <attr name="Tools/Refa&amp;ctorIT" boolvalue="true"/>
+
+        <folder name="View">
+          <file name="net-sf-refactorit-netbeans-common-hierarchy-HierarchyViewAction.instance"/>
+        </folder>
+
+  	    <folder name="Help">
+        	<folder name="HelpShortcuts">
+                <attr name="org-netbeans-modules-usersguide-lower-sep.instance/net-sf-refactorit-mainpage.xml" boolvalue="true"/>
+
+           	    <file name="net-sf-refactorit-mainpage.xml" url="mainpage-decl.xml">
+                   <attr name="SystemFileSystem.localizingBundle" stringvalue="net.sf.refactorit.netbeans.common.resources.LocalizedStrings"/>
+                   <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/net/sf/refactorit/netbeans/common/images/RefactorIt.gif"/>
+           	    </file>
+        	</folder>
+        </folder>
+  </folder>
+
+
+
+  <folder name="Actions">
+        <!-- Add to actions pool too: -->
+        <folder name="Help">
+            <!-- No need for any special ordering here. -->
+            <file name="net-sf-refactorit-mainpage.xml" url="mainpage-decl.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="net.sf.refactorit.netbeans.common.resources.LocalizedStrings"/>
+                <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/net/sf/refactorit/netbeans/common/images/RefactorIt.gif"/>
+            </file>
+        </folder>
+
+        <folder name="View">
+            <file name="net-sf-refactorit-netbeans-common-hierarchy-HierarchyViewAction.instance"/>
+        </folder>
+
+        <folder name="RefactorIT">
+            <attr name="SystemFileSystem.localizingBundle"
+                  stringvalue="net.sf.refactorit.netbeans.common.resources.LocalizedStrings"/>
+            <file name="net-sf-refactorit-netbeans-common-action-WhereAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-RenameAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-GotoAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-InfoAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-BackAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-MetricsAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-ApiDiffAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-ConvertTempToFieldAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-AddDelegatesNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-OverrideMethodsNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-ApiSnapshotAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-CallTreeAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-CleanImportsAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-AuditAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-CreateMissingMethodAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-DependenciesAction.instance"/>
+            <!--file name="net-sf-refactorit-netbeans-common-action-DependencyLoopsAction.instance"/-->
+            <file name="net-sf-refactorit-netbeans-common-action-DrawDependenciesNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-EncapsulateFieldAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-ExtractMethodAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-CreateConstructorAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-ExtractSuperAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-FactoryMethodAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-FindAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-FixmeScannerAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-MoveAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-MinimizeAccessAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-NotUsedAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-SubtypesAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-WhereCaughtAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-PullPushAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-InlineAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-IntroduceTempAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-AboutNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-ChangeMethodSignatureNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-CleanNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-CrossHtmlNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-DuplicateLiteralsAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-HelpNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-InterAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-JavadocNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-NbOptionsNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-NbProjectOptionsNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-RebuildNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-RedoMilestoneNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-RedoNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-RitActionDelegate.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-ShellNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-StandaloneBrowserNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-TypeNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-UndoNBAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-UseSuperTypeNBAction.instance"/>
+        </folder>
+  </folder>
+
+  <folder name="Toolbars">
+     <folder name="RefactorIT">
+            <attr name="SystemFileSystem.localizingBundle"
+                  stringvalue="net.sf.refactorit.netbeans.common.resources.LocalizedStrings"/>
+            <file name="net-sf-refactorit-netbeans-common-action-WhereAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-RenameAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-GotoAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-InfoAction.instance"/>
+            <file name="net-sf-refactorit-netbeans-common-action-BackAction.instance"/>
+        </folder>
+  </folder>
+
+  <folder name="Editors">
+    <folder name="text">
+      <folder name="x-java">
+        <folder name="Popup">
+          <file name="SeparatorRIT_2.instance">
+            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+          </file>
+          <file name="net-sf-refactorit-netbeans-common-action-InfoAction.instance"/>
+          <file name="net-sf-refactorit-netbeans-common-action-RenameAction.instance"/>
+          <file name="net-sf-refactorit-netbeans-common-action-WhereAction.instance"/>
+          <file name="net-sf-refactorit-netbeans-common-action-GotoAction.instance"/>
+          <file name="RefactoryActions.instance">
+		        <attr name="instanceClass" stringvalue="net.sf.refactorit.netbeans.common.RefactorItActions"/>
+		      </file>
+          <file name="SeparatorRIT_3.instance">
+            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+          </file>
+
+          <attr boolvalue="true" name="org-openide-actions-PropertiesAction/SeparatorRIT_2.instance"/>
+          <attr boolvalue="true" name="SeparatorRIT_2.instance/net-sf-refactorit-netbeans-common-action-InfoAction.instance"/>
+          <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-InfoAction.instance/net-sf-refactorit-netbeans-common-action-RenameAction.instance"/>
+          <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-RenameAction.instance/net-sf-refactorit-netbeans-common-action-WhereAction.instance"/>
+          <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-WhereAction.instance/net-sf-refactorit-netbeans-common-action-GotoAction.instance"/>
+          <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-GotoAction.instance/RefactoryActions.instance"/>
+          <attr boolvalue="true" name="RefactoryActions.instance/SeparatorRIT_3.instance"/>
+        </folder>
+      </folder>
+    </folder>
+  </folder>
+
+</filesystem>

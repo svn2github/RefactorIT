@@ -1,0 +1,19 @@
+<!-- Keywords -->
+CODE.kw { color: rgb(0, 0, 255) }
+CODE.kw { font-weight: 550 }
+	
+<!-- Literal text -->
+CODE.lt { color: green }
+	
+<!-- Numeric tokens -->
+CODE.nm { color: rgb(192, 0, 0) }
+	
+<!-- BinItem definitions -->
+CODE.def { font-weight: bold }
+CODE.def { color: rgb(192, 0, 192) }
+
+<!-- BinItem references -->
+CODE.url { color: rgb(0, 128, 128) }
+
+<!-- Line numbers -->
+CODE.line { color: rgb(192, 0, 0) }

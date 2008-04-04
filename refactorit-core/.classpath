@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="generated/java"/>
+	<classpathentry kind="lib" path="lib/ant.jar"/>
+	<classpathentry kind="lib" path="lib/antlr.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bsh.jar"/>
+	<classpathentry kind="lib" path="lib/GraphLayout.jar"/>
+	<classpathentry kind="lib" path="lib/jakarta-regexp-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/jh.jar"/>
+	<classpathentry kind="lib" path="lib/jhall.jar"/>
+	<classpathentry kind="lib" path="lib/jhtools.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/junit.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j.jar"/>
+	<classpathentry kind="lib" path="lib/pmd.jar"/>
+	<classpathentry kind="lib" path="lib/rjasper.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

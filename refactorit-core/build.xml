@@ -1,0 +1,92 @@
+<project name="RefactorIT" default="build" basedir=".">
+
+	<property file="${basedir}/build.properties" />
+
+	<property name="app.version" value="2.7.beta"/>
+
+	<property name="src.encoding" value="ISO-8859-1"/>
+
+	<property name="src.dir" value="${basedir}/src"/>
+
+	<property name="src.main.java.dir" value="${src.dir}/main/java"/>
+	<property name="src.test.java.dir" value="${src.dir}/test/java"/>
+
+	<property name="generated.java.dir" value="${basedir}/generated/java"/>
+
+	<property name="lib.dir" value="${basedir}/lib"/>
+
+	<property name="ant.build.javac.source" value="1.4"/>
+	<property name="ant.build.javac.target" value="1.4"/>
+
+	<property name="build.dir" value="${basedir}/build"/>
+
+	<property name="build.classes.dir" value="${build.dir}/classes"/>
+
+	<property name="build.compiler.deprecation" value="no"/>
+	<property name="build.compiler.pedantic" value="no"/>
+	<property name="build.compiler.nowarn" value="no"/>
+
+	<target name="build" depends="compile"/>
+
+	<target name="prepare">
+		<tstamp/>
+
+		<tstamp>
+			<format property="build.date" pattern="ddMMyy"/>
+		</tstamp>
+
+		<tstamp>
+			<format property="build.time" pattern="yyyyMMddHHmm"/>
+		</tstamp>
+
+		<mkdir dir="${build.dir}"/>
+		<copy file="${src.dir}/version.txt" todir="${build.dir}"/>
+
+		<replace file="${build.dir}/version.txt"
+			token="VERSION" value="${app.version}"/>
+	</target>
+
+	<target name="parser" depends="prepare">
+		<ant antfile="parser.xml" target="parser"/>
+	</target>
+
+	<target name="compile" depends="parser"
+			description="Compiles source .java files">
+		<mkdir dir="${build.classes.dir}"/>
+
+		<javac destdir="${build.classes.dir}"
+				deprecation="${build.compiler.deprecation}"
+				nowarn="${build.compiler.nowarn}"
+				debug="on" optimize="on"
+				encoding="${src.encoding}">
+			<src path="${src.main.java.dir}"/>
+			<src path="${generated.java.dir}"/>
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+
+		<copy todir="${build.classes.dir}">
+			<fileset dir="${src.main.java.dir}">
+				<exclude name="**/*.java"/>
+				<exclude name="**/*.form"/>
+				<exclude name="**/.nbattrs"/>
+				<exclude name="META-INF/**"/>
+			</fileset>
+		</copy>
+
+		<!-- Replace @VERSION@ token with app.version property -->
+		<copy todir="${build.classes.dir}" overwrite="true">
+			<fileset dir="${src.main.java.dir}">
+				<include name="net/sf/refactorit/resources/version.properties"/>
+			</fileset>
+			<filterset>
+				<filter token="VERSION" value="${app.version}"/>
+				<filter token="BUILDID" value="${build.time}"/>
+			</filterset>
+		</copy>
+	</target>
+
+</project>
