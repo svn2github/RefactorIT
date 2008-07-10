@@ -9,7 +9,7 @@
    class="net.sf.refactorit.eclipse.RitPlugin">
 
    <runtime>
-      <library name="refactoryEclipse.jar">
+      <library name="refactorit-eclipse.jar">
          <export name="*"/>
       </library>
       <library name="lib/refactorit.jar">
