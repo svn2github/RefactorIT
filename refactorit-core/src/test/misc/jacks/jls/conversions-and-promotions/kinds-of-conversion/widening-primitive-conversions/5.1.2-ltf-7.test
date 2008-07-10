@@ -1,0 +1,6 @@
+T512ltf7.java
+
+ long to float conversion rounds down to
+        nearest if remainder < .5. Hardware FP  that rounds to 64-bit
+        double precision before rounding to 32-bit single precision
+        will fail for this test case 

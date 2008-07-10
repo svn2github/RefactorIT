@@ -1,0 +1,4 @@
+T15262dz5.java
+
+ test floating /= by floating 0
+        (no warning needed) 

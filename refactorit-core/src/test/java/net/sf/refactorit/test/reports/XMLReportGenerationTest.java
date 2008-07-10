@@ -37,12 +37,10 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 
-
 /**
  * @author RISTO A
  */
 public class XMLReportGenerationTest extends TestCase {
-
   private Project project;
 
   public XMLReportGenerationTest(String name) {
@@ -50,8 +48,9 @@ public class XMLReportGenerationTest extends TestCase {
   }
 
   protected void setUp() throws Exception {
-    project = Utils.createTestRbProject(Utils.getTestProjects().getProject(
-        "bingo-example"));
+    project = Utils.createTestRbProject(
+        Utils.getTestProjects().getProject("bingo-example"));
+
     project.getProjectLoader().build();
   }
 
@@ -59,66 +58,77 @@ public class XMLReportGenerationTest extends TestCase {
     project = null;
   }
 
-  
   public void testNotUsedXMLFile() {
     File tempFile = TempFileCreator.getInstance().createRootFile()
         .getFileOrNull();
+
     assertFalse(tempFile == null);
-    Arguments cl = new StringArrayArguments("-notused -format xml -output "
-        + tempFile.getAbsolutePath());
+
+    Arguments cl = new StringArrayArguments(
+        "-notused -format xml -output " + tempFile.getAbsolutePath());
+
     new Runner().runAction(project, cl);
-    String xsdFile = "xsd/NotUsedReport.xsd";
-    validateXMLFile(tempFile, xsdFile);
+
+    validateXMLFile(tempFile, "xsd/NotUsedReport.xsd");
   }
 
-  
   public void testMetricsXMLFile() {
     File tempFile = TempFileCreator.getInstance().createRootFile()
         .getFileOrNull();
+
     assertFalse(tempFile == null);
-    Arguments cl = new StringArrayArguments("-metrics -format xml -output "
-        + tempFile.getAbsolutePath());
+
+    Arguments cl = new StringArrayArguments(
+        "-metrics -format xml -output " + tempFile.getAbsolutePath());
+
     new Runner().runAction(project, cl);
-    String xsdFile = "xsd/MetricsReport.xsd";
-    validateXMLFile(tempFile, xsdFile);
+
+    validateXMLFile(tempFile, "xsd/MetricsReport.xsd");
   }
   
   public void testAuditsXMLFile() {
     File tempFile = TempFileCreator.getInstance().createRootFile()
         .getFileOrNull();
+
     assertFalse(tempFile == null);
-    Arguments cl = new StringArrayArguments("-audit -format xml -output "
-        + tempFile.getAbsolutePath());
+
+    Arguments cl = new StringArrayArguments(
+        "-audit -format xml -output " + tempFile.getAbsolutePath());
+
     new Runner().runAction(project, cl);
-    String xsdFile = "xsd/AuditsReport.xsd";
-    validateXMLFile(tempFile, xsdFile);
+
+    validateXMLFile(tempFile, "xsd/AuditsReport.xsd");
   }
 
-
-  private void validateXMLFile(File tempFile, String xsdFile) throws FactoryConfigurationError {
+  private void validateXMLFile(File tempFile, String xsdFile)
+  throws FactoryConfigurationError {
     try {
       SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
       saxParserFactory.setNamespaceAware(true);
       saxParserFactory.setValidating(true);
-      SAXParser saxParser;
-      saxParser = saxParserFactory.newSAXParser();
+
+      SAXParser saxParser = saxParserFactory.newSAXParser();
+
       saxParser.setProperty(
           "http://java.sun.com/xml/jaxp/properties/schemaLanguage",
           "http://www.w3.org/2001/XMLSchema");
-      
+
       saxParser.setProperty(
           "http://java.sun.com/xml/jaxp/properties/schemaSource",
          XMLReportGenerationTest.class.getResource(xsdFile).toExternalForm());
-      
+
       DefaultHandler handler = new DefaultHandler();
+
       XMLValidationErrorHandler errorHandler = new XMLValidationErrorHandler();
-      
+
       XMLReader reader = saxParser.getXMLReader();
       reader.setContentHandler(handler);
       reader.setEntityResolver(handler);
       reader.setErrorHandler(errorHandler);
       reader.setDTDHandler(handler);
+
       reader.parse(new InputSource(new FileInputStream(tempFile)));
+
       assertFalse(errorHandler.toString(), errorHandler.hasErrors());
     } catch (SAXException exc) {
       assertFalse(exc.toString(), true);
@@ -131,19 +141,17 @@ public class XMLReportGenerationTest extends TestCase {
 }
 
 class XMLValidationErrorHandler implements ErrorHandler, ErrorListener {
-  
   public static class ValidationError {
-    private static final String SAX_ERROR = "SAX Error";
     private String type;
     private Exception exception;
-    
+
     private ValidationError(String type, Exception exception) {
       this.type = type;
       this.exception = exception;
     }
-    
+
     private static Object createSAXError(SAXParseException exception) {
-      return new ValidationError(SAX_ERROR, exception);
+      return new ValidationError("SAX Error", exception);
     }
 
     private static Object createSAXFatalError(SAXParseException exception) {
@@ -165,13 +173,12 @@ class XMLValidationErrorHandler implements ErrorHandler, ErrorListener {
     private static Object createTransformerWarning(TransformerException exception) {
       return new ValidationError("Transformer Warning", exception);
     }
-    
+
     public String toString() {
       return type + ": " + exception.getMessage(); 
     }
-    
   }
-  
+
   private ArrayList list = new ArrayList();
 
   public void error(SAXParseException exception) throws SAXException {
@@ -197,25 +204,24 @@ class XMLValidationErrorHandler implements ErrorHandler, ErrorListener {
   public void warning(TransformerException exception) throws TransformerException {
     list.add(ValidationError.createTransformerWarning(exception));
   }
-  
+
   public ValidationError[] getAllError() {
-    Object[] o = list.toArray();
-    return (ValidationError[])list.toArray(new ValidationError[list.size()]);
+    return (ValidationError[]) list.toArray(new ValidationError[list.size()]);
   }
-  
+
   public boolean hasErrors() {
     return list.size() > 0;
   }
-  
+
   public String toString() {
     StringBuffer buffer = new StringBuffer();
+
     XMLValidationErrorHandler.ValidationError[] errors = getAllError();
     for (int i = 0; i < errors.length; i++) {
       buffer.append("\n\r");
       buffer.append(errors[i].toString());
     }
-    
+
     return buffer.toString();
   }
- 
 }

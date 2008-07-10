@@ -1,0 +1,5 @@
+T887adci3.java
+
+
+        A constructor with private accessibility can be accessed
+        from an inner class defined inside the same class 

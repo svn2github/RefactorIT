@@ -1,0 +1,4 @@
+76name3.java
+
+ TypeDeclaration need not be related
+        to the file name if class is not public 

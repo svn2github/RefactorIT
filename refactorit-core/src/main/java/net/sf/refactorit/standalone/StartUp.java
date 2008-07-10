@@ -16,6 +16,7 @@ import net.sf.refactorit.loader.ClassFilesLoader;
 import net.sf.refactorit.options.GlobalOptions;
 import net.sf.refactorit.test.commonIDE.MockIDEController;
 import net.sf.refactorit.ui.RuntimePlatform;
+import net.sf.refactorit.ui.UIResources;
 import net.sf.refactorit.ui.module.ModuleManager;
 
 import javax.swing.UIManager;
@@ -132,11 +133,13 @@ public final class StartUp {
     /*final URL systemResource = ClassLoader.getSystemResource(
         net.sf.refactorit.ui.Main.class.getName().replace('.', '/')
         + ClassFilesLoader.CLASS_FILE_EXT);*/
-    final String systemResourcePath = net.sf.refactorit.ui.UIResources.class.getName().
-        replace('.', '/')
-        + ClassFilesLoader.CLASS_FILE_EXT;
-    final URL systemResource = net.sf.refactorit.ui.UIResources.class.getClassLoader().getResource(
-        systemResourcePath);
+    final String systemResourcePath =
+      UIResources.class.getName().replace('.', '/') +
+      ClassFilesLoader.CLASS_FILE_EXT;
+
+    final URL systemResource =
+      UIResources.class.getClassLoader().getResource(systemResourcePath);
+
     if (systemResource == null) {
       throw new RuntimeException(
           "Could not find main class location via classloader");
@@ -152,12 +155,11 @@ public final class StartUp {
   }
 
   private static void showStartupDialogMethod(JRefactorItFrame frame) {
-    String opt;
     File proj = null;
 
     JStartupDialog startup = new JStartupDialog(frame, true);
 
-    opt = GlobalOptions.getOption("project.open_recent");
+    String opt = GlobalOptions.getOption("project.open_recent");
     if (opt != null && "true".equals(opt)) {
       proj = startup.getRecentOpenedProject();
     }

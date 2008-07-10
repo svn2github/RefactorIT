@@ -1,0 +1,4 @@
+TestLCD.java
+
+ tests local class declarations in both static and
+        instance methods 

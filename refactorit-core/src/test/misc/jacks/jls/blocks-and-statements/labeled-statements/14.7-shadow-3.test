@@ -1,0 +1,5 @@
+T147shadow3.java
+
+ Labels cannot shadow another label in the same
+        immediately enclosing method, constructor, or initializer. Here, the
+        two labels are in different immediately enclosing methods.

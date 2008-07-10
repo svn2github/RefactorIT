@@ -1,0 +1,3 @@
+T3422.java
+
+ CR + LF + LF (\u000d\u000a\n) is two LineTerminators 

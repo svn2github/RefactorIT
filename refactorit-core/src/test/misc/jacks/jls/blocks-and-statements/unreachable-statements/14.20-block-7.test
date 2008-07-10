@@ -1,0 +1,4 @@
+T1420block7.java
+
+ First block statement is reachable iff block is;
+        all others iff the preceding statement completes normally 

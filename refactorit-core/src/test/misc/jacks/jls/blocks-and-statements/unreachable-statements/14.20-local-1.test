@@ -1,0 +1,4 @@
+T1420local1.java
+
+ Local class declarations can complete normally
+        iff reachable 

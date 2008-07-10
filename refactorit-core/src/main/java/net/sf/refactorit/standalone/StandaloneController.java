@@ -48,8 +48,8 @@ public class StandaloneController extends IDEController {
   }
 
   public StandaloneController() {
-    super();
     setInstance(this);
+
     browser = new JBrowserPanel();
     frame = new JRefactorItFrame();
   }
@@ -113,14 +113,12 @@ public class StandaloneController extends IDEController {
       }
     });
 
-
     return super.processParsingResult(project, result);
   }
 
   public int getPlatform() {
     return STANDALONE;
   }
-
 
   public RefactorItContext createProjectContext() {
     return new BrowserContext(getCachedActiveProject(), getBrowser());
@@ -213,19 +211,23 @@ public class StandaloneController extends IDEController {
   	String modulesDir = System.getProperty("refactorit.modules");
   	if (modulesDir != null) {
   		File confFile = new File((new File(modulesDir)).getParent(), "RefactorIT.lax");
+
   		if (confFile.exists()) {
   			return "Specify e.g. " +
 				"<pre>" +
-				"lax.nl.java.option.java.heap.size.max=" + recommendedInMBs*1024*1024 + "\n" +
+				"lax.nl.java.option.java.heap.size.max=" +
+				(recommendedInMBs * 1024 * 1024) + "\n" +
 				"</pre>" +
-				"in " + confFile + " to allow RefactorIT access more memory, and restart the program.";
+				"in " + confFile +
+				" to allow RefactorIT access more memory, and restart the program.";
   		}
   	}
+
   	return super.getLowMemoryWarning(recommendedInMBs);
   }
 
   public void setIdeProject(File project) throws IOException {
-    this.activeProjectFromIDE = new RefactorItProject(project);
+    activeProjectFromIDE = new RefactorItProject(project);
     projectChangedInIDE = true;
   }
 }

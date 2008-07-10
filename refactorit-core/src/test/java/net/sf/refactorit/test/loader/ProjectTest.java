@@ -27,6 +27,7 @@ import net.sf.refactorit.parser.FastJavaLexer;
 import net.sf.refactorit.query.AbstractIndexer;
 import net.sf.refactorit.query.BinItemVisitor;
 import net.sf.refactorit.source.SourceParsingException;
+import net.sf.refactorit.test.LocalTempFileCreator;
 import net.sf.refactorit.test.RwRefactoringTestUtils;
 import net.sf.refactorit.test.TestProject;
 import net.sf.refactorit.test.Utils;
@@ -96,7 +97,8 @@ public class ProjectTest extends RitTestCase {
    */
   public void testBug71() throws Exception {
     cat.info("Testing bug #71");
-    final File testDir = new File("testBug71");
+
+    final File testDir = LocalTempFileCreator.createTempDirectory("testBug71", "");
     if (!testDir.exists()) {
       testDir.mkdir();
     }
@@ -105,21 +107,29 @@ public class ProjectTest extends RitTestCase {
     if (!compilationUnit.exists()) {
       compilationUnit.createNewFile();
     }
+
     Writer source = new FileWriter(compilationUnit);
     source.write("import abc.def.ghi; public class Test extends String {}");
     source.flush();
     source.close();
+
     compilationUnit.setLastModified(System.currentTimeMillis() - 2000);
-    final Project project = Utils.createNewProjectFrom(
-        new TestProject("", new LocalSourcePath(testDir.getAbsoluteFile()
-            .getAbsolutePath()), new LocalClassPath(ClasspathUtil
-            .getDefaultClasspath()), null));
+
+    final Project project = Utils.createNewProjectFrom(new TestProject(
+        "",
+        new LocalSourcePath(testDir.getAbsoluteFile().getAbsolutePath()),
+        new LocalClassPath(ClasspathUtil.getDefaultClasspath()),
+        null));
+
     IDEController.getInstance().setActiveProject(project);
 
     cat.debug("Loading project for the first time. Error expected.");
+
 //    try {
     project.getProjectLoader().build();
+
     assertTrue((project.getProjectLoader().getErrorCollector()).hasErrors());
+
     //fail("Exception should have been thrown here");
 //    } catch (Exception e) {
     // This is expected
@@ -129,9 +139,11 @@ public class ProjectTest extends RitTestCase {
     source.write("public class Test extends String {}");
     source.flush();
     source.close();
+
     compilationUnit.setLastModified(System.currentTimeMillis());
 
     cat.debug("Loading corrected project. No error expected.");
+
     project.getProjectLoader().build(null, false);
 
     cat.info("SUCCESS");
@@ -143,10 +155,12 @@ public class ProjectTest extends RitTestCase {
    */
   public void testReload() throws Exception {
     cat.info("Testing reloading");
-    final File testDir = new File("reloadTest");
+
+    final File testDir = LocalTempFileCreator.createTempDirectory("reloadTest", "");
     if (!testDir.exists()) {
       testDir.mkdir();
     }
+
     final File packageDir = new File(testDir, "test");
     if (!packageDir.exists()) {
       packageDir.mkdir();
@@ -156,18 +170,24 @@ public class ProjectTest extends RitTestCase {
     if (!compilationUnit.exists()) {
       compilationUnit.createNewFile();
     }
+
     Writer source = new FileWriter(compilationUnit);
     source.write("package " + packageDir.getName() + "; public class Test {}");
     source.flush();
     source.close();
+
     compilationUnit.setLastModified(System.currentTimeMillis() - 2000);
-    Project project = Utils.createNewProjectFrom(
-        new TestProject(
+
+    Project project = Utils.createNewProjectFrom(new TestProject(
         "",
-        new LocalSourcePath(testDir.getAbsoluteFile().getAbsolutePath()), new LocalClassPath(ClasspathUtil.getDefaultClasspath()), null));
+        new LocalSourcePath(testDir.getAbsoluteFile().getAbsolutePath()),
+        new LocalClassPath(ClasspathUtil.getDefaultClasspath()),
+        null));
+
     IDEController.getInstance().setActiveProject(project);
 
     cat.debug("Loading project for the first time.No error expected");
+
     try {
       project.getProjectLoader().build();
     } catch (Exception e) {
@@ -175,6 +195,7 @@ public class ProjectTest extends RitTestCase {
     }
 
     cat.debug("Reloading same project. No error expected.");
+
     project.getProjectLoader().build(null, false);
 
     cat.info("SUCCESS");

@@ -1,0 +1,4 @@
+T356.java
+
+  The input sequence LFCRLF (0x0a0d0a) should be treated as two
+        line terminators with an empty collection of input elements between them.

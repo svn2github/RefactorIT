@@ -1,0 +1,5 @@
+T1628f4.java
+
+ A blank final may not be referenced unless
+        it is definitely assigned. However, a variable initialized with a
+        constant is inlined, and is not a blank final. 

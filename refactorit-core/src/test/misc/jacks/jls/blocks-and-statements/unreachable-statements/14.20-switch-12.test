@@ -1,0 +1,4 @@
+T1420switch12.java
+
+ A switchblock statement is reachable if a prior
+        statement can complete normally 

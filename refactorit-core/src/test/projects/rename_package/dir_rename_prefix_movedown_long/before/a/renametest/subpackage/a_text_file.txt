@@ -1,0 +1,3 @@
+This text file has some random contents.
+
+This is just to see if text files are also handled properly (not just .java files).

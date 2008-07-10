@@ -1,0 +1,4 @@
+T513dtf5.java
+
+ narrowing from double to float rounds to lsb 0 if
+        remainder == .5 

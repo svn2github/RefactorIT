@@ -1,0 +1,3 @@
+UseOfTypeBeforeDeclaration.java
+
+ use of a class before it is defined is legal 

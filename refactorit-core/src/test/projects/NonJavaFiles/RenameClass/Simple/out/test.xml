@@ -1,0 +1,12 @@
+<test>
+    <!-- References Test class -->
+    <form-beans>
+       <form-bean name="testForm" type="com.acme.Test2"/>
+    </form-beans>
+
+    <!-- References TestXXX class -->
+    <form-beans>
+       <form-bean name="testForm" type="com.acme.TestXXX"/>
+    </form-beans>
+
+</test>

@@ -1,0 +1,1 @@
+static class T76modifiers1 {}

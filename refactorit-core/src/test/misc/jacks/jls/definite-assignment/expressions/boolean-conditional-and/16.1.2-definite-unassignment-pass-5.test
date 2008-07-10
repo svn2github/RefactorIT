@@ -1,0 +1,4 @@
+T1612dup5.java
+
+ V is DU after a && b iff
+        V is DU after a && b when true and when false 

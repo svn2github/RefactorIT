@@ -1,0 +1,4 @@
+DoubleInheritEmptyAbstractClass.java
+
+ Inherit from an abstract class with no methods that also
+        inherits from an abstract class with no methods, subclass does not need to be abstract 

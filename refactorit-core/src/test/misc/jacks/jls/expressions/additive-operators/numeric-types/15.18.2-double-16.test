@@ -1,0 +1,6 @@
+T15182d16.java
+
+ Floating-point addition takes place with
+        infinite accuracy, then rounds to nearest, use of 80-bit
+        extended precision instead of 64-bit double precision will fail
+        for this test case 

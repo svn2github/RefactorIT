@@ -1,0 +1,4 @@
+T1420do1.java
+
+ A do statement can complete normally if:
+        The contained statement can complete normally and the condition is not constant true 

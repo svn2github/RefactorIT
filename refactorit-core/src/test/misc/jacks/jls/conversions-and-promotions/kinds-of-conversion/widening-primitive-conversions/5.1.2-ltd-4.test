@@ -1,0 +1,4 @@
+T512ltd4.java
+
+ long to double conversion rounds to least
+        significant bit 0 if remainder = .5

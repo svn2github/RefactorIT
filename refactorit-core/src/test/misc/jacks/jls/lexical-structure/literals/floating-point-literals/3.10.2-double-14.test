@@ -1,0 +1,6 @@
+T3102d14.java
+
+ smallest finite double, by rounding
+        errors: fail to parse number, round number to zero
+        note: We can't compare to Double.MIN_VALUE because
+        some stupid JDK versions don't use a constant value 

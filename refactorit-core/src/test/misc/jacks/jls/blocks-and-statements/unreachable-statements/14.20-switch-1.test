@@ -1,0 +1,4 @@
+T1420switch1.java
+
+ A switch statement can complete normally if:
+        The last statement in the switch block can complete normally. 

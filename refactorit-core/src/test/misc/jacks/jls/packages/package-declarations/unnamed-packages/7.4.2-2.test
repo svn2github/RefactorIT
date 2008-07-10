@@ -1,0 +1,4 @@
+ClassInDefaultPackage.java,ExtendClassInDefaultPackage.java
+
+Extend a class in the default package with
+        another class in default package

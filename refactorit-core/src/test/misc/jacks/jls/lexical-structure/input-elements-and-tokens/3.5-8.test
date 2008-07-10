@@ -1,0 +1,4 @@
+T358.java
+
+  The input sequence CRLFLF (0x0d0a0a) should be treated as two
+        line terminators with an empty collection of input elements between them.

@@ -1,0 +1,1 @@
+We need to keep the directory non-empty, otherwise tests could fail becuase empty directories are pruned (deleted) from fresh checkouts; I could change the test case, but I do not want tests to depend on the checkout mode

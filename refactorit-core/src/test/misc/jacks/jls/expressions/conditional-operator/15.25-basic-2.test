@@ -1,0 +1,4 @@
+T1525b2.java
+
+ ?: uses a boolean value to decide which
+        of two other expressions should be evaluated 

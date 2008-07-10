@@ -68,7 +68,7 @@ public class LocalSource extends AbstractSource {
 
   /** Creates new LocalSource */
   public LocalSource(File file) {
-    this(null,file);
+    this(null, file);
   }
 
   /** Creates new LocalSource */
@@ -76,8 +76,11 @@ public class LocalSource extends AbstractSource {
     this.parentDir = parentDir;
     this.file = file;
     this.identifier = getIdentifier(file);
-    if ( debug )
-       AppRegistry.getLogger(LocalSource.class).debug("new LocalSource: " + this);
+
+    if (debug) {
+      AppRegistry.getLogger(LocalSource.class)
+          .debug("new LocalSource: " + this);
+    }
   }
 
   public static final LocalSource getSource(File file) {
@@ -85,11 +88,13 @@ public class LocalSource extends AbstractSource {
       log.debug("getSource for: " + file + " " +
           Integer.toHexString(file.hashCode()));
     }
+    
     Source result = SourceMap.getSource(getIdentifier(file));
     if (result == null || !(result instanceof LocalSource)) {
       result = new LocalSource(file);
       SourceMap.addSource(result);
     }
+    
     return (LocalSource) result;
   }
 
@@ -99,6 +104,7 @@ public class LocalSource extends AbstractSource {
           Integer.toHexString(file.hashCode()));
 
     }
+    
     Source result = SourceMap.getSource(getIdentifier(file));
     if (result == null || !(result instanceof LocalSource)) {
       result = new LocalSource(parent, file);
@@ -128,11 +134,13 @@ public class LocalSource extends AbstractSource {
       preloadBuffer = FileReadWriteUtil.read(inputStream, (int) length());
     } catch (IOException e) {
       preloadBuffer = new byte[0];
+      
       throw e;
     } finally {
       if (inputStream != null) {
         inputStream.close();
       }
+
       if (preloadBuffer == null) {
         preloadBuffer = new byte[0];
       }

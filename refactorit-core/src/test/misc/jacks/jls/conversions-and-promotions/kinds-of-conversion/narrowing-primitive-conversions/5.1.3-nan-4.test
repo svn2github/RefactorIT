@@ -1,0 +1,3 @@
+T513nan4.java
+
+ narrowing from double NaN to long produces 0 

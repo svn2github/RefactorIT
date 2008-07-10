@@ -1,0 +1,4 @@
+T38v8.java
+
+ valid identifier, as \ufeff satisfies
+        Character.isJavaIdentifierPart 

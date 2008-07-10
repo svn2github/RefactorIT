@@ -1,0 +1,4 @@
+T15181d10.java
+
+ conversion of double to String switches from
+        plain to exponent at 1e-3. Trailing 0's are not permitted. 

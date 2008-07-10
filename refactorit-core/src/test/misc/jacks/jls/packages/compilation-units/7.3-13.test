@@ -1,0 +1,4 @@
+test/T7313.java
+
+ Every compilation unit implicitly imports
+        every public type from java.lang 

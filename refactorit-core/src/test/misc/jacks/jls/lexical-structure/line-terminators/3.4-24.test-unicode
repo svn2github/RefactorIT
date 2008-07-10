@@ -1,0 +1,3 @@
+T3424.java
+
+ CR + CR + CR + LF (\u000d\u000d\u000d\n) is three LineTerminators 

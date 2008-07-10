@@ -1,0 +1,4 @@
+T15181d13.java
+
+ conversion of double to String prints the
+        closest decimal string to the exact value, even on denorms 

@@ -1,0 +1,4 @@
+T1418l2.java
+
+ A single thread may lock the same object
+        multiple times (in a synchronized instance method, this is locked)

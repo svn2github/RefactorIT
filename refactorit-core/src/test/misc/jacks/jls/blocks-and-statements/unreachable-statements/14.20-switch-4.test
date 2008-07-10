@@ -1,0 +1,4 @@
+T1420switch4.java
+
+ A switch statement can complete normally if:
+        There is at least one switch label after the last switch block statement group. 

@@ -1,0 +1,3 @@
+T513nan1.java
+
+ narrowing from float NaN to int produces 0 

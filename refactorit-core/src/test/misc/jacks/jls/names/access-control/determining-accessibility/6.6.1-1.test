@@ -1,0 +1,3 @@
+AccessPublicClassInPackage.java,pkg/PublicClass.java
+
+A class declared public is accessible from outside the package

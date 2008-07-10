@@ -1,0 +1,7 @@
+T8851aisi1.java
+
+
+        If a constructor body does not begin with an explicit
+        constructor invocation, then the constructor
+        body is implicitly assumed by the compiler to
+        begin with a superclass constructor invocation 

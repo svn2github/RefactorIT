@@ -1,0 +1,5 @@
+T852ainsmu2.java
+
+
+        a static member type may use private non-static members of
+        a superclass that happens to be the enclosing class 

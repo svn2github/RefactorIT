@@ -1,0 +1,5 @@
+T52bn1.java
+
+ Assignment conversion may narrow if
+        a constant expression of type byte is assigned to a variable
+        of type char 

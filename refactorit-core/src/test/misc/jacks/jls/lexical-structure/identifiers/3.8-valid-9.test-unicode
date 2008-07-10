@@ -1,0 +1,4 @@
+T38v9.java
+
+ valid identifier, as \u0000 satisfies
+        Character.isJavaIdentifierPart 

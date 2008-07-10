@@ -1,0 +1,4 @@
+T4547.java
+
+ a final variable can reference an Object, the
+        reference can not change but the object being referenced can change 

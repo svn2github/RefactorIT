@@ -8,10 +8,9 @@
  */
 package net.sf.refactorit.commonIDE;
 
-
-
 import net.sf.refactorit.RitTestCase;
 import net.sf.refactorit.classmodel.Project;
+import net.sf.refactorit.loader.ASTTreeCache;
 import net.sf.refactorit.test.ProjectMetadata;
 import net.sf.refactorit.test.Utils;
 import net.sf.refactorit.test.commonIDE.MockIDEController;
@@ -28,12 +27,9 @@ import java.util.List;
  */
 public class CacheTest extends RitTestCase {
   IDEController oldInstance;
-
   IDEController controller;
-  Project projects[] = new Project[2];
 
-  public CacheTest() {
-  }
+  final Project projects[] = new Project[2];
 
   public void setUp() throws Exception {
     oldInstance = IDEController.getInstance();
@@ -43,14 +39,13 @@ public class CacheTest extends RitTestCase {
 
     for (int index = 0; i.hasNext() && index < projects.length; index++) {
       final ProjectMetadata data = (ProjectMetadata) i.next();
-      this.projects[index] = Utils.createTestRbProject(data);
+
+      projects[index] = Utils.createTestRbProject(data);
     }
-    controller=getController();
+
+    controller = getController();
 
     IDEController.setInstance(controller);
-
-
-
   }
 
   protected IDEController getController() {
@@ -58,20 +53,25 @@ public class CacheTest extends RitTestCase {
   }
 
   public void tearDown() {
-    if ( oldInstance != null )
+    if (oldInstance != null) {
       IDEController.setInstance(oldInstance);
+    }
   }
 
   public void testEnsureProject() {
     Project pr1 = projects[0];
 //    Project pr2 = projects[1];
 //    ProgressListener listener=ProgressListener.SILENT_LISTENER;
+
     pr1.clean();
 
     controller.setActiveProject(pr1);
 
-    assertTrue(controller.ensureProject(new LoadingProperties(false, true, false)));
-    assertTrue ( pr1.getProjectLoader().isLoadingCompleted() && !(pr1.getProjectLoader().getErrorCollector()).hasErrors());
+    assertTrue(controller.ensureProject(
+        new LoadingProperties(false, true, false)));
+
+    assertTrue(pr1.getProjectLoader().isLoadingCompleted() &&
+        !pr1.getProjectLoader().getErrorCollector().hasErrors());
   }
 
   /** tests cache serializing and deserializing
@@ -80,6 +80,7 @@ public class CacheTest extends RitTestCase {
     Project pr1 = projects[0];
 
     controller.setActiveProject(pr1);
+
     Project activeProject = controller.getActiveProject();
 
     activeProject.setCachePath(IDEController.generateNewCacheFileName("."));
@@ -87,21 +88,25 @@ public class CacheTest extends RitTestCase {
 
     assertCacheExists(activeProject);
 
-    assertTrue ( controller.serializeProjectCache(activeProject, false));
+    assertTrue(controller.serializeProjectCache(activeProject, false));
 
     activeProject.getProjectLoader().getAstTreeCache().cleanAll();
-
 
     controller.deserializeCache(false);
 
     Thread.sleep(100);
 
     assertCacheExists(activeProject);
-
   }
 
   private void assertCacheExists(Project activeProject) {
-    assertNotNull( activeProject.getProjectLoader().getAstTreeCache().checkCacheFor((Source) activeProject.getPaths().getSourcePath().getAllSources().get(0)));
+    final ASTTreeCache astTreeCache =
+      activeProject.getProjectLoader().getAstTreeCache();
+
+    final List sources =
+      activeProject.getPaths().getSourcePath().getAllSources();
+
+    assertNotNull(astTreeCache.checkCacheFor((Source) sources.get(0)));
   }
 
   public void testSetActiveProject() {
@@ -113,7 +118,4 @@ public class CacheTest extends RitTestCase {
     controller.setActiveProject(project2);
     assertEquals(project2,controller.getActiveProject());
   }
-
-
-
 }

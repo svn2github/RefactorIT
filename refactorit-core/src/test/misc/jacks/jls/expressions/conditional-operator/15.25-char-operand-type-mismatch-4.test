@@ -1,0 +1,7 @@
+T1525cotm4.java
+
+ if one operand is of
+        type char and the other is a constant expression of type int
+        whose value is representable as a char, then the type of the
+        conditional expression is char, Otherwise, binary numeric
+        promotion is applied to the operand types 

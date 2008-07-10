@@ -1,0 +1,11 @@
+package y;
+
+
+public class Test {
+
+  public void method() {
+  }
+
+  public void methodXXX() {
+  }
+}

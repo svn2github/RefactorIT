@@ -1,0 +1,4 @@
+p1/T15951s6_1.java,p2/T15951s6_2.java
+
+ An anonymous class may access
+        the protected constructor of a class from another package 

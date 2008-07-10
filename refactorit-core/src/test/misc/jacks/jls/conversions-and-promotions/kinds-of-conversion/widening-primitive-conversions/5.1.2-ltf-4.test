@@ -1,0 +1,4 @@
+T512ltf4.java
+
+ long to float conversion rounds to least
+        significant bit 0 if remainder = .5

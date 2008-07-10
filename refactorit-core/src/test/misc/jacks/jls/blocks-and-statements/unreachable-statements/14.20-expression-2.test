@@ -1,0 +1,4 @@
+T1420expression2.java
+
+ Expression statements can complete normally
+        iff reachable (even if stricter analysis shows otherwise) 

@@ -1,0 +1,4 @@
+T1628f2.java
+
+ A blank final may be assigned in different block
+        statement groups, provided it not assigned twice 

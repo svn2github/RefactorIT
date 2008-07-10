@@ -1,0 +1,4 @@
+T1420local3.java
+
+ Local variable declarations can complete normally
+        iff reachable 

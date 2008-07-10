@@ -1,0 +1,1726 @@
+<!-- Source paths and class path elements can be either
+     absolute or relative to this directory.
+  -->
+
+<projects>
+  <project id="bingo-example" name="bingo-example">
+    <sourcepath>
+	<pathelement path="bingo-example/bingo"/>
+    </sourcepath>
+  </project>
+
+  <project id="generics_binary" name="GenericsLoadBinary">
+    <sourcepath>
+	<pathelement path="GenericsLoadFromBinary/src"/>
+    </sourcepath>
+    <classpath>
+	<pathelement path="GenericsLoadFromBinary/lib/generics.jar"/>
+    </classpath>
+  </project>
+
+  <project id="generics_in_return_type" name="generics_in_return_type">
+    <sourcepath>
+	<pathelement path="GenericsInReturnType"/>
+    </sourcepath>
+  </project>
+
+  <project id="SuperMemberInvocationInTooDeepInner" name="SuperMemberInvocationInTooDeepInner">
+    <sourcepath>
+      <pathelement path="SuperMemberInvocationInTooDeepInner"/>
+    </sourcepath>
+  </project>
+
+  <project id="RefactorIT" name="RefactorIT">
+    <sourcepath>
+      <pathelement path="../../main/java"/>
+      <pathelement path="../../../generated/java"/>
+    </sourcepath>
+    <classpath>
+      <pathelement location="../../../lib/ant.jar"/>
+      <pathelement location="../../../lib/antlr.jar"/>
+      <pathelement location="../../../lib/bsh.jar"/>
+      <pathelement location="../../../lib/GraphLayout.jar"/>
+      <pathelement location="../../../lib/junit.jar"/>
+      <pathelement location="../../../lib/log4j.jar"/>
+      <pathelement location="../../../lib/jh.jar"/>
+      <pathelement location="../../../lib/jsp-api.jar"/>
+      <pathelement location="../../../lib/jsp20el.jar"/>
+      <pathelement location="../../../lib/pmd.jar"/>
+      <pathelement location="../../../lib/rjasper.jar"/>
+      <pathelement location="../../../lib/servlet-api.jar"/>
+    </classpath>
+  </project>
+
+  <project id="RebuildBinaryClasses" name="RebuildBinaryClasses">
+    <sourcepath>
+      <pathelement path="ProjectLoader/RebuildBinaryClasses"/>
+    </sourcepath>
+    <classpath>
+      <pathelement path="ProjectLoader/RebuildBinaryClasses"/>
+    </classpath>
+  </project>
+
+  <project id="RebuildLocalsOfLocals" name="RebuildLocalsOfLocals">
+    <sourcepath>
+      <pathelement path="ProjectLoader/RebuildLocalsOfLocals"/>
+    </sourcepath>
+  </project>
+
+  <project id="IncrementalRebuildLocalsOfLocals" name="IncrementalRebuildLocalsOfLocals">
+    <sourcepath>
+      <pathelement path="ProjectLoader/IncrementalRebuildLocalsOfLocals"/>
+    </sourcepath>
+  </project>
+  
+    <project id="IsLocalTypeAccessibleBug1" name="IsLocalTypeAccessibleBug1">
+    <sourcepath>
+      <pathelement path="ProjectLoader/IsLocalTypeAccessibleBug/IsLocalTypeAccessibleBug1"/>
+    </sourcepath>
+  </project>
+
+  <project id="IsLocalTypeAccessibleBug2" name="IsLocalTypeAccessibleBug2">
+    <sourcepath>
+      <pathelement path="ProjectLoader/IsLocalTypeAccessibleBug/IsLocalTypeAccessibleBug2"/>
+    </sourcepath>
+  </project>
+  
+  <project id="NumericLiterals" name="NumericLiterals">
+    <sourcepath>
+      <pathelement path="ProjectLoader/NumericLiterals"/>
+    </sourcepath>
+  </project>
+
+  <project id="CharLiterals" name="CharLiterals">
+    <sourcepath>
+      <pathelement path="ProjectLoader/CharLiterals"/>
+    </sourcepath>
+  </project>
+
+  <project id="FIXME Scanner" name="FIXME Scanner">
+    <sourcepath>
+      <pathelement path="FixmeScanner/OneFile"/>
+    </sourcepath>
+    <classpath>
+    </classpath>
+  </project>
+
+  <project id="FIXME Scanner Multiple Packages" name="FIXME Scanner Multiple Packages">
+    <sourcepath>
+      <pathelement path="FixmeScanner/MultiplePackages"/>
+    </sourcepath>
+    <classpath>
+    </classpath>
+  </project>
+
+  <project id="FIXME Timestamp" name="FIXME Timestamp">
+    <sourcepath>
+      <pathelement path="FixmeTimestamp"/>
+    </sourcepath>
+    <classpath>
+    </classpath>
+  </project>
+
+  <project id="getDeclaredMethods" name="BinMethod.getDeclaredMethods">
+    <sourcepath>
+      <pathelement path="getDeclaredMethods"/>
+    </sourcepath>
+  </project>
+
+  <project id="BinStringConcatenationExpression" name="BinStringConcatenationExpression">
+    <sourcepath>
+      <pathelement path="BinStringConcatenationExpression/Test.java"/>
+    </sourcepath>
+  </project>
+
+  <project id="LocationAware" name="LocationAware">
+    <sourcepath>
+      <pathelement path="BinCITypeTest/LocationAware"/>
+    </sourcepath>
+  </project>
+
+  <project id="getAllAccessibleFields" name="getAllAccessibleFields">
+    <sourcepath>
+      <pathelement path="BinCITypeTest/getAllAccessibleFields"/>
+    </sourcepath>
+  </project>
+
+  <project id="PackageModel_init" name="PackageModel initialization">
+    <sourcepath>
+      <pathelement path="PackageModel_init"/>
+    </sourcepath>
+  </project>
+
+  <project id="CompoundAST" name="CompoundAST">
+    <sourcepath>
+      <pathelement path="CompoundAST"/>
+    </sourcepath>
+  </project>
+
+  <project id="DependenciesIndexer" name="DependenciesIndexer">
+    <sourcepath>
+      <pathelement path="DependenciesIndexer"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractSuperDialog_DependencyCheck" name="ExtractSuperDialog_DependencyCheck">
+    <sourcepath>
+      <pathelement path="ExtractSuper/DependencyCheck"/>
+    </sourcepath>
+  </project>
+
+  <project id="SimpleProject" name="SimpleProject">
+    <sourcepath>
+      <pathelement path="simpleProject"/>
+    </sourcepath>
+  </project>
+
+  <project id="NbCvs" name="NbCvs">
+    <sourcepath>
+      <pathelement path="NbCvs"/>
+    </sourcepath>
+  </project>
+
+  <project id="bookstore2" name="bookstore2">
+    <sourcepath>
+      <pathelement path="jsp/bookstore2"/>
+      <pathelement path="jsp/bookstore2/ejb" />
+    </sourcepath>
+    <classpath>
+      <pathelement path="jsp/bookstore2/j2ee.jar"/>
+    </classpath>
+  </project>
+
+  <project id="bingo" name="bingo example">
+    <sourcepath>
+      <pathelement path="bingo-example"/>
+    </sourcepath>
+  </project>
+
+  <project id="simple" name="Simple Project">
+    <sourcepath>
+      <pathelement path="simpleProject"/>
+    </sourcepath>
+  </project>
+
+  <project id="CallTree_bug2060" name="CallTree bug2060">
+    <sourcepath>
+      <pathelement path="CallTree/bug2060"/>
+    </sourcepath>
+    <classpath>
+      <pathelement path="CallTree/bug2060"/>
+    </classpath>
+  </project>
+
+  <project id="fruits" name="FruitStore">
+    <sourcepath>
+      <pathelement path="FruitStore"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #2213" name="Bug #2213">
+    <sourcepath>
+      <pathelement path="WhereCaught/bug2213"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #2209" name="Bug #2209">
+    <sourcepath>
+      <pathelement path="RenameLocal/bug2209"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug #2175" name="Bug #2175">
+    <sourcepath>
+      <pathelement path="InlineTemp/cannotInline/TestException.java"/>
+    </sourcepath>
+  </project>
+
+  <project id="Duplicate_Interfaces" name="Duplicate_Interfaces">
+    <sourcepath>
+      <pathelement path="DuplicateInterfacesTest" />
+    </sourcepath>
+  </project>
+  
+  
+<!-- Rename -->
+  <project id="RenameLocal_several_on_same_line_in" name="RenameLocal_several_on_same_line_in">
+    <sourcepath>
+      <pathelement path="RenameLocal/several_on_same_line/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="RenameLocal_several_on_same_line_out" name="RenameLocal_several_on_same_line_out">
+    <sourcepath>
+      <pathelement path="RenameLocal/several_on_same_line/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="RenameLocal_same_name_in_different_scope_in" name="RenameLocal_same_name_in_different_scope_in">
+    <sourcepath>
+      <pathelement path="RenameLocal/same_name_in_different_scope/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="RenameLocal_same_name_in_different_scope_out" name="RenameLocal_same_name_in_different_scope_out">
+    <sourcepath>
+      <pathelement path="RenameLocal/same_name_in_different_scope/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="RenameLocal_same_name_in_accessible_scope" name="RenameLocal_same_name_in_accessible_scope">
+    <sourcepath>
+      <pathelement path="RenameLocal/same_name_in_accessible_scope"/>
+    </sourcepath>
+  </project>
+
+  <project id="dir_rename_prefix_two_sourceroots_before" name="dir_rename_prefix_two_sourceroots_before">
+    <sourcepath>
+      <pathelement path="rename_package/dir_rename_prefix_two_sourceroots/before/1/"/>
+      <pathelement path="rename_package/dir_rename_prefix_two_sourceroots/before/2/"/>
+    </sourcepath>
+    <copypath>
+      <pathelement path="rename_package/dir_rename_prefix_two_sourceroots/before"/>
+    </copypath>
+  </project>
+
+  <project id="dir_rename_prefix_two_sourceroots_after" name="dir_rename_prefix_two_sourceroots_after">
+    <sourcepath>
+      <pathelement path="rename_package/dir_rename_prefix_two_sourceroots/after/1/"/>
+      <pathelement path="rename_package/dir_rename_prefix_two_sourceroots/after/2/"/>
+    </sourcepath>
+  </project>
+<!-- Rename -->
+  
+  
+
+<!-- MoveType -->
+  <project id="bug1161_initial" name="Bug #1161 initial">
+    <sourcepath>
+      <pathelement path="MoveType/bug1161/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug1161_expected" name="Bug #1161 expected">
+    <sourcepath>
+      <pathelement path="MoveType/bug1161/expected"/>
+    </sourcepath>
+  </project>
+  
+  <project id="MoveType_extract_initial" name="MoveType_extract_initial">
+    <sourcepath>
+      <pathelement path="MoveType/extract/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_expected" name="MoveType_extract_expected">
+    <sourcepath>
+      <pathelement path="MoveType/extract/expected"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_same_initial" name="MoveType_extract_same_initial">
+    <sourcepath>
+      <pathelement path="MoveType/extract_same/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_same_expected" name="MoveType_extract_same_expected">
+    <sourcepath>
+      <pathelement path="MoveType/extract_same/expected"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_main_wrong_dir_initial" name="MoveType_extract_main_wrong_dir_initial">
+    <sourcepath>
+      <pathelement path="MoveType/extract_main_wrong_dir/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_main_wrong_dir_expected" name="MoveType_extract_main_wrong_dir_expected">
+    <sourcepath>
+      <pathelement path="MoveType/extract_main_wrong_dir/expected"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_wrong_sourcepath_root_initial" name="MoveType_extract_wrong_sourcepath_root_initial">
+    <copypath>
+      <pathelement path="MoveType/extract_wrong_sourcepath_root/initial"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/extract_wrong_sourcepath_root/initial/com"/>
+    </sourcepath>
+  </project>
+  
+  <project id="MoveType_paths_in_non_java_initial" name="MoveType_paths_in_non_java_initial">
+    <copypath>
+      <pathelement path="MoveType/paths_in_non_java/initial"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/paths_in_non_java/initial/"/>
+    </sourcepath>
+  </project>
+  
+  <project id="MoveType_paths_in_non_java_expected" name="MoveType_paths_in_non_java_expected">
+    <copypath>
+      <pathelement path="MoveType/paths_in_non_java/expected"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/paths_in_non_java/expected/"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_wrong_sourcepath_root_expected" name="MoveType_extract_wrong_sourcepath_root_expected">
+    <copypath>
+      <pathelement path="MoveType/extract_wrong_sourcepath_root/expected"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/extract_wrong_sourcepath_root/expected/com"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_with_javadoc_initial" name="MoveType_extract_with_javadoc_initial">
+    <sourcepath>
+      <pathelement path="MoveType/extract_with_javadoc/initial"/>
+    </sourcepath>
+  </project>
+  
+  <project id="MoveType_imports_placing_initial" name="MoveType_imports_placing_initial">
+    <sourcepath>
+      <pathelement path="MoveType/imports_placing/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_imports_placing_expected" name="MoveType_imports_placing_expected">
+    <sourcepath>
+      <pathelement path="MoveType/imports_placing/expected"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_extract_with_javadoc_expected" name="MoveType_extract_with_javadoc_expected">
+    <sourcepath>
+      <pathelement path="MoveType/extract_with_javadoc/expected"/>
+    </sourcepath>
+  </project>
+  
+  <project id="MoveType_StaticImports_expected" name="MoveType_StaticImports_expected">
+    <sourcepath>
+      <pathelement path="MoveType/StaticImports/expected"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_StaticImports_initial" name="MoveType_StaticImports_initial">
+    <sourcepath>
+      <pathelement path="MoveType/StaticImports/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate1_in" name="MoveType_Relocate1_in">
+    <copypath>
+      <pathelement path="MoveType/Relocate1/in"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate1/in/a/b"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate1_out" name="MoveType_Relocate1_out">
+    <copypath>
+      <pathelement path="MoveType/Relocate1/out"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate1/out/a/b"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate2_in" name="MoveType_Relocate2_in">
+    <copypath>
+      <pathelement path="MoveType/Relocate2/in"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate2/in/a/b/c"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate2_out" name="MoveType_Relocate2_out">
+    <copypath>
+      <pathelement path="MoveType/Relocate2/out"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate2/out/a/b/c"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate3_in" name="MoveType_Relocate3_in">
+    <copypath>
+      <pathelement path="MoveType/Relocate3/in"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate3/in/a/b/c"/>
+      <pathelement path="MoveType/Relocate3/in/a/b/d"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate3_out" name="MoveType_Relocate3_out">
+    <copypath>
+      <pathelement path="MoveType/Relocate3/out"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate3/out/a/b/c"/>
+      <pathelement path="MoveType/Relocate3/out/a/b/d"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate4_in" name="MoveType_Relocate4_in">
+    <copypath>
+      <pathelement path="MoveType/Relocate4/in"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate4/in/a/b/c"/>
+      <pathelement path="MoveType/Relocate4/in/a/b/d"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Relocate4_out" name="MoveType_Relocate4_out">
+    <copypath>
+      <pathelement path="MoveType/Relocate4/out"/>
+    </copypath>
+    <sourcepath>
+      <pathelement path="MoveType/Relocate4/out/a/b/c"/>
+      <pathelement path="MoveType/Relocate4/out/a/b/d"/>
+    </sourcepath>
+  </project>
+  
+  <project id="MoveType_Issue251_initial" name="MoveType_Issue251_initial">
+    <sourcepath>
+      <pathelement path="MoveType/Issue251/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Issue251_expected" name="MoveType_Issue251_expected">
+    <sourcepath>
+      <pathelement path="MoveType/Issue251/expected"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Issue245_initial" name="MoveType_Issue245_initial">
+    <sourcepath>
+      <pathelement path="MoveType/Issue245/initial"/>
+    </sourcepath>
+  </project>
+
+  <project id="MoveType_Issue245_expected" name="MoveType_Issue245_expected">
+    <sourcepath>
+      <pathelement path="MoveType/Issue245/expected"/>
+    </sourcepath>
+  </project>
+<!-- END MoveType -->
+
+
+
+<!-- ProjectLoader -->
+  <project id="bug1222" name="Bug #1222">
+    <sourcepath>
+      <pathelement path="ProjectLoader/bug1222"/>
+    </sourcepath>
+    <classpath>
+      <pathelement path="ProjectLoader/bug1222"/>
+    </classpath>
+  </project>
+
+  <project id="bug1249" name="Bug #1249" auto_load_test="false">
+    <sourcepath>
+      <pathelement path="ProjectLoader/bug1249"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug1628" name="bug #1628">
+    <sourcepath>
+      <pathelement path="ProjectLoader/bug1628"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug #2057" name="bug #2057">
+    <sourcepath>
+      <pathelement path="ProjectLoader/bug2057"/>
+    </sourcepath>
+  </project>
+<!-- END ProjectLoader -->  
+
+
+
+<!-- ExtractMethod -->
+  <project id="ExtractMethod_ErrorMessagesForReadOnlyFiles_in" name="ExtractMethod_ErrorMessagesForReadOnlyFiles_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/ErrorMessagesForReadOnlyFiles/in"/>
+    </sourcepath>
+  </project>
+                                                                                                                  
+  <project id="ExtractMethod_ErrorMessagesForReadOnlyFiles_out" name="ExtractMethod_ErrorMessagesForReadOnlyFiles_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/ErrorMessagesForReadOnlyFiles/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark1_in" name="ExtractMethod_Benchmark1_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark1/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark1_out" name="ExtractMethod_Benchmark1_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark1/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark2_in" name="ExtractMethod_Benchmark2_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark2/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark2_out" name="ExtractMethod_Benchmark2_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark2/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark3_in" name="ExtractMethod_Benchmark3_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark3/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark3_out" name="ExtractMethod_Benchmark3_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark3/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark4_in" name="ExtractMethod_Benchmark4_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark4/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark4_out" name="ExtractMethod_Benchmark4_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark4/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark5_in" name="ExtractMethod_Benchmark5_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark5/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Benchmark5_out" name="ExtractMethod_Benchmark5_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/benchmark5/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_ExtractExpression1_in" name="ExtractMethod_ExtractExpression1_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/ExtractExpression1/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_ExtractExpression1_out" name="ExtractMethod_ExtractExpression1_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/ExtractExpression1/out"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_Issue238" name="ExtractMethod_Issue238">
+    <sourcepath>
+      <pathelement path="ExtractMethod/issue238"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_620_in" name="ExtractMethod_620_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/Imported/expression_in/A_test620.java"/>
+      <pathelement path="ExtractMethod/Imported/expression_in/B.java"/>
+    </sourcepath>
+    <copypath>
+      <pathelement path="ExtractMethod/Imported/expression_in/"/>
+    </copypath>
+  </project>
+
+  <project id="ExtractMethod_620_out" name="ExtractMethod_620_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/Imported/expression_out/A_test620.java"/>
+      <pathelement path="ExtractMethod/Imported/expression_out/B.java"/>
+    </sourcepath>
+    <copypath>
+      <pathelement path="ExtractMethod/Imported/expression_out/"/>
+    </copypath>
+  </project>
+
+  <project id="ExtractMethod_Bug1317_in" name="ExtractMethod_Bug1317_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1317/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1317_out" name="ExtractMethod_Bug1317_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1317/out"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_Bug1401_in" name="ExtractMethod_Bug1401_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1401/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1401_out" name="ExtractMethod_Bug1401_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1401/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1402_in" name="ExtractMethod_Bug1402_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1402/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1402_out" name="ExtractMethod_Bug1402_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1402/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1450_in" name="ExtractMethod_Bug1450_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1450/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1450_out" name="ExtractMethod_Bug1450_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1450/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1529" name="ExtractMethod_Bug1529">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1529"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1529_inside_expression" name="ExtractMethod_Bug1529_inside_expression">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1529_inside_expression"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1529_inside_method_call" name="ExtractMethod_Bug1529_inside_method_call">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1529_inside_method_call"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1619_StringLiteral" name="ExtractMethod_Bug1619_StringLiteral">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1619_StringLiteral"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1619_CharLiteral" name="ExtractMethod_Bug1619_CharLiteral">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1619_CharLiteral"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1619_BothLiterals" name="ExtractMethod_Bug1619_BothLiterals">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1619_BothLiterals"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1581_in" name="ExtractMethod_Bug1581_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1581/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1581_out" name="ExtractMethod_Bug1581_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1581/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1606_in" name="ExtractMethod_Bug1606_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1606/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1606_out" name="ExtractMethod_Bug1606_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1606/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1607_in" name="ExtractMethod_Bug1607_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1607/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1607_out" name="ExtractMethod_Bug1607_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1607/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1634" name="ExtractMethod_Bug1634">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1634"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1634_2" name="ExtractMethod_Bug1634_2">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1634_2"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1667_in" name="ExtractMethod_Bug1667_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1667/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1667_out" name="ExtractMethod_Bug1667_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1667/out"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_Bug1787_in" name="ExtractMethod_Bug1787_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1787/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1787_out" name="ExtractMethod_Bug1787_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1787/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1871_in" name="ExtractMethod_Bug1871_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1871/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1871_out" name="ExtractMethod_Bug1871_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1871/out"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_Bug1904_in" name="ExtractMethod_Bug1904_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1904/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1904_out" name="ExtractMethod_Bug1904_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1904/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1938_in" name="ExtractMethod_Bug1938_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1938/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug1938_out" name="ExtractMethod_Bug1938_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug1938/out"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_Bug2016_in" name="ExtractMethod_Bug2016_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug2016/in"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_Bug2016_out" name="ExtractMethod_Bug2016_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug2016/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug2139" name="ExtractMethod_Bug2139">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug2139/in"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_Bug2255_in" name="ExtractMethod_Bug2255_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug2255/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_Bug2255_out" name="ExtractMethod_Bug2255_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/bug2255/out"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_InnerClassesInGenerics_in" name="ExtractMethod_InnerClassesInGenerics_in_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/InnerClassesInGenerics/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_InnerClassesInGenerics_out" name="ExtractMethod_InnerClassesInGenerics_out_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/InnerClassesInGenerics/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_VarInLoop_in" name="ExtractMethod_VarInLoop_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/var_in_loop/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_VarInLoop_out" name="ExtractMethod_VarInLoop_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/var_in_loop/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_VarInLoopReturn_in" name="ExtractMethod_VarInLoopReturn_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/var_in_loop_return/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_VarInLoopReturn_out" name="ExtractMethod_VarInLoopReturn_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/var_in_loop_return/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_ExceptionByNew_in" name="ExtractMethod_ExceptionByNew_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/exception_by_new/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_ExceptionByNew_out" name="ExtractMethod_ExceptionByNew_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/exception_by_new/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_FqnUsage_in" name="ExtractMethod_FqnUsage_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/fqn_usage/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_FqnUsage_out" name="ExtractMethod_FqnUsage_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/fqn_usage/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_ParamRename_in" name="ExtractMethod_ParamRename_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/param_rename/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_ParamRename_out" name="ExtractMethod_ParamRename_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/param_rename/out"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_TypeParams1_in" name="ExtractMethod_TypeParams1_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/type_params_1/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_TypeParams1_out" name="ExtractMethod_TypeParams1_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/type_params_1/out"/>
+    </sourcepath>
+  </project>
+  
+  <project id="ExtractMethod_ExtractInAnonymous_in" name="ExtractMethod_ExtractInAnonymous_in">
+    <sourcepath>
+      <pathelement path="ExtractMethod/ExtractInAnonymous/in"/>
+    </sourcepath>
+  </project>
+
+  <project id="ExtractMethod_ExtractInAnonymous_out" name="ExtractMethod_ExtractInAnonymous_out">
+    <sourcepath>
+      <pathelement path="ExtractMethod/ExtractInAnonymous/out"/>
+    </sourcepath>
+  </project>
+<!-- END ExtractMethod -->
+  
+  
+  
+<!-- NotUsed -->
+  <project id="bug #154" name="Bug #154">
+    <sourcepath>
+      <pathelement path="NotUsed/bug154"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #155" name="Bug #155">
+    <sourcepath>
+      <pathelement path="NotUsed/bug155"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/used_inside_only" name="NotUsed/used_inside_only">
+    <sourcepath>
+      <pathelement path="NotUsed/used_inside_only"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug1364" name="Bug #1364">
+    <sourcepath>
+      <pathelement path="NotUsed/bug1364"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug1605" name="Bug #1605">
+    <sourcepath>
+      <pathelement path="NotUsed/bug1605"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/implementation_search" name="implementation_search">
+    <sourcepath>
+      <pathelement path="NotUsed/implementation_search"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/testUnusedSubclassA" name="NotUsed/testUnusedSubclassA">
+    <sourcepath>
+      <pathelement path="NotUsed/testUnusedSubclassA"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/testUnusedSubclassB" name="NotUsed/testUnusedSubclassB">
+    <sourcepath>
+      <pathelement path="NotUsed/testUnusedSubclassB"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/two_branches" name="NotUsed/two_branches">
+    <sourcepath>
+      <pathelement path="NotUsed/two_branches"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/used_inside_only2" name="NotUsed/used_inside_only2">
+    <sourcepath>
+      <pathelement path="NotUsed/used_inside_only2"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/new" name="NotUsed/new">
+    <sourcepath>
+      <pathelement path="NotUsed/new"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/bug1695" name="NotUsed/bug1695">
+    <sourcepath>
+      <pathelement path="NotUsed/bug1695"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/ExcludePublicAndProtected" name="NotUsed/ExcludePublicAndProtected">
+    <sourcepath>
+      <pathelement path="NotUsed/ExcludePublicAndProtected"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/UseOfUSEDTag1" name="NotUsed/UseOfUSEDTag1">
+    <sourcepath>
+      <pathelement path="NotUsed/UseOfUSEDTag1"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed/UseOfUSEDTag2" name="NotUsed/UseOfUSEDTag2">
+    <sourcepath>
+      <pathelement path="NotUsed/UseOfUSEDTag2"/>
+    </sourcepath>
+  </project>
+  
+  <project id="NotUsed_invocation_in_subclass" name="NotUsed_invocation_in_subclass">
+    <sourcepath>
+      <pathelement path="NotUsed/invocation_in_subclass"/>
+    </sourcepath>
+  </project>
+
+  <project id="NotUsed_used_private_constructor" name="NotUsed_used_private_constructor">
+    <sourcepath>
+      <pathelement path="NotUsed/used_private_constructor"/>
+    </sourcepath>
+  </project>
+<!-- END NotUsed -->
+
+
+
+<!-- WhereUsed -->
+  <project id="bug #96" name="Bug #96">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug96"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug #105" name="Bug #105">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug105"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #106" name="Bug #106">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug106"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #107" name="Bug #107">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug107"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug #121" name="Bug #121">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug121"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug #124/125" name="Bug #124 and #125">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug124"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #127" name="Bug #127">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug127"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #130" name="Bug #130">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug130"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #142" name="Bug #142">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug142"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #143" name="Bug #143">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug143"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug #151" name="Bug #151">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug151"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug #156" name="Bug #156">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug156"/>
+    </sourcepath>
+  </project>
+  
+  <project id="bug179" name="bug #179">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug179"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug181" name="bug #181">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug181"/>
+    </sourcepath>
+  </project>
+  
+    <project id="bug211" name="Bugs #211 and #212">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug211"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug213" name="Bug #213">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug213"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug256" name="Bug #256">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug256"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug257" name="Bug #257">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug257"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug258" name="Bug #258">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug258"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug259" name="Bug #259">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug259"/>
+    </sourcepath>
+  </project>
+
+  <project id="bug262" name="Bug #262 &amp; #263">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug262"/>
+    </sourcepath>
+  </project>
+  
+  <project id="WU/bug1686" name="WhereUsed bug1686">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug1686"/>
+    </sourcepath>
+    <classpath>
+      <pathelement path="WhereUsed/common/bug1686"/>
+    </classpath>
+  </project>
+
+  <project id="WU/bug1941" name="WhereUsed bug1941">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug1941"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/bug1957" name="WhereUsed bug1957">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/bug1957"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/owner_method_in_inner" name="Owner's method used in inner class">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/owner_method_in_inner"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/owner_field_in_inner" name="Owner's field used in inner class">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/owner_field_in_inner"/>
+    </sourcepath>
+  </project>
+  
+  <project id="WU/another_branch" name="WhereUsed_another_branch">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/another_branch"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/method_invocations" name="WhereUsed_method_invocations">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/method_invocations"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/field" name="Where Used for fields">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/field"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/invocation_in_super_private" name="Invocation in private method of super">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/invocation_in_super_private"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/test1" name="Invocation of interface method in private method of sub">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/test1"/>
+    </sourcepath>
+  </project>
+
+  <project id="WU/test2" name="Not invocation of implementation method in private method of sub">
+    <sourcepath>
+      <pathelement path="WhereUsed/common/test2"/>
+    </sourcepath>
+  </project>
+  
+    <project id="WhereUsed_usage_on_casted_null" name="Usage on casted null">
+    <sourcepath>
+      <pathelement path="WhereUsed/usage_on_casted_null"/>
+    </sourcepath>
+  </project>
+  
+  <project id="WhereUsed_type_usage" name="WhereUsed type usage">
+    <sourcepath>
+      <pathelement path="WhereUsed/type_usage/Test.java"/>
+    </sourcepath>
+  </project>
+
+  <project id="WhereUsed_type_cast" name="WhereUsed type cast">
+    <sourcepath>
+      <pathelement path="WhereUsed/type_cast"/>
+    </sourcepath>
+  </project>
+
+  <project id="WhereUsed_sub_super" name="WhereUsed sub super">
+    <sourcepath>
+      <pathelement path="WhereUsed/sub_super"/>
+    </sourcepath>
+  </project>
+
+  <project id="WhereUsed_parameter" name="WhereUsed parameter">
+    <sourcepath>
+      <pathelement path="WhereUsed/parameter/Test.java"/>
+    </sourcepath>
+  </project>
+
+  <project id="WhereUsed_multi_selection" name="WhereUsed multi selection">
+    <sourcepath>
+      <pathelement path="WhereUsed/multi_selection/Test.java"/>
+    </sourcepath>
+  </project>
+  
+  <project id="WhereUsed_wildcards" name="Wildcards bug">
+    <sourcepath>
+      <pathelement path="WhereUsed/wildcards"/>
+    </sourcepath>
+  </project>
+  
+  <project id="WhereUsed_labels" name="Loop labels">
+    <sourcepath>
+      <pathelement path="WhereUsed/labels"/>
+    </sourcepath>
+  </project>
+<!--END WhereUsed -->
+  
+  
+  
+<!-- Metrics -->
+  <project id="NOT Metric" name="Number Of Types">
+    <sourcepath>
+      <pathelement path="Metrics/NOT"/>
+    </sourcepath>
+  </project>
+
+  <project id="CYC Metric" name="Cyclic Dependency">
+    <sourcepath>
+      <pathelement path="Metrics/CYC"/>
+    </sourcepath>
+  </project>
+
+  <project id="CC" name="Cyclomatic Complexity">
+    <sourcepath>
+      <pathelement path="Metrics/CC"/>
+    </sourcepath>
+  </project>
+
+  <project id="EXEC" name="Executable Statements">
+    <sourcepath>
+      <pathelement path="Metrics/EXEC"/>
+    </sourcepath>
+  </project>
+  
+  <project id="LOC" name="Lines of Code">
+    <sourcepath>
+      <pathelement path="Metrics/LOC"/>
+    </sourcepath>
+  </project>
+
+  <project id="RFC Metric" name="RFC Metric">
+    <sourcepath>
+      <pathelement path="Metrics/RFC"/>
+    </sourcepath>
+  </project>
+  
+  <project id="DIT" name="Depth In Tree" auto_load_test="false">
+    <sourcepath>
+      <pathelement path="Metrics/DIT"/>
+    </sourcepath>
+  </project>
+
+  <project id="NOC" name="Number Of Children">
+    <sourcepath>
+      <pathelement path="Metrics/NOC"/>
+    </sourcepath>
+  </project>
+  
+  <project id="Stability Metrics" name="Stability Metrics">
+    <sourcepath>
+      <pathelement path="Metrics/StabilityMetrics"/>
+    </sourcepath>
+  </project>
+
+  <project id="Abstractness Metric" name="Abstractness Metric">
+    <sourcepath>
+      <pathelement path="Metrics/AbstractnessMetric"/>
+    </sourcepath>
+  </project>
+<!-- END Metrics -->
+
+
+
+<!-- Audits -->
+  <project id="Audit_SingleAssignmentFinalRule" name="Audit_SingleAssignmentFinal">
+    <sourcepath>
+      <pathelement path="Audit/SingleAssignmentOfPrivateFieldInConstructor"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_LawOfDemeterRule" name="Audit_LawOfDemeter">
+    <sourcepath>
+      <pathelement path="Audit/LawOfDemeter"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_ShadingRule" name="Audit_Shading">
+    <sourcepath>
+      <pathelement path="Audit/Shading"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_RedundantUnboxingRule" name="Audit_RedundantUnboxing">
+    <sourcepath>
+      <pathelement path="Audit/RedundantUnboxing"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_RedundantBoxingRule" name="Audit_RedundantBoxing">
+    <sourcepath>
+      <pathelement path="Audit/RedundantBoxing"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_FinalLocalProposalRule" name="Audit_FinalLocalProposal">
+    <sourcepath>
+      <pathelement path="Audit/FinalLocalProposal"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_FinalMethodProposalRule" name="Audit_FinalMethodProposal">
+    <sourcepath>
+      <pathelement path="Audit/FinalMethodProposal"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_NumericLiteralsRule" name="Audit_NumericLiterals">
+    <sourcepath>
+      <pathelement path="Audit/NumericLiterals"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_ConstantFieldProposalRule" name="Audit_ConstantFieldProposal">
+    <sourcepath>
+      <pathelement path="Audit/ConstantFieldProposal"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_ModifierOrderRule" name="Audit_ModifierOrder">
+    <sourcepath>
+      <pathelement path="Audit/ModifierOrder"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_ParameterOrderRule" name="Audit_ParameterOrder">
+    <sourcepath>
+      <pathelement path="Audit/ParameterOrder"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_StringEqualComparisionRule" name="Audit_StringEqualComparision">
+    <sourcepath>
+      <pathelement path="Audit/StringEqualComparision"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_MethodCallsMethodRule" name="Audit_MethodCallsMethod">
+    <sourcepath>
+      <pathelement path="Audit/MethodCallsMethod"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_MethodBodyLengthRule" name="Audit_MethodBodyLength">
+    <sourcepath>
+      <pathelement path="Audit/MethodBodyLength"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_EqualsOnDiffTypesRule" name="Audit_EqualsOnDiffTypes">
+    <sourcepath>
+      <pathelement path="Audit/EqualsOnDiffTypes"/>
+    </sourcepath>
+  </project>
+  
+  <project id="Audit_NotSerializableSuperRule" name="Audit_NotSerializableSuper">
+    <sourcepath>
+      <pathelement path="Audit/NotSerializableSuper"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_SerialVersionUIDRule" name="Audit_SerialVersionUID">
+    <sourcepath>
+      <pathelement path="Audit/SerialVersionUID"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_IntDivFloatContextRule" name="Audit_IntDivFloatContext">
+    <sourcepath>
+      <pathelement path="Audit/IntDivFloatContext"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_EmptyBlocksAndBodiesRule" name="Audit_EmptyBlocksAndBodies">
+    <sourcepath>
+      <pathelement path="Audit/EmptyBlocksAndBodies"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_LoopConditionRule" name="Audit_LoopCondition">
+    <sourcepath>
+      <pathelement path="Audit/LoopCondition"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_StringConcatOrderRule" name="Audit_StringConcatOrder">
+    <sourcepath>
+      <pathelement path="Audit/StringConcatOrder"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_StringEqualsOrderRule" name="Audit_StringEqualsOrder">
+    <sourcepath>
+      <pathelement path="Audit/StringEqualsOrder"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_PossibleLostOverrideRule" name="Audit_PossibleLostOverride">
+    <sourcepath>
+      <pathelement path="Audit/PossibleLostOverride"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_PossibleCallNPERule" name="Audit_PossibleCallNPE">
+    <sourcepath>
+      <pathelement path="Audit/PossibleCallNPE"/>
+    </sourcepath>
+  </project>
+  
+  <project id="Audit_StaticFieldAccessorsRule" name="StaticFieldAccessors">
+    <sourcepath>
+      <pathelement path="Audit/StaticFieldAccessors"/>
+    </sourcepath>
+  </project>
+  
+  <project id="Audit_LoopCondModificationRule" name="LoopCondModification">
+    <sourcepath>
+      <pathelement path="Audit/LoopCondModification"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_UnusedLocalVariableRule" name="Audit_UnusedLocalVariable">
+    <sourcepath>
+      <pathelement path="Audit/UnusedLocalVariable"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_FloatEqualComparisionRule" name="Audit_FloatEqualComparision">
+    <sourcepath>
+      <pathelement path="Audit/FloatEqualComparision"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_AbortedFinallyRule" name="Audit_AbortedFinally">
+    <sourcepath>
+      <pathelement path="Audit/AbortedFinally"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_BooleanLiteralComparisonRule" name="Audit_BooleanLiteralComparison">
+    <sourcepath>
+      <pathelement path="Audit/BooleanLiteralComparison"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_DangerousCatchRule" name="Audit_DangerousCatch">
+    <sourcepath>
+      <pathelement path="Audit/DangerousCatch"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_EmptyStatementRule" name="Audit_EmptyStatement">
+    <sourcepath>
+      <pathelement path="Audit/EmptyStatement"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_EqualsHashcodeRule" name="Audit_EqualsHashcode">
+    <sourcepath>
+      <pathelement path="Audit/EqualsHashcode"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_ParameterAssignmentRule" name="Audit_ParameterAssignment">
+    <sourcepath>
+      <pathelement path="Audit/ParameterAssignment"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_RedundantCastRule" name="Audit_RedundantCast">
+    <sourcepath>
+      <pathelement path="Audit/RedundantCast"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_RedundantInstanceofRule" name="Audit_RedundantInstanceof">
+    <sourcepath>
+      <pathelement path="Audit/RedundantInstanceof"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_SelfAssignmentRule" name="Audit_SelfAssignment">
+    <sourcepath>
+      <pathelement path="Audit/SelfAssignment"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_MissingBlockRule" name="Audit_MissingBlock">
+    <sourcepath>
+      <pathelement path="Audit/MissingBlock"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_NonStaticReferenceRule" name="Audit_NonStaticReference">
+    <sourcepath>
+      <pathelement path="Audit/NonStaticReference"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_StringToStringRule" name="Audit_StringToString">
+    <sourcepath>
+      <pathelement path="Audit/StringToString"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_SwitchMissingDefaultRule" name="Audit_SwitchMissingDefault">
+    <sourcepath>
+      <pathelement path="Audit/SwitchMissingDefault"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_DebugCodeRule" name="Audit_DebugCode">
+    <sourcepath>
+      <pathelement path="Audit/DebugCode"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_UnusedAssignmentRule" name="Audit_UnusedAssignment">
+    <sourcepath>
+      <pathelement path="Audit/UnusedAssignment"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_StaticMethodProposalRule" name="Audit_StaticMethodProposal">
+    <sourcepath>
+      <pathelement path="Audit/StaticMethodProposal"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_RedundantThrowsRule" name="Audit_RedundantThrows">
+    <sourcepath>
+      <pathelement path="Audit/RedundantThrows"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_NestedBlockRule" name="Audit_NestedBlock">
+    <sourcepath>
+      <pathelement path="Audit/NestedBlock"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_SwitchCaseFallthroughRule" name="Audit_SwitchCaseFallthrough">
+    <sourcepath>
+      <pathelement path="Audit/SwitchCaseFallthrough"/>
+    </sourcepath>
+  </project>
+  
+  <project id="Audit_ForinRule" name="Audit_Forin">
+    <sourcepath>
+      <pathelement path="Audit/Forin"/>
+    </sourcepath>
+  </project>
+  
+  <project id="Audit_MinimizeAccessRule" name="Audit_MinimizeAccess">
+    <sourcepath>
+      <pathelement path="Audit/MinimizeAccess"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_ForLoopConditionOptimizer" name="Audit_ForLoopConditionOptimizer">
+    <sourcepath>
+      <pathelement path="Audit/ForLoopConditionOptimizer"/>
+    </sourcepath>
+  </project>
+  
+  <project id="Audit_DangerousIteratorUsageRule" name="Audit_DangerousIterator">
+    <sourcepath>
+      <pathelement path="Audit/DangerousIteratorUsage"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_EarlyDeclarationRule" name="Audit_EarlyDeclaration">
+    <sourcepath>
+      <pathelement path="Audit/EarlyDeclaration"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_NullParametersRule" name="Audit_NullParameters">
+    <sourcepath>
+      <pathelement path="Audit/NullParameters"/>
+    </sourcepath>
+  </project>
+
+  <project id="Audit_DuplicateStringsRule" name="Audit_DuplicateStrings">
+    <sourcepath>
+      <pathelement path="Audit/DuplicateStrings"/>
+    </sourcepath>
+  </project>
+<!-- END Audits -->
+
+</projects>

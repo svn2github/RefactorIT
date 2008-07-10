@@ -1,0 +1,4 @@
+T15951s5.java
+
+ An anonymous class may access
+        a private superconstructor within the same enclosing class 

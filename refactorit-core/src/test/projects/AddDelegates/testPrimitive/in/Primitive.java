@@ -1,0 +1,4 @@
+
+class Primitive {
+  int pField;
+}

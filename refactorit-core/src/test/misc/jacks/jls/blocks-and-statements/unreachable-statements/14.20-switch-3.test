@@ -1,0 +1,4 @@
+T1420switch3.java
+
+ A switch statement can complete normally if:
+        The switch block is empty or contains only switch labels. 

@@ -1,0 +1,4 @@
+AccessPublicClassInPackage.java
+.
+A class declared public is accessible from outside the package
+        when the .java source is loaded from the CLASSPATH

@@ -1,0 +1,4 @@
+InheritEmptyAbstractClass.java
+
+ It should be possible to inherit from an abstract class
+        that defines no abstract methods, the subclass does not need to be abstract 

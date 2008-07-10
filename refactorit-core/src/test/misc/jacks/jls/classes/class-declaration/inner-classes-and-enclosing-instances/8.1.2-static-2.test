@@ -1,0 +1,4 @@
+T812s2.java
+
+ Static variables inside inner class must be
+        compile-time constant 

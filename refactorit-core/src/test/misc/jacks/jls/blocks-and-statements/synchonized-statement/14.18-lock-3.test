@@ -1,0 +1,5 @@
+T1418l3.java
+
+ A single thread may lock the same object
+        multiple times (in a synchronized static method, <name>.class is
+        locked)

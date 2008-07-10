@@ -1,0 +1,5 @@
+T1627s2.java
+
+ A final variable in
+        one scope should not effect a final variable
+        in the enclosing scope 

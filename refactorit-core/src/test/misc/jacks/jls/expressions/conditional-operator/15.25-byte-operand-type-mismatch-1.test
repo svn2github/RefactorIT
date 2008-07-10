@@ -1,0 +1,6 @@
+T1525botm1.java
+
+ if one operand is of
+        type byte and the other is a constant expression of type int
+        whose value is representable as a byte, then the type of the
+        conditional expression is byte 

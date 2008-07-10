@@ -32,7 +32,7 @@ public final class ClasspathUtil {
     // Selected J2SE 5.0 classes to run appropriate tests
     if (IDEController.runningTest()) {
       result = addPaths(result, Utils.getTestFileDirectory().getAbsolutePath()
-          + File.separatorChar + "jdk15"
+          + File.separatorChar + "misc" + File.separatorChar + "jdk15"
           + File.separatorChar + "classes" + File.separatorChar);
     }
 

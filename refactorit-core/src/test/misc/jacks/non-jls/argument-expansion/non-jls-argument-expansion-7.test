@@ -1,0 +1,4 @@
+
+
+ Spaces in a @ argument file
+        should not cause the compile to fail 

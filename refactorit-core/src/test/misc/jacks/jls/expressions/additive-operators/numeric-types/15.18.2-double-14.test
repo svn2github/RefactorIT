@@ -1,0 +1,4 @@
+T15182d14.java
+
+ Floating-point addition takes place with
+        infinite accuracy, then rounds to nearest 

@@ -1,0 +1,3 @@
+AccessPublicInterfaceInPackage.java,pkg/PublicInterface.java
+
+An interface declared public is accessible from outside the package

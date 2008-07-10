@@ -1,0 +1,4 @@
+T512ltf3.java
+
+ long to float conversion rounds up to nearest if
+        remainder > .5

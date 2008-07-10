@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FIXME: A help file called "working_sample" is based on this one: 
+  remove duplication between them; the help file is not executable directly,
+  but this one is, that's why we need this one; perhaps the scripts should
+  execute the help file directly? perhaps copy it here before executing it? -->
+<project basedir="." default="metrics-in-current-folder" name="help-example">
+
+    <!-- RefactorIT home and license file location: *modify these* -->
+    <property name="refactorit.home" value="${basedir}/../../../../build/dist"/>
+    <property name="refactorit.license" value="${basedir}/../../../refactorit.license"/>
+
+    <!-- Defines the RefactorIT task -->
+    <taskdef name="RefactorIT" classname="com.xpdev.refactory.ant.RefactorIt">
+        <classpath>
+            <fileset dir="${refactorit.home}" includes="**/*.jar"/>
+        </classpath>
+    </taskdef>
+    
+    <!-- Sample usage -->
+    <target name="metrics-in-current-folder">
+        <RefactorIT
+            action="metrics"
+            sourcepath="."
+            classpath="."
+            output="${basedir}/output.csv"
+            format="comma-separated"
+            license="${refactorit.license}"
+            />
+    </target>
+  
+    <target name="metrics-in-current-folder-nested-tags">
+        <RefactorIT action="metrics" 
+                output="${basedir}/output.csv" format="comma-separated"
+                license="${refactorit.license}">
+            
+            <sourcepath>
+                <pathelement path="."/>
+            </sourcepath>
+            
+            <classpath>
+                <fileset dir=".">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            
+        </RefactorIT>
+    </target>
+</project>

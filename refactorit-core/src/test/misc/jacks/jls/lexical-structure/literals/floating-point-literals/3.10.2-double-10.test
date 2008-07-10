@@ -1,0 +1,4 @@
+T3102d10.java
+
+ the compiler should correctly
+        round denormalized literals 

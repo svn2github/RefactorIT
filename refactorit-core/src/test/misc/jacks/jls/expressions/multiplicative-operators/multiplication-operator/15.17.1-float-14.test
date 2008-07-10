@@ -1,0 +1,4 @@
+T15171f14.java
+
+ Floating-point * follows round-to-nearest,
+        even with denorms 

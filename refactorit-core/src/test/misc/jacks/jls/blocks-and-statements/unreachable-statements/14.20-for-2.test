@@ -1,0 +1,4 @@
+T1420for2.java
+
+ A for statement can complete normally if:
+        There is a reachable break statement that exits the for statement. 

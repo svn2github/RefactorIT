@@ -1,0 +1,5 @@
+T1525otm3.java
+
+ binary numeric promotion
+        is applied to mismatches primitive operand types if no
+        special cases apply 

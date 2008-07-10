@@ -1,0 +1,4 @@
+T1420switch5.java
+
+ A switch statement can complete normally if:
+        The switch block does not contain a default label. 

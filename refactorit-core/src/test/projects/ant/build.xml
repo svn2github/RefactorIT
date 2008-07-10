@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FIXME: here I am using my own hacks to do the testing; 
+  later I discovered that Ant has better mechanisms, so perhaps
+  some day we should convert to use these... See for example:
+  http://ant.apache.org/manual-1.6beta/tutorial-writing-tasks.html
+  -->
+<project name="RefactorIT Ant task tests" basedir="." default="alltests">
+  <property name="test.expected.file" value="${basedir}/expected.html"/>
+    
+  <property name="metrics.tests" value="${basedir}/../Metrics/testBug1604"/>
+
+  <path id="ant.task.classpath">
+    <fileset dir="${dist.dir}" includes="**/*.jar"/>
+  </path>
+  
+  <taskdef name="assert" classname="test.xpdev.refactory.ant.Assertions">
+    <classpath refid="ant.task.classpath"/></taskdef>
+  <taskdef name="RefactorIT" classname="com.xpdev.refactory.ant.RefactorIt">
+    <classpath refid="ant.task.classpath"/></taskdef>
+
+  <target name="alltests">
+    <antcall target="test-sourcepath"/>
+    <antcall target="test-classpath"/>
+    <antcall target="test-all-options"/>
+    <antcall target="action-parsing"/>
+    
+    <antcall target="exec"/>
+    <antcall target="error-on-exec"/>
+    
+    <antcall target="nested-classpath-tag"/>
+    <antcall target="nested-classpath-tag-multiple"/>
+    <antcall target="nested-classpath-tag-and-parameter"/>
+    <antcall target="nested-classpath-tag-with-location"/>
+    <antcall target="nested-classpath-tag-simple"/>
+    <antcall target="nested-classpath-tag-filelist"/>
+    <antcall target="test-classpathref"/>
+    
+    <antcall target="test-nested-sourcepath"/>
+    <antcall target="test-sourcepathref"/>
+    <antcall target="help-examples"/>
+    <antcall target="help-examples2"/>
+  </target>
+  
+  <target name="test-sourcepath">
+    <assert testee="sourcepath"
+      expectedFirst="${src.dir}" expectedSecond="${lib.dir}"
+      sourcepath="${src.dir};${lib.dir}"/>
+  
+    <path id="p">
+      <pathelement path="${src.dir}"/>
+      <pathelement path="${lib.dir}"/>
+    </path>
+    <pathconvert refid="p" pathsep=";" property="convertedPath"/>
+    <assert testee="sourcepath" 
+      expectedFirst="${src.dir}" expectedSecond="${lib.dir}"
+      sourcepath="${convertedPath}"/>
+  </target>
+  
+  <target name="test-classpath">
+    <assert testee="classpath"
+      expectedFirst="${src.dir}" expectedSecond="${lib.dir}"
+      classpath="${src.dir};${lib.dir}"/>
+  </target>
+  
+  <target name="test-all-options">
+    <assert testee="all-options"
+      license="license"
+      format="html"
+      profile="profile"
+      output="output"
+      action="metrics" />
+  </target>
+  
+  <target name="action-parsing">
+    <assert testee="action-parsing"/>
+  </target>
+
+  <target name="exec">
+    <!-- Let's run this twice to see if some resources are messed up on re-init -->
+  
+    <antcall target="exec-once"/>
+    <antcall target="exec-once"/>
+  </target>
+    
+  <target name="exec-once">
+    <tempfile property="test.output.file" prefix="metrics_" suffix=".html"
+        destdir="${java.io.tmpdir}"/>
+  
+    <RefactorIT
+        sourcepath="${metrics.tests}/in"
+        classpath="${metrics.tests}/in"
+        format="html"
+        output="${test.output.file}"
+        license="${basedir}/../../refactorit.license"
+        action="metrics"/>
+    
+    <assert testee="assert-same-file-contents"
+        expected="${test.expected.file}" got="${test.output.file}"/>
+  </target>
+  
+  <target name="error-on-exec">
+    <assert testee="error-on-exec"/>
+  </target>
+  
+  <target name="nested-classpath-tag">
+    <assert testee="classpath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}">
+      <classpath>
+        <pathelement path="${lib.dir}"/>
+        <pathelement path="${etc.dir}"/>
+      </classpath>
+    </assert>
+  </target>
+  
+  <target name="nested-classpath-tag-multiple">
+    <assert testee="classpath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}">
+      <classpath>
+        <pathelement path="${lib.dir}"/>
+      </classpath>
+      <classpath>
+        <pathelement path="${etc.dir}"/>
+      </classpath>
+    </assert>
+  </target>
+  
+  <target name="nested-classpath-tag-and-parameter">
+    <assert testee="classpath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}"
+        classpath="${etc.dir}">
+      <classpath>
+        <pathelement path="${lib.dir}"/>
+      </classpath>
+    </assert>
+  </target>
+  
+  <target name="nested-classpath-tag-with-location">
+    <assert testee="classpath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}">
+      <classpath>
+        <pathelement path="${lib.dir}"/>
+        <pathelement location="${etc.dir}"/>
+      </classpath>
+    </assert>
+  </target>
+  
+  <target name="nested-classpath-tag-simple">
+    <assert testee="classpath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}">
+      <classpath path="${lib.dir};${etc.dir}"/>
+    </assert>
+  </target>
+  
+  <target name="nested-classpath-tag-filelist">
+    <filelist id="lib-dir" dir="${lib.dir}" files="a,b"/>
+  
+    <assert testee="classpath" expectedFirst="${lib.dir}/a" expectedSecond="${lib.dir}/b">
+      <classpath>
+        <filelist refid="lib-dir"/>
+      </classpath>
+    </assert>
+  </target>
+  
+  <target name="test-classpathref">
+    <path id="p">
+      <pathelement path="${lib.dir}/"/>
+      <pathelement path="${etc.dir}/"/>
+    </path>
+  
+    <assert testee="classpath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}"
+        classpathref="p"/>
+  </target>
+  
+  <target name="test-nested-sourcepath">
+    <assert testee="sourcepath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}">
+      <sourcepath>
+        <pathelement path="${lib.dir}"/>
+        <pathelement path="${etc.dir}"/>
+      </sourcepath>
+    </assert>
+  </target>
+  
+  <target name="test-sourcepathref">
+    <path id="p">
+      <pathelement path="${lib.dir}/"/>
+      <pathelement path="${etc.dir}/"/>
+    </path>
+  
+    <assert testee="sourcepath" expectedFirst="${lib.dir}" expectedSecond="${etc.dir}"
+        sourcepathref="p"/>
+  </target>
+  
+  <target name="help-examples">
+    <ant dir="${basedir}/helpexample" target="metrics-in-current-folder"/>
+    
+    <!-- assert that the output file exists -->
+    <loadfile property="a" srcFile="helpexample/output.csv"/>
+    
+    <delete file="helpexample/output.csv"/>
+  </target>
+  
+  <target name="help-examples2">
+    <ant dir="${basedir}/helpexample" target="metrics-in-current-folder-nested-tags"/>
+    
+    <!-- assert that the output file exists -->
+    <loadfile property="a" srcFile="helpexample/output.csv"/>
+    
+    <delete file="helpexample/output.csv"/>
+  </target>
+</project>

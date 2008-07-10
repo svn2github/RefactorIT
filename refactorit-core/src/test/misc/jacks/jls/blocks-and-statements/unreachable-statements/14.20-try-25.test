@@ -1,0 +1,5 @@
+T1420try25.java
+
+ A try statement can complete normally iff both:
+        The try block can complete normally or any catch block can complete normally.
+        The finally block, if present, can complete normally. 

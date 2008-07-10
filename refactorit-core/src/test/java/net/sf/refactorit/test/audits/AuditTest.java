@@ -8,8 +8,6 @@
  */
 package net.sf.refactorit.test.audits;
 
-
-
 import net.sf.refactorit.audit.AuditRule;
 import net.sf.refactorit.audit.AwkwardSourceConstruct;
 import net.sf.refactorit.audit.RuleViolation;
@@ -28,10 +26,8 @@ import net.sf.refactorit.refactorings.javadoc.Javadoc;
 import net.sf.refactorit.test.Utils;
 import net.sf.refactorit.test.loader.ProjectLoadTest;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import junit.framework.TestCase;
 
@@ -40,8 +36,6 @@ import junit.framework.TestCase;
  * @author Villu Ruusmann
  */
 public final class AuditTest extends TestCase {
-  private Map map = new HashMap();
-
   private int oldJvmMode;
 
   // TODO reimplement
@@ -55,6 +49,7 @@ public final class AuditTest extends TestCase {
 
   protected void setUp() throws Exception {
     super.setUp();
+
     if (rule instanceof J2Se5AuditRule) {
       oldJvmMode = Project.getDefaultOptions().getJvmMode();
       Project.getDefaultOptions().setJvmMode(FastJavaLexer.JVM_50);
@@ -63,13 +58,14 @@ public final class AuditTest extends TestCase {
 
   protected void tearDown() throws Exception {
     super.tearDown();
+
     if (rule instanceof J2Se5AuditRule) {
       Project.getDefaultOptions().setJvmMode(oldJvmMode);
     }
   }
 
 
-  public final void testAudit() {
+  public final void testAudit() throws Exception {
     try {
       // Create project for testing the current audit
       Project project = createProject(rule.getClass());
@@ -92,6 +88,7 @@ public final class AuditTest extends TestCase {
         rule.clearViolations();
         supervisor.visit(cu);
         rule.postProcess();
+
         List violations = rule.getViolations();
         
         Iterator iter = violations.iterator();
@@ -134,30 +131,35 @@ public final class AuditTest extends TestCase {
           }
 
           success = false;
+
           // Remove matching tag
           List tags = auditTags.get(comment);
           Iterator ti = tags.iterator();
           while (ti.hasNext()) {
             Javadoc.Tag tag = (Javadoc.Tag) ti.next();
+
             if (linkText.equals(tag.getLinkName())) {
               ti.remove();
               success = true;
               break;
             }
           }
-          assertTrue("Couldn't find '"+linkText+"' in @audit tag" +
+
+          assertTrue("Couldn't find '" + linkText + "' in @audit tag" +
               " for " + violation +
               "(test file: " + violation.getCompilationUnit().getName() +
               ", line " + violation.getLine() + ")", success);
         }
         
         // All @audit tags must have been consumed
-        if(!auditTags.isEmpty()) {
-          for(Iterator ci = auditTags.keySet().iterator(); ci.hasNext();) {
-            Comment c = (Comment)ci.next();
+        if (!auditTags.isEmpty()) {
+          for (Iterator ci = auditTags.keySet().iterator(); ci.hasNext();) {
+            Comment c = (Comment) ci.next();
+
             List cTags = auditTags.get(c);
-            for(int i=0; i<cTags.size(); i++) {
-              Javadoc.Tag tag = (Javadoc.Tag)cTags.get(i);
+            for (int i = 0; i < cTags.size(); i++) {
+              Javadoc.Tag tag = (Javadoc.Tag) cTags.get(i);
+
               assertTrue("No violation for @audit " + tag.getLinkName() 
                   + " tag (" + c.getStartLine() +":" +c.getStartColumn() + " - " 
                   + c.getEndLine() + ":" + c.getEndColumn()+ ")  '" 
@@ -167,29 +169,34 @@ public final class AuditTest extends TestCase {
           }  
         }
       }
+
       rule.finishedRun();
     } catch (Exception e) {
-      e.printStackTrace(System.out);
-
-      fail(rule.getClass().getName() + ": " + e.toString());
+      throw new Error("Rule: " + rule.getClass().getName(), e);
     }
+
     rule.setTestRun(false);
   }
   
   private final MultiValueMap findAuditTags(CompilationUnit cu) {
-    List comments = cu.getJavadocComments();
     MultiValueMap result = new MultiValueMap();
-    for(Iterator it = comments.iterator(); it.hasNext();) {
-      JavadocComment c = (JavadocComment)it.next();
+
+    List comments = cu.getJavadocComments();
+    for (Iterator it = comments.iterator(); it.hasNext();) {
+      JavadocComment c = (JavadocComment) it.next();
+
       Javadoc javadoc = Javadoc.createJavadocInstance(JavadocComment.AUDIT_TAG, c, 0);
+
       List tags = javadoc.getStandaloneTags();
-      for(int i=0; i<tags.size(); i++) {
+      for (int i = 0; i < tags.size(); i++) {
         Javadoc.Tag tag = (Javadoc.Tag) tags.get(i);
-        if(tag.getName().equals("audit")) {
+
+        if (tag.getName().equals("audit")) {
           result.put(c, tag);
         }
       }
     }
+
     return result;
   }
   
@@ -358,15 +365,12 @@ public final class AuditTest extends TestCase {
     return result;
   }
 
-  private Map getMap() {
-    return this.map;
-  }
-
   /** 
    * If violation has CorrectiveActions, then it should also have target item
    */
   private void performTargetItemPresenceTest(RuleViolation violation) {
     assertNotNull(violation.getCorrectiveActions());
+
     if (violation.getCorrectiveActions().size() > 0){
       assertNotNull(
           "Violation that has corrective actions should have target item" +

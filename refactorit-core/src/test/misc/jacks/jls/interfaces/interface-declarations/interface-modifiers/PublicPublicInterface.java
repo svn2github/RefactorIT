@@ -1,0 +1,1 @@
+public public interface PublicPublicInterface {}

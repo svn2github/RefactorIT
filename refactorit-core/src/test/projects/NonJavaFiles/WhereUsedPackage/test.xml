@@ -1,0 +1,18 @@
+<test>
+    <form-beans>
+       <form-bean name="testForm" type="com.acme.Test"/>
+    </form-beans>
+
+    <form-beans>
+       <form-bean name="testForm2" type="com.acme.subpackage.Test"/>
+    </form-beans>
+
+    <form-beans>
+       <form-bean name="testForm2" type="com.acme
+		.Test"
+    </form-beans>
+
+    <test>
+       <package id="test2" type="com.acme.*"/>
+    </test>
+</test>

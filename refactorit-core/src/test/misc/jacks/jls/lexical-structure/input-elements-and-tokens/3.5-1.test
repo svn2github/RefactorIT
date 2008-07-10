@@ -1,0 +1,4 @@
+T351.java
+
+ The input sequence CRCR (0x0d0d) should be treated as two
+        line terminators with an empty collection of input elements between them.

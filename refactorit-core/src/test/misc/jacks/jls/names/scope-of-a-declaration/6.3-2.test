@@ -1,0 +1,3 @@
+LegalForwardReference.java
+
+ forward reference to a field outside of an initializer is legal 

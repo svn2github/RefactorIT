@@ -1,0 +1,6 @@
+T887d1.java
+
+ If a class
+        contains no constructor declarations,
+        then a default constructor that takes
+        no parameters is automatically provided 

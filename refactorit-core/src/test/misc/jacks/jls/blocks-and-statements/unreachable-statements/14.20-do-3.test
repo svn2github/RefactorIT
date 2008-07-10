@@ -1,0 +1,5 @@
+T1420do3.java
+
+ A do statement can complete normally if:
+        The do statement contains a reachable labeled continue statement
+        for the do, with condition not constant true 

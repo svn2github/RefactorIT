@@ -1,0 +1,1 @@
+synchronized interface SynchronizedInterface {}

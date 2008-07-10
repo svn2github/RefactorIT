@@ -1,0 +1,5 @@
+T1528csn2.java
+
+ a final variable initialized
+        by a constant expression and then cast to a primitive is a
+        constant expression 

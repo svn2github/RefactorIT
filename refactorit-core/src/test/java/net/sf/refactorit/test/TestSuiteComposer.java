@@ -51,17 +51,29 @@ public class TestSuiteComposer {
    */
   public static Test suite() throws Exception {
     try {
+      // Cleanup or create tmp drectory if separate dir is configured
+      final String tmp = System.getProperty("java.io.tmpdir");
+      if (tmp != null && tmp.length() > 0) {
+        File file = new File(tmp);
+        if (file.exists()) {
+          delete(file);
+        }
+
+        file.mkdir();
+      }
+
       Utils.setUpTestingEnvironment();
 
       // disable not needed logging stuff
-      PropertyConfigurator.configure("reportLog4j.properties");
-      
+      PropertyConfigurator.configure("../src/test/reportLog4j.properties");
+
       final String rootSuiteClassName
           = System.getProperty("junit.rootsuite.class");
 
       // Get root suite class, invoke static Test suite() on it.
       // Make returned test suite root test suite.
       final Class rootSuiteClass = Class.forName(rootSuiteClassName);
+
       // static Test suite()
       final Method suiteMethod
           = rootSuiteClass.getMethod("suite", new Class[0]);
@@ -71,6 +83,17 @@ public class TestSuiteComposer {
       e.printStackTrace(System.err);
       return null;
     }
+  }
+
+  private static void delete(File file) {
+    if (file.isDirectory()) {
+      File[] children = file.listFiles();
+      for (int i = 0; i < children.length; i++) {
+        delete(children[i]);
+      }
+    }
+
+    file.delete();
   }
 }
 

@@ -1,0 +1,1 @@
+package renametoexisting; class A{}

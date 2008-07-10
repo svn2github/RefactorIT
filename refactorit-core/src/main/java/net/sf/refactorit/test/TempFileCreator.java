@@ -22,20 +22,16 @@ import java.util.List;
 
 
 public abstract class TempFileCreator {
-
-
   public static class TestSourcePath extends AbstractSourcePath {
-    /**
-     * @see net.sf.refactorit.vfs.SourcePath#getNonJavaSources(net.sf.refactorit.common.util.WildcardPattern[])
-     */
     public List getNonJavaSources(WildcardPattern[] patterns) {
-      List sources=getAllSources();
-      List result=new ArrayList();
+      List sources = getAllSources();
+      List result = new ArrayList();
+
       for (int i = 0; i < sources.size(); ++i) {
         Source element = (Source) sources.get(i);
 
         for (int j = 0; j < patterns.length; j++) {
-          if ( patterns[j].matches(element.getName())) {
+          if (patterns[j].matches(element.getName())) {
             result.add(element);
             break;
           }
@@ -44,11 +40,13 @@ public abstract class TempFileCreator {
 
       return result;
     }
+
     private final Source root;
+
     public TestSourcePath(Source root) {
-      super();
       this.root = root;
     }
+
     public Source[] getRootSources() {
       return new Source[] {root};
     }
@@ -60,15 +58,15 @@ public abstract class TempFileCreator {
     public List getAllSources() {
       ArrayList result = new ArrayList();
 
-      iterateDirectory(root,result,null);
+      iterateDirectory(root, result, null);
 
       return result;
     }
+
     public FileChangeMonitor getFileChangeMonitor() {
       return null;
     }
   }
-
 
   private static TempFileCreator instance = new LocalTempFileCreator();
 
@@ -92,18 +90,15 @@ public abstract class TempFileCreator {
 
   public abstract SourcePath createSourcePath(Source root) throws SystemException;
 
-
   public static class TempNameGenerator {
     private static long count = System.currentTimeMillis();
 
     public static String createDir() {
       return tempDirPrefix + (++count) + tempDirSuffix;
     }
+
     public static String createFile() {
       return tempFilePrefix + (++count) + tempFileSuffix;
-
     }
   }
-
-
 }

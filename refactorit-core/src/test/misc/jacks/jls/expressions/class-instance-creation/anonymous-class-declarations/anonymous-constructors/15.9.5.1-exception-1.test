@@ -1,0 +1,4 @@
+T15951e1.java
+
+ An anonymous class constructor legally
+        throws whatever exception the superconstructor does 

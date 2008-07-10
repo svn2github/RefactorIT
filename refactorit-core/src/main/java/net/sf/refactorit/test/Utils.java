@@ -1,14 +1,12 @@
 /*
  * Copyright 2001-2008 Aqris Software AS. All rights reserved.
- * 
+ *
  * This program is dual-licensed under both the Common Development
  * and Distribution License ("CDDL") and the GNU General Public
  * License ("GPL"). You may elect to use one or the other of these
  * licenses.
  */
 package net.sf.refactorit.test;
-
-
 
 import net.sf.refactorit.classmodel.BinCIType;
 import net.sf.refactorit.classmodel.BinCITypeRef;
@@ -100,24 +98,11 @@ public class Utils {
       return testFileDir;
     }
 
-    File test = new File("../test");
+    File test = new File("../src/test");
     if (test.exists()) {
-      if (!test.isDirectory()) {
-        throw new IllegalStateException(
-            "Test projects are not configured properly");
+      if (test.isDirectory()) {
+        return testFileDir = test;
       }
-
-      return testFileDir = test;
-    }
-
-    test = new File("test");
-    if (test.exists()) {
-      if (!test.isDirectory()) {
-        throw new IllegalStateException(
-            "Test projects are not configured properly");
-      }
-
-      return testFileDir = test;
     }
 
     throw new IllegalStateException(
@@ -125,7 +110,7 @@ public class Utils {
   }
 
   public static void setUpTestingEnvironment() {
-    if ( initialized ) {
+    if (initialized) {
       return;
     }
 
@@ -133,10 +118,12 @@ public class Utils {
     GlobalOptions.setOption("misc.verbose", "false");
 
     DialogManager.setInstance(new NullDialogManager());
+
     new NullController();
+
     AppRegistry.getLogger(Utils.class).debug("setting up testing environment");
 
-    initialized=true;
+    initialized = true;
   }
 
   /**
@@ -325,14 +312,13 @@ public class Utils {
 
     Source result = folder.createNewFile(fileName);
 
-    if (trans != null && result !=null) {
+    if (trans != null && result != null) {
       trans.addEdit(undo);
     }
 
-
     if (result == null) {
-      throw new RuntimeException("Unable to create a new file called "
-          + result.getAbsolutePath());
+      throw new RuntimeException(
+          "Unable to create a new file called " + fileName);
     }
 
     return result;
@@ -496,10 +482,11 @@ public class Utils {
     return result;
   }
 
-  /** Example: createTestRbProject( "bug107" ); */
-  public static Project createTestRbProject(String sourcePathFolderName) throws
-      Exception {
+  /** Example: createTestRbProject("bug107"); */
+  public static Project createTestRbProject(String sourcePathFolderName)
+  throws Exception {
     List sourcePaths = new ArrayList(1);
+
     StringTokenizer tokens = new StringTokenizer(sourcePathFolderName, ";");
     while (tokens.hasMoreTokens()) {
       sourcePaths.add(tokens.nextToken());
@@ -521,7 +508,7 @@ public class Utils {
 
     return createTestRbProject(
         new ProjectMetadata(sourcePathFolderName, sourcePathFolderName,
-        null, sourcePaths, classPaths, null, false));
+            null, sourcePaths, classPaths, null, false));
   }
 
   /**

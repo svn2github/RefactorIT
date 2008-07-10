@@ -1,0 +1,4 @@
+T3510.java
+
+  The ASCII SUB character (0x1a) should be ignored if it is
+        the last character in the escaped stream. 

@@ -1,6 +1,6 @@
 /*
  * Copyright 2001-2008 Aqris Software AS. All rights reserved.
- * 
+ *
  * This program is dual-licensed under both the Common Development
  * and Distribution License ("CDDL") and the GNU General Public
  * License ("GPL"). You may elect to use one or the other of these
@@ -43,7 +43,7 @@ public class JacksTest {
     final TestSuite suite = new TestSuite("Jacks compiler tests");
 
     final Test jacksTests =
-        JacksTest.suite(new File(Utils.getTestFileDirectory(), "jacks"));
+        JacksTest.suite(new File(Utils.getTestFileDirectory(), "misc/jacks"));
     if (jacksTests != null) {
       suite.addTest(jacksTests);
     }

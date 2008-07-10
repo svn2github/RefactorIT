@@ -1,0 +1,4 @@
+T1420for1.java
+
+ A for statement can complete normally if:
+        The condition statement exists and is non-constant 

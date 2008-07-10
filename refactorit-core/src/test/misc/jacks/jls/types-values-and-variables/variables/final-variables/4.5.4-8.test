@@ -1,0 +1,4 @@
+T4548.java
+
+ a final variable can reference an array, the
+        elements of the array can be modified 

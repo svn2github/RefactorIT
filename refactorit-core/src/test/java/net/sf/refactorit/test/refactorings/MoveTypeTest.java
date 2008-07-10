@@ -1,6 +1,6 @@
 /*
  * Copyright 2001-2008 Aqris Software AS. All rights reserved.
- * 
+ *
  * This program is dual-licensed under both the Common Development
  * and Distribution License ("CDDL") and the GNU General Public
  * License ("GPL"). You may elect to use one or the other of these
@@ -2655,7 +2655,7 @@ public final class MoveTypeTest extends RefactoringTestCase {
         .createTestRbProjectFromString(new Utils.TempCompilationUnit[] {
             new Utils.TempCompilationUnit(
                 "package net.sf.refactorit.loader;\n"
-                    + "import net.sf.refactorit.classmodel.LocationAware;\n"
+                    + "import net.sf.refactorit.LocationAware;\n"
                     + "public class Comment implements LocationAware {}",
                 "Comment.java", null),
             new Utils.TempCompilationUnit("package net.sf.refactorit;\n"

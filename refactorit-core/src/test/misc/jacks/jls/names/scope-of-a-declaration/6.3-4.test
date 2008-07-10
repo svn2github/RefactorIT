@@ -1,0 +1,4 @@
+GlobalOne.java,GlobalTwo.java
+
+ the scope of a class includes every known member of
+        the package, so we should be able to make a forward ref 

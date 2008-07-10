@@ -1,0 +1,5 @@
+T52sn1.java
+
+ Assignment conversion may narrow if
+        a constant expression of type short is assigned to a variable
+        of type byte 

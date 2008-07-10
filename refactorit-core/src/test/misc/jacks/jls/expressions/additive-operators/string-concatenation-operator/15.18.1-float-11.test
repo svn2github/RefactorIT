@@ -1,0 +1,4 @@
+T15181f11.java
+
+ conversion of float to String prints the
+        closest decimal string to the exact value, even on denorms 

@@ -1,0 +1,4 @@
+ArrayIsObject.java
+
+ An array object should be able to access methods
+        defined in the java.lang.Object class 

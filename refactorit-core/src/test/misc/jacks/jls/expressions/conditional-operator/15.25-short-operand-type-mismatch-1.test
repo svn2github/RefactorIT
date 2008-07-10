@@ -1,0 +1,5 @@
+T1525sotm1.java
+
+ if one operand is of
+        type byte and the other is of type short, then the type of the
+        conditional expression is short 

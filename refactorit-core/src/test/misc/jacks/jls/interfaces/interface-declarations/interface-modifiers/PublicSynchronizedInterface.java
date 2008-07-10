@@ -1,0 +1,1 @@
+public synchronized interface PublicSynchronizedInterface {}

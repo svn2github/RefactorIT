@@ -1,0 +1,4 @@
+ClassInDefaultPackage.java,ClassInDefaultPackage_ImportFromGlobal.java
+
+Extend a public class in the
+    default package with a class in another package

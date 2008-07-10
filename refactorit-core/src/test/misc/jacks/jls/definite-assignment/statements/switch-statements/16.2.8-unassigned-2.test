@@ -1,0 +1,5 @@
+T1628u2.java
+
+ A variable that is not definitely assigned
+        before entering the switch must be definitely assigned in each switch
+        block if it is to be definitely assigned after the switch block 

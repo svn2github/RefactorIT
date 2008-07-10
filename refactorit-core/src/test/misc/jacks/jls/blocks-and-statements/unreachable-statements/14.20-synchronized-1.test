@@ -1,0 +1,4 @@
+T1420synch1.java
+
+ synchronized completes normally iff the
+        contained block does as well 

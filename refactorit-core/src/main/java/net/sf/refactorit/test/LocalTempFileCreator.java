@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.test;
 
-
 import net.sf.refactorit.common.exception.SystemException;
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.common.util.FileCopier;
@@ -24,36 +23,45 @@ import java.io.IOException;
 
 public class LocalTempFileCreator extends TempFileCreator {
   public Source createRootFile() throws SystemException {
-    File result;
     try {
-      result = File.createTempFile(tempFilePrefix, tempFileSuffix);
+      return new LocalSource(
+          File.createTempFile(tempFilePrefix, tempFileSuffix));
     } catch (IOException e) {
-      AppRegistry.getExceptionLogger().error(e,this);
-      throw new SystemException(ErrorCodes.INTERNAL_ERROR,e);
+      AppRegistry.getExceptionLogger().error(e, this);
+
+      throw new SystemException(ErrorCodes.INTERNAL_ERROR, e);
     }
-    return new LocalSource(result);
   }
 
   public Source createRootDirectory() {
     // Create a temporary directory where sources will be copied to
+    final File directory = createTempDirectory(tempDirPrefix, tempDirSuffix);
+
+    return new LocalSource(directory);
+  }
+
+  public static File createTempDirectory(final String tempDirPrefix,
+      final String tempDirSuffix) {
     final File directory;
     try {
       directory = File.createTempFile(tempDirPrefix, tempDirSuffix);
     } catch (IOException e) {
       throw new SystemException(ErrorCodes.INTERNAL_ERROR,e);
     }
+
     if (!FileCopier.delete(directory)) {
       directory.deleteOnExit();
-      throw new SystemException("Failed to delete temporary directory "
-          + directory);
+
+      throw new SystemException(
+          "Failed to delete temporary directory " + directory);
     }
 
     if (!directory.mkdir()) {
-      throw new SystemException(ErrorCodes.INTERNAL_ERROR ,"Failed to create temporary directory "
-          + directory);
+      throw new SystemException(ErrorCodes.INTERNAL_ERROR,
+          "Failed to create temporary directory " + directory);
     }
 
-    return new LocalSource(directory);
+    return directory;
   }
 
   public SourcePath createSourcePath(Source root) {

@@ -1,0 +1,5 @@
+T1420catch19.java
+
+ A catch block C is reachable iff both:
+        Some reachable expression or throw statement throws assignable exception.
+        No earlier catch block covers type C or superclass. 

@@ -1,0 +1,5 @@
+#Tue Nov 16 14:17:43 EET 2004
+classpath=C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\charsets.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\jce.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\jsse.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\plugin.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\rt.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\sunrsasign.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\ext\\dnsns.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\ext\\ldapsec.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\ext\\localedata.jar;C\:\\Program Files\\Java\\j2re1.4.2_05\\lib\\ext\\sunjce_provider.jar;
+autodetectpath=false
+sourcepath=C\:\\workdir\\refactoring\\test\\projects\\bingo-example;
+ignored_sourcepath=

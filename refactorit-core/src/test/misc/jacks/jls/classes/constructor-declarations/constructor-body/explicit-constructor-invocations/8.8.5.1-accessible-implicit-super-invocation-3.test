@@ -1,0 +1,5 @@
+T8851aisi3.java
+
+
+        An implicit constructor for an inner class can gain
+        access to a private constructor in the enclosing class 

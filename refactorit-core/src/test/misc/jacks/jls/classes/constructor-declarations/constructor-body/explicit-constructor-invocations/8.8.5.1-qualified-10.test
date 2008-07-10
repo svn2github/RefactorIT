@@ -1,0 +1,5 @@
+T8851q10.java
+
+ Qualified explicit constructors are
+        allowed even when the enclosing class of the superclass can be
+        determined already 

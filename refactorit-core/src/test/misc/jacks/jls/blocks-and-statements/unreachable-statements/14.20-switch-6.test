@@ -1,0 +1,4 @@
+T1420switch6.java
+
+ A switch statement can complete normally if:
+        There is a reachable break statement that exits the switch statement. 

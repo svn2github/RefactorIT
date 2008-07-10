@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.test.commonIDE;
 
-
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.cli.Arguments;
 import net.sf.refactorit.cli.ProjectBuilder;
@@ -28,10 +27,6 @@ import java.awt.Frame;
  * @author Tonis Vaga
  */
 public class MockIDEController extends IDEController {
-  public MockIDEController() {
-    super();
-  }
-
   public ActionRepository getActionRepository() {
     return null;
   }
@@ -39,7 +34,6 @@ public class MockIDEController extends IDEController {
   public Object getCachePathForActiveProject(Object ideProject) {
     return generateNewCacheFileName("");
   }
-
 
   public Frame getIDEMainWindow() {
     throw new UnsupportedOperationException("should not get called");

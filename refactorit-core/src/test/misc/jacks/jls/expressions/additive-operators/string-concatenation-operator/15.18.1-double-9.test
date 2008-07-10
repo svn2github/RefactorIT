@@ -1,0 +1,4 @@
+T15181d9.java
+
+ conversion of double to String switches from
+        plain to exponent at 1e7 

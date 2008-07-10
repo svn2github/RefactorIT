@@ -1,0 +1,6 @@
+T1628f1.java
+
+ A blank final may be assigned in different block
+        statement groups, provided it not assigned twice. Even with a
+        non-constant initializer, the variable declaration is treated as
+        a blank final 

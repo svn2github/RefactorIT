@@ -1,0 +1,3 @@
+package e;
+
+class E {}

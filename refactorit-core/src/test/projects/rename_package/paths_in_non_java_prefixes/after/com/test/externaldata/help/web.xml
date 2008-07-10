@@ -1,0 +1,7 @@
+<web-app>
+  <display-name>ExternalDataLoader Web Application</display-name>
+  <servlet>
+    <servlet-name>CustomerUpdateServlet</servlet-name>
+    <servlet-class>com.test.externaldata.servlet.CustomerUpdateServlet</servlet-class>
+  </servlet>
+</web-app>

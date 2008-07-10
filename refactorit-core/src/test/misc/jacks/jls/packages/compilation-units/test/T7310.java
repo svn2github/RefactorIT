@@ -1,0 +1,1 @@
+class T7310 {} package test;

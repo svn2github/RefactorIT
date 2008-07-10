@@ -1,0 +1,4 @@
+T512itf3.java
+
+ int to float conversion rounds up to nearest
+        if remainder > .5

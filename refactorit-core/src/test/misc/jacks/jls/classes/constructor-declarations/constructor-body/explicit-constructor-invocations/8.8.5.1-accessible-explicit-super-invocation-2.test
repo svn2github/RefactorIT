@@ -1,0 +1,5 @@
+T8851aesi2.java
+
+
+        An explicit constructor for an inner class can gain
+        access to a private constructor in the enclosing class 

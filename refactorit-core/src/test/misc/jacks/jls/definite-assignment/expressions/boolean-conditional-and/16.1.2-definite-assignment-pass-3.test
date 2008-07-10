@@ -1,0 +1,4 @@
+T1612dap3.java
+
+ V is DA after a && b when
+        false iff V is DA after a when false and V is DA after b when false 

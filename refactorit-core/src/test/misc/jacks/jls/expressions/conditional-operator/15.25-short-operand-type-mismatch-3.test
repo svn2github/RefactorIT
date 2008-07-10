@@ -1,0 +1,7 @@
+T1525sotm3.java
+
+ if one operand is of
+        type short and the other is a constant expression of type int
+        whose value is representable as a short, then the type of the
+        conditional expression is short, Otherwise, binary numeric
+        promotion is applied to the operand types 

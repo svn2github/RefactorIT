@@ -1,0 +1,3 @@
+T3423.java
+
+ CR + CR + LF + LF (\u000d\u000d\u000a\n) is three LineTerminators 

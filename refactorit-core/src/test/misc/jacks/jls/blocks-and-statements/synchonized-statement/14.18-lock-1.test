@@ -1,0 +1,4 @@
+T1418l1.java
+
+ A single thread may lock the same object
+        multiple times (JLS example) 

@@ -1,0 +1,4 @@
+T15181f6.java
+
+ conversion of float to String must use as few
+        digits after decimal as produce the same float again by rounding 

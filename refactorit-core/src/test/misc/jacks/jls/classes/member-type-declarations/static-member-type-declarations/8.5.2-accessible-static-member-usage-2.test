@@ -1,0 +1,5 @@
+T852asmu2.java
+
+
+        a member type with the static modifer may access
+        private static members of the enclosing class 

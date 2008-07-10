@@ -1,0 +1,5 @@
+T1615dap27.java
+
+ V is DA after
+        boolean a?b:c when false iff V is DA after b when false
+        and V is DA after c when false 

@@ -1,0 +1,4 @@
+T15951e4.java
+
+ An anonymous class constructor legally
+        throws whatever exception an instance initializer throws 

@@ -1,0 +1,3 @@
+NoExpressionReturnInVoid.java
+
+ a void method with a non expression return is valid 

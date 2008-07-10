@@ -1,0 +1,5 @@
+T52cn2.java
+
+ Assignment conversion may narrow if
+        a constant expression of type char is assigned to a variable
+        of type short 

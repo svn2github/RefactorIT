@@ -1,0 +1,5 @@
+T1628u5.java
+
+ Switch blocks that fall through to default:
+        that definitely assigns a variable ensures that the variable is
+        definitely assigned after the switch 

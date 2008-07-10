@@ -1,0 +1,4 @@
+T1442vs5.java
+
+ The scope of a local variable declarator
+        includes its own initializer and further declarations to right 

@@ -1,0 +1,4 @@
+T15171d14.java
+
+ Floating-point * follows round-to-nearest,
+        even with denorms, known bug in Sun's javac 

@@ -1,0 +1,5 @@
+T1627f1.java
+
+ A blank final
+        initialized inside an if (true) block is
+        definitely assigned. 

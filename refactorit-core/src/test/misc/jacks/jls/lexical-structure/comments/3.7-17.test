@@ -1,0 +1,4 @@
+T3717.java
+
+ /**/ comment can contain any characters, including \0,
+        unterminated quotes 

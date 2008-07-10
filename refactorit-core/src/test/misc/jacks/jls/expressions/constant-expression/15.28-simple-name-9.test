@@ -1,0 +1,5 @@
+T1528sn9.java
+
+ a final variable initialized
+        by a final variable that is initialized by constant expression
+        is a constant expression 

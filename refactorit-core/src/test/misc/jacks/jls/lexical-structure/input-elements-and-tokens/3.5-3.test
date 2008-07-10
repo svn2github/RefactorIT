@@ -1,0 +1,4 @@
+T353.java
+
+  The input sequence LFCR (0x0a0d) should be treated as two
+        line terminators with an empty collection of input elements between them.

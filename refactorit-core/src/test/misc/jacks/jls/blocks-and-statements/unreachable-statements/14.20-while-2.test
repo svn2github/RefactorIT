@@ -1,0 +1,4 @@
+T1420while2.java
+
+ A while statement can complete normally if:
+        There is a reachable break statement that exits the while statement. 

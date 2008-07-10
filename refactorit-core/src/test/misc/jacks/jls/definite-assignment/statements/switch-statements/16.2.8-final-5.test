@@ -1,0 +1,4 @@
+T1628f5.java
+
+ A final variable declared with a constant
+        initializer qualifies as a constant, and may be used as a label 

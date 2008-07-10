@@ -1,0 +1,4 @@
+T1420while7.java
+
+ The contained statement of a while is unreachable
+        iff the condition is constant false 

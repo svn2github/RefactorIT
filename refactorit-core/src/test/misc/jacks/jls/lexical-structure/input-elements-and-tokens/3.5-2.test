@@ -1,0 +1,4 @@
+T352.java
+
+ The input sequence LFLF (0x0a0a) should be treated as two
+        line terminators with an empty collection of input elements between them.

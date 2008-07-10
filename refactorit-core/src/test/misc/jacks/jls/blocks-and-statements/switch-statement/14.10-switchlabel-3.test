@@ -1,0 +1,4 @@
+T1410sl3.java
+
+ case label must have a ConstantExpression,
+        the additive operator - produces a constant expression (see 15.28)

@@ -8,8 +8,6 @@
  */
 package net.sf.refactorit.commonIDE;
 
-
-
 import net.sf.refactorit.Version;
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.common.util.AppRegistry;
@@ -57,7 +55,6 @@ import java.util.Random;
  * @author Oleg Golovachov
  */
 public abstract class IDEController {
-
   public static final int UNKNOWN_PLATFROM = -1;
 
   public static final int JBUILDER = 1;
@@ -93,7 +90,7 @@ public abstract class IDEController {
    */
   private static boolean initialized;
 
-  public IDEController(){
+  public IDEController() {
     //Statistics.init();
     getIdeInfo();
     Statistics.updateStats();

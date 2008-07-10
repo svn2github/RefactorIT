@@ -1,0 +1,4 @@
+T512ltd3.java
+
+ long to double conversion rounds up to nearest
+        if remainder > .5

@@ -1,0 +1,5 @@
+ClassInNewPackage.java
+
+compiler should not generate error when
+        compiling a class with a package statement that defines a package
+        that can not be located on the CLASSPATH.

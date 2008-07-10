@@ -1,0 +1,4 @@
+T1420switch11.java
+
+ A switchblock statement is reachable if it
+        bears a switch label 

@@ -1,0 +1,1 @@
+package a;import b.Test;// another comment/** comment */class T {    public T() {    new Test();  }  }

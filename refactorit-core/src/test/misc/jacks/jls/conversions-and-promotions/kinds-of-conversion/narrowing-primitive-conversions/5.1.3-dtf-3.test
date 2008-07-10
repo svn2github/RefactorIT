@@ -1,0 +1,4 @@
+T513dtf3.java
+
+ narrowing from double to float rounds down if
+        remainder < .5 

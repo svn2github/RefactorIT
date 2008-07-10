@@ -1,0 +1,6 @@
+
+
+class ImplementTest implements Interface {
+
+}
+

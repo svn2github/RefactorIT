@@ -1,0 +1,4 @@
+T15171i1.java
+
+ overflow in integer multiplication, simply 
+        selects low-order bits, possibly changing sign 

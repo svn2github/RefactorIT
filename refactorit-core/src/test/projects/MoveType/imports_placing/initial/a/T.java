@@ -1,0 +1,1 @@
+package a;// another comment/** comment */class T {    public T() {    new Test();  }  }

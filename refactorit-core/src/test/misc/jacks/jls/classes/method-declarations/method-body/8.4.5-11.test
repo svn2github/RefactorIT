@@ -1,0 +1,3 @@
+ExceptionalReturnInNonVoid.java
+
+ a method with an exceptional exit does not require a return ? 

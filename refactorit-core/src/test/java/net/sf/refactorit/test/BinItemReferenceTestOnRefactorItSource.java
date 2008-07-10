@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.test;
 
-
 import net.sf.refactorit.classmodel.Project;
 
 import java.util.List;
@@ -18,7 +17,7 @@ import junit.framework.TestSuite;
 
 
 public class BinItemReferenceTestOnRefactorItSource extends BinItemReferencingTests {
-  private static Project project = null;
+  private static Project project;
 
   public BinItemReferenceTestOnRefactorItSource(String testName) {
     super(testName);
@@ -30,14 +29,15 @@ public class BinItemReferenceTestOnRefactorItSource extends BinItemReferencingTe
 
   public void setUp() throws Exception {
     super.setUp();
+
     if (project == null) { // Saves time when project is already loaded
       project = Utils.createTestRbProject(
-          Utils.getTestProjects().getProject("RefactorIT")
-          );
+          Utils.getTestProjects().getProject("RefactorIT"));
+
       project.getProjectLoader().build();
     }
   }
-  
+
   protected Project getLoadedProject() {
     return project;
   }

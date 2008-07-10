@@ -1,0 +1,4 @@
+T1420while1.java
+
+ A while statement can complete normally if:
+        The condition expression is not a constant expression with value true 

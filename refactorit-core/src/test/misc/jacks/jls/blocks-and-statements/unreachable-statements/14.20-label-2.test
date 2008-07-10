@@ -1,0 +1,4 @@
+T1420label2.java
+
+ Labeled statements can complete normally if
+        it contains a reachable break to exit the label 
