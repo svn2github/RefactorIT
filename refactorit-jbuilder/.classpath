@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/refactorit-core"/>
-	<classpathentry kind="lib" path="lib/help.jar"/>
-	<classpathentry kind="lib" path="lib/jbuilder.jar"/>
-	<classpathentry kind="lib" path="lib/primetime.jar"/>
+	<classpathentry kind="var" path="JB_HOME/lib/help.jar"/>
+	<classpathentry kind="var" path="JB_HOME/lib/jbuilder.jar"/>
+	<classpathentry kind="var" path="JB_HOME/lib/primetime.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
