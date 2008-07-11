@@ -8,25 +8,20 @@
  */
 package net.sf.refactorit.netbeans.v5;
 
-
 import net.sf.refactorit.netbeans.common.NBControllerVersionState;
 
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 
+
 /**
  * @author Juri Reinsalu
  */
 public class NBControllerVersionState5 implements NBControllerVersionState {
+  private NB50ProjectChangeTracker projectTracker;
 
-//  private void juriTest() {
-//    net.sf.refactorit.netbeans.ide5.NBControllerVersionState5 con = new net.sf.refactorit.netbeans.ide5.NBControllerVersionState5();
-//  }
-
-  private NB50ProjectChangeTracker projectTracker=null;
-  
   public NBControllerVersionState5() {
-    this.projectTracker=NB50ProjectChangeTracker.getInstance();
+    projectTracker = NB50ProjectChangeTracker.getInstance();
     //activeProject = projectTracker.addProjectChangeListener(this);
   }
 

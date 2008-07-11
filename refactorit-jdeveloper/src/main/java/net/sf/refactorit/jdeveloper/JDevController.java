@@ -22,17 +22,17 @@ import net.sf.refactorit.jdeveloper.vfs.JDevSourcePath;
 import net.sf.refactorit.ui.module.RefactorItContext;
 import net.sf.refactorit.vfs.ClassPath;
 import net.sf.refactorit.vfs.Source;
+
 import oracle.ide.Ide;
 import oracle.ide.IdeAction;
 import oracle.ide.IdeConstants;
 import oracle.ide.addin.Context;
 import oracle.jdeveloper.model.JProject;
 
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import java.awt.event.ActionEvent;
 
 
 /**
@@ -81,12 +81,11 @@ public class JDevController extends IDEController {
    * @param ideProject object returned by {@link #getActiveProjectFromIDE() }
    */
   public Project createNewProjectFromIdeProject(Object ideProject) {
-    JProject jdevIdeProject=(JProject) ideProject;
+    JProject jdevIdeProject = (JProject) ideProject;
 
-    Project newProject;
     ClassPath classpath = new JDevClassPath(jdevIdeProject);
 
-    newProject = new Project(jdevIdeProject.getLongLabel(),
+    Project newProject = new Project(jdevIdeProject.getLongLabel(),
         new JDevSourcePath(jdevIdeProject), classpath,
         new JDevJavadocPath(jdevIdeProject));
 
@@ -97,7 +96,9 @@ public class JDevController extends IDEController {
 
     ProjectConfiguration.getActiveInstance().setCachePath(
         (String) getCachePathForActiveProject(ideProject));
+
     jdevIdeProject.markDirty(true);
+
     return newProject;
   }
 
@@ -130,7 +131,6 @@ public class JDevController extends IDEController {
 
   public RefactorItContext createProjectContext() {
     return new JDevContext(getActiveProject());
-
   }
 
   public int getPlatform() {
@@ -138,8 +138,7 @@ public class JDevController extends IDEController {
   }
 
   public MenuBuilder createMenuBuilder(
-      String name, char mnemonic, String icon, boolean submenu
-      ) {
+      String name, char mnemonic, String icon, boolean submenu) {
     return new JDevMenuBuilder(name, mnemonic, icon, submenu);
   }
 
@@ -173,14 +172,14 @@ public class JDevController extends IDEController {
     boolean error = false;
     String version = System.getProperty("product.version");
 
-    if (version == null){
+    if (version == null) {
       error = true;
     }
 
-    if (!error){
+    if (!error) {
       Pattern p = Pattern.compile("([[0-9]+\\.]+)\\.([0-9]+)");
       Matcher m = p.matcher(version);
-      if(m.find()){
+      if (m.find()) {
         setIdeVersion(m.group(1));
         setIdeBuild(m.group(2));
       } else {
@@ -188,24 +187,31 @@ public class JDevController extends IDEController {
       }
     }
 
-    if(error){
+    if (error) {
       AppRegistry.getLogger(this.getClass()).error(
           "Can't determine JDeveloper version");
     }
   }
 
-
   public void addIgnoredSources(Project pr, Source[] sourcePaths) {
     ProjectConfiguration projectConfig = ProjectConfiguration.getActiveInstance();
+
     String ignoredSourcepathStr =
       projectConfig.get(ProjectConfiguration.PROP_IGNORED_SOURCEPATH);
-    StringBuffer result = new StringBuffer(ignoredSourcepathStr == null ? "" : ignoredSourcepathStr);
-    for (int i = 0; i< sourcePaths.length; i++) {
+
+    StringBuffer result = new StringBuffer();
+    if (ignoredSourcepathStr != null) {
+      result.append(ignoredSourcepathStr);
+    }
+
+    for (int i = 0; i < sourcePaths.length; i++) {
       if (result.length() > 0) {
         result.append(File.pathSeparator);
       }
+
       result.append(sourcePaths[i].getAbsolutePath());
     }
+
     projectConfig.set(ProjectConfiguration.PROP_IGNORED_SOURCEPATH, result.toString());
   }
 
@@ -218,9 +224,11 @@ public class JDevController extends IDEController {
 				"<pre>" +
 				"AddVMOption     -Xmx" + recommendedInMBs +"M\n" +
 				"</pre>" +
-				"in " + confFile + " to allow JDeveloper access more memory, and restart the IDE.";
+				"in " + confFile +
+				" to allow JDeveloper access more memory, and restart the IDE.";
   		}
   	}
+
   	return super.getLowMemoryWarning(recommendedInMBs);
   }
 }

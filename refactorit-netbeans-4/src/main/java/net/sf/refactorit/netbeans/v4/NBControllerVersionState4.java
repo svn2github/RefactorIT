@@ -8,25 +8,20 @@
  */
 package net.sf.refactorit.netbeans.v4;
 
-
 import net.sf.refactorit.netbeans.common.NBControllerVersionState;
 
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 
+
 /**
  * @author Juri Reinsalu
  */
 public class NBControllerVersionState4 implements NBControllerVersionState {
+  private NB40ProjectChangeTracker projectTracker;
 
-  private void juriTest() {
-    net.sf.refactorit.netbeans.v4.NBControllerVersionState4 con = new net.sf.refactorit.netbeans.v4.NBControllerVersionState4();
-  }
-
-  private NB40ProjectChangeTracker projectTracker=null;
-  
   public NBControllerVersionState4() {
-    this.projectTracker=NB40ProjectChangeTracker.getInstance();
+    projectTracker = NB40ProjectChangeTracker.getInstance();
     //activeProject = projectTracker.addProjectChangeListener(this);
   }
 
