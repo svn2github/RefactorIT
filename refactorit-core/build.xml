@@ -1,5 +1,4 @@
 <project name="RefactorIT" default="build" basedir=".">
-
 	<property file="${basedir}/build.properties" />
 
 	<property name="app.version" value="2.7.beta"/>
@@ -8,7 +7,9 @@
 
 	<property name="src.dir" value="${basedir}/src"/>
 
-	<property name="src.main.java.dir" value="${src.dir}/main/java"/>
+	<property name="src.main.dir" value="${src.dir}/main"/>
+	<property name="src.main.java.dir" value="${src.main.dir}/java"/>
+	<property name="src.main.help.dir" value="${src.main.dir}/help"/>
 	<property name="src.test.java.dir" value="${src.dir}/test/java"/>
 
 	<property name="generated.java.dir" value="${basedir}/generated/java"/>
@@ -21,12 +22,35 @@
 	<property name="build.dir" value="${basedir}/build"/>
 
 	<property name="build.classes.dir" value="${build.dir}/classes"/>
+	<property name="build.jars.dir" value="${build.dir}/jars"/>
+	<property name="build.dist.dir" value="${build.dir}/dist"/>
+	<property name="build.tmp.dir" value="${build.dir}/tmp" />
 
 	<property name="build.compiler.deprecation" value="no"/>
 	<property name="build.compiler.pedantic" value="no"/>
 	<property name="build.compiler.nowarn" value="no"/>
 
-	<target name="build" depends="compile"/>
+	<target name="clean-generated" description="Deletes generated sources">
+		<delete dir="${generated.java.dir}/net"/>
+	</target>
+
+	<target name="clean-temp" description="Deletes temp files created by tests">
+		<delete includeEmptyDirs="true" quiet="true" failonerror="false">
+			<fileset dir="${java.io.tmpdir}" casesensitive="yes"
+				includes="mutable*.java,metrics_*.html"/>
+			<fileset dir="${java.io.tmpdir}" casesensitive="yes"
+				includes="source????.java,source?????.java"/>
+			<fileset dir="${java.io.tmpdir}" casesensitive="yes"
+				defaultexcludes="no" includes="RefactorIT????/"/>
+			<fileset dir="${java.io.tmpdir}" casesensitive="yes"
+				defaultexcludes="no" includes="RefactorIT?????/"/>
+		</delete>
+	</target>
+
+	<target name="clean" depends="clean-generated, clean-temp"
+			description="Deletes all generated files">
+		<delete dir="${build.dir}" />
+	</target>
 
 	<target name="prepare">
 		<tstamp/>
@@ -73,14 +97,14 @@
 				<exclude name="**/*.java"/>
 				<exclude name="**/*.form"/>
 				<exclude name="**/.nbattrs"/>
-				<exclude name="META-INF/**"/>
+				<exclude name="META-INF/MANIFEST.MF"/>
 			</fileset>
 		</copy>
 
-		<!-- Replace @VERSION@ token with app.version property -->
 		<copy todir="${build.classes.dir}" overwrite="true">
 			<fileset dir="${src.main.java.dir}">
 				<include name="net/sf/refactorit/resources/version.properties"/>
+				<include name="META-INF/MANIFEST.MF"/>
 			</fileset>
 			<filterset>
 				<filter token="VERSION" value="${app.version}"/>
@@ -89,4 +113,107 @@
 		</copy>
 	</target>
 
+	<target name="help">
+		<property name="disclaimer" value="&lt;hr&gt;&lt;small&gt;
+RefactorIT is a trademark of Aqris Software AS. All other products
+mentioned are registered trademarks or trademarks of their respective
+companies. Copyright &amp;copy; 2001 - 2008 Aqris Software AS.
+All rights reserved.&lt;/small&gt;&lt;/p&gt;"/>
+		<echo>Creating on-line help</echo>
+
+		<delete dir="${build.tmp.dir}"/>
+		<mkdir dir="${build.tmp.dir}/help"/>
+
+		<!-- Copy HTML files replacing @DISCLAIMER@ token with above disclaimer -->
+		<copy todir="${build.tmp.dir}/help">
+			<fileset dir="${src.main.help.dir}">
+				<include name="**/*.html"/>
+			</fileset>
+			<filterset>
+				<filter token="DISCLAIMER" value="${disclaimer}"/>
+			</filterset>
+		</copy>
+
+		<!-- Copy all other files (except HTML) -->
+		<copy todir="${build.tmp.dir}/help">
+			<fileset dir="${src.main.help.dir}">
+				<exclude name="**/*.html" />
+
+				<!-- vi editor garbage -->
+				<exclude name="**/*~" />
+				<!-- netbeans garbage -->
+				<exclude name="**/*.nbattrs" />
+				<!-- generic editor garbage -->
+				<exclude name="**/*.bak" />
+			</fileset>
+		</copy>
+
+		<echo>Creating full-text search database</echo>
+
+		<java classname="com.sun.java.help.search.Indexer"
+				dir="${build.tmp.dir}/help" taskname="fulltext" fork="yes">
+			<arg value="toolHelp"/>
+			<classpath>
+				<pathelement location="${lib.dir}/jhall.jar"/>
+			</classpath>
+		</java>
+
+		<mkdir dir="${build.jars.dir}"/>
+
+		<jar jarfile="${build.jars.dir}/refactorit-help.jar">
+			<fileset dir="${build.tmp.dir}">
+				<include name="help/**"/>
+			</fileset>
+		</jar>
+
+		<delete dir="${build.tmp.dir}" failonerror="false" />
+	</target>
+
+	<target name="jars" depends="compile, help"
+			description="Create RefactorIT .jar file">
+		<mkdir dir="${build.jars.dir}"/>
+
+		<jar destfile="${build.jars.dir}/refactorit.jar"
+				basedir="${build.classes.dir}"
+				manifest="${build.classes.dir}/META-INF/MANIFEST.MF"/>
+	</target>
+
+	<target name="dist" depends="jars"
+			description="Create RefactorIT distribution">
+		<property name="dist.name" value="refactorit-${app.version}-stansalone"/>
+
+		<delete dir="${build.dist.dir}/${dist.name}"/>
+		<mkdir dir="${build.dist.dir}/${dist.name}/modules"/>
+
+		<!--
+		  FIXME: Do we really need to deploy JavaHelp and some
+		         other libs, aren't they in NB already?
+		  -->
+		<copy todir="${build.dist.dir}/${dist.name}">
+			<fileset dir="${build.jars.dir}">
+				<include name="refactorit.jar"/>
+				<include name="refactorit-help.jar"/>
+			</fileset>
+			<fileset dir="${lib.dir}">
+				<include name="ant.jar"/>
+				<include name="antlr.jar"/>
+				<include name="bsh.jar"/>
+				<include name="GraphLayout.jar"/>
+				<include name="jaxen-core-1.0-fcs.jar"/>
+				<include name="jh.jar"/>
+				<include name="jsp-api.jar"/>
+				<include name="jsp20el.jar"/>
+				<include name="log4j.jar"/>
+				<include name="pmd.jar"/>
+				<include name="rjasper.jar"/>
+				<include name="saxpath-1.0-fcs.jar"/>
+				<include name="servlet-api.jar"/>
+			</fileset>
+		</copy>
+
+		<zip destfile="${build.dist.dir}/${dist.name}.zip"
+				basedir="${build.dist.dir}/${dist.name}"/>
+	</target>
+
+	<target name="build" depends="dist"/>
 </project>

@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Specification-Title: RefactorIT
+Implementation-Title: RefactorIT
+Specification-Vendor: Aqris Software AS
+Implementation-Vendor: Aqris Software AS
+Specification-Version: @VERSION@
+Implementation-Version: @VERSION@, @BUILDID@
+Main-Class: net.sf.refactorit.standalone.StartUp
+Class-Path: refactorit-help.jar 
+ ant.jar 
+ antlr.jar 
+ bsh.jar 
+ GraphLayout.jar 
+ jaxen-core-1.0-fcs.jar 
+ jh.jar 
+ jsp-api.jar 
+ jsp20el.jar 
+ log4j.jar 
+ pmd.jar 
+ rjasper.jar 
+ saxpath-1.0-fcs.jar 
+ servlet-api.jar
+
+Name: /net/sf/refactorit
+Package-Title: net.sf.refactorit
+Package-Version: @VERSION@

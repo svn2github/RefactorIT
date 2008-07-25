@@ -41,6 +41,7 @@ import java.util.TreeSet;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+
 /**
  * Module Manager. Is responsible for loading the module classes into VM so they
  * can be created later by newInstance(...) method and registered with
@@ -52,7 +53,6 @@ import java.util.jar.JarFile;
  * @author Anton Safonov
  */
 public class ModuleManager {
-
   private static final String SERVICE = "META-INF/services/"
       + net.sf.refactorit.ui.module.RefactorItModule.class.getName();
 
@@ -68,6 +68,7 @@ public class ModuleManager {
     }
 
     List list = getActions(bins[0]);
+
     if (bins.length == 1) {
       return list;
     }
@@ -76,12 +77,11 @@ public class ModuleManager {
       list.retainAll(getActions(bins[i]));
     }
 
-    Iterator iter = list.iterator();
-    while (iter.hasNext()) {
-      RefactorItAction action = (RefactorItAction) iter.next();
+    for (Iterator i = list.iterator(); i.hasNext();) {
+      RefactorItAction action = (RefactorItAction) i.next();
 
       if (!action.isMultiTargetsSupported()) {
-        iter.remove();
+        i.remove();
       }
     }
 
@@ -95,18 +95,18 @@ public class ModuleManager {
 
     if (o instanceof AbstractLocationAware) {
       AbstractLocationAware item = (AbstractLocationAware) o;
+
       if (item.isPreprocessedSource()) {
-        // System.err.println("getActions:"+((AbstractLocationAware)o).getCompilationUnit().getName()+"
-        // is not java file");
-        Iterator iter = act.iterator();
-        while (iter.hasNext()) {
-          RefactorItAction action = (RefactorItAction) iter.next();
+        for (Iterator i = act.iterator(); i.hasNext();) {
+          RefactorItAction action = (RefactorItAction) i.next();
+
           if (!action.isPreprocessedSourcesSupported(item)) {
-            iter.remove();
+            i.remove();
           }
         }
       }
     }
+
     return act;
   }
 
@@ -195,12 +195,11 @@ public class ModuleManager {
   }
 
   private static void filterMultiTargetSupported(final List list) {
-    Iterator iter = list.iterator();
-    while (iter.hasNext()) {
-      RefactorItAction action = (RefactorItAction) iter.next();
+    for (Iterator i = list.iterator(); i.hasNext();) {
+      RefactorItAction action = (RefactorItAction) i.next();
 
       if (!action.isMultiTargetsSupported()) {
-        iter.remove();
+        i.remove();
       }
     }
   }
@@ -216,10 +215,13 @@ public class ModuleManager {
     if (cls.length == 0) {
       return Collections.EMPTY_LIST;
     }
+
     Set actions = new TreeSet(actionsSorter);
+
     for (int i = 0; i < cls.length; i++) {
       actions.addAll(getActions(cls[i]));
     }
+
     return new ArrayList(actions);
   }
 
@@ -227,7 +229,9 @@ public class ModuleManager {
       RefactorItContext context) {
     if (target instanceof Object[]) {
       Object targets[] = (Object[]) target;
+
       CompilationUnit[][] results = new CompilationUnit[targets.length][];
+
       for (int i = 0; i < targets.length; ++i) {
         results[i] = getCompilationUnits(targets[i], context);
       }
@@ -241,21 +245,32 @@ public class ModuleManager {
       return (CompilationUnit[]) finalResult
           .toArray(new CompilationUnit[finalResult.size()]);
     }
+
     if (target instanceof CompilationUnit) {
-      return new CompilationUnit[] { (CompilationUnit) target };
-    } else if (target instanceof Project) {
+      return new CompilationUnit[] {(CompilationUnit) target};
+    }
+
+    if (target instanceof Project) {
       ArrayList compilationUnits = ((Project) target).getCompilationUnits();
+
       return (CompilationUnit[]) compilationUnits
           .toArray(new CompilationUnit[compilationUnits.size()]);
-    } else if (target instanceof BinPackage) {
+    }
+
+    if (target instanceof BinPackage) {
       BinPackage aPackage = (BinPackage) target;
+
       HashSet result = new HashSet();
+
       BinPackage packageList[] = context.getProject().getAllPackages();
+
       for (int i = 0; i < packageList.length; ++i) {
-        if (packageList[i].getQualifiedName().startsWith(
-            aPackage.getQualifiedName())) {
-          for (Iterator t = packageList[i].getAllTypes(); t.hasNext();) {
+        BinPackage pkg = packageList[i];
+
+        if (pkg.getQualifiedName().startsWith(aPackage.getQualifiedName())) {
+          for (Iterator t = pkg.getAllTypes(); t.hasNext();) {
             BinCIType type = ((BinTypeRef) t.next()).getBinCIType();
+
             if (type.isFromCompilationUnit()) {
               result.add(type.getCompilationUnit());
             }
@@ -263,18 +278,23 @@ public class ModuleManager {
         }
       }
 
-      return (CompilationUnit[]) result.toArray(new CompilationUnit[0]);
-    } else if (target instanceof BinCIType) {
-      if (((BinCIType) target).isFromCompilationUnit()) {
-        return new CompilationUnit[] { ((BinCIType) target)
-            .getCompilationUnit() };
-      } else {
-        // FIXME should warn somehow probably?
-        return new CompilationUnit[0];
+      return (CompilationUnit[]) result
+          .toArray(new CompilationUnit[result.size()]);
+    }
+
+    if (target instanceof BinCIType) {
+      BinCIType type = (BinCIType) target;
+
+      if (type.isFromCompilationUnit()) {
+        return new CompilationUnit[] {type.getCompilationUnit()};
       }
+
+      // FIXME should warn somehow probably?
+      return new CompilationUnit[0];
     }
 
     Assert.must(false, "Invalid target: " + target);
+
     return null;
   }
 
@@ -306,9 +326,8 @@ public class ModuleManager {
       return null;
     }
 
-    Iterator iter = getActions(cls).iterator();
-    while (iter.hasNext()) {
-      RefactorItAction act = (RefactorItAction) iter.next();
+    for (Iterator i = getActions(cls).iterator(); i.hasNext();) {
+      RefactorItAction act = (RefactorItAction) i.next();
 
       if (actionKey.equals(act.getKey())) {
         return act;
@@ -338,9 +357,10 @@ public class ModuleManager {
       return null;
     }
 
-    Iterator iter = getActions(cls, checkMultiTargetSupport).iterator();
-    while (iter.hasNext()) {
-      RefactorItAction act = (RefactorItAction) iter.next();
+    List actions = getActions(cls, checkMultiTargetSupport);
+
+    for (Iterator i = actions.iterator(); i.hasNext();) {
+      RefactorItAction act = (RefactorItAction) i.next();
 
       if (actionKey.equals(act.getKey())) {
         return act;
@@ -355,18 +375,23 @@ public class ModuleManager {
     try {
       File f = new File(moduleListFile);
       lr = new LineReader(new FileReader(f));
+
       do {
         String className = lr.readLine();
         if (className == null) {
           break;
         }
+
         className = StringUtil.replace(className, "\n", "");
         className = StringUtil.replace(className, "\r", "");
+
         System.err.println("Starting module: '" + className + "'");
+
         Class.forName(className);
       } while (true);
     } catch (Exception e) {
       e.printStackTrace();
+
       throw new RuntimeException(e.getMessage());
     } finally {
       try {
@@ -391,6 +416,7 @@ public class ModuleManager {
     if (loaded) {
       return;
     }
+
     loaded = true;
 
     String moduleList = System.getProperty("module.list");
@@ -429,6 +455,7 @@ public class ModuleManager {
         dir = null;
       }
     }
+
     // if modules directory wasn't specified by the caller of this
     // function, then set relative path to "modules".
     if (dir == null) {
@@ -509,10 +536,12 @@ public class ModuleManager {
     }
 
     log("Modules loaded successfully: " + loadedModuleCount);
+
     if (failedModuleCount > 0) {
       log("Failed to load " + failedModuleCount + " modules");
     }
   }
+
   /**
    * Reads the modules class names from input stream and puts them into a list.
    * 
@@ -604,11 +633,13 @@ public class ModuleManager {
     if (act == null) {
       return false;
     }
+
     for (int i = 0; i < cl.length; ++i) {
       if (!act.isPreprocessedSourcesSupported(cl[i])) {
         return false;
       }
     }
+
     return true;
   }
 
@@ -618,12 +649,10 @@ public class ModuleManager {
   public static List getAllActions() {
     List result = new ArrayList(50);
 
-    Iterator it = modules.iterator();
+    for (Iterator i = modules.iterator(); i.hasNext();) {
+      RefactorItModule module = (RefactorItModule) i.next();
 
-    while (it.hasNext()) {
-      RefactorItModule module = (RefactorItModule) it.next();
       RefactorItAction[] actions = module.getActions();
-
       if (actions != null) {
         CollectionUtil.addAllNew(result, Arrays.asList(actions));
       }
