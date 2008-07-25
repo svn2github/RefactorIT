@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Where Used For Methods</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Where Used For Methods</h2>
+
+<h3>Usage</h3>
+
+<p>
+Usages of a method are:</p>
+<ul>
+  <li><p>Invocation of the method.</p></li>
+  <li><p>Declaration of overriding/implementing method in subclass.</p></li>
+</ul>
+
+<p> You can tune the results of the query in  a filter dialog for methods.  One such dialog is for <a href="filter_simple.html">private methods and constructors</a> and another one is
+  for <a href="filter_method.html">non-private methods</a>.  The
+  dialog will be opened automatically when you run the search. </p>
+
+  <h3>Example</h3>
+
+<pre><p>
+class A {
+  void theMethod(String tmp) {}
+
+  void test() {
+    theMethod("Hello"); // invocation
+  }
+}
+
+class B extends A {
+  void theMethod(String a) { // overriding
+  }                          // A.theMethod
+
+  void test(A a) {
+    a.theMethod(null); // invocation
+  }
+}
+</p></pre>
+<p>  The following graphic shows three
+usages of <tt>A.theMethod(String)</tt>:</p>
+<br>
+<img src="images/where_used_method.png" alt="Where Used Method window">
+
+
+</body></html>

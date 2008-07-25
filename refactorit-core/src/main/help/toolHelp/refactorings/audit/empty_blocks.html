@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Empty blocks</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Empty blocks</h3>
+
+<p>This warning reports missing blocks for '<tt>if</tt>', '<tt>while</tt>', '<tt>for</tt>' and 'do' statements:</p>
+
+<p>For example:</p>
+
+<pre>if(something){
+
+}
+</pre>
+
+<p>This is possibly an unimplemented part of code. To suppress this warning, you can either disable it from the filter dialog or write some code or comments inside.</p>
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Mark with CAUTION comment</h3>
+    Action adds /* CAUTION: empty block or body */ comment, so this place could be found afterwards with <a href="../fixme_scanner/overview.html">Fixme Scan</a>.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    if(something){
+
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    if(something){
+        /* CAUTION: empty block or body */
+    }
+    </pre>
+
+</body></html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>The Modularization Quality (MQ)</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>The Modularization Quality (MQ)</h2>
+<p>The MQ of an Module Dependency Graph (MDG) that is partitioned into k clusters (packages) is the difference between the average inter- and intra-connectivity of the k clusters (packages).</p>
+<p>The intra-connectivity A<sub>i</sub> of cluster i consisting of N<sub>i</sub> nodes and M<sub>i</sub> intra-edges is the fraction of M<sub>i</sub> over the maximum number of intra-edges of i (i.e. N<sub>i</sub><sup>2</sup>).<br>
+The inter-connectivity E<sub>ij</sub> between two distinct clusters i and j consisting of N<sub>i</sub> and N<sub>j</sub> nodes, respectively, and with E<sub>ij</sub> inter-edges is the fraction of E<sub>ij</sub> over the maximum number of inter-edges between i and j (i.e. 2*N<sub>i</sub>*N<sub>j</sub>).</p>
+<p>MQ is calculatable for the project node only, for the package nodes the intra-connectivity value is shown.</p>
+<p>In RefactorIT Metrics original MQ is scaled thousand times in the results table, so the range is -1000..1000.</p>
+<p>The MQ can not be used to compare different projects, but to show the development trend of the given project, e.g. to see if the Move Class improved the structure of the project. In general improving the structure of the project causes MQ to grow.</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+      
+</body>
+</html>

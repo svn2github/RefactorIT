@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Staticalizable and finalizable fields</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Staticalizable and finalizable fields</h3>
+
+<p>This audit finds fields, which are initialized during declaration to a
+literal value and are never re-assigned afterwards. It proposes to make such
+fields 'static final'.</p>
+
+<p>This audit also reports 'static final' fields with lower-case names.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Make field 'static final'</h3>
+    Adds 'static final' modifier to field declaration. If You have marked
+    an option 'constant`s name should be uppercase' in audit options, and field`s
+    name is not uppercase, corrective action will also propose to
+    <a href="../rename/overview.html">Rename</a> the field.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A {
+        public void int <font color="red">a</font> = 5;
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A {
+        public <font color="green">static final</font> void int <font color="green">A</font> = 5;
+    }
+    </pre>
+    
+<h3>Convert field`s name to uppercase</h3>
+    Action executes <a href="../rename/overview.html">Rename</a> refactoring on selected field.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A {
+        public static final int <font color="red">myABCVariable</font> = 5;
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A {
+        public static final int <font color="green">MY_ABC_VARIABLE</font> = 5;
+    }
+    </pre>
+
+</body></html>

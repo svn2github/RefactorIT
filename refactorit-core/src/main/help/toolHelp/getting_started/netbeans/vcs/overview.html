@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Version Control System Overview</title>
+        <link rel="StyleSheet" href="../../../ide.css" type="text/css">
+</head>
+<body>
+
+<h2>Version Control System Overview</h2>
+
+<p> RefactorIT is capable of issuing VCS specific commands during actions that change file structures. In order to use this capability, the VCS file system should be mounted as a "Generic VCS." The only officially supported VCS system is
+<b>CVS</b>. <br><br>&nbsp;&nbsp;<img src="images/mount_generic.png" alt="Mount Generic VCS" align="middle">
+</p>
+
+<p> <strong>Please verify that all the commands of the VCS are functional before
+  running any RefactorIT refactoring on a VCS file system</strong>. Refer to the 
+  <a href="troubleshooting.html">Troubleshooting</a> section if you encounter
+   any difficulties. </p>
+
+<p> You  might find it useful to configure specific VCS support options of RefactorIT before first use and these options are located under the <a href="../../refactorit_options.html">RefactorIT
+  Options/Version Control</a> tab. </p>
+
+<p>&nbsp;&nbsp;<img src="images/vcs_options.png" alt="Version Control tab of RefactorIT Options" align="middle">
+</p>&nbsp;
+<ul>
+  <li><p><b>Advanced Support (ADD/REMOVE/RENAME/SHARE)</b> - With this option disabled, RefactorIT will be able to call GET, CHECKOUT and EDIT commands hen it needs to edit a read-only file or a file that has not been received . If you want  RefactorIT to support the full range of VCS commands available, you should enable this option. This option is <i>enabled by default</i>.</p></li>
+  <li><p><b>Verbose Execution</b> - When enabled, all the VCS actions behave as if invoked manually through the Sun ONE Studio IDE, and they show configuration dialogs and confirmation messages. When this option is disabled, RefactorIT tries to keep the operation as silent as possible.  During complex operations (Move Class) the  number of commands called is significant, hence it is worthwhile to disabled this option unless you need to debug some questionable behaviour of RefactorIT.  This option is <i>disabled by default</i>.</p></li>
+  <li><p><b>List Of Version Controlled Directories</b> RefactorIT can bypass some folders in the source tree that are meant to be used by version control utilities only. For example, it can bypass folders called "CVS", "RCS", etc.</p></li>
+</ul>
+<h3>CVS specific</h3>
+<ul>
+  <li><p><b>read-only files</b> - RefactorIT will issue an EDIT command before editing
+    such files. <i>NOTE: this behaviour of RefactorIT
+    cannot be switched off.</i></p></li>
+  <li><p><b>rename</b> - If you rename a class and its
+    file should be renamed,  the old file will be removed by the
+    "REMOVE" command and the new file will be added
+    by "ADD".</p></li>
+  <li><p><b>move</b> - If the
+    directory structure changes (e.g. "Move Class,"
+    "Rename Package") directories will be added or
+    removed as needed by the "ADD" and "REMOVE" commands.</p></li>
+</ul>
+<h3>Committing changes</h3>
+<p> To be conservative, RefactorIT doesn't commit the changes made so that you can recover the previous VCS state if wish to reverse the selected refactoring.  To commit, invoke the "Commit" command from the "Versioning" menu of NetBeans.</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="../settings.html">Project Settings</a></p></li>
+	<li><p><a href="troubleshooting.html">Troubleshooting</a></p></li>
+</ul>
+
+</body></html>

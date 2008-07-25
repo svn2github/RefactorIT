@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Floating point variables equal comparision</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Floating point variables equal comparision</h3>
+
+<p>This warning reports cases of comparing floating point variables with '=='
+or '!=' operators.</p>
+
+<p>Example: </p>
+<pre>
+    float pi = 3.14;
+    if (pi == Math.PI){ // violation
+        // never gets here
+    }
+</pre>
+
+<p>You should avoid comparing floating point variables this way. The correct
+way to compare floating point variables would be compare them with given
+precision:
+    <pre>
+    if (Math.abs(pi - Math.PI) &lt; 0.01){
+        // gets here now
+    }
+    </pre>
+</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Change to 'Math.abs(a - b) &lt; precision'</h3>
+    This action will show a dialog, where You can enter desired precision, and
+    then will replace 'a == b' expression with 'Math.abs(a - b) &gt; precision'
+    expression.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    if (pi == Math.PI){
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    if (Math.abs(pi - Math.PI) &lt; 0.01){
+    }
+    </pre>
+
+</body></html>

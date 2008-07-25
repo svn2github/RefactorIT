@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Cache</title>
+	<link rel="StyleSheet" href="../ide.css" type="text/css">
+</head>
+<body>
+<h2>Cache</h2>
+
+<p> RefactorIT maintains an internal cache to minimize the parsing files in a project with each refactoring operation or query. Thus, when you make a change to a single source 
+  file, only that file will be parsed.    <br><br> 
+The result is an improvement in performance, however, sometimes changes fail to update properly and RefactorIT finds deleted classes or reports that a name as in use after the element that has been deleted. Often this occurs when a source or class file is changed and part of the cache is invalidated.  <br><br>
+When you notice such behaviour, you have two tools at your disposal to correct it: Clean cache and Rebuild cashe.  Both tools can be accessed from the RefactorIT menu:</p>
+
+<ol><li><p>
+Rebuild has less impact on performance and tries to rebuild outdated parts of the cache. </p></li><li><p>
+Clean forces RefactorIT to entirely purge its cache and the next refactoring or query will build the cache from scratch.  </p></li></ol>
+
+<p>
+If a Rebuild does not fix the problem, then select Clean.  It will take more time to parse all source and class files, but it will fix anomalies experienced due to an outdated cache.
+</p>
+</body></html>

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<toc version="1.0">
+
+<tocitem text="RefactorIT Help"             target=".top">
+
+  <tocitem text="Introduction"              target=".intro" />
+  <tocitem text="Refactoring"               target=".refactoring" />
+
+  <tocitem text="Versions"                  target="versions.overview">
+    <tocitem text="Integrated License"        target="versions.integr" />
+  </tocitem>
+
+  <tocitem text="Getting Started"           target="getStart.startdoc">
+    <tocitem text="Concepts"                target="getStart.concepts"/>
+    <tocitem text="RefactorIT Options"      target="getStart.refactoritOptions"/>
+    <tocitem text="Project Settings"         target="getStart.projectSettings"/>
+    <tocitem text="Cache"                   target="getStart.cache"/>
+    <tocitem text="Shortcuts"             target="getStart.shortcuts" />
+    <tocitem text="Toolbar Buttons"       target="getStart.toolbar"/>
+
+    <tocitem text="RefactorIT Integrations"              target="getStart.integrations">
+      <tocitem text="Eclipse"              target="getStart.eclipse.overview"/>
+      <tocitem text="JBuilder"                target="getStart.jb.overview"/>
+      <tocitem text="JDeveloper"              target="getStart.jdev.overview"/>
+      <tocitem text="NetBeans or Sun Java Studio" target="getStart.netbeans.overview">
+        <tocitem text="Project Settings"      target="getStart.netbeans.settings"/>
+        <tocitem text="Autodetection of Project Settings" target="getStart.netbeans.autodetect"/>
+        <tocitem text="Setting Up a Project"  target="getStart.netbeans.project" />
+        <tocitem text="Mounting Source Files for Reference Only" target="getStart.netbeans.sources_for_reference" />
+        <tocitem text="Mounting Javadocs"     target="getStart.netbeans.javadocs" />
+        <tocitem text="Version Control System" target="getStart.netbeans.vcs.overview">
+          <tocitem text="Troubleshooting"     target="getStart.netbeans.vcs.troubleshooting" />
+        </tocitem>
+      </tocitem>
+      <tocitem text="Stand Alone Version"      target="getStart.setUpInStandalone"/>
+    </tocitem>
+    <tocitem text="RefactorIT Updater"      target="getStart.refactoritUpdater"/>
+  </tocitem>
+    
+  <tocitem text="Refactoring Operations"    target="refact">
+    <tocitem text="Results Panel"           target="refact.results_panel" />
+    <!--<tocitem text="Query Results Window"    target="refact.query_results" />-->
+    <tocitem text="Undo/Redo"               target="refact.undo" />
+    <tocitem text="Version Control Support" target="refact.vcs" />
+    <tocitem text="Unicode Support"         target="refact.unicode" />
+
+    <tocitem text="Add Delegate Methods"   	target="refact.add_delegates" />
+    <tocitem text="API Snapshot / API Diff" 	target="refact.apids" />
+    <tocitem text="Audit"                  	target="refact.audit" >
+      <tocitem text="PMD Audit Rules"           target="refact.audit.pmd" ></tocitem>
+      <tocitem text="Aborted finally blocks"     target="refact.audit.aborted_finally" />
+      <tocitem text="Abstract override" target="refact.audit.abstract_override" />
+      <tocitem text="Abstract subclass" target="refact.audit.abstract_subclass" />
+      <tocitem text="Abstruse loop control variables" target="refact.audit.loop_variable" />
+      <tocitem text="Blockless statements"      target="refact.audit.missing_block" />
+      <tocitem text="Boolean assignment in loop conditions"     target="refact.audit.loop_condition" />
+      <tocitem text="Boolean literals in comparisions"     target="refact.audit.boolean_comparison" />
+      <tocitem text="Dangerous catch clauses"     target="refact.audit.dangerous_catch" />
+      <tocitem text="Dangerous throw statements"     target="refact.audit.dangerous_throw" />
+      <tocitem text="Debug code"        	target="refact.audit.debug_code" />
+      <tocitem text="Empty blocks and bodies"  	target="refact.audit.empty_blocks" />
+      <tocitem text="Empty statement"	  	target="refact.audit.empty_statement" />
+      <tocitem text="equals() and hashCode() not paired"    target="refact.audit.equals_hashcode" />
+      <tocitem text="equals() comparing variables of diff. type" target="refact.audit.equals_on_diff_types" />
+      <tocitem text="Field and variable self-assignments"           target="refact.audit.self_assignments" />
+      <tocitem text="Finalizable local variables and parameters"     target="refact.audit.finalize_locals" />
+      <tocitem text="Finalizable types and methods"     target="refact.audit.finalize_methods" />
+      <tocitem text="Floating point variables equal comparision"    target="refact.audit.float_equal_compare" />
+      <tocitem text="Generics usage"    target="refact.audit.generics" />
+      <tocitem text="Hidden fields"    target="refact.audit.hidden_field" />
+      <tocitem text="Hidden static methods"    target="refact.audit.hidden_method" />
+      <tocitem text="Integer division in floating point context"    target="refact.audit.integer_division" />
+      <tocitem text="Loose nested blocks"    target="refact.audit.nested_block" />
+      <tocitem text="Method body length"    target="refact.audit.method_body_length" />
+      <tocitem text="Methods with single method invocation" target="refact.audit.method_calls_method" />
+      <tocitem text="Modifier order checker"    target="refact.audit.modifier_order" />
+      <tocitem text="Numeric literals" 		target="refact.audit.numeric_literals" />
+      <tocitem text="No serialVersionUID field"  target="refact.audit.serial_version_uid" />
+      <tocitem text="Not serializable superclass"  target="refact.audit.not_serializable_super" />
+      <tocitem text="Parameter order checker"   target="refact.audit.parameter_order" />
+      <tocitem text="Parameter reassignments"   target="refact.audit.parameter_assignment" />
+      <tocitem text="Possible for/in"   target="refact.audit.forin" />
+      <tocitem text="Possible method lost override"   target="refact.audit.lost_override" />
+      <tocitem text="Pseudo abstract class"   target="refact.audit.pseudo_abstract" />
+      <tocitem text="Redundant boxing"   target="refact.audit.redundant_boxing" />
+      <tocitem text="Redundant unboxing"   target="refact.audit.redundant_unboxing" />
+      <tocitem text="Redundant casts expressions"   target="refact.audit.redundant_cast" />
+      <tocitem text="Redundant instanceof expressions"   target="refact.audit.redundant_instanceof" />
+      <tocitem text="Redundant modifiers"   target="refact.audit.redundant_modifiers" />
+      <tocitem text="Redundant throws clauses"  target="refact.audit.redundant_throws" />
+      <tocitem text="Shadowed fields"    	target="refact.audit.vars_shading_fields" />
+      <tocitem text="Static member accessed via object reference"    	target="refact.audit.static_access_via_instance" />
+      <tocitem text="Staticalizable and finalizable fields"    	target="refact.audit.constant_field" />
+      <tocitem text="Staticalizable methods"    	target="refact.audit.staticalizable_methods" />
+      <tocitem text="String compared using == and !="    	target="refact.audit.str_equal_compare" />
+      <tocitem text="String concatenation dangerous order"      target="refact.audit.string_concat_order" />
+      <tocitem text="String.toString() conversions"             target="refact.audit.to_string" />
+      <tocitem text="Switch statements without a default case"    	target="refact.audit.switch_default" />
+      <tocitem text="Switch statement fallthrough"    target="refact.audit.switch_fallthrough" />
+      <tocitem text="Unused local variables"    target="refact.audit.unused_locals" />
+      <tocitem text="Unused imports"        	target="refact.audit.unused_imports" />
+      <tocitem text="Unused variable assignments"   target="refact.audit.unused_assignment" />
+    </tocitem>
+    <tocitem text="Call Tree"               target="refact.call_tree" />
+    <tocitem text="Clean Imports"           target="refact.clean_imports" />
+    <tocitem text="Create Constructor"      target="refact.create_ctor" >
+      <tocitem text="Example"               target="refact.create_ctor.example"/>
+    </tocitem>
+    <tocitem text="Create Factory Method"   target="refact.factory_method" >
+      <tocitem text="Example"               target="refact.factory_method.example"/>
+    </tocitem>
+    <tocitem text="Create Missing Method"   target="refact.create_missing_method" />
+                <tocitem text="Convert Temp To Field"   target="refact.temp_to_field" />
+    <tocitem text="Cross-referenced HTML"   target="refact.crossref.html" />
+    <tocitem text="Dependency Analysis"       target="refact.dependencies" >
+      <tocitem text="Show Dependencies"       target="refact.show_dependencies" />
+      <tocitem text="Draw Dependencies"       target="refact.draw_dependencies" />
+      <tocitem text="Limitations"           target="refact.dependencies.limitations" />
+    </tocitem>
+    <tocitem text="Encapsulate Field"       target="refact.encapsulate_field" />
+    <tocitem text="Extract Method"          target="refact.extract_method">
+      <tocitem text="Example"               target="refact.extract_method.example"/>
+    </tocitem>
+    <tocitem text="Extract Superclass/Interface" target="refact.extract_super">
+      <tocitem text="Extract Interface"     target="refact.extract_super.interface"/>
+      <tocitem text="Extract Superclass"    target="refact.extract_super.superclass"/>
+    </tocitem>
+    <tocitem text="Find Duplicate Strings"  target="refact.duplicate_strings" />
+    <tocitem text="Fixme Scan"              target="refact.fixmeScan" >
+      <tocitem text="Words Scanned"         target="refact.fixmeScan.words" />
+      <tocitem text="Timestamps"            target="refact.fixmeScan.timestamps" />
+    </tocitem>
+    <tocitem text="Go to ..."       target="refact.goto_declaration" />
+    <tocitem text="Inline"           target="refact.inline" />
+    <tocitem text="Introduce Explaining Variable" target="refact.introduce_temp" />
+    <tocitem text="Metrics"              target="refact.metrics" >
+      <tocitem text="A"                  target="refact.metrics.a" />
+      <tocitem text="Ca"                 target="refact.metrics.ca" />
+      <tocitem text="CLOC"               target="refact.metrics.cloc" />
+      <tocitem text="CYC"                target="refact.metrics.cyc" />
+      <tocitem text="V(G)"               target="refact.metrics.cc" />
+      <tocitem text="DC"                 target="refact.metrics.dc" />
+      <tocitem text="DIP"                target="refact.metrics.dip" />
+      <tocitem text="DIT"                target="refact.metrics.dit" />
+      <tocitem text="DCYC"               target="refact.metrics.dcyc" />
+      <tocitem text="D"                  target="refact.metrics.d" />
+      <tocitem text="Ce"                 target="refact.metrics.ce" />
+      <tocitem text="EP"                 target="refact.metrics.ep" />
+      <tocitem text="EXEC"               target="refact.metrics.exec" />
+      <tocitem text="I"                  target="refact.metrics.i" />
+      <tocitem text="LSP"                target="refact.metrics.lsp" />
+      <tocitem text="MQ"                 target="refact.metrics.mq" />
+      <tocitem text="NCLOC"              target="refact.metrics.ncloc" />
+      <tocitem text="NOTa"               target="refact.metrics.nota" />
+      <tocitem text="NOC"                target="refact.metrics.noc" />
+      <tocitem text="NOTc"               target="refact.metrics.notc" />
+      <tocitem text="NOTe"               target="refact.metrics.note" />
+      <tocitem text="NP"                 target="refact.metrics.np" />
+      <tocitem text="NOT"                target="refact.metrics.not" />
+      <tocitem text="RFC"                target="refact.metrics.rfc" />
+      <tocitem text="LOC"                target="refact.metrics.loc" />
+      <tocitem text="WMC"                target="refact.metrics.wmc" />
+    </tocitem>
+    <tocitem text="Minimize Access Rights"  target="refact.min_access" />
+    <tocitem text="Move"                 target="refact.move">
+      <tocitem text="Move Class"         target="refact.movetype" />
+      <tocitem text="Move Method/Field"  target="refact.movemember" >
+        <tocitem text="Conflicts"        target="refact.movemember.conflicts" />
+        <tocitem text="Functionality Change" target="refact.movemember.functionality" />
+      </tocitem>
+    </tocitem>
+    <tocitem text="Not Used"                target="refact.notUsed">
+      <tocitem text="Filter"                target="refact.notUsed.filter" />
+      <tocitem text="Limitations"           target="refact.notUsed.limitations" />
+    </tocitem>
+    <tocitem text="Override/Implement Methods" target="refact.override_methods" />
+
+    <tocitem text="Pull Up / Push Down"     target="refact.pull_up_push_down">
+      <tocitem text="Conflicts"             target="refact.pull_up_push_down.conflicts"/>
+    </tocitem>
+    <tocitem text="Rename"                  target="refact.rename">
+      <tocitem text="Assessing Impact"      target="refact.rename.impact"/>
+      <tocitem text="Renaming a Class, or Interface" target="refact.rename.type"/>
+      <tocitem text="Renaming a Field"      target="refact.rename.field"/>
+      <tocitem text="Renaming a Method"     target="refact.rename.method"/>
+      <tocitem text="Renaming a Package"    target="refact.rename.package"/>
+      <tocitem text="Renaming a Parameter, or Local Variable" target="refact.rename.local"/>
+    </tocitem>
+    <tocitem text="Show JavaDoc"       target="refact.show_javadoc" />
+    <tocitem text="Structure Search"        target="refact.search" />
+    <tocitem text="Subtypes"                target="refact.subtypes" />
+    <tocitem text="Type Info"               target="refact.typeInfo" >
+      <tocitem text="Hierarchy Mode"        target="refact.typeInfo.hierarchy" />
+    </tocitem>
+    <tocitem text="Use Supertype Where Possible" target="refact.use_supertype" />
+    <tocitem text="Where Caught"            target="refact.where_caught" />
+    <tocitem text="Where Used"              target="refact.whereUsed" >
+      <tocitem text="Limitations"           target="refact.whereUsed.limitations" />
+      <tocitem text="Usages of Fields"      target="refact.whereUsed.field" />
+      <tocitem text="Usages of Methods"     target="refact.whereUsed.method" />
+      <tocitem text="Usages of Packages"    target="refact.whereUsed.package" />
+      <tocitem text="Usages of Parameters and Local Variables" target="refact.whereUsed.param_and_local" />
+      <tocitem text="Usages of Types"       target="refact.whereUsed.type" />
+      <tocitem text="Filters"               target="refact.whereUsed.filters" >
+        <tocitem text="Usages of Classes"                          target="refact.whereUsed.filters.class" />
+        <tocitem text="Usages of Interfaces"                       target="refact.whereUsed.filters.interface" />
+        <tocitem text="Usages of Non-Private Methods"              target="refact.whereUsed.filters.method" />
+        <tocitem text="Usages of Constructors and Private Methods" target="refact.whereUsed.filters.simple" />
+        <tocitem text="Usages of Packages"                         target="refact.whereUsed.filters.package" />
+        <tocitem text="Usages of Variables"                        target="refact.whereUsed.filters.variable" />
+        <tocitem text="Subtypes and Supertypes"                    target="refact.whereUsed.filters.checkSupertypesAndSubtypes" />
+      </tocitem>
+    </tocitem>
+  </tocitem>
+  <tocitem text="Report generation"   target="report">
+    <tocitem text="Available formats" target="report.formats"/>
+    <tocitem text="Audit"             target="report.audit"/>
+    <tocitem text="Metrics"           target="report.metrics"/>
+    <tocitem text="Not used"          target="report.notused"/>
+  </tocitem>
+  <tocitem text="Command Line Interface"  target="refact.cli">
+    <tocitem text="Switches"              target="refact.cli.switches"/>
+    <tocitem text="Ant Task"              target="refact.cli.antTask"/>
+    <tocitem text="Profiles"              target="refact.cli.profiles"/>
+  </tocitem>
+  <tocitem text="Troubleshooting and Tips" target="faq">
+    <tocitem text="Increasing Memory"      target="faq.memory"/>
+    <tocitem text="Custom Sourcepath"      target="faq.sourcepath"/>
+<!--    <tocitem text="Fails to Run"           target="faq.ref_failing"/>-->
+    <tocitem text="Functionality Problems" target="faq.funct_problems"/>
+    <tocitem text="Thread Dump"            target="faq.thread_dump"/>
+    <tocitem text="Registration"           target="faq.registration"/>
+  </tocitem>
+</tocitem>
+
+</toc>

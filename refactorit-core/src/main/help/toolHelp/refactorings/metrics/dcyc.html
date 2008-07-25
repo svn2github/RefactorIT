@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Direct Cyclic Dependencies (DCYC)</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Direct Cyclic Dependencies (DCYC)</h2>
+<p>The direct cyclic dependencies metric will determine the number of
+mutual dependencies between packages. That is, the number of other
+packages the package depends directly on and which in turn depend on
+that package. Two packages are directly cyclically dependent if the
+first package depends on the second package and the second package
+depends on the first package. Cyclic dependencies on all levels are
+maintenance nightmares and indicate potential places to apply
+refactoring changes.</p>
+<p>Cyclically dependent packages are not only harder to comprehend and
+compile individually but they cannot be packaged, versioned and
+distributed separately. Thus, they violate the idea that a Java package
+is the unit of release. Consequently, this metric is useful to notice
+cyclic package dependencies and catch them before they make it into your
+software baseline. A DCYC value of 0 indicates that the package being
+measured is not engaged in any direct cyclic dependencies with other
+packages.</p>
+<p>When direct cyclic dependencies are reported for a package, it is
+possible to determine which packages that form the cycles by using
+RefactorIT's <a href="../where_used/overview.html">Where Used</a> and <a
+ href="../dependencies/show_dependencies.html">Show Dependencies</a> on
+the package. Where Used reports the packages that the package is used
+in and Show Dependencies reports packages that the package depends on.
+The packages reported by both tools are engaged in direct cyclic
+dependencies with the package analysed. You can also get a visual view
+of the dependencies by using the <a
+ href="../dependencies/draw_dependencies.html">Draw Dependencies</a>
+feature. If you want to check if a package is involved in any other
+cycles in the whole dependency graph, you can use the <a href="cyc.html">Cyclic
+Dependencies</a> metric.</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="../where_used/overview.html">Where Used</a></p></li>
+	<li><p><a href="../dependencies/show_dependencies.html">Show Dependencies</a></p></li>
+	<li><p><a href="../dependencies/draw_dependencies.html">Draw Dependencies</a></p></li>
+	<li><p><a href="cyc.html">Cyclic Dependencies</a></p></li>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+
+</body>
+</html>

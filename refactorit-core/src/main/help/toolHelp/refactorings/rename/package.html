@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Renaming a Package</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Renaming a Package</h2>
+<p> Renaming a package changes the name of a package and all references (FQNs, <tt>package</tt> and <tt>import</tt> statements) in source files are updated accordingly. </p> 
+
+<h3>Usage</h3>
+
+<p>In the following dialog box, package <tt>com</tt> will be renamed to <tt>org</tt>:</p>
+<br>
+<img src="images/rename_package.png" alt="Rename Package dialog">
+<br>
+<p> Note that with these settings, <tt>com.company</tt> will <i>not</i>
+  be renamed because "rename prefixes of all  matching packages" is turned off. For
+  safety reasons, this is  the default behaviour.  Although packages are not
+  actually  hierarchical in Java,
+  there is an option to treat them as such and rename all packages starting with
+  a particular prefix, as illustrated  in
+  the following screen shot:</p>
+<br>
+<img src="images/rename_prefix.png" alt="Rename Package dialog">
+<br>
+<p> With the settings from the dialog box above,
+  all packages  that have names starting
+  with <tt>com</tt> will be renamed  so they start
+  with <tt>org</tt> instead.  The
+  package <tt>com</tt> will be renamed to <tt>org</tt> and the
+  package <tt>com.company</tt> will be renamed to <tt>org.company</tt>. </p>
+
+</body></html>

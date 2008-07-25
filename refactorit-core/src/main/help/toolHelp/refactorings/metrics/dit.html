@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Depth in Tree (DIT): Distance from Class to Root of
+Inheritance Hierarchy (0 for java.lang.Object)</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Depth in Tree (DIT)</h2>
+<p> This metric calculates how far down a class is declared in the
+inheritance hierarchy, where the DIT is the length from the class to the root of
+the inheritance tree.  In Java, all classes have java.lang.Object as their ultimate super
+class, which is defined to have a depth of 0. So a class that
+immediately extends java.lang.Object has a metric value of 1. Any of its
+subclasses will have a value of 2 and so on.  DIT is defined in RefactorIT for classes and interfaces as follows: </p>
+<ul>
+  <li>
+    <p>All interface types have a depth of 1</p>
+  </li>
+  <li>
+    <p>The class java.lang.Object has a depth of 0</p>
+  </li>
+  <li>
+    <p>All other classes have a depth of 1 plus the depth of their
+super class</p>
+  </li>
+</ul>
+<p> The deeper a class is in the hierarchy, the greater the number of
+methods and state variables it is likely to inherit, which makes it more
+difficult to predict its behaviour. It becomes more specialised and it
+can be hard to understand a system with many inheritance layers.
+However, there is a greater potential reuse of inherited methods. </p>
+<p>
+A DIT value of 0 indicates a root while a value of 2 and 3 indicates a
+higher degree of reuse. If there is a majority of DIT values bellow 2,
+it may represent poor exploitation of the advantages of OO design and
+inheritance.   RefactorIT recommends a maximum DIT value of 5 since deeper trees
+constitute greater design complexity as more methods and classes are
+involved. </p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="noc.html">Number of Children</a></p></li>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>RefactorIT Audits</title><style type="text/css">
+
+body {
+  font-family: Tahoma, Verdana, Helvetica;
+}
+  
+table {
+  text-align: left; 
+  width: 100%;
+  padding: 0px;
+  border-width: 0px;
+}
+
+table td {
+  vertical-align: top;
+}
+
+hr {
+  width: 100%; 
+  height: 2px;
+}  
+  
+A {
+  font-size: small;
+  font-family: Tahoma, Verdana, Helvetica;
+  font-weight: bold; 
+  color: #FB7216;
+  text-decoration: none;
+}
+
+A:hover {
+  text-decoration: underline; 
+}
+
+.category {
+  width: 50%; 
+  background-color: #274268; 
+  color: #FFFFFF;
+  vertical-align: top; 
+  text-align: center;
+  font-weight: bold;
+  padding: 2px;
+}
+
+.indent {
+  margin-left: 40px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.details {
+  font-size: small;
+  border-left: solid 1px black;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+
+.details td {
+ white-space: nowrap;
+ border-right: solid 1px black;
+ padding-left: 5px;
+}
+
+.details .leftTd {
+
+}
+
+.highPriority {
+  color: #FFFFFF; 
+  background-color: #8C0000;
+}
+
+.lowPriority {
+  color: #000000; 
+  background-color: #FFFF48;
+}
+
+.gray {
+  background-color: #D7D7D7;
+}
+
+.normalPriority {
+  color: #FFFFFF; 
+  background-color: #3366FF;
+}
+</style></head><body><b>RefactorIT Audits</b><br><table><tr><td><h3 align="center">Report created at 30.03.2005 18:01:19</h3></td></tr><tr align="center"><td>Violation Summary - 
+      HIGH: 1
+NORMAL: 8
+LOW: 19
+</td></tr><tr><td><hr></td></tr><tr><td><b>Summary:</b></td></tr></table><table><tr><td class="category"><a id="J2SE 5.0 constructs"></a>J2SE 5.0 constructs</td></tr><tr><td><a class="indent" href="#redundant_unboxing">Redundant unboxing
+				[1] 
+			  </a></td></tr><tr><td class="category"><a id="Exception usage"></a>Exception usage</td></tr><tr><td><a class="indent" href="#dangerous_catch">Dangerous catch clauses
+				[1] 
+			  </a></td></tr><tr><td class="category"><a id="Useless code"></a>Useless code</td></tr><tr><td><a class="indent" href="#unused_import">Unused imports
+				[18] 
+			  </a></td></tr><tr><td><a class="indent" href="#unused_variable">Unused local variables...
+				[8] 
+			  </a></td></tr></table><table><tr><td><hr></td></tr><tr><td><b>Details:</b></td></tr><tr><td><table cellspacing="0" class="details"><tr class="lowPriority"><td class="leftTd"><a id="redundant_unboxing"></a>Redundant unboxing
+<a href="#J2SE 5.0 constructs" style="font-size: x-small; color: #000000;">[top]</a></td><td>Corrective Action</td><td>Location</td><td>Line</td><td>Density</td></tr><tr><td class="leftTd">Redundant unboxing</td><td>Remove redundant unboxing</td><td>bingo.player.PlayerParameters</td><td>46</td><td>0.23809524</td></tr><tr class="highPriority"><td class="leftTd"><a id="dangerous_catch"></a>Dangerous catch clauses
+<a href="#Exception usage" style="font-size: x-small; color: #000000;">[top]</a></td><td>Corrective Action</td><td>Location</td><td>Line</td><td>Density</td></tr><tr><td class="leftTd">Avoid catching subclasses of java.lang.Throwable - java.lang.Throwable</td><td>&nbsp;</td><td>bingo.player.Player</td><td>125</td><td>0.30660376</td></tr><tr class="lowPriority"><td class="leftTd"><a id="unused_import"></a>Unused imports
+<a href="#Useless code" style="font-size: x-small; color: #000000;">[top]</a></td><td>Corrective Action</td><td>Location</td><td>Line</td><td>Density</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.game.ControlPane</td><td>6</td><td>0.16042781</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.CardWindow</td><td>6</td><td>0.2542373</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.NumberButton</td><td>5</td><td>0.25641027</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.Player</td><td>6</td><td>0.30660376</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.Player</td><td>8</td><td>0.30660376</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.PlayerParameters</td><td>4</td><td>0.23809524</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.PlayerParameters</td><td>5</td><td>0.23809524</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.PlayerQueue</td><td>3</td><td>0.90909094</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.PlayerQueue</td><td>5</td><td>0.90909094</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.player.PlayerQueue</td><td>7</td><td>0.90909094</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.BallListener</td><td>3</td><td>1.1111112</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.Card</td><td>7</td><td>0.12345679</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.GameStatusLabel</td><td>3</td><td>0.29411766</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.LightBoardPane</td><td>4</td><td>0.2970297</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.PlayerInfoPane</td><td>4</td><td>0.85106385</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.PlayerInfoPane</td><td>6</td><td>0.85106385</td></tr><tr><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.PlayerInfoPane</td><td>7</td><td>0.85106385</td></tr><tr class="gray"><td class="leftTd">Unnecessary import statements</td><td>Clean Imports</td><td>bingo.shared.PlayerInfoPane</td><td>8</td><td>0.85106385</td></tr><tr class="normalPriority"><td class="leftTd"><a id="unused_variable"></a>Unused local variables...
+<a href="#Useless code" style="font-size: x-small; color: #000000;">[top]</a></td><td>Corrective Action</td><td>Location</td><td>Line</td><td>Density</td></tr><tr><td class="leftTd">Unused local variable</td><td>Remove unused local variable</td><td>bingo.game.ControlPane</td><td>135</td><td>0.16042781</td></tr><tr class="gray"><td class="leftTd">Unused local variable</td><td>Remove unused local variable</td><td>bingo.player.CardWindow</td><td>36</td><td>0.2542373</td></tr><tr><td class="leftTd">Unused method parameter</td><td>Remove parameter from method's hierarchy signatures</td><td>bingo.player.PaperPane</td><td>11</td><td>1.25</td></tr><tr class="gray"><td class="leftTd">Unused local variable</td><td>Remove unused local variable</td><td>bingo.player.Player</td><td>106</td><td>0.30660376</td></tr><tr><td class="leftTd">Unused method parameter</td><td>Remove parameter from method's hierarchy signatures</td><td>bingo.player.Player</td><td>187</td><td>0.30660376</td></tr><tr class="gray"><td class="leftTd">Unused method parameter</td><td>Remove parameter from method's hierarchy signatures</td><td>bingo.player.Player</td><td>257</td><td>0.30660376</td></tr><tr><td class="leftTd">Unused method parameter</td><td>Remove parameter from method's hierarchy signatures</td><td>bingo.shared.LightBoardPane</td><td>22</td><td>0.2970297</td></tr><tr class="gray"><td class="leftTd">Unused local variable</td><td>Remove unused local variable</td><td>bingo.shared.OverallStatusPane</td><td>18</td><td>0.29411766</td></tr></table></td></tr></table></body></html>

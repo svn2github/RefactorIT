@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Metrics overview</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Metrics overview</h2>
+<p>Metrics calculate various measures for projects, packages, types,
+members, and constructors. Metrics are guidelines for where something in
+the application might need refinement and changes.</p>
+<p><br>
+<img src="images/results.png" alt="Metric output window"><br>
+</p>
+
+<h3>Metrics report generation</h3>
+<p> Metrics results can be <a href="../../report/overview.html">saved</a> to files
+in <a href="../../report/formats.html">various formats</a>, so they can be analysed by spreadsheet tools, or, for example, sent via e-mail to the development team as part of the nightly build. To do this - select "Export" on the Results Panel.</p>
+
+<p>The following lists metrics that are available in RefactorIT - click
+on a metric for more information and recommended thresholds. If a metric
+field is white in the window, then the metric value is within specified
+thresholds. Otherwise, the level of red pigment for the field indicates
+how unsatisfactory the value is for your a priori bounds.</p>
+<table border="1" width="100%">
+  <tbody>
+    <tr>
+      <th scope="col" align="left" width="40%" nowrap="nowrap">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th scope="col" align="left" width="60%">Description:</th>
+    </tr>
+    <tr>
+      <td><tt><a href="a.html">Abstractness (A)</a></tt></td>
+      <td>This metric counts the ratio of abstract classes and
+interfaces for a package</td>
+    </tr>
+    <tr>
+      <td><tt><a href="ca.html">Afferent Coupling (Ca)</a></tt></td>
+      <td>This metric counts the number of classes from other packages
+that depend on classes in the analysed package</td>
+    </tr>
+    <tr>
+      <td><tt><a href="cloc.html">Comment Lines of Code (CLOC)</a></tt></td>
+      <td>CLOC counts all lines that contain regular comments and
+Javadoc comments</td>
+    </tr>
+    <tr>
+      <td><tt><a href="cyc.html">Cyclic Dependencies (CYC)</a></tt></td>
+      <td>This estimates how many cycles in which a package is involved</td>
+    </tr>
+    <tr>
+      <td height="21"><tt><a href="cyclomatic_complexity.html">Cyclomatic
+Complexity (V(G) aka CC)</a></tt></td>
+      <td height="21">V(G) counts the number of code conditions giving
+an indication of how complex the program is</td>
+    </tr>
+    <tr>
+      <td><tt><a href="dc.html">Density of Comments (DC = CLOC / LOC)</a></tt></td>
+      <td>This determines a density value for how commented the code is</td>
+    </tr>
+    <tr>
+      <td><tt><a href="dip.html">Dependency Inversion Principle (DIP)</a></tt></td>
+      <td>The DIP metric calculates the ratio of dependencies that have abstract classes or interfaces as a target</td>
+    </tr>
+    <tr valign="top">
+      <td><tt><a href="dit.html">Depth in Tree (DIT)</a></tt></td>
+      <td>This is the distance from the class to the root of the
+inheritance tree</td>
+    </tr>   
+    <tr>
+      <td><tt><a href="dcyc.html">Direct Cyclic Dependencies (DCYC)</a></tt></td>
+      <td>Direct cyclic dependencies counts every mutual dependency
+between packages</td>
+    </tr>
+    <tr>
+      <td><tt><a href="d.html">Distance from the Main Sequence (D)</a></tt></td>
+      <td>The perpendicular distance of a package from the main sequence</td>
+    </tr>
+    <tr>
+      <td><tt><a href="ce.html">Efferent Coupling (Ce)</a></tt></td>
+      <td>This metric is a measure for the number of types of the analysed package which depend upon types from other packages</td>
+    </tr>
+    <tr>
+      <td><tt><a href="ep.html">Encapsulation Principle (EP)</a></tt></td>
+      <td>This calculates the ratio of classes that are used outside of a package</td>
+    </tr>
+    <tr>
+      <td><tt><a href="exec.html">Executable Statements (EXEC)</a></tt></td>
+      <td>This metric counts the number of executable statements</td>
+    </tr>
+    <tr>
+      <td><tt><a href="i.html">Instability (I = Ce / (Ca + Ce))</a></tt></td>
+      <td>Check to see how stable/unstable your packages are designed</td>
+    </tr>
+    <tr>
+      <td><tt><a href="lsp.html">Limited Size Principle (LSP)</a></tt></td>
+      <td>This is the number of direct subpackages of a package</td>
+    </tr>
+    <tr>
+      <td><tt><a href="mq.html">Modularization Quality (MQ)</a></tt></td>
+      <td>The difference between the average inter- and intra-connectivity of the packages</td>
+    </tr>
+    <tr>
+      <td><tt><a href="ncloc.html">Non-Comment Lines of Code (NCLOC,
+aka NCSL and ELOC)</a></tt></td>
+      <td>This counts all the lines that do not contain comments or
+blank lines</td>
+    </tr>
+    <tr>
+      <td><tt><a href="nota.html">Number of Abstract Types (NOTa)</a></tt></td>
+      <td>This metric counts the number of abstract classes and
+interfaces</td>
+    </tr>
+    <tr>
+      <td><tt><a href="noc.html">Number of Children in Tree (NOC)</a></tt></td>
+      <td>This metric measures the number of direct subclasses of a
+class</td>
+    </tr>
+    <tr>
+      <td><tt><a href="notc.html">Number of Concrete Types (NOTc)</a></tt></td>
+      <td>This metric counts the number of concrete classes</td>
+    </tr>
+    <tr>
+      <td><tt><a href="note.html">Number of Exported Types (NOTe)</a></tt></td>
+      <td>This metric counts the number of classes and interfaces
+exported outside a package</td>
+    </tr>
+    <tr>
+      <td><tt><a href="np.html">Number of Parameters (NP)</a></tt></td>
+      <td>This metric counts the number of parameters for a method or a
+constructor</td>
+    </tr>
+    <tr>
+      <td><tt><a href="not.html">Number of Types (NOT)</a></tt></td>
+      <td>This metric counts the number of classes and interfaces</td>
+    </tr>
+    <tr>
+      <td><tt><a href="rfc.html">Response for Class (RFC)</a></tt></td>
+      <td>This metric counts the number of distinct methods and
+constructors invoked by a class</td>
+    </tr>
+    <tr>
+      <td><tt><a href="loc.html">Total Lines of Code (LOC, aka SLOC and
+ELOC)</a></tt></td>
+      <td>The number of lines for a class including blank lines and
+comments</td>
+    </tr>
+    <tr>
+      <td><tt><a href="wmc.html">Weighted Methods per Class (WMC)</a></tt></td>
+      <td>This calculates the sum of cyclomatic complexity of methods
+for a class</td>
+    </tr>
+    <tr>
+      <td><tt><a href="nof.html">Number Of Fields (NOF)</a></tt></td>
+      <td>This calculates the number of fields declared in method (in local and anonymous classes declared in this method)</td>
+    </tr>
+    <tr>
+      <td><tt><a href="noa.html">Number Of Attributes (NOA)</a></tt></td>
+      <td>This calculates the number of fields declared in class or interface</td>
+    </tr>
+  </tbody>
+</table>
+<h3>References</h3>
+<p> This metric documentation is based on various sources.  Definitions
+and information can be found at the following locations:</p>
+
+<ul>
+	<li><p><a target="_blank" href="http://satc.gsfc.nasa.gov/metrics/codemetrics/oo/thresholds/index.html">http://satc.gsfc.nasa.gov/metrics/codemetrics/oo/thresholds/index.html</a></p></li>
+	<li><p><a target="_blank" href="http://www.ingrid.org/jajakarta/turbine/en/turbine/maven/reference/metrics.html">http://www.ingrid.org/jajakarta/turbine/en/turbine/maven/reference/metrics.html</a></p></li>
+	<li><p><a target="_blank" href="http://www.objectmentor.com/">http://www.objectmentor.com/</a></p></li>
+	<li><p><a target="_blank" href="http://www.objectmentor.com/publications/granularity.pdf">http://www.objectmentor.com/publications/granularity.pdf</a></p></li>
+	<li><p><a target="_blank" href="http://www.objectmentor.com/publications/dip.pdf">http://www.objectmentor.com/publications/dip.pdf</a></p></li>
+	<li><p><a target="_blank" href="http://www.objectmentor.com/resources/articles/Principles_and_Patterns.PDF">http://www.objectmentor.com/resources/articles/Principles_and_Patterns.PDF</a></p></li>
+	<li><p><a target="_blank" href="http://yunus.hun.edu.tr/%7Esencer/oom.html">http://yunus.hun.edu.tr/~sencer/oom.html</a></p></li>
+	<li><p><a target="_blank" href="http://mdp.ivv.nasa.gov/oo_metrics.html">http://mdp.ivv.nasa.gov/oo_metrics.html</a></p></li>
+	<li><p><a target="_blank" href="http://www.scism.sbu.ac.uk/law/Section5/chap5/s5c5p22.html">http://www.scism.sbu.ac.uk/law/Section5/chap5/s5c5p22.html</a></p></li>
+	<li><p><a target="_blank" href="http://builder.com.com/5102-6386-5035294.html">http://builder.com.com/5102-6386-5035294.html</a></p></li>
+	<li><p><a target="_blank" href="http://javacentral.compuware.com/products/optimaladvisor/documentation/v3.1/2037-1-15-18-8.html">http://javacentral.compuware.com/products/optimaladvisor/documentation/v3.1/2037-1-15-18-8.html</a></p></li>
+	<li><p><a target="_blank" href="http://javacentral.compuware.com/pasta/concepts/packageDesign.html">http://javacentral.compuware.com/pasta/concepts/packageDesign.html</a></p></li>
+	<li><p><a target="_blank" href="http://www.sei.cmu.edu/str/descriptions/cyclomatic_body.html">http://www.sei.cmu.edu/str/descriptions/cyclomatic_body.html</a></p></li>
+	<li><p><a target="_blank" href="http://www.cin.ufpe.br/%7Einspector/relacionados/Object-oriente%20Model%20Metrics%20Document.htm">http://www.cin.ufpe.br/~inspector/relacionados/Object-oriente%20Model%20Metrics%20Document.htm</a></p></li>
+	<li><p><a target="_blank" href="http://www.teaminabox.co.uk/">http://www.teaminabox.co.uk/</a></p></li>
+	<li><p><a target="_blank" href="http://www.fawcette.com/archives/premier/mgznarch/vbpj/1999/09sep99/cs0999.pdf">http://www.fawcette.com/archives/premier/mgznarch/vbpj/1999/09sep99/cs0999.pdf</a></p></li>
+	<li><p><a target="_blank" href="http://www.onjava.com/pub/a/onjava/2004/01/21/jdepend.html">http://www.onjava.com/pub/a/onjava/2004/01/21/jdepend.html</a></p></li>
+	<li><p><a target="_blank" href="http://metrics.sourceforge.net/">http://metrics.sourceforge.net/</a></p></li>
+	<li><p><a target="_blank" href="http://serg.cs.drexel.edu/projects/bunch/">http://serg.cs.drexel.edu/projects/bunch/</a></p></li>
+	<li><p><a target="_blank" href="http://maven.apache.org/reference/metrics.html">http://maven.apache.org/reference/metrics.html</a></p></li>
+</ul>
+</body>
+</html>

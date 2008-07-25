@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Dangerous throw statements</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Dangerous throw statements</h3>
+
+<p>Finds throw clauses that declare
+<code>java.lang.Error</code>, <code>java.lang.Throwable</code> or any of their
+subclasses, except java.lang.Exception.</p>
+
+<p>Example 1: </p>
+<pre>
+    public void m() throws <font color="red">Throwable</font>){ // violation!
+        throw new Throwable();
+    }
+</pre>   
+ 
+<p>Example 2: </p>
+<pre>
+    public void m() throws <font color="red">Error</font>){ // violation!
+        throw new Error();
+    }
+</pre>
+
+<p>Example 3: </p>
+<pre>
+    class MyThrowable extends Throwable {}
+    
+    public void m() throws <font color="red">MyThrowable</font>){ // violation!
+        throw new MyThrowable();
+    }
+</pre>
+
+<p>Example 4: </p>
+<pre>
+    public void m() throws <font color="green">Exception</font>){ // no violation
+        throw new Exception();
+    }
+</pre>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+No actions available.
+
+</body></html>

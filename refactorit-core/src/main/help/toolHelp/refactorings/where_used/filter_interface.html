@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Filter Dialog for Interfaces</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Filter Dialog for Interfaces</h2>
+
+<h3>Usage</h3>
+
+<p> You can narrow down the results of
+  a <a href="overview.html">Where Used query</a> by choosing different settings
+  rom the query's filter dialog. The filter dialog comes up automatically every
+  time  you run a Where Used query. You can also open that dialog later
+  from the <a href="../results_panel.html">results panel</a> to refine the search
+  by clicking on the filter button <img src="../images/filter.png" alt="Filter button">
+  after you have obtained initial results. The following graphic shows the dialog:</p>
+  <br>
+<img src="images/filter_interface.png" alt="Filter Usage dialog"> 
+<br>
+<table border="1" width="99%" >
+  <tr valign="top">
+    <th scope="column" align="left">Name</th>
+    <th scope="column" align="left">Description</th>
+  </tr>
+  <tr valign="top">
+    <td>Usages</td>
+    <td> Searches for usages of the class</td></tr>
+  <tr valign="top">
+    <td>Import Statements</td>
+    <td> Searches for import statements that import the class</td></tr>
+  <tr valign="top">
+    <td>Field Usages</td>
+    <td> Searches for  places where
+       a field of the class is used</td></tr>
+  <tr>
+    <td>Implementors</td>
+    <td> Searches for classes that implement this interface</td></tr>
+  <tr>
+    <td>Qualified Names in Non-Java Files</td>
+    <td>Search for fully qualified name usages of the selected interface(s) in non-java files. Typically they are xml documents.</td></tr>
+  <tr valign="top">
+    <td><a href="supertypes_and_subtypes.html">Check Subtypes/Check Supertypes</a></td>
+    <td> Reports usages that are invoked on subtypes/supertypes of the class that
+      the method being searched belongs to; for more information and an
+      example, see <a href="supertypes_and_subtypes.html">Supertypes & Subtypes</a>.</td></tr>
+  <tr>
+    <td>Group usages located on the same line</td>
+    <td> If turned on,  multiple usages
+      on the same line will be merged into one line in the results panel.</td></tr>
+  <tr>
+    <td>Go to source in case of single usage</td>
+    <td> If checked and only one usage is found,
+       the result window will not be displayed. Instead, the user is taken to
+      the usage in the source file.</td></tr>
+  <tr><td>Run with default filter settings next time</td>
+    <td>If turned on, filter settings window will not appear again next time.</td></tr>
+</table>
+
+
+</body></html>

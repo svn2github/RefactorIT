@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Shadowed Fields</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Shadowed Fields</h3>
+
+<p>This warning reports local variables whose names matches the names of fields
+  in the same class, optionally including constructors' and setters' parameters.
+  An automatic fix is available form the pop-up menu, renaming
+  the local variable.</p>
+  
+<p>Example 1: </p>
+<pre>
+    class Test {
+        private int a;
+        
+        void m() {
+            int <font color="red">a</font> = 5; // violation!
+            ...
+        }
+    }
+</pre> 
+  
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Rename field</h3>
+Action suggests to rename field. See <a href="../rename/field.html">Rename field</a> refactoring action.
+
+
+</body></html>

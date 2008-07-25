@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Where Used For Parameters and Local Variables</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Where Used For Parameters and Local Variables</h2>
+
+<h3>Usage</h3>
+
+<p>
+Similar to usages of fields, usages of  parameters and local variables are:</p>
+<ul>
+  <li><p>Setting the value of the parameter or variable, except during declaration.</p></li>
+  <li><p>Getting the value of the parameter or variable.</p></li>
+</ul>
+
+<p>
+You can tune the results of the query in the <a href="filter_variable.html">filter dialog for variables</a> that
+is opened automatically when you run the query.
+</p>
+
+<h3>Example</h3>
+<pre><p>
+void test(String param1) {
+  System.out.println(param1);        // get
+  final int len = param1.length();   // get
+       // Setting value of "len" not counted
+       // as usage of "len" because the
+       // value is set in declaration.
+  System.out.println(len);           // get
+}
+</p></pre>
+<p>As shown in the following graphic, this code has: 1 usage of <tt>len</tt> and 
+  2 usages of <tt>param1</tt>.</p>
+  <br>
+  <img src="images/where_used_param.png" alt="Where Used window"> 
+
+
+</body></html>

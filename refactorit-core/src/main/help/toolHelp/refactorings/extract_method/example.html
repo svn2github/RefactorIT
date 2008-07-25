@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Example</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+	<h2>Example</h2>
+
+<p> The code below validates  <tt>name</tt> according to several rules.</p>
+<pre>
+void validateName(String name, List errors) {
+  if (name == null) {
+    throw new NullPointerException("name");
+  }
+
+  if (errors == null) {
+    throw new NullPointerException("errors");
+  }
+
+  // Check length
+  if ((name.length() &lt; 3) ||
+      (name.length() &gt; 10))
+  {
+    errors.add("Invalid name length");
+  }
+
+  // Check that name consists
+  // only small letters or digits
+  final char[] nameChars = name.toCharArray();
+  for (int i = 0, len = nameChars.length;
+       i &lt; len; i++)
+  {
+    final char c = nameChars[i];
+
+    if (!(((c &gt;= '0') && (c &lt;= '9'))
+          || ((c &gt;= 'a') && (c &lt;= 'z')))) {
+      errors.add(
+        "Name can only contain [a-z0-9]");
+      break;
+    }
+  }
+}
+</pre>
+<p>  You receive a request to add a new method and there are two good candidates: a section of code that checks whether the <tt>length</tt> is acceptable and
+  another checks if <tt>name</tt> consists only
+  of lower case letters and digits. You select the code that
+  performs each function and use Extract Method to produce two new methods.</p>
+
+<p>
+<h3>Extracting Length Validation</h3><br>
+Select the three lines that perform length validation:
+</p>
+<pre>
+  if ((name.length() &lt; 3) ||
+      (name.length() &gt; 10))
+  {
+    errors.add("Invalid name length");
+  }
+</pre>  Run Extract Method by right-clicking
+on the selection and choosing RefactorIT-&gt;Extract Method. Pick <tt>validateNameLength</tt>
+as the name of the new method.
+<p></p>
+<br>
+<img src="images/method_customization.png" alt="RefactorIT Extract Method">
+
+<p> The new  method  is created as follows:</p>
+<pre>
+private void validateNameLength(String name,
+                                List errors)
+{
+  if ((name.length() &lt; 3) ||
+      (name.length() &gt; 10))
+  {
+    errors.add("Invalid name length");
+  }
+}
+</pre> The original code  now contains
+a call to the extracted method like  the
+following:
+<pre>
+void validateName(String name, List errors) {
+  if (name == null) {
+    throw new NullPointerException("name");
+  }
+
+  if (errors == null) {
+    throw new NullPointerException("errors");
+  }
+
+  // Check length
+  validateNameLength(name, errors);
+
+  // Check that name consists
+  // only small letters or digits
+  final char[] nameChars = name.toCharArray();
+  for (int i = 0, len = nameChars.length;
+       i &lt; len; i++)
+  {
+    final char c = nameChars[i];
+
+    if (!(((c &gt;= '0') && (c &lt;= '9'))
+          || ((c &gt;= 'a') && (c &lt;= 'z')))) {
+      errors.add(
+        "Name can only contain [a-z0-9]");
+      break;
+    }
+  }
+}
+</pre>
+<h3>Extracting Validation of Characters Allowed</h3>
+
+<p>Similar to the previous extraction, select the code that validates whether  <tt>name</tt>  contains only allowed characters, run Extract Method and specify <tt>validateNameCharacters</tt>  as the name of the extracted method.</p>
+
+<p> The new  method  is created as follows:</p>
+<pre>private void validateNameCharacters(
+  String name,
+  List errors
+){
+  final char[] nameChars = name.toCharArray();
+  for (int i = 0, len = nameChars.length;
+       i &lt; len; i++)
+  {
+    final char c = nameChars[i];
+
+    if (!(((c &gt;= '0') && (c &lt;= '9'))
+          || ((c &gt;= 'a') && (c &lt;= 'z')))) {
+      errors.add(
+        "Name can only contain [a-z0-9]");
+      break;
+    }
+  }
+}
+</pre>
+<p>The original code  now contains a call to the extracted methods: </p>
+
+<pre>
+void validateName(String name, List errors) {
+  if (name == null) {
+    throw new NullPointerException("name");
+  }
+
+  if (errors == null) {
+    throw new NullPointerException("errors");
+  }
+
+  // Check length
+  validateNameLength(name, errors);
+
+  // Check that name consists
+  // only small letters or digits
+  validateNameCharacters(name, errors);
+}
+</pre>
+
+<h3>The Result</h3>
+<p>
+  Remove superfluous comments to obtain:</p>
+<pre>
+void validateName(String name, List errors) {
+  if (name == null) {
+    throw new NullPointerException("name");
+  }
+
+  if (errors == null) {
+    throw new NullPointerException("errors");
+  }
+
+  validateNameLength(name, errors);
+  validateNameCharacters(name, errors);
+}
+
+private void validateNameLength(String name,
+                                List errors)
+{
+  if ((name.length() &lt; 3) ||
+      (name.length() &gt; 10))
+  {
+    errors.add("Invalid name length");
+  }
+}
+
+private void validateNameCharacters(
+  String name,
+  List errors
+){
+  final char[] nameChars = name.toCharArray();
+  for (int i = 0, len = nameChars.length;
+       i &lt; len; i++)
+  {
+    final char c = nameChars[i];
+
+    if (!(((c &gt;= '0') && (c &lt;= '9'))
+          || ((c &gt;= 'a') && (c &lt;= 'z')))) {
+      errors.add(
+        "Name can only contain [a-z0-9]");
+      break;
+    }
+  }
+}
+</pre>
+
+</body></html>

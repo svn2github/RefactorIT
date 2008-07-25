@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Where Caught</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Where Caught</h2>
+
+<h3>Usage</h3>
+
+<p>Finds where an exception is handled and is invoked when clicked:</p>
+<ul><li><p>on any exception name declared in the <tt>throws</tt> clause of the method or constructor declaration, e.g. when clicked on MyException string in</p>
+<pre><p>
+  public void method() throws MyException, SomeOtherException {
+    ..
+  }
+</p></pre></li>
+<li><p>on the <tt>throw</tt> keyword within the body of the method or constructor,
+e.g.</p>
+<pre><p>
+  throw new MyException(); // click within 'throw'
+</p></pre></li>
+</ul>
+
+<h3>Results</h3>
+
+<p>The result is a tree of all the method/constructor invocation paths an exception can
+fly through until caught.</p>
+<br>
+<img src="images/where_caught.png" alt="Where Caught result">
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="../call_tree/overview.html">Call Tree</a> to get better understanding of an idea of invocation paths</p></li>
+</ul>
+
+</body></html>

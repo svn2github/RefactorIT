@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="metrics-in-current-folder" name="help-example">
+
+    <!-- RefactorIT home and license file location: *modify these* -->
+    <property name="refactorit.home" value="C:\RefactorIT"/>
+    <property name="refactorit.license" value="${refactorit.home}/refactorit.license"/>
+
+    <!-- Defines the RefactorIT task -->
+    <taskdef name="RefactorIT" classname="com.xpdev.refactory.ant.RefactorIt">
+        <classpath>
+            <fileset dir="${refactorit.home}" includes="**/*.jar"/>
+        </classpath>
+    </taskdef>
+
+    <!-- Sample usage -->
+    <target name="metrics-in-current-folder">
+        <RefactorIT
+            action="metrics"
+            sourcepath="."
+            classpath="."
+            output="${basedir}/output.csv"
+            format="comma-separated"
+            license="${refactorit.license}"
+            />
+    </target>
+    
+</project>

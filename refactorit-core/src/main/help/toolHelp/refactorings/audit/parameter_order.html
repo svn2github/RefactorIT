@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Parameter order checker</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Parameter order checker</h3>
+
+<p>This audit compares names of arguments, passed to a method, with names of
+corresponding formal method parameters, and reports places, where order of
+arguments is presumably mixed up.</p>
+
+<p>Example:</p>
+<pre>
+    public void method(String apple, String peach){
+        ...
+    }
+
+    ...
+    String apple = "an apple";
+    String peach = "a peach";
+    method(apple, peach); // no violation
+    method(<font color="red">peach, apple</font>); // violation
+    ...
+</pre>
+
+<p>This example code produces no errors during compile time, because both arguments
+are of same type, but it is most likely a bug, because you are trying to pass
+'an apple' string, where 'a peach' string is expected.</p>
+
+<p>The audit rule will report warnings even if the similarity of the names is not 100%.
+
+    <pre>
+    String app2 = "an apple";
+    String each = "a peach";
+    method(<font color="red">each, app2</font>); // violation
+    </pre>
+
+</p>
+
+
+<p>You can define SENSITIVITY level in audit options. '100' means that the audit
+will report only exact matches.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Change arguments places</h3>
+    This action changes arguments places in method invocation expression:
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    method(<font color="red">peach</font>, <font color="red">apple</font>);
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    method(<font color="green">apple</font>, <font color="green">peach</font>);
+    </pre>
+
+</body></html>

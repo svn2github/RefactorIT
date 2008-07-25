@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Not serializable superclass</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Not serializable superclass</h3>
+
+<p>java.io.Serializable class should have serialVersionUID member field with
+following signature:</p>
+
+<pre><code><b>&lt;any-access-modifier&gt; static final long serialVersionUID = ...;</b></code></pre>
+
+<p><a href="http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/class.doc6.html#4100">Read more</a></p>
+
+<p>This audit rule reports all java.io.Serializable classes without
+properly declared 'serialVersionUID'.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Add serialVersionUID member field</h3>
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A implements java.io.Serializable {
+      ...  
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A implements java.io.Serializable {
+      <font color="green">public static final long serialVersionUID = ...L;</font>
+      ...  
+    }
+    </pre>
+    
+<h3>Correct serialVersionUID modifiers</h3>
+
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A implements java.io.Serializable {
+      public final <font color="red">int</font> serialVersionUID = 555;
+      ...  
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A implements java.io.Serializable {
+      public <font color="green">static</font> final <font color="green">long</font> serialVersionUID = 555;
+      ...  
+    }
+    </pre>
+
+</body></html>

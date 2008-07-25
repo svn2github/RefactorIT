@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Instability (I = Ce / (Ca + Ce)) (slow): Robert C. Martin's
+Instability</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Instability (I = Ce / (Ca + Ce)) </h2>
+<p> This metric was proposed by Robert C. Martin and measures the
+instability of packages, where stability is measured by calculating the effort to change a package without impacting other packages within the application.  Robert C. Martin's proposed Stable Dependencies Principle states that the dependencies between packages in a design should be in the direction of the stability of the packages; i.e. a package should depend only on packages that are more stable that itself. The number of incoming and outgoing dependencies is one indicator determining the stability and instability of a package. </p>
+<p>
+Packages that contain multiple outgoing but few incoming dependencies are less stable because of the consequences of changes in these packages.  On the other hand, packages containing more incoming dependencies are more stable because they are more difficult to change. Stability can be calculated by comparing the incoming and outgoing package dependencies
+(afferent coupling Ca and efferent coupling Ce): </p>
+<p> Instability I = Ce / (Ca + Ce). </p>
+<p>If I falls in the range between 0.0 and 1.0 where 0.0 indicates a
+maximally stable package and 1.0 indicates a maximally unstable
+package.   However, do not design all packages to be completely stable or
+completely unstable. Instead, each package should intentionally be made
+as stable (0.0 to 0.3) or unstable (0.7 to 1.0) as possible. </p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="a.html">Abstractness</a></p></li>
+	<li><p><a href="ca.html">Afferent Coupling</a></p></li>
+	<li><p><a href="ce.html">Efferent Coupling</a></p></li>
+	<li><p><a href="d.html">Distance from Main Sequence</a></p></li>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+
+</body>
+</html>

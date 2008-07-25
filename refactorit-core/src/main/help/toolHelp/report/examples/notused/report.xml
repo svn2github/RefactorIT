@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<report date="30.03.2005 18:15:40">
+<info>
+<exclude-filter-rules>
+<rule id="accessor" name="All accessor methods">
+<option name="indexed-accessors" value="true"/>
+<option name="mapped-accessors" value="true"/>
+</rule>
+<rule id="interface_usage" name="Interface usage"/>
+<rule id="public" name="All public methods"/>
+</exclude-filter-rules>
+</info>
+<whole-types>
+<package name="bingo.game">
+<class name="X"/>
+<interface name="YYY"/>
+</package>
+</whole-types>
+<single-members>
+<package name="bingo.game">
+<class name="RandomBag">
+<field name="DEBUG"/>
+</class>
+</package>
+<package name="bingo.player">
+<class name="ControlPane">
+<field name="DEBUG"/>
+<field name="name"/>
+<field name="numCardWindows"/>
+<field name="cardWindows"/>
+</class>
+<class name="Player">
+<field name="SMALLPAD"/>
+<method name="processEvent(AWTEvent)"/>
+</class>
+<class name="PlayerQueue">
+<method name="dispatchEvent(AWTEvent)"/>
+</class>
+</package>
+</single-members>
+</report>

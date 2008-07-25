@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>RefactorIT Ant task</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>RefactorIT Ant task</h2>
+
+<h3>Description</h3>
+<p>Runs RefactorIT actions, such as <a href="../audit/overview.html">audit</a>, 
+<a href="../metrics/overview.html">metrics</a> and 
+<a href="../not_used/overview.html">not used</a>. 
+For a quick overview, see <a href="working_sample.xml">a working sample file</a>.
+</p>
+
+<h3>Installation</h3>
+<p>Just install RefactorIT in stand alone mode (it is an installer option).
+In build files, use the following task definition (be sure to replace "C:\RefactorIT"
+with your RefactorIT home folder):</p>
+<code>
+&lt;taskdef name="RefactorIT"&nbsp;classname="com.xpdev.refactory.ant.RefactorIt"&gt;<br>
+&nbsp;&nbsp;&lt;classpath&gt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fileset dir="<b>C:\RefactorIT</b>" includes="**/*.jar"/&gt;<br>
+&nbsp;&nbsp;&lt;/classpath&gt;<br>
+&lt;/taskdef&gt;<br>
+</code>
+
+<h3>Parameters</h3>
+<table border="1" style="width:100%" width="100%">
+<tr><th style="width:5%" width="5%" border="1">Attribute</th><th style="width:50%" width="50%" border="1">Description</th><th style="width:40%" width="40%" border="1">Required</th></tr>
+<tr><td border="1">action</td><td border="1">Action to run: "metrics", "audit" or "notused"</td><td border="1">Yes</td></tr>
+<tr><td border="1">sourcepath</td><td border="1"><p>
+Sourcepath used for loading the project; could be specified via nested "sourcepath"
+element(s), as a <a href="http://ant.apache.org/manual/using.html#path">path-like
+structure</a></p></td><td border="1">Yes, unless provided in another way</td></tr>
+<tr><td border="1">classpath</td><td border="1"><p>
+Classpath used for loading the project; could be specified via nested "classpath"
+element(s), as a <a href="http://ant.apache.org/manual/using.html#path">path-like structure</a></p></td>
+<td border="1"><p>Yes, unless provided in another way</p></td></tr>
+<tr><td border="1">sourcepathref</td><td border="1"><p>
+Sourcepath, given as a 
+<a href="http://ant.apache.org/manual/using.html#references">reference</a></p></td><td border="1">No</td></tr>
+<tr><td border="1">classpathref</td><td border="1"><p>
+Classpath, given as a <a
+href="http://ant.apache.org/manual/using.html#references">reference</a></p></td><td border="1">No</td></tr>
+<tr><td border="1">license</td><td border="1"><p>RefactorIT license file location</p></td>
+<td border="1"><p>Yes, unless used with a small project</p></td></tr>
+<!--<tr><td border="1"><p>format</p></td><td border="1"><p>Output format: text, html or comma-separated (default=text)</p></td><td border="1"><p>No</p></td></tr>-->
+<tr><td border="1">format</td><td border="1">'html', 'text', 'xml', 'comma-separated' or xsl file ending with '.xsl'; default is 'text'</td><td border="1">No</td></tr>
+<tr><td border="1"><p>output</p></td><td border="1"><p>Output file name</p></td><td border="1"><p>No</p></td></tr>
+<tr><td border="1"><p>profile</p></td><td border="1"><p>Profile for metrics or audits</p></td><td border="1"><p>No</p></td></tr>
+</table>
+
+<h3>Examples</h3>
+<p>See <a href="working_sample.xml">a working sample file</a>.</p>
+
+</body></html>

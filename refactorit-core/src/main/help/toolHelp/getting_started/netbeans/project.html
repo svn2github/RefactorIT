@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head><title>Setting Up a New Project Under  Sun ONE Studio/NetBeans</title>
+	<link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+
+<body>
+
+	<font color="red"> Please NOTE: this information applies only to versions older than 4.0. In Netbeans v.4.0 please use the wisards in File|New Project... to set up the projects. </font>
+	
+<h2>Setting Up a New Project Under Sun ONE Studio/NetBeans</h2>
+
+<p>There are two ways to allocate a project under Sun ONE Studio/NetBeans:
+  follow the recommended guidelines for setting up projects or
+  set up the project via a custom way.  This
+  section describes how to allocate a project in the
+  IDE so that RefactorIT can automatically detect its settings. 
+  If you prefer a custom method, you can always set the
+  project's settings in the <a href="settings.html">RefactorIT
+  Options</a> dialog (Tools-&gt;RefactorIT-&gt;RefactorIT Options).</p>
+
+<p>Assuming that your are at least using Sun ONE Studio 4, the following project is utilized in the examples below:
+<pre>
+ &lt;project root&gt;
+ + lib
+ &nbsp; - myjar.jar
+ &nbsp; - servlet-api.jar
+ &nbsp; - ...
+ + java
+ &nbsp; + com
+ &nbsp;&nbsp;&nbsp; + company
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + product
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...
+</pre>
+</p>
+
+<h3>Mounting Source Files</h3>
+<p>  For Sun ONE Studio/NetBeans to compile
+  your project and RefactorIT to function, you must properly mount the
+  source files and libraries.  Source files  (.<tt>java</tt> files)
+  must be mounted in the default package directory on the Filesystems
+  window. The default package directory is where the default (unnamed) package
+  resides, in this example, <tt>&lt;project root&gt;/java</tt>. The default
+  package directory usually does not contain <tt>.java</tt> files, but if it does,
+  the  source files do not have "package ...;" statement as one of the first rows. </p>
+<p><b>STEPS</b> </p>
+<ol>
+  <li>Go to the Filesystem tab of the
+    Explorer .</li>
+  <li>Right-click  the Filesystems node
+    and choose Mount-&gt;Local Directory.</li>
+  <li>Choose <tt>&lt;project root&gt;/java</tt></li>
+</ol>
+
+<p>A new  mounted filesystem should now
+  appear in the Filesystems tab. You can expand it to browse your  source files. </p>
+<p><img src="images/sources_mounted.png" alt="Filesystem tab of Explorer panel">
+</p>
+
+<p>Note that if your project uses source files from other directories, you have to mount those source files as well. Ensure that you mount directories at the default package
+  root.</p>
+
+<h3>Mounting Libraries</h3>
+<p>Custom libraries (usually <tt>.jar</tt>) are required by most projects as they
+  contain compiled classes that a project uses. All libraries required by a
+  project in order to compile, must be mounted. In Sun ONE Studio/NetBeans, any <tt>.jar</tt>
+  file mounted in the Filesystems tab is automatically treated as such a library
+  and is added to the class path when compiling. In our sample project, all
+  external libraries are located in the directory "<tt>&lt;project root&gt;/lib</tt>".
+</p>
+<p><b>STEPS</b> </p>
+<ol>
+  <li>Go to the Filesystem tab of the
+    Explorer panel.</li>
+  <li>Right-click  the Filesystems node
+    and choose Mount-&gt;Archive (JAR, Zip).</li>
+  <li>Choose one of your <tt>.jar</tt> files (for example, <tt>&lt;project root&gt;/lib/servlet-api.jar</tt>).</li>
+  <li>Note: that starting from NetBeans 3.3.1 you can add multiple libraries at once.</li>
+  <li>Repeat step 2 and 3 until you've mounted all libraries.</li>
+</ol>
+
+<img src="images/jars_mounted.png" alt="Filesystem tab of Explorer panel">
+<h3>Checking Whether the Project Compiles</h3>
+<p>If the project as mounted in Sun ONE Studio/NetBeans does not compile successfully,
+  RefactorIT  might not work properly.
+</p>
+<p> <b>To see if the project compiled:</b>
+</p>
+<ol>
+  <li>In the main menu, choose Build-&gt;Compile
+    All (Ctrl+F9).</li>
+  <li>Check  the Output Window  for errors.</li>
+</ol>
+
+<p>If your project still does not compile, you are probably missing an
+  external library, thus mount it and re-compile.  If your project uses
+   an external build script (such as Makefile, Ant <tt>build.xml</tt>) verify what that script does  to compile your project and mount the necessary paths in the Filesystems tab.  Usually, you have to add additional libraries to CLASSPATH. </p>
+
+<h4>References</h4>
+&nbsp;&nbsp;<a href="sources_for_reference.html">Mounting Source Files for Reference Only</a><br>
+&nbsp;&nbsp;<a href="javadocs.html">Mounting Javadoc</a><br>
+
+</body></html>

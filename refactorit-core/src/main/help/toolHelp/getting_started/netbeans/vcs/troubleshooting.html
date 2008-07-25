@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Troubleshooting and Limitations</title>
+        <link rel="StyleSheet" href="../../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Troubleshooting and Limitations</h2>
+<p>
+The VCS support of RefactorIT was tested with CVS only. </p>
+
+<p>Since RefactorIT uses the same VCS commands that are accessible through NetBeans/Sun ONE
+Studio's
+user interface, it is assumed that all VCS commands work properly when invoked manually within the Sun ONE
+Studio/NetBeans, therefore, <strong>please, ensure that all the commands of the VCS are functional before running RefactorIT on a VCS file system</strong>.
+</p>
+<br>
+<p>
+<b>If REMOVE fails for CVS</b>
+<br>
+If your server version is newer that the version of the cvs client Sun ONE Studio/NetBeans was configured 
+to use (including internal cvs-client), then REMOVE invoked on a file sometimes results in 
+"cvs [server aborted]: no such directory '\&lt;name_of_parent_directory\&gt;'". 
+In this case, try to use another cvs client, for example command line client <i>cvs.exe</i> 
+of the <a href="http://www.wincvs.org/">WinCvs</a>.</p>
+<br>
+<p>
+The complete log of all the VCS commands called by RefactorIT together with accompanying information is saved into the
+ <i>ide.log</i> file which is located under the system directory of your
+NetBeans/Sun ONE Studio user home directory
+(for example,
+<code>/home/<i>username</i>/.netbeans/3.5/system/ide.log</code>).
+</p>
+</body></html>

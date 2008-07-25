@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Create Factory Method Example</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h3>Create Factory Method Example</h3>
+
+<p>  In this example we start with a class  that represents complex numbers.</p>
+<pre>
+public class Complex {
+  ...
+
+  public static final Complex ZERO =
+    new Complex(0, 0);
+  public static final Complex I =
+    new Complex(0, 1);
+
+  /**
+   * Creates new complex number with
+   * specified real and imaginary parts.
+   *
+   * @param real  real part.
+   * @param imag  imaginary part.
+   */
+  public Complex(double real, double imag) {
+    ...
+  }
+
+  public static void main(String[] args) {
+    System.out.println(new Complex(12, 13));
+  }
+}
+</pre>
+
+<p> The constructor is  intuitive, however we expect that in many cases numbers representing {0, i, -i, ... } will be created. We would like to create only few instances of these common numbers. As a result, the constructor does not suit us well, since a new instance is always created. </p>
+
+<p> To create a factory method, click  the constructor and run Create Factory Method.  Specify <tt>valueOf</tt> as the name  of the method, and click OK to create the new method.</p>
+<p>[<i>Note: The following dialog uses the name <tt>createComplex</tt> and not <tt>valueOf</tt>.]</i></p>
+
+<img src="images/main.png" alt="Create Factory Method dialog">
+
+<p> RefactorIT  then shows you all the places in the source path  that invoke the constructor.  By default,  RefactorIT will replace all these invocations with invocations of the new factory method. In our case, we don't want the instantiation of constants to be replaced, however, we do wish to replace the constructor invocation in method <tt>main</tt>. </p>
+
+<br>
+<img src="images/replace.png" alt="show replacements window">
+
+<p> After you click OK, RefactorIT generates the new method <tt>valueOf</tt>. Additionally, the invocation of constructor  is replaced by a call to the new method inside the <tt>main</tt> method, as demonstrated: </p>
+<pre>
+public class Complex {
+  ...
+
+  public static final Complex ZERO =
+    new Complex(0, 0);
+  public static final Complex I =
+    new Complex(0, 1);
+
+  /**
+   * Creates new complex number with
+   * specified real and imaginary parts.
+   *
+   * @param real  real part.
+   * @param imag  imaginary part.
+   */
+  public Complex(double real, double imag) {
+    ...
+  }
+
+  public static Complex valueOf(double real,
+                                double imag)
+  {
+    return new Complex(real, imag);
+  }
+
+  public static void main(String[] params) {
+    System.out.println(valueOf(12, 13));
+  }
+}
+</pre>
+<p> Next add code to <tt>valueOf</tt> that returns
+  the existing instance for zero and <tt>i</tt>:</p>
+<pre>
+public static Complex valueOf(double real,
+                              double imag)
+{
+  if (real == 0) {
+    if (imag == 0) {
+      return ZERO;
+    } else if (imag == 1) {
+      return I;
+    }
+  }
+
+  // custom number
+  return new Complex(real, imag);
+}
+</pre>
+
+<p> Finally make the constructor private, so that clients cannot directly invoke and have to use <tt>valueOf</tt> instead:</p>
+<pre>
+private Complex(double real, double imag) {
+  ...
+}
+</pre>
+<p>The refactored code now looks as follows: </p>
+
+<pre>
+public class Complex {
+
+  public static final Complex ZERO =
+    new Complex(0, 0);
+  public static final Complex I =
+    new Complex(0, 1);
+
+  /**
+   * Creates new complex number with
+   * specified real and imaginary parts.
+   *
+   * @param real  real part.
+   * @param imag  imaginary part.
+   */
+  private Complex(double real, double imag) {
+    ...
+  }
+
+  public static Complex valueOf(double real,
+                                double imag)
+  {
+    if (real == 0) {
+      if (imag == 0) {
+        return ZERO;
+      } else if (imag == 1) {
+        return I;
+      }
+    }
+
+    // custom number
+    return new Complex(real, imag);
+  }
+
+  public static void main(String[] params) {
+    System.out.println(valueOf(12, 13));
+  }
+}
+</pre>
+
+<p> To summarise, Create Factory Method can be used to simplify the creation of factory methods that delegate to constructors. You are spared the task of delegating parameters and you can let Create Factory Method replace invocations of the constructor  with calls to the new method.
+</p>
+
+</body></html>

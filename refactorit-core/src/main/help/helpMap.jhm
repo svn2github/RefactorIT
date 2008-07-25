@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/map_1_0.dtd">
+
+<map version="1.0">
+  <mapID target="images.topLevelFolder" url="images/toplevel.png" />
+  <mapID target=".top"     url="toolHelp/manual.html" />
+  <mapID target=".intro"   url="toolHelp/intro.html" />
+  <mapID target=".refactoring"   url="toolHelp/refactoring.html" />
+
+  <mapID target="getStart.startdoc"           url="toolHelp/getting_started/getting_started.html" />
+  <mapID target="getStart.concepts"           url="toolHelp/getting_started/concepts.html" />
+  <mapID target="getStart.refactoritOptions"  url="toolHelp/getting_started/refactorit_options.html" />
+  <mapID target="getStart.projectSettings"     url="toolHelp/getting_started/project_settings.html" />
+  <mapID target="getStart.cache"     url="toolHelp/getting_started/cache.html" />
+  <mapID target="getStart.shortcuts" url="toolHelp/getting_started/shortcuts.html" />
+  <mapID target="getStart.toolbar" url="toolHelp/getting_started/toolbar.html" />
+  <mapID target="getStart.integrations" url="toolHelp/getting_started/integrations.html" />
+  <mapID target="getStart.refactoritUpdater"  url="toolHelp/getting_started/refactorit_updater.html" />
+
+  <mapID target="getStart.eclipse.overview" url="toolHelp/getting_started/eclipse/overview.html" />
+
+  <mapID target="getStart.netbeans.overview"  url="toolHelp/getting_started/netbeans/overview.html" />
+  <mapID target="getStart.netbeans.autodetect" url="toolHelp/getting_started/netbeans/autodetect.html" />
+  <mapID target="getStart.netbeans.settings"  url="toolHelp/getting_started/netbeans/settings.html" />
+  <mapID target="getStart.netbeans.project"   url="toolHelp/getting_started/netbeans/project.html" />
+  <mapID target="getStart.netbeans.sources_for_reference" url="toolHelp/getting_started/netbeans/sources_for_reference.html" />
+  <mapID target="getStart.netbeans.javadocs"  url="toolHelp/getting_started/netbeans/javadocs.html" />
+  <mapID target="getStart.netbeans.vcs.overview"       url="toolHelp/getting_started/netbeans/vcs/overview.html" />
+  <mapID target="getStart.netbeans.vcs.troubleshooting"       url="toolHelp/getting_started/netbeans/vcs/troubleshooting.html" />
+
+  <mapID target="getStart.jb.overview" url="toolHelp/getting_started/jbuilder/overview.html" />
+
+  <mapID target="getStart.jdev.overview" url="toolHelp/getting_started/jdev/overview.html" />
+
+  <mapID target="getStart.setUpInStandalone"   url="toolHelp/getting_started/standalone/standalone.html" />
+
+  <mapID target="versions.overview"            url="toolHelp/versions/overview.html" />
+  <mapID target="versions.integr"              url="toolHelp/versions/free.html" />
+
+  <mapID target="refact"                       url="toolHelp/refactorings/overview.html" />
+  <mapID target="refact.results_panel"         url="toolHelp/refactorings/results_panel.html" />
+  <mapID target="refact.query_results"         url="toolHelp/refactorings/query_results.html" />
+  <mapID target="refact.undo"                  url="toolHelp/refactorings/undo.html" />
+  <mapID target="refact.vcs"                   url="toolHelp/refactorings/vcs.html" />
+  <mapID target="refact.unicode"               url="toolHelp/refactorings/unicode.html" />
+  <mapID target="refact.whereUsed"             url="toolHelp/refactorings/where_used/overview.html" />
+  <mapID target="refact.whereUsed.filters"     url="toolHelp/refactorings/where_used/filters.html" />
+  <mapID target="refact.whereUsed.filters.checkSupertypesAndSubtypes" url="toolHelp/refactorings/where_used/supertypes_and_subtypes.html" />
+  <mapID target="refact.whereUsed.filters.class"     url="toolHelp/refactorings/where_used/filter_class.html" />
+  <mapID target="refact.whereUsed.filters.interface" url="toolHelp/refactorings/where_used/filter_interface.html" />
+  <mapID target="refact.whereUsed.filters.method"    url="toolHelp/refactorings/where_used/filter_method.html" />
+  <mapID target="refact.whereUsed.filters.package"   url="toolHelp/refactorings/where_used/filter_package.html" />
+  <mapID target="refact.whereUsed.filters.variable" url="toolHelp/refactorings/where_used/filter_variable.html" />
+  <mapID target="refact.whereUsed.filters.simple"    url="toolHelp/refactorings/where_used/filter_simple.html" />
+  <mapID target="refact.whereUsed.field"       url="toolHelp/refactorings/where_used/field.html" />
+  <mapID target="refact.whereUsed.param_and_local"  url="toolHelp/refactorings/where_used/parameter_and_local.html" />
+  <mapID target="refact.whereUsed.method"      url="toolHelp/refactorings/where_used/method.html" />
+  <mapID target="refact.whereUsed.type"        url="toolHelp/refactorings/where_used/type.html" />
+  <mapID target="refact.whereUsed.package"     url="toolHelp/refactorings/where_used/package.html" />
+  <mapID target="refact.whereUsed.limitations" url="toolHelp/refactorings/where_used/limitations.html" />
+  <mapID target="refact.notUsed"               url="toolHelp/refactorings/not_used/overview.html" />
+  <mapID target="refact.notUsed.limitations"   url="toolHelp/refactorings/not_used/limitations.html" />
+  <mapID target="refact.notUsed.filter"        url="toolHelp/refactorings/not_used/filter.html" />
+  <mapID target="refact.typeInfo"              url="toolHelp/refactorings/type_info/overview.html" />
+  <mapID target="refact.typeInfo.hierarchy"    url="toolHelp/refactorings/type_info/hierarchy.html" />
+  <mapID target="refact.subtypes"              url="toolHelp/refactorings/subtypes/overview.html" />
+  <mapID target="refact.duplicate_strings"     url="toolHelp/refactorings/duplicate_strings/overview.html" />
+  <mapID target="refact.fixmeScan"             url="toolHelp/refactorings/fixme_scanner/overview.html" />
+  <mapID target="refact.fixmeScan.words"       url="toolHelp/refactorings/fixme_scanner/words.html" />
+  <mapID target="refact.fixmeScan.timestamps"  url="toolHelp/refactorings/fixme_scanner/timestamps.html" />
+  <mapID target="refact.rename"                url="toolHelp/refactorings/rename/overview.html" />
+  <mapID target="refact.rename.package"        url="toolHelp/refactorings/rename/package.html" />
+  <mapID target="refact.rename.type"           url="toolHelp/refactorings/rename/type.html" />
+  <mapID target="refact.rename.field"          url="toolHelp/refactorings/rename/field.html" />
+  <mapID target="refact.rename.local"          url="toolHelp/refactorings/rename/param_and_local.html" />
+  <mapID target="refact.rename.method"         url="toolHelp/refactorings/rename/method.html" />
+  <mapID target="refact.rename.impact"         url="toolHelp/refactorings/rename/impact.html" />
+  <mapID target="refact.extract_method"        url="toolHelp/refactorings/extract_method/overview.html" />
+  <mapID target="refact.extract_method.example" url="toolHelp/refactorings/extract_method/example.html" />
+  <mapID target="refact.create_ctor"           url="toolHelp/refactorings/create_constructor/overview.html" />
+  <mapID target="refact.create_ctor.example"   url="toolHelp/refactorings/create_constructor/example.html" />
+  <mapID target="refact.factory_method"        url="toolHelp/refactorings/factory_method/overview.html" />
+  <mapID target="refact.factory_method.example" url="toolHelp/refactorings/factory_method/example.html" />
+  <mapID target="refact.extract_super"         url="toolHelp/refactorings/extract_super/overview.html" />
+  <mapID target="refact.extract_super.superclass" url="toolHelp/refactorings/extract_super/superclass.html" />
+  <mapID target="refact.extract_super.interface" url="toolHelp/refactorings/extract_super/interface.html" />
+  <mapID target="refact.encapsulate_field"     url="toolHelp/refactorings/encapsulate_field/overview.html" />
+  <mapID target="refact.pull_up_push_down"     url="toolHelp/refactorings/pull_up_push_down/overview.html" />
+  <mapID target="refact.pull_up_push_down.conflicts" url="toolHelp/refactorings/pull_up_push_down/conflicts.html" />
+  <mapID target="refact.goto_declaration"      url="toolHelp/refactorings/goto_declaration/overview.html" />
+  <mapID target="refact.add_delegates"         url="toolHelp/refactorings/add_delegates/overview.html" />
+  <mapID target="refact.use_supertype"         url="toolHelp/refactorings/use_supertype/overview.html" />
+
+  <mapID target="refact.temp_to_field"         url="toolHelp/refactorings/temp_to_field/overview.html" />
+
+  <mapID target="refact.introduce_temp"        url="toolHelp/refactorings/introduce_temp/overview.html" />
+  <mapID target="refact.inline_method"         url="toolHelp/refactorings/inline_method/overview.html" />
+  <mapID target="refact.inline"                url="toolHelp/refactorings/inline/overview.html" />
+
+  <mapID target="refact.override_methods"      url="toolHelp/refactorings/override_methods/overview.html" />
+  <mapID target="refact.inlineVariable"        url="toolHelp/refactorings/inline_variable/overview.html" />
+
+  <!-- TODO -->  
+  <mapID target="refact.changeSignature"       url="toolHelp/refactorings/overview.html" />
+
+  <mapID target="refact.metrics"               url="toolHelp/refactorings/metrics/overview.html" />
+  <mapID target="refact.metrics.loc"           url="toolHelp/refactorings/metrics/loc.html" />
+  <mapID target="refact.metrics.ncloc"         url="toolHelp/refactorings/metrics/ncloc.html" />
+  <mapID target="refact.metrics.cloc"          url="toolHelp/refactorings/metrics/cloc.html" />
+  <mapID target="refact.metrics.dc"            url="toolHelp/refactorings/metrics/dc.html" />
+  <mapID target="refact.metrics.np"            url="toolHelp/refactorings/metrics/np.html" />
+  <mapID target="refact.metrics.exec"          url="toolHelp/refactorings/metrics/exec.html" />
+  <mapID target="refact.metrics.cc"            url="toolHelp/refactorings/metrics/cyclomatic_complexity.html" />
+  <mapID target="refact.metrics.wmc"           url="toolHelp/refactorings/metrics/wmc.html" />
+  <mapID target="refact.metrics.rfc"           url="toolHelp/refactorings/metrics/rfc.html" />
+  <mapID target="refact.metrics.dit"           url="toolHelp/refactorings/metrics/dit.html" />
+  <mapID target="refact.metrics.noc"           url="toolHelp/refactorings/metrics/noc.html" />
+  <mapID target="refact.metrics.not"           url="toolHelp/refactorings/metrics/not.html" />
+  <mapID target="refact.metrics.nota"          url="toolHelp/refactorings/metrics/nota.html" />
+  <mapID target="refact.metrics.notc"          url="toolHelp/refactorings/metrics/notc.html" />
+  <mapID target="refact.metrics.note"          url="toolHelp/refactorings/metrics/note.html" />
+  <mapID target="refact.metrics.ca"            url="toolHelp/refactorings/metrics/ca.html" />
+  <mapID target="refact.metrics.ce"            url="toolHelp/refactorings/metrics/ce.html" />
+  <mapID target="refact.metrics.a"             url="toolHelp/refactorings/metrics/a.html" />
+  <mapID target="refact.metrics.i"             url="toolHelp/refactorings/metrics/i.html" />
+  <mapID target="refact.metrics.d"             url="toolHelp/refactorings/metrics/d.html" />
+  <mapID target="refact.metrics.cyc"           url="toolHelp/refactorings/metrics/cyc.html" />
+  <mapID target="refact.metrics.dcyc"          url="toolHelp/refactorings/metrics/dcyc.html" />
+  <mapID target="refact.metrics.lsp"           url="toolHelp/refactorings/metrics/lsp.html" />
+  <mapID target="refact.metrics.dip"           url="toolHelp/refactorings/metrics/dip.html" />
+  <mapID target="refact.metrics.ep"            url="toolHelp/refactorings/metrics/ep.html" />
+  <mapID target="refact.metrics.mq"            url="toolHelp/refactorings/metrics/mq.html" />
+  <mapID target="refact.min_access"            url="toolHelp/refactorings/min_access/overview.html" />
+  <mapID target="refact.move"              url="toolHelp/refactorings/move/overview.html" />
+  <mapID target="refact.movetype"              url="toolHelp/refactorings/move_type/overview.html" />
+  <mapID target="refact.movemember"            url="toolHelp/refactorings/move_member/overview.html" />
+  <mapID target="refact.movemember.functionality" url="toolHelp/refactorings/move_member/functionality.html" />
+  <mapID target="refact.movemember.conflicts"  url="toolHelp/refactorings/move_member/conflicts.html" />
+  <mapID target="refact.apids"                 url="toolHelp/refactorings/apids/overview.html" />
+  <mapID target="refact.dependencies"          url="toolHelp/refactorings/dependencies/overview.html" />
+  <mapID target="refact.dependencies.limitations" url="toolHelp/refactorings/dependencies/limitations.html" />
+  <mapID target="refact.show_dependencies"     url="toolHelp/refactorings/dependencies/show_dependencies.html" />
+  <mapID target="refact.draw_dependencies"     url="toolHelp/refactorings/dependencies/draw_dependencies.html" />
+  <mapID target="refact.show_javadoc"          url="toolHelp/refactorings/show_javadoc/overview.html" />
+  <mapID target="refact.search"                url="toolHelp/refactorings/search/overview.html" />
+  <mapID target="refact.clean_imports"         url="toolHelp/refactorings/clean_imports/overview.html" />
+  <mapID target="refact.crossref.html"         url="toolHelp/refactorings/cross_referencing_html/overview.html" />
+  <mapID target="refact.audit"                 url="toolHelp/refactorings/audit/overview.html" />
+  <mapID target="refact.audit.aborted_finally"    url="toolHelp/refactorings/audit/aborted_finally.html" />  
+  <mapID target="refact.audit.abstract_override"    url="toolHelp/refactorings/audit/abstract_override.html" />  
+  <mapID target="refact.audit.abstract_subclass"    url="toolHelp/refactorings/audit/abstract_subclass.html" />
+  <mapID target="refact.audit.boolean_comparison"   url="toolHelp/refactorings/audit/boolean_comparison.html" />
+  <mapID target="refact.audit.constant_field" url="toolHelp/refactorings/audit/constant_field.html" />
+  <mapID target="refact.audit.dangerous_catch" url="toolHelp/refactorings/audit/dangerous_catch.html" />
+  <mapID target="refact.audit.dangerous_throw" url="toolHelp/refactorings/audit/dangerous_throw.html" />
+  <mapID target="refact.audit.debug_code"      url="toolHelp/refactorings/audit/debug_code.html" />  
+  <mapID target="refact.audit.empty_blocks"    url="toolHelp/refactorings/audit/empty_blocks.html" />
+  <mapID target="refact.audit.empty_statement"   url="toolHelp/refactorings/audit/empty_statement.html" />
+  <mapID target="refact.audit.equals_hashcode"   url="toolHelp/refactorings/audit/equals_hashcode.html" />
+  <mapID target="refact.audit.equals_on_diff_types" url="toolHelp/refactorings/audit/equals_on_diff_types.html" />
+  <mapID target="refact.audit.finalize_locals"   url="toolHelp/refactorings/audit/finalize_locals.html" />
+  <mapID target="refact.audit.finalize_methods"   url="toolHelp/refactorings/audit/finalize_methods.html" />
+  <mapID target="refact.audit.float_equal_compare"   url="toolHelp/refactorings/audit/float_equal_compare.html" />
+  <mapID target="refact.audit.forin"   url="toolHelp/refactorings/audit/forin.html" />
+  <mapID target="refact.audit.generics"   url="toolHelp/refactorings/audit/generics.html" />
+  <mapID target="refact.audit.hidden_field"   url="toolHelp/refactorings/audit/hidden_field.html" />
+  <mapID target="refact.audit.hidden_method"   url="toolHelp/refactorings/audit/hidden_method.html" />
+  <mapID target="refact.audit.integer_division"   url="toolHelp/refactorings/audit/integer_division.html" />
+  <mapID target="refact.audit.loop_condition"        url="toolHelp/refactorings/audit/loop_condition.html" />
+  <mapID target="refact.audit.loop_variable"        url="toolHelp/refactorings/audit/loop_variable.html" />
+  <mapID target="refact.audit.lost_override"        url="toolHelp/refactorings/audit/lost_override.html" />
+  <mapID target="refact.audit.method_body_length"   url="toolHelp/refactorings/audit/method_body_length.html" />
+  <mapID target="refact.audit.method_calls_method"  url="toolHelp/refactorings/audit/method_calls_method.html" />
+  <mapID target="refact.audit.missing_block"    url="toolHelp/refactorings/audit/missing_block.html" />
+  <mapID target="refact.audit.modifier_order"   url="toolHelp/refactorings/audit/modifier_order.html" />
+  <mapID target="refact.audit.nested_block"   url="toolHelp/refactorings/audit/nested_block.html" />
+  <mapID target="refact.audit.not_serializable_super"    url="toolHelp/refactorings/audit/not_serializable_super.html" />
+  <mapID target="refact.audit.numeric_literals"   url="toolHelp/refactorings/audit/numeric_literals.html" />
+  <mapID target="refact.audit.parameter_assignment" url="toolHelp/refactorings/audit/parameter_assignment.html" />
+  <mapID target="refact.audit.parameter_order"  url="toolHelp/refactorings/audit/parameter_order.html" />
+  <mapID target="refact.audit.pseudo_abstract"  url="toolHelp/refactorings/audit/pseudo_abstract.html" />
+  <mapID target="refact.audit.redundant_boxing"  url="toolHelp/refactorings/audit/redundant_boxing.html" />
+  <mapID target="refact.audit.redundant_unboxing"  url="toolHelp/refactorings/audit/redundant_unboxing.html" />
+  <mapID target="refact.audit.redundant_cast"  url="toolHelp/refactorings/audit/redundant_cast.html" />
+  <mapID target="refact.audit.redundant_instanceof"    url="toolHelp/refactorings/audit/redundant_instanceof.html" />
+  <mapID target="refact.audit.redundant_modifiers"  url="toolHelp/refactorings/audit/redundant_modifiers.html" />
+  <mapID target="refact.audit.redundant_throws"   url="toolHelp/refactorings/audit/redundant_throws.html" />
+  <mapID target="refact.audit.self_assignments" url="toolHelp/refactorings/audit/self-assignments.html" />
+  <mapID target="refact.audit.serial_version_uid"   url="toolHelp/refactorings/audit/serial_version_uid.html" />
+  <mapID target="refact.audit.static_access_via_instance" url="toolHelp/refactorings/audit/static_access_via_instance.html" />
+  <mapID target="refact.audit.staticalizable_methods"   url="toolHelp/refactorings/audit/staticalizable_methods.html" />
+  <mapID target="refact.audit.str_equal_compare"    url="toolHelp/refactorings/audit/str_equal_compare.html" />
+  <mapID target="refact.audit.string_concat_order"  url="toolHelp/refactorings/audit/string_concat_order.html" />
+  <mapID target="refact.audit.switch_default"   url="toolHelp/refactorings/audit/switch_default.html" />
+  <mapID target="refact.audit.switch_fallthrough"   url="toolHelp/refactorings/audit/switch_fallthrough.html" />
+  <mapID target="refact.audit.to_string"   url="toolHelp/refactorings/audit/to_string.html" />
+  <mapID target="refact.audit.unused_assignment"   url="toolHelp/refactorings/audit/unused_assignment.html" />
+  <mapID target="refact.audit.unused_locals"   url="toolHelp/refactorings/audit/unused_locals.html" />
+  <mapID target="refact.audit.unused_imports"  url="toolHelp/refactorings/audit/unused_imports.html" />
+  <mapID target="refact.audit.vars_shading_fields" url="toolHelp/refactorings/audit/vars_shading_fields.html" />
+  <mapID target="refact.audit.pmd" url="toolHelp/refactorings/audit/PMD_audit_rules/overview.html" />
+  <mapID target="refact.create_missing_method" url="toolHelp/refactorings/create_missing_method/overview.html" />
+  <mapID target="refact.where_caught" url="toolHelp/refactorings/where_caught/overview.html" />
+  <mapID target="refact.call_tree" url="toolHelp/refactorings/call_tree/overview.html" />
+  <mapID target="report"                url="toolHelp/report/overview.html" />
+  <mapID target="report.formats"        url="toolHelp/report/formats.html" />
+  <mapID target="report.audit"          url="toolHelp/report/audit.html" />
+  <mapID target="report.metrics"        url="toolHelp/report/metrics.html" />
+  <mapID target="report.notused"        url="toolHelp/report/notused.html" />
+  <mapID target="refact.cli"                   url="toolHelp/refactorings/command_line_interface/overview.html"/>
+  <mapID target="refact.cli.profiles"          url="toolHelp/refactorings/command_line_interface/profiles.html"/>
+  <mapID target="refact.cli.switches"          url="toolHelp/refactorings/command_line_interface/switches.html"/>
+  <mapID target="refact.cli.antTask"           url="toolHelp/refactorings/command_line_interface/ant_task.html"/>
+  <mapID target="refact.preview"               url="toolHelp/refactorings/preview/overview.html" />
+  <mapID target="faq"                          url="toolHelp/faq/overview.html" />
+  <mapID target="faq.registration"             url="toolHelp/faq/registration.html" />
+  <mapID target="faq.memory"                   url="toolHelp/faq/memory/overview.html" />
+  <mapID target="faq.sourcepath"               url="toolHelp/faq/sourcepath/overview.html" />
+  <mapID target="faq.ref_failing"              url="toolHelp/faq/ref_failing.html" />
+  <mapID target="faq.funct_problems"           url="toolHelp/faq/functionality_problems.html" />
+  <mapID target="faq.thread_dump"              url="toolHelp/faq/thread_dump.html" />
+
+</map>

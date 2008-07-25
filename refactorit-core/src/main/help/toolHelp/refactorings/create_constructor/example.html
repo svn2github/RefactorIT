@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Example</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+	<h2>Example</h2>
+
+<p> The sample class below just encapsulates the  <tt>Person</tt>'s 
+  properties. </p>
+<pre>
+/**
+ * Encapsulates the Person's main properties.
+ */
+public class Person {
+  // Person properties
+  private String name;
+  private Date birth;
+}
+</pre><p></p>
+
+<p>Select the field variables:</p>
+<pre>
+  // Person properties
+  private String name;
+  private Date birth;
+</pre>  Run Create Constructor by right-clicking 
+on the selection and choosing RefactorIT-&gt;Create Constructor. A new constructor will be created: <pre>
+  /**
+   * @param name
+   * @param birth
+   */
+  public Person(String name, Date birth) {
+    this.name = name;
+    this.birth = birth;
+  }
+</pre> The sample class will now look like this: <pre>
+/**
+ * Encapsulates the Person's main properties.
+ */
+public class Person {
+  // Person properties
+  private String name;
+  private Date birth;
+
+  /**
+   * @param name
+   * @param birth
+   */
+  public Person(String name, Date birth) {
+    this.name = name;
+    this.birth = birth;
+  }
+}
+</pre>
+
+</body></html>

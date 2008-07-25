@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Finalizable local variables and parameters</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Finalizable local variables and parameters</h3>
+
+<p>This audit finds all local variables and method parameters, which are
+assigned only once during lifetime. Their variable declarations could safely
+be made 'final'.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Accept 'final' modifier for local variables</h3>
+    Adds 'final' modifier to local variable declaration.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A {
+        public int method(){
+            int i = 0;
+            System.out.println("i = " + i);
+            return i;
+        }
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A {
+        public int method(){
+            <font color="green">final</font> int i = 0;
+            System.out.println("i = " + i);
+            return i;
+        }
+    }
+    </pre>
+    
+<h3>Accept 'final' modifier for method parameters</h3>
+    Adds 'final' modifier to parameter declaration.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A {
+        public int echo(int i){
+            System.out.println("i = " + i);
+            return i;
+        }
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A {
+        public int echo(<font color="green">final</font> int i){
+            System.out.println("i = " + i);
+            return i;
+        }
+    }
+    </pre>
+
+</body></html>

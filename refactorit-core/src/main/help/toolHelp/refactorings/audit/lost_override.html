@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Possible method lost override</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Possible method lost override</h3>
+
+<p>If two methods in hierarchy have same names, but different parameters,
+this is probably a 'lost override'.</p>
+
+    <pre><code>
+    class Fruit {
+        public void getName(){
+            return "unknown fruit";
+        }
+    }
+    
+    class Apple extends Fruite {
+        public void getName(boolean b){
+            return "apple";
+        }
+    }
+    
+    class Test {
+        public void test(){
+            Fruit fruit = new Apple();
+            System.out.println("" + fruit.getName());
+        }
+    }
+    </code></pre>
+    
+<p>Maybe, someone changed signature of method 'getName()' in Apple class, but didn`t
+change signature of 'getName()' in Fruit and didn`t update method usages.
+Test.test() method will print 'unknown fruit' to console.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+No actions available.
+
+</body></html>

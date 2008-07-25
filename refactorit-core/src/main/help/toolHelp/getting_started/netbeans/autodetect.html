@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Autodetection of Project Settings</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<font color="red"> Please NOTE: this information applies only to versions older than 4.0. In Netbeans v.4.0 all those settings are detected automatically. </font>
+
+<h2>Autodetection of Project Settings</h2>
+<p>
+RefactorIT attempts to detect the project source and class path from filesystems mounted in the Filesystems tab of the Explorer window. Thus, RefactorIT should be able to detect your settings properly without manual intervention.  Source path and class path are autodetected as follows:</p>
+<ul>
+  <li><p>Each read-write and visible filesystem marked to be used in the
+    compilation process is added to the source path.</p> </li> <li> <p>
+    
+    The "Read Only" and "Hidden" attributes must be set to <tt>False</tt> in the
+    Properties tab of the filesystem.</p> </li> <li> <p>
+    The "Use in Compiler" attribute must be set to
+    <tt>True</tt> in the Capabilities tab of filesystem.<br>
+    <br></p>
+    <img src="images/source_props.png" alt="Properties tab of filesystem's properties panel">
+    <img src="images/source_caps.png" alt="Capabilities tab of filesystem's properties panel">
+    <br>
+    <br>
+</li> <li> <p> Each filesystem that is visible and marked to be used either in the compilation process or for Javadoc comments is added to the class path. </p> </li> <li> <p> The
+    attribute "Hidden" must be set to <tt>False</tt> in the Properties tab of the filesystem.</p> </li> <li> <p>The "Use in Compiler" or "Use as Documentation" attribute must be set to <tt>True</tt> in the Capabilities tab of the filesystem's properties. <br>
+    <br></p>
+    <img src="images/jar_props.png" alt="Properties tab of filesystem's properties panel">
+    <img src="images/jar_caps.png" alt="Capabilities tab of filesystem's properties panel">
+  </li>
+</ul>
+<br>
+
+<p> You can check which source and class paths have been detected via the <a href="settings.html">RefactorIT Options</a> dialog.</p>
+
+</body></html>

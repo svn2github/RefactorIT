@@ -1,0 +1,2567 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<report date="30.03.2005 18:36:20">
+<info>
+<metric name="V(G)" description="cyclomatic-complexity" lower-preffered-limit="1.0" upper-preffered-limit="10.0"/>
+<metric name="LOC" description="total-lines-of-code" lower-preffered-limit="5.0" upper-preffered-limit="1000.0"/>
+<metric name="NCLOC" description="noncomment-lines-of-code" lower-preffered-limit="0.0" upper-preffered-limit="0.0"/>
+<metric name="CLOC" description="comment-lines-of-code" lower-preffered-limit="0.0" upper-preffered-limit="0.0"/>
+<metric name="DC" description="density-of-comments" lower-preffered-limit="0.2" upper-preffered-limit="0.4"/>
+<metric name="NP" description="number-of-parameters" lower-preffered-limit="0.0" upper-preffered-limit="4.0"/>
+<metric name="EXEC" description="executable-statements" lower-preffered-limit="0.0" upper-preffered-limit="20.0"/>
+<metric name="WMC" description="weighted-methods-per-class" lower-preffered-limit="1.0" upper-preffered-limit="50.0"/>
+<metric name="RFC" description="response-for-class" lower-preffered-limit="0.0" upper-preffered-limit="50.0"/>
+<metric name="DIT" description="depth-in-tree" lower-preffered-limit="0.0" upper-preffered-limit="5.0"/>
+<metric name="NOC" description="number-of-children-in-tree" lower-preffered-limit="0.0" upper-preffered-limit="10.0"/>
+<metric name="Ce" description="efferent-coupling" lower-preffered-limit="0.0" upper-preffered-limit="20.0"/>
+<metric name="A" description="abstractness" lower-preffered-limit="0.0" upper-preffered-limit="0.5"/>
+<metric name="NOT" description="number-of-types" lower-preffered-limit="0.0" upper-preffered-limit="80.0"/>
+<metric name="NOTa" description="number-of-abstract-types" lower-preffered-limit="0.0" upper-preffered-limit="20.0"/>
+<metric name="NOTc" description="number-of-concrete-types" lower-preffered-limit="0.0" upper-preffered-limit="80.0"/>
+<metric name="NOTe" description="number-of-exported-types" lower-preffered-limit="3.0" upper-preffered-limit="50.0"/>
+<metric name="LSP" description="limited-size-principle" lower-preffered-limit="0.0" upper-preffered-limit="10.0"/>
+<metric name="DIP" description="dependency-inversion-principle" lower-preffered-limit="0.3" upper-preffered-limit="1.0"/>
+</info>
+<package name="bingo.game">
+<metric name="LOC" value="952"/>
+<metric name="NCLOC" value="763"/>
+<metric name="CLOC" value="23"/>
+<metric name="DC" value="0.02415966386554622"/>
+<metric name="EXEC" value="212"/>
+<metric name="Ce" value="76"/>
+<metric name="A" value="0.2"/>
+<metric name="NOT" value="16"/>
+<metric name="NOTa" value="3"/>
+<metric name="NOTc" value="13"/>
+<metric name="NOTe" value="3"/>
+<metric name="LSP" value="0"/>
+<children>
+<interface name="BagOfBalls">
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="getNext()">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+</method>
+</children>
+</interface>
+<class name="BallAnnouncer">
+<metric name="LOC" value="25"/>
+<metric name="NCLOC" value="20"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="4"/>
+<metric name="WMC" value="4"/>
+<metric name="RFC" value="10"/>
+<metric name="DIT" value="2"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.2"/>
+<children>
+<method name="run()">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="15"/>
+<metric name="NCLOC" value="13"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="3"/>
+</method>
+<constructor name="BallAnnouncer(RingMaster)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="BINGO">
+<metric name="LOC" value="93"/>
+<metric name="NCLOC" value="80"/>
+<metric name="CLOC" value="4"/>
+<metric name="DC" value="0.043010752688172046"/>
+<metric name="EXEC" value="31"/>
+<metric name="WMC" value="11"/>
+<metric name="RFC" value="28"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="2"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="2"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="main(String[])">
+<metric name="V(G)" value="11"/>
+<metric name="LOC" value="86"/>
+<metric name="NCLOC" value="74"/>
+<metric name="CLOC" value="4"/>
+<metric name="DC" value="0.046511627906976744"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="31"/>
+</method>
+</children>
+</class>
+<class name="ControlPane">
+<metric name="LOC" value="172"/>
+<metric name="NCLOC" value="130"/>
+<metric name="CLOC" value="13"/>
+<metric name="DC" value="0.0755813953488372"/>
+<metric name="EXEC" value="56"/>
+<metric name="WMC" value="13"/>
+<metric name="RFC" value="45"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.167"/>
+<children>
+<method name="actionPerformed(ActionEvent)">
+<metric name="V(G)" value="9"/>
+<metric name="LOC" value="28"/>
+<metric name="NCLOC" value="23"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="12"/>
+</method>
+<constructor name="ControlPane(String, RingMaster)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="86"/>
+<metric name="NCLOC" value="67"/>
+<metric name="CLOC" value="5"/>
+<metric name="DC" value="0.05813953488372093"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="41"/>
+</constructor>
+<method name="focusGained(FocusEvent)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="focusLost(FocusEvent)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="12"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="7"/>
+<metric name="DC" value="0.5833333333333334"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="getMaximumSize()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<class name="GameParameters">
+<metric name="LOC" value="81"/>
+<metric name="NCLOC" value="68"/>
+<metric name="CLOC" value="3"/>
+<metric name="DC" value="0.037037037037037035"/>
+<metric name="EXEC" value="21"/>
+<metric name="WMC" value="13"/>
+<metric name="RFC" value="12"/>
+<metric name="DIT" value="2"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="1.0"/>
+<children>
+<constructor name="GameParameters()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+<method name="getCountDown()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getDelay()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getMaxCards()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getMaxPlayers()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="setCountDown(long)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="setDefaults(Properties)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="setDelay(long)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="setMaxCards(int)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="setMaxPlayers(int)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="toString()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="5"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="updatePropertiesFromSettings()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="updateSettingsFromProperties()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="10"/>
+<metric name="NCLOC" value="7"/>
+<metric name="CLOC" value="3"/>
+<metric name="DC" value="0.3"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="4"/>
+</method>
+</children>
+</class>
+<class name="GamesThread">
+<metric name="LOC" value="41"/>
+<metric name="NCLOC" value="32"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="12"/>
+<metric name="WMC" value="6"/>
+<metric name="RFC" value="14"/>
+<metric name="DIT" value="2"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.25"/>
+<children>
+<method name="run()">
+<metric name="V(G)" value="4"/>
+<metric name="LOC" value="27"/>
+<metric name="NCLOC" value="21"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="10"/>
+</method>
+<constructor name="GamesThread(RingMaster)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+<method name="noMoreGames()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<class name="NotaryPublic">
+<metric name="LOC" value="51"/>
+<metric name="NCLOC" value="42"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="18"/>
+<metric name="WMC" value="7"/>
+<metric name="RFC" value="15"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="signTheCard(Card, int)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="12"/>
+<metric name="NCLOC" value="9"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="7"/>
+</method>
+<method name="verifyTheSignature(Card, int)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="16"/>
+<metric name="NCLOC" value="13"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="6"/>
+</method>
+<constructor name="NotaryPublic()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="10"/>
+<metric name="NCLOC" value="10"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="5"/>
+</constructor>
+</children>
+</class>
+<class name="RandomBag">
+<metric name="LOC" value="20"/>
+<metric name="NCLOC" value="17"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.05"/>
+<metric name="EXEC" value="3"/>
+<metric name="WMC" value="4"/>
+<metric name="RFC" value="10"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.333"/>
+<children>
+<method name="getNext()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="8"/>
+<metric name="NCLOC" value="8"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<constructor name="RandomBag()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</constructor>
+</children>
+</class>
+<class name="RegistrarImpl">
+<metric name="LOC" value="81"/>
+<metric name="NCLOC" value="61"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="13"/>
+<metric name="WMC" value="13"/>
+<metric name="RFC" value="26"/>
+<metric name="DIT" value="4"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.222"/>
+<children>
+<method name="mayIPlay(String, int, long)">
+<metric name="V(G)" value="6"/>
+<metric name="LOC" value="26"/>
+<metric name="NCLOC" value="20"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="3"/>
+<metric name="EXEC" value="5"/>
+</method>
+<method name="BINGO(int, Card)">
+<metric name="V(G)" value="5"/>
+<metric name="LOC" value="31"/>
+<metric name="NCLOC" value="23"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="5"/>
+</method>
+<constructor name="RegistrarImpl(RingMaster)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="3"/>
+</constructor>
+<method name="whatsHappening()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+</children>
+</class>
+<class name="RingMaster">
+<metric name="LOC" value="189"/>
+<metric name="NCLOC" value="158"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.005291005291005291"/>
+<metric name="EXEC" value="39"/>
+<metric name="WMC" value="53"/>
+<metric name="RFC" value="23"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.125"/>
+<children>
+<method name="verify(Card)">
+<metric name="V(G)" value="14"/>
+<metric name="LOC" value="35"/>
+<metric name="NCLOC" value="32"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="8"/>
+</method>
+<method name="statusString(int)">
+<metric name="V(G)" value="7"/>
+<metric name="LOC" value="19"/>
+<metric name="NCLOC" value="19"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="gameInProgress()">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="isRegistering()">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="isCheckingForWinner()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="isCountingDown()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="ready()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="setGameResumed()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="signTheCards(Card[])">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.16666666666666666"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="waitForFirstPlayer()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="12"/>
+<metric name="NCLOC" value="10"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="5"/>
+</method>
+<method name="waitForGameToEnd()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="announceBall(BingoBall)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="3"/>
+</method>
+<method name="getGameNumber()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getGameParameters()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getRoster()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<constructor name="RingMaster()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="6"/>
+</constructor>
+<method name="sendPlayerStatusMessage(PlayerRecord)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="sendTimeRemainingMessage(int)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="setCheckingForWinner()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="setGameOver()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="6"/>
+</method>
+<method name="startCountDown()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="startGame()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="statusString()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+</children>
+</class>
+<class name="Roster">
+<metric name="LOC" value="40"/>
+<metric name="NCLOC" value="30"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="7"/>
+<metric name="WMC" value="9"/>
+<metric name="RFC" value="7"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="searchForPlayerWithID(int)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="9"/>
+<metric name="NCLOC" value="7"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="addElement(PlayerRecord, RingMaster)">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="3"/>
+</method>
+<method name="nextPlayerID()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="removeAllElements()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</method>
+<constructor name="Roster()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+<method name="size()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+</children>
+</class>
+<class name="SocketGate">
+<metric name="LOC" value="36"/>
+<metric name="NCLOC" value="27"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.027777777777777776"/>
+<metric name="EXEC" value="8"/>
+<metric name="WMC" value="5"/>
+<metric name="RFC" value="8"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.333"/>
+<children>
+<method name="sendBall(BingoBall)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="sendBytes(byte[], InetAddress)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="7"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.14285714285714285"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="sendGameStatusMessage(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="sendPlayerStatusMessage(PlayerRecord)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<constructor name="SocketGate()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="5"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="4"/>
+</constructor>
+</children>
+</class>
+<interface name="States">
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="0"/>
+</interface>
+<class name="X">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="WMC" value="0"/>
+<metric name="RFC" value="1"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+</class>
+<interface name="YYY">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="0"/>
+</interface>
+</children>
+</package>
+<package name="bingo.player">
+<metric name="LOC" value="985"/>
+<metric name="NCLOC" value="734"/>
+<metric name="CLOC" value="137"/>
+<metric name="DC" value="0.13908629441624365"/>
+<metric name="EXEC" value="234"/>
+<metric name="Ce" value="79"/>
+<metric name="A" value="0.0"/>
+<metric name="NOT" value="20"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="20"/>
+<metric name="NOTe" value="4"/>
+<metric name="LSP" value="0"/>
+<children>
+<class name="CardWindow">
+<metric name="LOC" value="92"/>
+<metric name="NCLOC" value="70"/>
+<metric name="CLOC" value="6"/>
+<metric name="DC" value="0.06521739130434782"/>
+<metric name="EXEC" value="29"/>
+<metric name="WMC" value="11"/>
+<metric name="RFC" value="30"/>
+<metric name="DIT" value="6"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="2"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="2"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<constructor name="CardWindow(Card, Player)">
+<metric name="V(G)" value="5"/>
+<metric name="LOC" value="53"/>
+<metric name="NCLOC" value="37"/>
+<metric name="CLOC" value="5"/>
+<metric name="DC" value="0.09433962264150944"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="21"/>
+</constructor>
+<method name="actionPerformed(ActionEvent)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="10"/>
+<metric name="NCLOC" value="10"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="getCard()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="main(String[])">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="8"/>
+<metric name="NCLOC" value="8"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="3"/>
+</method>
+<method name="showStatusDialog(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<class name="ControlPane">
+<metric name="LOC" value="175"/>
+<metric name="NCLOC" value="120"/>
+<metric name="CLOC" value="33"/>
+<metric name="DC" value="0.18857142857142858"/>
+<metric name="EXEC" value="59"/>
+<metric name="WMC" value="9"/>
+<metric name="RFC" value="39"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="3"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="3"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<constructor name="ControlPane(Player)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="91"/>
+<metric name="NCLOC" value="61"/>
+<metric name="CLOC" value="19"/>
+<metric name="DC" value="0.2087912087912088"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="44"/>
+</constructor>
+<method name="enableAll(boolean)">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="16"/>
+<metric name="NCLOC" value="12"/>
+<metric name="CLOC" value="2"/>
+<metric name="DC" value="0.125"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="11"/>
+</method>
+<method name="didRegister()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="gameOver()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="5"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="getMaximumSize()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="reset()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<class name="Heading">
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="1"/>
+<metric name="WMC" value="1"/>
+<metric name="RFC" value="4"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<children>
+<constructor name="Heading(char)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="IWonEvent">
+<metric name="LOC" value="22"/>
+<metric name="NCLOC" value="18"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.045454545454545456"/>
+<metric name="EXEC" value="3"/>
+<metric name="WMC" value="5"/>
+<metric name="RFC" value="3"/>
+<metric name="DIT" value="3"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="getCard()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="getCardWindow()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<constructor name="IWonEvent(Object, CardWindow)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="NumberButton">
+<metric name="LOC" value="30"/>
+<metric name="NCLOC" value="20"/>
+<metric name="CLOC" value="6"/>
+<metric name="DC" value="0.2"/>
+<metric name="EXEC" value="9"/>
+<metric name="WMC" value="4"/>
+<metric name="RFC" value="9"/>
+<metric name="DIT" value="6"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<children>
+<constructor name="NumberButton(String)">
+<metric name="V(G)" value="4"/>
+<metric name="LOC" value="25"/>
+<metric name="NCLOC" value="16"/>
+<metric name="CLOC" value="6"/>
+<metric name="DC" value="0.24"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="9"/>
+</constructor>
+</children>
+</class>
+<class name="PaperPane">
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="1"/>
+<metric name="WMC" value="1"/>
+<metric name="RFC" value="3"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<children>
+<constructor name="PaperPane(Image)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="Player">
+<metric name="LOC" value="406"/>
+<metric name="NCLOC" value="313"/>
+<metric name="CLOC" value="61"/>
+<metric name="DC" value="0.15024630541871922"/>
+<metric name="EXEC" value="102"/>
+<metric name="WMC" value="44"/>
+<metric name="RFC" value="80"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="7"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="7"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.133"/>
+<children>
+<method name="handleRegisterEvent(RegisterEvent)">
+<metric name="V(G)" value="8"/>
+<metric name="LOC" value="73"/>
+<metric name="NCLOC" value="62"/>
+<metric name="CLOC" value="9"/>
+<metric name="DC" value="0.1232876712328767"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="16"/>
+</method>
+<method name="processEvent(AWTEvent)">
+<metric name="V(G)" value="7"/>
+<metric name="LOC" value="18"/>
+<metric name="NCLOC" value="18"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="7"/>
+</method>
+<method name="lookUpRegistrar(String)">
+<metric name="V(G)" value="4"/>
+<metric name="LOC" value="43"/>
+<metric name="NCLOC" value="36"/>
+<metric name="CLOC" value="6"/>
+<metric name="DC" value="0.13953488372093023"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="13"/>
+</method>
+<method name="actionPerformed(ActionEvent)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="23"/>
+<metric name="NCLOC" value="17"/>
+<metric name="CLOC" value="5"/>
+<metric name="DC" value="0.21739130434782608"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="6"/>
+</method>
+<method name="ballCalled(BingoBall)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="11"/>
+<metric name="NCLOC" value="11"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.09090909090909091"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="handleIWonEvent(IWonEvent)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="21"/>
+<metric name="NCLOC" value="19"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.047619047619047616"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="5"/>
+</method>
+<method name="handleStatusRequestEvent(StatusRequestEvent)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="19"/>
+<metric name="NCLOC" value="17"/>
+<metric name="CLOC" value="3"/>
+<metric name="DC" value="0.15789473684210525"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="7"/>
+</method>
+<method name="showServerStatus(String)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="16"/>
+<metric name="NCLOC" value="15"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.0625"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="3"/>
+</method>
+<method name="clearGame()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="5"/>
+</method>
+<method name="itemStateChanged(ItemEvent)">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="5"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="fatalError(String, Exception)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="IWon(CardWindow)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="main(String[])">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="12"/>
+<metric name="NCLOC" value="10"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.08333333333333333"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="noMoreBalls()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="2"/>
+<metric name="DC" value="1.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</method>
+<constructor name="Player()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="45"/>
+<metric name="NCLOC" value="29"/>
+<metric name="CLOC" value="9"/>
+<metric name="DC" value="0.2"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="25"/>
+</constructor>
+<method name="showDialog(CardWindow, String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="7"/>
+<metric name="NCLOC" value="7"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<class name="PlayerParameters">
+<metric name="LOC" value="112"/>
+<metric name="NCLOC" value="91"/>
+<metric name="CLOC" value="5"/>
+<metric name="DC" value="0.044642857142857144"/>
+<metric name="EXEC" value="28"/>
+<metric name="WMC" value="16"/>
+<metric name="RFC" value="15"/>
+<metric name="DIT" value="2"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="1.0"/>
+<children>
+<method name="getHostname()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getName()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getNumCards()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getSeed()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getShouldBeep()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<constructor name="PlayerParameters()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="9"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.1111111111111111"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</constructor>
+<method name="setDefaults(Properties)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="4"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="setHostname(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="setName(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="setNames(String, String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="3"/>
+</method>
+<method name="setNumCards(int)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="setSeed(long)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="setShouldBeep(boolean)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+<method name="toString()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="5"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="updatePropertiesFromSettings()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="8"/>
+<metric name="NCLOC" value="8"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="updateSettingsFromProperties()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="16"/>
+<metric name="NCLOC" value="10"/>
+<metric name="CLOC" value="3"/>
+<metric name="DC" value="0.1875"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="6"/>
+</method>
+</children>
+</class>
+<class name="PlayerQueue">
+<metric name="LOC" value="21"/>
+<metric name="NCLOC" value="8"/>
+<metric name="CLOC" value="12"/>
+<metric name="DC" value="0.5714285714285714"/>
+<metric name="EXEC" value="2"/>
+<metric name="WMC" value="2"/>
+<metric name="RFC" value="2"/>
+<metric name="DIT" value="2"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="dispatchEvent(AWTEvent)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="6"/>
+<metric name="DC" value="1.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<constructor name="PlayerQueue(Player)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="RegisterEvent">
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="0"/>
+<metric name="WMC" value="1"/>
+<metric name="RFC" value="1"/>
+<metric name="DIT" value="3"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<children>
+<constructor name="RegisterEvent(Component)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</constructor>
+</children>
+</class>
+<class name="StatusRequestEvent">
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="0"/>
+<metric name="WMC" value="1"/>
+<metric name="RFC" value="1"/>
+<metric name="DIT" value="3"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<children>
+<constructor name="StatusRequestEvent(Component)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</constructor>
+</children>
+</class>
+</children>
+</package>
+<package name="bingo.shared">
+<metric name="LOC" value="988"/>
+<metric name="NCLOC" value="763"/>
+<metric name="CLOC" value="84"/>
+<metric name="DC" value="0.08502024291497975"/>
+<metric name="EXEC" value="195"/>
+<metric name="Ce" value="50"/>
+<metric name="A" value="0.32"/>
+<metric name="NOT" value="28"/>
+<metric name="NOTa" value="8"/>
+<metric name="NOTc" value="20"/>
+<metric name="NOTe" value="24"/>
+<metric name="LSP" value="0"/>
+<children>
+<class name="Answer">
+<metric name="LOC" value="7"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="2"/>
+<metric name="WMC" value="1"/>
+<metric name="RFC" value="0"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<children>
+<constructor name="Answer(boolean, String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="2"/>
+</constructor>
+</children>
+</class>
+<interface name="BallListener">
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.5"/>
+<children>
+<method name="ballCalled(BingoBall)">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+</method>
+<method name="noMoreBalls()">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+</method>
+</children>
+</interface>
+<class name="BallListenerThread">
+<metric name="LOC" value="30"/>
+<metric name="NCLOC" value="24"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.03333333333333333"/>
+<metric name="EXEC" value="5"/>
+<metric name="WMC" value="4"/>
+<metric name="RFC" value="8"/>
+<metric name="DIT" value="3"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.75"/>
+<children>
+<method name="run()">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="18"/>
+<metric name="NCLOC" value="15"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.05555555555555555"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="4"/>
+</method>
+<constructor name="BallListenerThread(BallListener)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="BingoBall">
+<metric name="LOC" value="62"/>
+<metric name="NCLOC" value="52"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.016129032258064516"/>
+<metric name="EXEC" value="10"/>
+<metric name="WMC" value="17"/>
+<metric name="RFC" value="5"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<children>
+<constructor name="BingoBall(int)">
+<metric name="V(G)" value="9"/>
+<metric name="LOC" value="14"/>
+<metric name="NCLOC" value="14"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="10"/>
+</constructor>
+<method name="equals(Object)">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</method>
+<constructor name="BingoBall(byte[])">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</constructor>
+<method name="getBytes()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getLetter()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getNumber()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="hashCode()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="toString()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+</children>
+</class>
+<class name="BingoException">
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="0"/>
+<metric name="WMC" value="2"/>
+<metric name="RFC" value="2"/>
+<metric name="DIT" value="3"/>
+<metric name="NOC" value="1"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<children>
+<constructor name="BingoException()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</constructor>
+<constructor name="BingoException(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</constructor>
+</children>
+</class>
+<class name="Card">
+<metric name="LOC" value="69"/>
+<metric name="NCLOC" value="55"/>
+<metric name="CLOC" value="3"/>
+<metric name="DC" value="0.043478260869565216"/>
+<metric name="EXEC" value="20"/>
+<metric name="WMC" value="13"/>
+<metric name="RFC" value="12"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<constructor name="Card(Random)">
+<metric name="V(G)" value="10"/>
+<metric name="LOC" value="48"/>
+<metric name="NCLOC" value="40"/>
+<metric name="CLOC" value="3"/>
+<metric name="DC" value="0.0625"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="19"/>
+</constructor>
+<constructor name="Card()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</constructor>
+<method name="getSignature()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="setSignature(byte[])">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<interface name="Constants">
+<metric name="LOC" value="25"/>
+<metric name="NCLOC" value="10"/>
+<metric name="CLOC" value="11"/>
+<metric name="DC" value="0.44"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+</interface>
+<class name="ErrorMessages">
+<metric name="LOC" value="28"/>
+<metric name="NCLOC" value="25"/>
+<metric name="CLOC" value="2"/>
+<metric name="DC" value="0.07142857142857142"/>
+<metric name="EXEC" value="10"/>
+<metric name="WMC" value="7"/>
+<metric name="RFC" value="5"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<children>
+<method name="error(String, Exception)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="8"/>
+<metric name="NCLOC" value="7"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.125"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="3"/>
+</method>
+<method name="fatalError(String, Exception)">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="9"/>
+<metric name="NCLOC" value="9"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="5"/>
+</method>
+<method name="error(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.3333333333333333"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="2"/>
+</method>
+</children>
+</class>
+<interface name="GameListener">
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="1.0"/>
+<children>
+<method name="updateStatus(String)">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+</method>
+</children>
+</interface>
+<class name="GameListenerThread">
+<metric name="LOC" value="24"/>
+<metric name="NCLOC" value="19"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.041666666666666664"/>
+<metric name="EXEC" value="4"/>
+<metric name="WMC" value="3"/>
+<metric name="RFC" value="6"/>
+<metric name="DIT" value="3"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="1.0"/>
+<children>
+<method name="run()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="14"/>
+<metric name="NCLOC" value="12"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.07142857142857142"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="3"/>
+</method>
+<constructor name="GameListenerThread(GameListener)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="GameStatusLabel">
+<metric name="LOC" value="24"/>
+<metric name="NCLOC" value="13"/>
+<metric name="CLOC" value="7"/>
+<metric name="DC" value="0.2916666666666667"/>
+<metric name="EXEC" value="3"/>
+<metric name="WMC" value="2"/>
+<metric name="RFC" value="5"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.5"/>
+<children>
+<constructor name="GameStatusLabel()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="8"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.125"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</constructor>
+<method name="updateStatus(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<class name="LightBoardPane">
+<metric name="LOC" value="85"/>
+<metric name="NCLOC" value="68"/>
+<metric name="CLOC" value="8"/>
+<metric name="DC" value="0.09411764705882353"/>
+<metric name="EXEC" value="37"/>
+<metric name="WMC" value="10"/>
+<metric name="RFC" value="25"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<constructor name="LightBoardPane(int)">
+<metric name="V(G)" value="4"/>
+<metric name="LOC" value="42"/>
+<metric name="NCLOC" value="36"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.023809523809523808"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="27"/>
+</constructor>
+<method name="clear()">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="7"/>
+<metric name="NCLOC" value="7"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.14285714285714285"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="5"/>
+</method>
+<method name="displayNewBall(BingoBall)">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="12"/>
+<metric name="NCLOC" value="9"/>
+<metric name="CLOC" value="3"/>
+<metric name="DC" value="0.25"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="4"/>
+</method>
+<method name="getMaximumSize()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<interface name="Listener">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+</interface>
+<class name="ListenerThread">
+<metric name="LOC" value="23"/>
+<metric name="NCLOC" value="18"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="7"/>
+<metric name="WMC" value="2"/>
+<metric name="RFC" value="6"/>
+<metric name="DIT" value="2"/>
+<metric name="NOC" value="3"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="1.0"/>
+<children>
+<constructor name="ListenerThread(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="7"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="4"/>
+</constructor>
+<method name="stopListening()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="3"/>
+</method>
+</children>
+</class>
+<class name="NoMoreBallsException">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="WMC" value="0"/>
+<metric name="RFC" value="1"/>
+<metric name="DIT" value="4"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+</class>
+<class name="OverallStatusPane">
+<metric name="LOC" value="58"/>
+<metric name="NCLOC" value="42"/>
+<metric name="CLOC" value="11"/>
+<metric name="DC" value="0.1896551724137931"/>
+<metric name="EXEC" value="17"/>
+<metric name="WMC" value="3"/>
+<metric name="RFC" value="19"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="3"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="3"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.167"/>
+<children>
+<method name="ballCalled(BingoBall)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.16666666666666666"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+<method name="noMoreBalls()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="6"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<constructor name="OverallStatusPane()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="31"/>
+<metric name="NCLOC" value="21"/>
+<metric name="CLOC" value="7"/>
+<metric name="DC" value="0.22580645161290322"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="15"/>
+</constructor>
+</children>
+</class>
+<class name="Parameters">
+<metric name="LOC" value="77"/>
+<metric name="NCLOC" value="62"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="20"/>
+<metric name="WMC" value="6"/>
+<metric name="RFC" value="16"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="2"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="saveParameters()">
+<metric name="V(G)" value="3"/>
+<metric name="LOC" value="25"/>
+<metric name="NCLOC" value="22"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="8"/>
+</method>
+<method name="getParameters()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="30"/>
+<metric name="NCLOC" value="25"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="10"/>
+</method>
+<constructor name="Parameters(String, String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="2"/>
+</constructor>
+<method name="setDefaults(Properties)">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+</method>
+<method name="updatePropertiesFromSettings()">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+</method>
+<method name="updateSettingsFromProperties()">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+</method>
+</children>
+</class>
+<class name="PlayerInfoModel">
+<metric name="LOC" value="113"/>
+<metric name="NCLOC" value="95"/>
+<metric name="CLOC" value="6"/>
+<metric name="DC" value="0.05309734513274336"/>
+<metric name="EXEC" value="18"/>
+<metric name="WMC" value="23"/>
+<metric name="RFC" value="9"/>
+<metric name="DIT" value="2"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="0"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="updatePlayer(PlayerRecord)">
+<metric name="V(G)" value="7"/>
+<metric name="LOC" value="37"/>
+<metric name="NCLOC" value="31"/>
+<metric name="CLOC" value="5"/>
+<metric name="DC" value="0.13513513513513514"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="12"/>
+</method>
+<method name="getColumnName(int)">
+<metric name="V(G)" value="5"/>
+<metric name="LOC" value="11"/>
+<metric name="NCLOC" value="11"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getValueAt(int, int)">
+<metric name="V(G)" value="5"/>
+<metric name="LOC" value="15"/>
+<metric name="NCLOC" value="15"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="clear()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="10"/>
+<metric name="NCLOC" value="8"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="5"/>
+</method>
+<method name="getRowCount()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="5"/>
+<metric name="NCLOC" value="5"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<method name="getColumnCount()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="0"/>
+</method>
+<constructor name="PlayerInfoModel()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="PlayerInfoPane">
+<metric name="LOC" value="35"/>
+<metric name="NCLOC" value="23"/>
+<metric name="CLOC" value="6"/>
+<metric name="DC" value="0.17142857142857143"/>
+<metric name="EXEC" value="10"/>
+<metric name="WMC" value="3"/>
+<metric name="RFC" value="14"/>
+<metric name="DIT" value="5"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.25"/>
+<children>
+<method name="clear()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="1"/>
+</method>
+<constructor name="PlayerInfoPane()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="19"/>
+<metric name="NCLOC" value="12"/>
+<metric name="CLOC" value="4"/>
+<metric name="DC" value="0.21052631578947367"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="8"/>
+</constructor>
+<method name="updatePlayer(PlayerRecord)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</method>
+</children>
+</class>
+<interface name="PlayerListener">
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.5"/>
+<children>
+<method name="updatePlayer(PlayerRecord)">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+</method>
+</children>
+</interface>
+<class name="PlayerListenerThread">
+<metric name="LOC" value="28"/>
+<metric name="NCLOC" value="23"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.03571428571428571"/>
+<metric name="EXEC" value="4"/>
+<metric name="WMC" value="3"/>
+<metric name="RFC" value="8"/>
+<metric name="DIT" value="3"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="2"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="2"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.75"/>
+<children>
+<method name="run()">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="18"/>
+<metric name="NCLOC" value="16"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.05555555555555555"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="3"/>
+</method>
+<constructor name="PlayerListenerThread(PlayerListener)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="2"/>
+<metric name="NCLOC" value="2"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+</children>
+</class>
+<class name="PlayerRecord">
+<metric name="LOC" value="36"/>
+<metric name="NCLOC" value="27"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="11"/>
+<metric name="WMC" value="3"/>
+<metric name="RFC" value="3"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<children>
+<method name="getBytes()">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="10"/>
+<metric name="NCLOC" value="7"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+<metric name="EXEC" value="2"/>
+</method>
+<constructor name="PlayerRecord(byte[])">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="7"/>
+<metric name="NCLOC" value="6"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="5"/>
+</constructor>
+<constructor name="PlayerRecord(int, String, int)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="5"/>
+<metric name="NCLOC" value="4"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="3"/>
+<metric name="EXEC" value="4"/>
+</constructor>
+</children>
+</class>
+<interface name="Registrar">
+<metric name="LOC" value="9"/>
+<metric name="NCLOC" value="7"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="1"/>
+<metric name="NOTc" value="0"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<method name="BINGO(int, Card)">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="2"/>
+</method>
+<method name="mayIPlay(String, int, long)">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="3"/>
+</method>
+<method name="whatsHappening()">
+<metric name="LOC" value="0"/>
+<metric name="NCLOC" value="0"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="0"/>
+</method>
+</children>
+</interface>
+<class name="Ticket">
+<metric name="LOC" value="15"/>
+<metric name="NCLOC" value="12"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="EXEC" value="4"/>
+<metric name="WMC" value="2"/>
+<metric name="RFC" value="0"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<metric name="DIP" value="0.0"/>
+<children>
+<constructor name="Ticket(String)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="1"/>
+<metric name="NCLOC" value="1"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="1"/>
+</constructor>
+<constructor name="Ticket(String, int, Card[])">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="3"/>
+<metric name="NCLOC" value="3"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="3"/>
+<metric name="EXEC" value="3"/>
+</constructor>
+</children>
+</class>
+<class name="Utilities">
+<metric name="LOC" value="46"/>
+<metric name="NCLOC" value="33"/>
+<metric name="CLOC" value="9"/>
+<metric name="DC" value="0.1956521739130435"/>
+<metric name="EXEC" value="13"/>
+<metric name="WMC" value="3"/>
+<metric name="RFC" value="10"/>
+<metric name="DIT" value="1"/>
+<metric name="NOC" value="0"/>
+<metric name="NOT" value="1"/>
+<metric name="NOTa" value="0"/>
+<metric name="NOTc" value="1"/>
+<metric name="NOTe" value="1"/>
+<children>
+<method name="makeEvenlySpacedBox(JComponent[])">
+<metric name="V(G)" value="2"/>
+<metric name="LOC" value="10"/>
+<metric name="NCLOC" value="9"/>
+<metric name="CLOC" value="0"/>
+<metric name="DC" value="0.0"/>
+<metric name="NP" value="1"/>
+<metric name="EXEC" value="3"/>
+</method>
+<method name="addParameterRow(Container, JLabel, Component)">
+<metric name="V(G)" value="1"/>
+<metric name="LOC" value="21"/>
+<metric name="NCLOC" value="18"/>
+<metric name="CLOC" value="1"/>
+<metric name="DC" value="0.047619047619047616"/>
+<metric name="NP" value="3"/>
+<metric name="EXEC" value="10"/>
+</method>
+</children>
+</class>
+</children>
+</package>
+</report>

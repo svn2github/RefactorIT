@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Memory</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<H2>Increasing memory allocation (highly recommended)</H2>
+
+<h3>Borland JBuilder</h3>
+
+<p>You should check bin/jbuilder.config file for such parameters:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmparam -Xms32m</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmparam -Xmx128m</tt>
+<br><br>and increase -Xmx like this:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmparam -Xms96m</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmparam -Xmx256m</tt>
+<br><br>Since JBuilder2005 parameters are:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmmemmin 32m</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmmemmax 128m</tt>
+<br><br>and vmmemmax should be increased like this:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmmemmin 32m</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmmemmax 256m</tt>
+</p>
+
+<h3>Oracle JDeveloper</h3>
+
+<p>In JDeveloper you can change an option in the jdev/bin/jdev.conf file from e.g.:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AddVMOption -Xmx256M</tt>
+<br><br>to:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AddVMOption -Xmx512M</tt>
+</p>
+
+<h3>Sun<sup><font size="-1">TM</font></sup> ONE/Java Studio / NetBeans</h3>
+
+<p> Memory configuration is saved in the Sun<sup><font size="-1">TM</font></sup> ONE Studio/NetBeans 3.6 and earlier in file <tt>bin/ide.cfg</tt>. In NetBeans 4.0 and later it is saved in file <tt>etc/netbeans.conf</tt>. The default entry should appear as:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-J-Xverify:none -J-Xms24m -J-Xmx96m</tt>
+<br><br>You can modify the value of the <tt>-J-Xmx</tt> parameter to be 128 Mb via:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<tt> -J-Xverify:none -J-Xms24m -J-Xmx128m</tt>
+
+</p>
+<p><b>Note</b>: It is strongly advised to set the startup memory (<tt>-J-Xms</tt>) to the amount that Sun<sup><font size="-1">TM</font></sup> ONE Studio/NetBeans requires for your system.</p>
+
+<h3>Eclipse</h3>
+<p>On Windows you can create a link to the eclipse.exe and in the Properties of the link set the Target property as following:
+<br><tt>C:\Eclipse\eclipse.exe -vmargs -Xms64M -Xmx512M</tt>
+<br>On Unix you can create a shell script with a single call to eclipse binary or use any other method of passing parameters to the executable.</p>
+
+<h3>The stand alone version</h3>
+
+<p>Go to the file named <tt>refactorit.lax</tt> in RefactorIT's home directory and allocate the initial and maximum amount of memory.  If necessary, add the following two lines to this file:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<tt>lax.nl.java.option.java.heap.size.initial=128M</tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<tt>lax.nl.java.option.java.heap.size.max=256M</tt></p>
+
+</body></html>

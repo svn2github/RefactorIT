@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Efferent Coupling (Ce): Also known as Outgoing Dependencies.
+Number of Types outside a Package that Types of the Package Depend on</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Efferent Coupling (Ce)</h2>
+<p> Efferent Coupling (Ce) is also known as Outgoing Dependencies or the Number
+of Types inside a Package that Depend on Types of other Packages.
+ Ce is a metric for packages. In short, this measure
+includes all the types within the source of the
+measured package referring to the types not in the measured package.</p><p>
+A large efferent coupling can indicate that a package is unfocussed and
+may also indicate that it is unstable since it depends on the stability
+of all the types to which it is coupled. RefactorIT recommends an upper
+limit of 20.  Efferent coupling can be reduced by extracting classes from the
+original class so the class is decomposed into smaller classes. 
+</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="ca.html">Afferent Coupling</a></p></li>
+	<li><p><a href="a.html">Abstractness</a></p></li>
+	<li><p><a href="i.html">Instability</a></p></li>
+	<li><p><a href="d.html">Distance from Main Sequence</a></p></li>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+
+</body>
+</html>

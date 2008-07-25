@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<title>Sourcepath</title>
+<link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>How to refactor a small portion of a project</h2>
+
+<p>If you are only developing subsection of a much larger project, then you may wish to set the subdirectory as a "source path" for RefactorIT. In order to satisfy dependencies, RefactorIT needs to know the ".class" files of the rest of the
+project. This is accomplished by adding the directory containing these
+classes to the "classpath" which may or may not contain your current development classes. Version instructions:<br>
+</p>
+
+<h3>Stand alone version</h3>
+<ol>
+	<li>Go to the Options dialog box (Project-&gt;Options) or, create a New Project. (Hint: Use double-click to edit.)</li>
+	<li>Set the source sub-directory you want to work with as the "sourcepath." This should only be one entry.</li>
+	<li>Set the directory containing <em>all</em> compiled classes as the "classpath."  Add any other required libraries as needed.</li>
+	<li>Click OK and select File-&gt;Save to save the new project settings.</li>
+	<li>Reload the project via File-&gt;Open.</li>
+</ol>
+
+<h3>Sun<sup><font size="-1">TM</font></sup> ONE Studio /
+	NetBeans version</h3>
+<ol>
+	<li>Go to the RefactorIT Options dialog box via Tools-&gt;RefactorIT-&gt;RefactorIT Options.</li>
+	<li>Enable "Specify classpath and sourcepath".</li>
+	<li>Set your source sub-directory you want to work with as the "sourcepath". This should be only one entry.</li>
+	<li>Set the directory containing <em>all</em> compiled classes as the "classpath." Add any other required libraries as needed.</li>
+	<li>Restart the IDE to be sure the changes take effect.</li>
+</ol>
+
+<h3>JDeveloper9i</h3>
+<ol>
+	<li>Go to the Project Settings.</li>
+	<li>Set your source sub-directory you want to work with in Common/Input Paths/Java Source Path.</li>
+	<li>Add the directory containing <em>all</em> compiled classes to "Configurations/Development/Libraries/Selected libraries".</li>
+	<li>Click OK to save the changes.</li>
+</ol>
+
+</body></html>

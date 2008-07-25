@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Not Used</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Not Used</h2>
+
+<p> Not Used finds types, members and constructors that are not used inside a project. In most cases types, members, and constructors reported by Not Used can be safely deleted from the project.  <b>Note</b> that there are <a href="limitations.html">limitations</a> that you need to be aware of for RefactorIT.   Not Used is to some degree the reverse of Where Used. To gain a better understanding of when types, members, and constructors are reported as not in use, you need to understand when methods are reported as used by <a href="../where_used/overview.html">Where Used</a>. </p>
+
+<h3>Usage</h3>
+
+<p><b>Example:</b>
+
+<pre>
+class Unused {
+  void test() {}
+  void test2() {
+     test();
+     PartiallyUsed tmp = new PartiallyUsed();
+     tmp.test();
+  }
+}
+		  
+class PartiallyUsed {
+  void doSomething() {}
+  void test() {}
+}
+		      
+class Used {
+/** @USED
+*/
+  void markedUsed() {}
+}
+
+</p>
+</pre>
+<img src="images/results.png" alt="Not Used tab">
+<br>
+<p>
+In this example, class <tt>Unused</tt> is not in use at all. As to class <tt>PartiallyUsed</tt>,
+its method <tt>doSomething</tt> is not in use either. But,
+as <tt>PartiallyUsed.test</tt> is in use, the whole
+class is not reported as not being in use; only method
+<tt>doSomething</tt> is being used.  The method  <tt>markedUsed</tt>
+of class <tt>Used</tt> is reported as used
+because it's has an  <tt>@USED</tt>
+tag in  its Javadoc. As a result, also the whole class is not reported as unused. </p>
+
+<h3>Filters</h3>
+
+<p><b>Excluding filters</b>:
+A set of filters can be used to exclude certain classes or class members from
+being displayed as not used. Most of the filters exclude methods or classes that are
+usually invoked through reflection and thus not discovered as being used.  Following filters are available: </p>
+<ul>
+  <li><p><em>Interface usage</em>: Excludes methods which directly or indirectly override methods that <em>are</em> used.</p></li>
+  <li><p><em>Overriding methods</em>: Excludes all overriding methods, i.e. methods that are declared in a supertype.</p></li>
+  <li><p><em>All public methods</em>:Excludes all public classes and class members.</p></li>
+  <li><p><em>All protected methods</em>: Excludes all protected classes and class members.</p></li>
+  <li><p><em>All accessor methods</em>: Excludes bean property accessor methods. Only the method signature is checked. Can also check for indexed and mapped property accessor methods.</p></li>
+  <li><p><em>Members marked as used</em>: Excludes all members that have a <code>@used</code> tag in javadoc. This is useful if you know that a class or method is being used, but it cannot be detected by RefactorIT.</p></li>
+  <li><p><em>Parts of servlet framework</em>: Excludes all methods that override servlet methods, and all classes that implement or override servlet classes (<code>javax.servlet.Servlet</code>, <code>javax.servlet.http.HttpServlet</code>, <code>javax.servlet.http.GenericServlet</code>).</p></li>
+  <li><p><em>Parts of EJB framework</em>: Excludes methods that are called by Enterprise JavaBeans (EJB) containers. Also excludes classes that implement EJB interfaces (EntityBean, SessionBean, MessageDrivenBean, EnterpriseBean).</p></li>
+  <li><p><em>JUnit test cases</em>: Excludes classes that extend <code>junit.framework.TestCase</code>, all <code>test*</code> methods and <code>setUp</code> and <code>tearDown</code> methods. Also excludes <code>public junit.framework.Suite suite()</code> methods in all classes.</p></li>
+  <li><p><em>Members with certain names</em>: Excludes fields and methods having specified names. The list of names can be edited in the filter panel.</p></li>
+</ul>
+<img src="images/filter.png" alt="Not Used tab">
+<br>
+<p>More information on filters can be found <a href="filter.html">here</a>.</p>
+
+<h3>Results</h3>
+
+<p> Results are reported in two major groups: types that are not in use at all and members and constructors that are not in use. A type is reported to be not in use only  when no members of the type are used outside  the type and the type is not used anywhere in code (for example, in <tt>new</tt> or <tt>throws</tt> statement).  If a type is reported as not in use, you can probably delete it as a whole.  If only members or constructors of a type are reported, you can only delete them. </p>
+
+<p> Results can be <a href="../../report/overview.html">saved</a> to files
+in <a href="../../report/formats.html">various formats</a>, so they can be analysed by spreadsheet tools, or, for example, sent via e-mail to the development team as part of the nightly build. To do this - select "Export" on the Results Panel.</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="limitations.html">Limitations</a></p></li>
+	<li><p><a href="filter.html">Filters</a></p></li>
+</ul>
+
+</body></html>

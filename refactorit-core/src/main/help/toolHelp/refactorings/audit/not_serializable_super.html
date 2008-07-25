@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Not serializable superclass</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Not serializable superclass</h3>
+
+<p>A class implementing java.io.Serializable should have serializabe superclass, or
+superclass with an accessable default (no argument) constructor.</p>
+
+<p>Check <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html">
+java.io.Serializabe API reference</a> for details.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Make superclass java.io.Serializable</h3>
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A {
+      ...  
+    }
+    
+    public class B extends A 
+        implements java.io.Serializable {
+      ...
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A <font color="green">implements java.io.Serializable</font>{
+      ...  
+    }
+    
+    public class B extends A
+        implements java.io.Serializable {
+      ...
+    }
+    </pre>
+    
+<h3>Create accessable no-argument constructor for superclass</h3>
+
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    public class A {
+      ...  
+    }
+    
+    public class B extends A
+        implements java.io.Serializable {
+      ...
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    public class A {
+      <font color="green">public A(){
+      }</font>
+      ...  
+    }
+    
+    public class B extends A
+        implements java.io.Serializable {
+      ...
+    }
+    </pre>
+
+</body></html>

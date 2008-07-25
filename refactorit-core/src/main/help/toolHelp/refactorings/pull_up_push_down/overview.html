@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Pull Up / Push Down</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Pull Up / Push Down</h2>
+
+<p> Pull Up / Push Down moves fields and methods to superclasses or subclasses respectively. Pulling up  might be required if the field or method should be available to all subclasses, and not only to the one where it resides before refactoring. Pushing down  might be required if the field or method should be available only in some, as opposed to all, subclasses of the class where it resides before refactoring. </p> 
+
+<h3>Usage</h3>
+
+<p>You can run Pull Up / Push Down either on single field or method or on a class.</p>
+<br>
+<img src="images/main.png" alt="Pull Up/Push Down dialog">
+<br>
+
+<p>
+Choose field or method you want to move. Choose new class or interface it will
+belong to (tab 'Interface Hierarchy' contains tree of interfaces which currently
+selected class implements). All references in classes are updated where necessary.
+If the move causes <a href="conflicts.html">conflicts</a> they will be shown in lower part of the window and they must be resolved in order to perform refactoring.
+</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="conflicts.html">Conflicts</a></p></li>
+</ul>
+
+<p>From Martin Fowler's online catalog of refactoring operations:</p>
+
+<ul>
+	<li><p><a href="http://www.refactoring.com/catalog/pullUpMethod.html">Pull Up Method</a></p></li>
+	<li><p><a href="http://www.refactoring.com/catalog/pullUpField.html">Pull Up Field</a></p></li>
+	<li><p><a href="http://www.refactoring.com/catalog/pushDownMethod.html">Push Down Method</a></p></li>
+	<li><p><a href="http://www.refactoring.com/catalog/pushDownField.html">Push Down Field</a></p></li>
+</ul>
+
+</body></html>

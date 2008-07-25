@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Numeric literals</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Numeric literals</h3>
+
+<p>This audit rule reports use of so called "magic numbers". Code with many
+magic numbers is often hard to understand.</p>
+
+    <pre>
+    class A {
+        void someMethod(){
+            int a = 5;  // "magic number" usage
+            while (a < 10){ // another "magic number" usage
+                doSomethingWith(a);
+                a++;
+            }
+        }
+    }
+    </pre>
+    
+<p>You may want to refactor this code to something like this:</p>
+
+    <pre>
+    class A {
+        static final int LOWER_BOUND = 5;
+        static final int UPPER_BOUND = 10;
+        
+        void someMethod(){
+            int a = LOWER_BOUND;
+            while (a < UPPER_BOUND){
+                doSomethingWith(a);
+                a++;
+            }
+        }
+    }
+    </pre>
+    
+<p><b>'Manage numeric literals'</b> corrective
+action will automaticaly propose to make such fields <tt>static final</tt> on run.
+Read more about <b>'Manage numeric literals'</b> action below.</p>
+    
+<p>Optionaly it is possible to enable/disable reporting "magic numbers"
+in collections` constructors. Check out option "skip literals when initializing collections".</p>
+
+    <pre>
+    void someMethod(){
+        List list = new ArrayList(10); // can be skiped optionaly
+    }
+    </pre>
+
+<p>You can specify list of numeric literals, that You would like this audit rule
+to skip. Just add a new literal to list. '-1', '0' and '1' values are skiped by
+default, but they can be removed from the list as well.</p>
+    
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Manage numeric literals</h3>
+    Action runs a dialog, where You can perform following actions:
+    <ul>
+        <li>create new field initialized with this numeric literal and use it instead of numeric literal</li>
+        <li>use existing field instead of numeric literal value</li>
+        <li>(in case of field) make field '<tt>static final</tt>'</li>
+    </ul>
+    <p align="center">
+    <img src="images/numeric_literals_1.png" alt="Manage numeric literals main dialog" align="center"><br>
+    Main dialog</p>
+    <p>Even if You run 'Manage numeric literals' action on a single violation, the action
+    will collect all usages of this literal in owner class. Fixed violations are marked with
+    green background. To fix violations select some of them (multiselection is supported)
+    and press "<b>Create new field</b>" or "<b>Use existing field</b>" buttons.</p>
+    
+    <p>If value in SFC column is 'yes', it means that numeric literal was used
+    initializing some field and that this field can be made 'static final' without
+    any harm. Such violations are fixed by default on action run. But You can clear
+    those changes by selecting these violations and clicking '<b>CLEAR</b>' button.
+    However, the action will propose to make these field 'static final' every time
+    You try to fix them using "<b>Create new field</b>" or "<b>Use existing field</b>"
+    buttons.</p>
+    
+    
+    <h4>Create new field</h4>
+    
+    <p align="center">
+    <img src="images/numeric_literals_2.png" alt="Manage numeric literals: create new field" align="center"><br>
+    Create new field dialog</p>
+    
+    <p>Select class where You want to create new constant field, select access modifier
+    for Your new constant and enter a name for it.</p>
+    
+    <h4>Use existing field</h4>
+
+    <p align="center">
+    <img src="images/numeric_literals_3.png" alt="Manage numeric literals: use existing field" align="center"><br>
+    Use existing field dialog</p>
+    
+    <p>Concede that You already have an <tt>UPPER_BOUND</tt> constant defined for this case
+    somewhere in Your project. Just find this field in Your project using
+    <b>"Use existing constant"</b> dialog and corrective action will replace
+    numeric literal usage with constant field usage.</p>
+    
+</body></html>

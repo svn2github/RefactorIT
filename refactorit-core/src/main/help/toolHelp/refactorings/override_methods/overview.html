@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Override/Implement Methods</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Override/Implement Methods</h2>
+
+<p> This refactoring creates desired method overrides of superclass methods chosen from list of potential method overrides for current class</p>
+
+<h3>Usage</h3>
+<p>Use this refactoring to override superclass methods by clicking on target class. Override/Implement dialog will appear:</p>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/override_implement_dialog.png" alt="Return type selection dialog">
+<br><br>
+
+<p> Dialog window will offer You to choose superclass methods, that are not already overridden in current class. Select methods You would like to override by ticking appropriate checkboxes and press 'ok'. </p>
+<p> Changes preview dialogwill appear offering You to view and edit changes RefactorIT is going to perform (method equals() was selected in current example):</p>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/changes_preview_dialog.png" alt="Return type selection dialog">
+<br>
+
+<p>Click 'ok' when done.</p>
+
+<h3>Example</h3>
+<p>In this example such method will be added into class body</p>
+<pre>
+    public boolean equals(Object obj) {
+      
+      // @todo: override this 
+      return super.equals(obj);
+    }
+</pre>	
+
+
+<h3>Results</h3>
+<p>Overridden methods` code will be added to destination class source code as it was shown in changes preview dialog. Method bodies will contain superclass method calls by default.</p>
+
+</body></html>

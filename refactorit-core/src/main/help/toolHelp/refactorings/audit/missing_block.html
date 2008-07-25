@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Missing blocks</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Missing blocks</h3>
+
+<p>This warning reports missing blocks for '<tt>if</tt>', '<tt>while</tt>', '<tt>for</tt>' and 'do' statements:</p>
+
+<p>Missing blocks can confuse You:</p>
+
+    <pre>
+    if(something)
+        doSomething1(); // this statement is conditional
+        doSomething2(); // this statement is invoked always
+    </pre>
+
+<p>This is possible a bug, because maybe You had in mind something like this:
+
+    <pre>
+    if(something){
+        doSomething1();
+        doSomething2();
+    }
+    </pre>
+
+<p>To suppress this warning, you can either disable it from the filter dialog or replace the suspicious semicolon with {}.</p>
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Surround with brackets</h3>
+    Action adds missing {} to statement.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    if(something)
+        doSomething();
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    if(something){
+        doSomething();
+    }
+    </pre>
+
+</body></html>

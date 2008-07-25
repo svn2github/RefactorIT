@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Draw Dependencies</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Draw Dependencies</h2>
+
+<h3>Usage</h3>
+
+<p>Draw Dependencies shows a graph of dependencies between given items. You can start with clicking in the project on a single item, e.g. class and then add more nodes later with "Add Dependable/Depends On" or use multi-selection of items in the project tree and analyze dependencies between them.</p>
+
+<p>Draw Dependencies uses <a href="show_dependencies.html">Show Dependencies</a> as an internal dependency analysis engine, but draws them as a free floating graph of nodes and links between them.</p>
+
+<p>Nodes in the graph are items of the project, for example, package, class or method. Every node has a name as it is in the source code and an icon showing its nature.</p>
+
+<p>Links are of two major kinds:
+<ul>
+<li><font color="#0000FF">Ownership</font> - in accordance with UML it is a nested link (class belongs to package, inner belongs to owner) or a composition link (member belongs to class).</li>
+<li><font color="#FF0000">Dependency</font> - one item uses another one. When you move the pointer over such link you will see the number of dependencies within this link.</li>
+</ul>
+</p>
+
+<p>At the top of the results area there are following controls:
+<ul>
+<li>Freeze - stops autolayouting of the graph, so you can drag nodes wherever you want.</li>
+<li>More Details - shows one more detail level if possible, e.g. shows members also if you were analysing class dependencies initially.</li>
+<li>Zoom, Rotate, Locality - allows to select what the scroll at the top controls. Locality is the radius of nodes shown around the focused node.</li>
+</ul>
+</p>
+
+<p>Some node in the graph can be selected with the left click of the mouse and this specifies  the focus nodes. Nodes outside of the locality will be hidden (collapsed).</p>
+
+<p>It is possible to right-click with mouse on the free space in the graph area, on the nodes and on the links.</p>
+
+<p>Two major items in the popup menu when you clicked on the node are: 'Add Dependable Nodes' and 'Add Depends On Nodes', which allow to add more nodes to the existing graph and investigate dependencies step by step starting from a few nodes only.</p>
+
+<p>In the popup menu of a dependency link there is an action 'Show Dependency Details', which opens new tab with the details of the current selected link.</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="show_dependencies.html">Show Dependencies</a></p></li>
+	<li><p><a href="limitations.html">Limitations</a></p></li>
+	<li><p><a href="../where_used/overview.html">Where Used</a></p></li>
+</ul>
+	
+</body></html> 

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head><title>RefactorIT functionality problems</title>
+	<link rel="StyleSheet" href="../ide.css" type="text/css">
+</head>
+<body>
+
+<h2>RefactorIT does not appear under Eclipse</h2>
+<p>You need to run Eclipse with the <code>-clean</code> command line parameter the first time after RefactorIT installation in order to refresh the plugins cache of Eclipse.</p>
+
+<h2>Can not perform refactorings on selected item</h2>
+<p>Usually this means that the class you clicked on/in is out of RefactorIT scope, i.e. it is located outside of the sourcepaths set in RefactorIT project properties. By default the paths are autodetected basing on the IDE project settings, but can be overriden as well. Check the RefactorIT Help for the detailed instructions.</p>
+
+<h2>RefactorIT is installed but functionality is not working</h2>
+<p>Sometimes RefactorIT seems to be installed properly, but none of the functions work. In this case check you IDE logs (location depends on the IDE) for such an error stack trace:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.lang.NoClassDefFoundError: rantlr/TokenStream</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.ClassLoader.defineClass0(Native Method)</tt>
+<br><br>
+This means that installer failed to install a special version of antlr.jar, which is needed for correct work of RefactorIT. You can get it from: <a href="http://www.refactorit.com/files/jarsonly/refactorit.zip">http://www.refactorit.com/files/jarsonly/refactorit.zip</a> 
+It must be located in your IDE in the same directory as refactorit.jar.
+</p>
+
+</body></html>

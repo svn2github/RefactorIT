@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Rename</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Rename</h2>
+
+
+<p>Renaming is a commonly used  refactoring operation that enables you to rename methods, fields, variables, types, and packages. All references of the renamed items are updated accordingly.   If the code has been  compiled before renaming, it will also compile after renaming.  If renaming breaks your project, RefactorIT will report potential problems and ask for confirmation.  <b>Note</b>:  There are cases  where RefactorIT
+  cannot detect that renaming will damage or even break your project. Examples
+  include:</p>
+<ul>
+  <li><p>The project uses reflection (for example, <tt>public
+    static void main(String[])</tt>, servlets, EJBs, JUnit tests)</p></li>
+  <li><p>If  Javadoc comments are not
+    updated during the rename ( which
+    is configurable from the Rename dialog box), the code resulting from the rename operation
+    might  cause warnings during Javadoc
+    generation. Additionally, if you use tools that generate parts of code based
+    on  Javadoc comments (DbC, EJB
+    generation), the result is undefined.</p></li>
+</ul>
+
+
+<p>RefactorIT  does its best to preserve the layout of your code. Still, there are  cases where your coding conventions might be violated as a result of renaming. For example, RefactorIT does not follow the maximum source line length constraint.</p>
+
+<h3>References</h3>
+<ul>
+	<li><p><a href="impact.html">Assessing Impact</a></p></li>
+	<li><p><a href="package.html">Renaming a Package</a></p></li>
+	<li><p><a href="type.html">Renaming a Class or Interface</a></p></li>
+	<li><p><a href="field.html">Renaming a Field</a></p></li>
+	<li><p><a href="param_and_local.html">Renaming a Parameter or Local Variable</a></p></li>
+	<li><p><a href="method.html">Renaming a Method</a></p></li>
+	<li><p><a href="type.html">Renaming a Type</a></p></li>
+</ul>
+	
+</body></html>

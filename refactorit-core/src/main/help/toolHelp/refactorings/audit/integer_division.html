@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Integer division in floating point context</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Integer division in floating point context</h3>
+
+<p>This warning reports places of integer division in places, where the
+result is expected to be floating point type.</p>
+
+<p>Try this code:</p>
+<pre>
+int a = 1;
+int b = 2;
+float c = a/b; // violation
+float d = ((float) a)/b; // no violation
+System.out.println("c == " + c); // c == 0.0
+System.out.println("d == " + d); // c == 0.5
+</pre>
+
+<p>This audit rule analyzes not only assignment context (see example above),
+but any kind of floating point contexts: method/constructor invocation,
+arithmetical expressions etc.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Add cast to 'float'</h3>
+    Adds cast to 'float' for one part of division expression.
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    float c = a/b;
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    float c = ((float) a)/b;
+    </pre>
+
+</body></html>

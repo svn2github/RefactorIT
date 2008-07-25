@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Cyclomatic Complexity (V(G) also known as CC): McCabe's
+Cyclomatic Complexity</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>McCabe's Cyclomatic Complexity (V(G) also known as CC)</h2>
+<p>Introduced by Thomas McCabe in 1976, cyclomatic complexity measures
+the number of linearly-independent paths through a program module. This
+measure provides a single ordinal number that can be compared to the
+complexity of other programs. Cyclomatic complexity is often referred to
+simply as program complexity or as McCabe's complexity. </p><p>
+Methods with a high complexity tend to be more difficult to
+understand and maintain. In general the more complex the methods of an
+application are, the more difficult it is to test the application, which
+adversely affects the application's reliability.  V(G) counts the number of branches in the body of the method defined as:</p>
+<ul>
+  <li>
+    <p>if statements</p>
+  </li>
+  <li>
+    <p>conditions such as &amp;&amp; and ||</p>
+  </li>
+  <li>
+    <p>for statements</p>
+  </li>
+  <li>
+    <p>while statements</p>
+  </li>
+</ul>
+<p>This metric is computed as follows:</p>
+<ul>
+  <li>
+    <p>Each function has a base complexity of 1</p>
+  </li>
+  <li>
+    <p>Each atomic condition adds 1</p>
+  </li>
+  <li>
+    <p>Each case block of switch adds 1</p>
+  </li>
+</ul>
+<p>If V(G) is larger than 10, consider to split the method up. The more
+complex the program the harder it is to test and comprehend.  This metric can additionally be interpreted as the cost of producing test cases for the code. The following is an example of how RefactorIT computes V(G):
+</p>
+<pre>... // in the beginning: V(G) = 1<br><br>// +2 conditions, V(G) = 3:<br>if ((i &gt; 13) || (i &lt; 15)) {<br><br>  System.out.println("Hello, there!");<br><br>  // +3 conditions, V(G) = 6:<br>  while ((i &gt; 0) || ((i &gt; 100) &amp;&amp; (i &lt; 999))) {<br>    ...<br>  }<br>}<br><br>// +1 condition, V(G) = 7<br>i = (i == 10) ? 0 : 1;<br><br>switch(a) {<br>  case 1: // +1, V(G) = 8<br>    break;<br>  case 2: // +1, V(G) = 9<br>  case 3: // +1, V(G) = 10<br>    break;<br>  default:<br>    throw new RuntimeException("a = " + a);<br>}<br></pre> 
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="wmc.html">Weighted Methods per Class</a></p></li>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+
+</body>
+</html>

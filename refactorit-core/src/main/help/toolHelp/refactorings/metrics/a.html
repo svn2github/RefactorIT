@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Abstractness (A): Ratio of Abstract Classes and Interfaces in
+a Package</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Abstractness (A): Ratio of Abstract Classes and Interfaces in a
+Package</h2>
+<p>This linear unit metric measures how abstract a package is, in that it will
+calculate a ratio of how many abstract classes and interfaces a
+package consist of relative to the total number of concrete (non-abstract)
+classes in the same package. Thus, an abstractness value of zero (A = 0) indicates a completely concrete package while a value of one indicates completely abstract. One can measure the abstractness of a package (A) using the following formula: <b>A = Na / Nc </b> where:</p>
+<ul><li><p>
+Na is the number of abstract classes and interfaces in the package</p></li><li><p>
+Nc is the number of concrete classes and interfaces in the package</p></li></ul>
+<p>
+An abstractness value between 0 and 0.5 is reasonable since a
+package is more open to changes of implementation. However, you should
+also compare the abstractness value with the instability metric value to
+ensure that you do not have a complete concrete and highly unstable
+package. Such a package would be hard to change because of stability
+and cannot be extended because it is not abstract. </p>
+<p>If the abstractness value is near to 1, compare again with the
+instability metric value to ensure that it is stable. Otherwise,
+you have a package where the abstractions will be impossible to extend
+since the package has no dependencies. </p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="d.html">Distance from Main Sequence</a></p></li>
+	 <li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+	 
+</body>
+</html>

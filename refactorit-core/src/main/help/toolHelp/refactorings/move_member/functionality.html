@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Change of The Program Functionality</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Change of The Program Functionality</h2>
+
+
+<p> If you move field which is used by some method or initialized by complex expression your program functionality can be changed. The following examples demonstrates how it is possible:
+</p>
+<h3>Example 1</h3>
+<p>
+<tt><pre><code>
+class Native {
+  public int a = 0;
+
+  public int f1() {
+    Target target = new Target();
+    return ++a;
+  }
+
+  public void f2() {
+    for (int i = 0; i &lt; 10; i++) {
+      System.out.print(f1() + " ");
+    }
+  }
+}
+
+class Target {
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Native nativ = new Native();
+    nativ.f2();
+  }
+}
+</code>
+
+Output:
+1 2 3 4 5 6 7 8 9 10
+</pre></tt></p>
+
+<p>
+Field Native.a is moved into class Target, method Native.f1() stays in class Native:
+<tt><pre><code>
+class Native {
+
+  public int f1() {
+    Target target = new Target();
+    return ++target.a;
+  }
+
+  public void f2() {
+    for (int i = 0; i &lt; 10; i++) {
+      System.out.println(f1() + " ");
+    }
+  }
+}
+
+class Target {
+  public int a = 0;
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Native nativ = new Native();
+    nativ.f2();
+  }
+}
+</code>
+
+Output:
+1 1 1 1 1 1 1 1 1 1
+</pre></tt></p>
+
+
+<h3>Example 2</h3>
+<p>
+<tt><pre><code>
+class Native {
+  private int a = 0;
+
+  public int f() {
+    return ++a;
+  }
+}
+
+class Target {
+}
+
+class Class {
+  public int result = 0;
+  public Native nativ = new Native();
+
+  public void f1() {
+    Target target = new Target();
+    result += nativ.f();
+  }
+
+  public void f2() {
+    Target target = new Target();
+    result += nativ.f();
+  }
+
+  public void f3() {
+    f1();
+    f2();
+    System.out.println(result);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Class ref = new Class();
+    ref.f3();
+  }
+}
+</code>
+
+Output:
+3
+</pre></tt></p>
+
+<p>
+Method Native.f() is moved into class Target and field Native.a is moved also as method's dependent (wrong way):
+
+<tt><pre><code>
+class Native {
+}
+
+class Target {
+  private int a = 0;
+
+  public int f() {
+    return ++a;
+  }
+}
+
+class Class {
+  public int result = 0;
+  public Native nativ = new Native();
+
+  public void f1() {
+    Target target = new Target();
+    result += target.f();
+  }
+
+  public void f2() {
+    Target target = new Target();
+    result += target.f();
+  }
+
+  public void f3() {
+    f1();
+    f2();
+    System.out.println(result);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Class ref = new Class();
+    ref.f3();
+  }
+}
+</code>
+
+Output:
+2
+</pre></tt></p>
+
+<p>
+Method Native.f() is moved into class Target but field Native.a stays in class Native and changes its access
+modifier (right way):
+
+<tt><pre><code>
+class Native {
+  int a = 0;
+}
+
+class Target {
+
+  public int f(Native nativ) {
+    return ++nativ.a;
+  }
+}
+
+class Class {
+  public int result = 0;
+  public Native nativ = new Native();
+
+  public void f1() {
+    Target target = new Target();
+    result += target.f(nativ);
+  }
+
+  public void f2() {
+    Target target = new Target();
+    result += target.f(nativ);
+  }
+
+  public void f3() {
+    f1();
+    f2();
+    System.out.println(result);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Class ref = new Class();
+    ref.f3();
+  }
+}
+</code>
+
+Output:
+3
+</pre></tt></p>
+
+<h3>Example 3</h3>
+<p>
+<tt><pre>
+<code>
+
+public class Main {
+  public static void main(String[] args) {
+    Native nativ = new Native();
+
+    Target[] targets = new Target[10];
+    for (int i = 0; i &lt; 10; i++) {
+      targets[i] = new Target();
+    }
+
+    System.out.println(Class.a);
+  }
+}
+
+class Native {
+  public int a = Class.f();
+}
+
+class Target {
+}
+
+class Class {
+  public static int a;
+
+  public static int f() {
+    return ++a;
+  }
+}
+</code>
+Output:
+1
+</pre></tt></p>
+
+<p>
+field Native.a is moved into class Target:
+
+<tt><pre><code>
+public class A {
+  public static void main(String[] args) {
+    Native nativ = new Native();
+
+    Target[] targets = new Target[10];
+    for (int i = 0; i &lt; 10; i++) {
+      targets[i] = new Target();
+    }
+
+    System.out.println(Class.a);
+  }
+}
+
+class Native {
+}
+
+class Target {
+  public int a = Class.f();
+}
+
+class Class {
+  public static int a;
+
+  public static int f() {
+    return ++a;
+  }
+}
+</code>
+
+Output:
+10
+</pre></tt></p>
+
+<h3>References</h3>
+
+<p>From Martin Fowler's <a href="http://www.refactoring.com/catalog/">online catalog</a> of refactoring operations:</p>
+
+<ul>
+	<li><p><a href="http://www.refactoring.com/catalog/moveMethod.html">Move Method</a></p></li>
+	<li><p><a href="http://www.refactoring.com/catalog/moveField.html">Move Field</a></p></li>
+</ul>
+
+</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Redundant boxing</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Redundant boxing</h3>
+
+<p>Searches the code for redundant boxing.</p>
+
+<p>Example:</p>
+    <pre><code>
+    public void a(){
+        Integer foo = new Integer(5); // redundant boxing
+    }
+    </code></pre>
+
+<p>You do not need to create new object of type Integer in J2SE5: int is
+automatically boxed to Integer.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Remove redundant boxing</h3>
+
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    Integer foo = <font color="red">new Integer(</font>5<font color="red">)</font>;
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    Integer foo = 5;
+    </pre>
+
+</body></html>

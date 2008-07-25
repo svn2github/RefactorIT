@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Number of Parameters (NP): Number of Parameters in Method's
+Signature</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Number of Parameters (NP)</h2>
+<p> This metric counts the number of parameters in a method's signature for a method or
+constructor. Methods with a large number of parameters are often harder
+to reuse because they tend to be specialised and this implies that classes are missing from the model.  The default limits for NP in RefactorIT are 0 and 4.  If the amount of parameters exceeds 4, it is advisable to move an invoked method or pass an object. In general, methods and constructors with more than three parameters are harder to comprehend and to use. Source code with invocations of methods with a long parameter list and invoking methods with similar signatures tends to be error-prone. 
+</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+      
+</body>
+</html>

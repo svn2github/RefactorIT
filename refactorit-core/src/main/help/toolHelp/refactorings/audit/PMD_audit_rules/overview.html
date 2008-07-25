@@ -1,0 +1,2294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head><title>PMD Audit Rules</title>
+        <link rel="StyleSheet" href="../../../ide.css" type="text/css">
+</head>
+<body>
+	<h2>PMD Audit Rules</h2>
+        
+	<p>http://pmd.sourceforge.net/</p>
+	
+        <p>PMD is an open-source plugin for JDeveloper, Eclipse, JEdit, 
+        JBuilder, Omnicore's CodeGuide, NetBeans/Sun Java Studio, IntelliJ IDEA,
+        TextPad, Maven, Ant, Gel, and Emacs, which provides a pretty amount of
+        audits to run on Your project.</p>
+
+        <p>It is integrated in RefactorIT so that You can easily access PMD
+        audits from Audit action dialog in RIT.</p>
+
+	<p>Below is the list of available PMD Audit Rules with descriptions and
+        examples.</p>
+<br>
+
+<!-- PMD RULES WITH DESCRIPTIONS AND EXAMPLES -->
+
+<ul><li><a href="overview.html#Basic Rules">Basic Rules</a></li>
+<ul><li><a href="overview.html#For Loop Should Be While Loop">For Loop Should Be While Loop</a></li>
+<li><a href="overview.html#Unnecessary Conversion Temporary">Unnecessary Conversion Temporary</a></li>
+<li><a href="overview.html#Double Checked Locking">Double Checked Locking</a></li>
+<li><a href="overview.html#Collapsible If Statements">Collapsible If Statements</a></li>
+<li><a href="overview.html#Unconditional If Statement">Unconditional If Statement</a></li>
+<li><a href="overview.html#Unnecessary Return">Unnecessary Return</a></li>
+<li><a href="overview.html#Boolean Instantiation">Boolean Instantiation</a></li>
+<li><a href="overview.html#Jumbled Incrementer">Jumbled Incrementer</a></li>
+</ul><li><a href="overview.html#Clone Implementation Rules">Clone Implementation Rules</a></li>
+<ul><li><a href="overview.html#Clone Throws Clone Not Supported Exception">Clone Throws Clone Not Supported Exception</a></li>
+<li><a href="overview.html#Clone Method Must Implement Cloneable">Clone Method Must Implement Cloneable</a></li>
+<li><a href="overview.html#Proper Clone Implementation">Proper Clone Implementation</a></li>
+</ul><li><a href="overview.html#Code Size Rules">Code Size Rules</a></li>
+<ul><li><a href="overview.html#Too Many Fields">Too Many Fields</a></li>
+<li><a href="overview.html#Cyclomatic Complexity">Cyclomatic Complexity</a></li>
+<li><a href="overview.html#Excessive Parameter List">Excessive Parameter List</a></li>
+<li><a href="overview.html#Excessive Class Length">Excessive Class Length</a></li>
+<li><a href="overview.html#Excessive Public Count">Excessive Public Count</a></li>
+<li><a href="overview.html#Excessive Method Length">Excessive Method Length</a></li>
+</ul><li><a href="overview.html#Controversial Rules">Controversial Rules</a></li>
+<ul><li><a href="overview.html#Unnecessary Parentheses">Unnecessary Parentheses</a></li>
+<li><a href="overview.html#Null Assignment">Null Assignment</a></li>
+<li><a href="overview.html#Assignment In Operand">Assignment In Operand</a></li>
+<li><a href="overview.html#Dont Import Sun">Dont Import Sun</a></li>
+<li><a href="overview.html#Unnecessary Constructor">Unnecessary Constructor</a></li>
+<li><a href="overview.html#Singular Field">Singular Field</a></li>
+<li><a href="overview.html#Call Super In Constructor">Call Super In Constructor</a></li>
+<li><a href="overview.html#Suspicious Octal Escape">Suspicious Octal Escape</a></li>
+<li><a href="overview.html#At Least One Constructor">At Least One Constructor</a></li>
+<li><a href="overview.html#Only One Return">Only One Return</a></li>
+</ul><li><a href="overview.html#Coupling Rules">Coupling Rules</a></li>
+<ul><li><a href="overview.html#Loose Coupling">Loose Coupling</a></li>
+<li><a href="overview.html#Excessive Imports">Excessive Imports</a></li>
+<li><a href="overview.html#Coupling Between Objects">Coupling Between Objects</a></li>
+</ul><li><a href="overview.html#Design Rules">Design Rules</a></li>
+<ul><li><a href="overview.html#Non Case Label In Switch Statement">Non Case Label In Switch Statement</a></li>
+<li><a href="overview.html#Use Singleton">Use Singleton</a></li>
+<li><a href="overview.html#Simple Date Format Needs Locale">Simple Date Format Needs Locale</a></li>
+<li><a href="overview.html#Simplify Boolean Expressions">Simplify Boolean Expressions</a></li>
+<li><a href="overview.html#Avoid Instanceof Checks In Catch Clause">Avoid Instanceof Checks In Catch Clause</a></li>
+<li><a href="overview.html#Simplify Conditional">Simplify Conditional</a></li>
+<li><a href="overview.html#Avoid Calling Finalize">Avoid Calling Finalize</a></li>
+<li><a href="overview.html#Simplify Boolean Returns">Simplify Boolean Returns</a></li>
+<li><a href="overview.html#Avoid Protected Field In Final Class">Avoid Protected Field In Final Class</a></li>
+<li><a href="overview.html#Assignment To Non Final Static">Assignment To Non Final Static</a></li>
+<li><a href="overview.html#Confusing Ternary">Confusing Ternary</a></li>
+<li><a href="overview.html#Instantiation To Get Class">Instantiation To Get Class</a></li>
+<li><a href="overview.html#Avoid Deeply Nested If Stmts">Avoid Deeply Nested If Stmts</a></li>
+<li><a href="overview.html#Default Label Not Last In Switch Stmt">Default Label Not Last In Switch Stmt</a></li>
+<li><a href="overview.html#Use Locale With Case Conversions">Use Locale With Case Conversions</a></li>
+<li><a href="overview.html#Avoid Synchronized At Method Level">Avoid Synchronized At Method Level</a></li>
+<li><a href="overview.html#Equals Null">Equals Null</a></li>
+<li><a href="overview.html#Close Connection">Close Connection</a></li>
+<li><a href="overview.html#Accessor Class Generation">Accessor Class Generation</a></li>
+<li><a href="overview.html#Use Notify All Instead Of Notify">Use Notify All Instead Of Notify</a></li>
+<li><a href="overview.html#Missing Static Method In Non Instantiatable Class">Missing Static Method In Non Instantiatable Class</a></li>
+<li><a href="overview.html#Final Field Could Be Static">Final Field Could Be Static</a></li>
+<li><a href="overview.html#Constructor Calls Overridable Method">Constructor Calls Overridable Method</a></li>
+<li><a href="overview.html#Non Static Initializer">Non Static Initializer</a></li>
+<li><a href="overview.html#Optimizable To Array Call">Optimizable To Array Call</a></li>
+<li><a href="overview.html#Switch Density">Switch Density</a></li>
+<li><a href="overview.html#Immutable Field">Immutable Field</a></li>
+</ul><li><a href="overview.html#Finalizer Rules">Finalizer Rules</a></li>
+<ul><li><a href="overview.html#Explicit Call To Finalize">Explicit Call To Finalize</a></li>
+<li><a href="overview.html#Finalize Does Not Call Super Finalize">Finalize Does Not Call Super Finalize</a></li>
+<li><a href="overview.html#Empty Finalizer">Empty Finalizer</a></li>
+<li><a href="overview.html#Finalize Overloaded">Finalize Overloaded</a></li>
+<li><a href="overview.html#Finalize Should Be Protected">Finalize Should Be Protected</a></li>
+<li><a href="overview.html#Finalize Only Calls Super Finalize">Finalize Only Calls Super Finalize</a></li>
+</ul><li><a href="overview.html#JavaBean Rules">JavaBean Rules</a></li>
+<ul><li><a href="overview.html#Bean Members Should Serialize">Bean Members Should Serialize</a></li>
+</ul><li><a href="overview.html#JUnit Rules">JUnit Rules</a></li>
+<ul><li><a href="overview.html#Unnecessary Boolean Assertion">Unnecessary Boolean Assertion</a></li>
+<li><a href="overview.html#Use Assert Equals Instead Of Assert True">Use Assert Equals Instead Of Assert True</a></li>
+<li><a href="overview.html#Use Assert Same Instead Of Assert True">Use Assert Same Instead Of Assert True</a></li>
+<li><a href="overview.html#JUnit Static Suite">JUnit Static Suite</a></li>
+<li><a href="overview.html#JUnit Spelling">JUnit Spelling</a></li>
+<li><a href="overview.html#Test Class Without Test Cases">Test Class Without Test Cases</a></li>
+<li><a href="overview.html#JUnit Tests Should Include Assert">JUnit Tests Should Include Assert</a></li>
+<li><a href="overview.html#JUnit Assertions Should Include Message">JUnit Assertions Should Include Message</a></li>
+</ul><li><a href="overview.html#Java Logging Rules">Java Logging Rules</a></li>
+<ul><li><a href="overview.html#System Println">System Println</a></li>
+<li><a href="overview.html#More Than One Logger">More Than One Logger</a></li>
+<li><a href="overview.html#Logger Is Not Static Final">Logger Is Not Static Final</a></li>
+</ul><li><a href="overview.html#Naming Rules">Naming Rules</a></li>
+<ul><li><a href="overview.html#Suspicious Equals Method Name">Suspicious Equals Method Name</a></li>
+<li><a href="overview.html#Long Variable">Long Variable</a></li>
+<li><a href="overview.html#Avoid Non Constructor Methods With Class Name">Avoid Non Constructor Methods With Class Name</a></li>
+<li><a href="overview.html#Class Naming Conventions">Class Naming Conventions</a></li>
+<li><a href="overview.html#Short Method Name">Short Method Name</a></li>
+<li><a href="overview.html#Suspicious Hashcode Method Name">Suspicious Hashcode Method Name</a></li>
+<li><a href="overview.html#Short Variable">Short Variable</a></li>
+<li><a href="overview.html#Abstract Naming">Abstract Naming</a></li>
+<li><a href="overview.html#Avoid Field Name Matching Type Name">Avoid Field Name Matching Type Name</a></li>
+<li><a href="overview.html#Variable Naming Conventions">Variable Naming Conventions</a></li>
+<li><a href="overview.html#Avoid Field Name Matching Method Name">Avoid Field Name Matching Method Name</a></li>
+<li><a href="overview.html#Method With Same Name As Enclosing Class">Method With Same Name As Enclosing Class</a></li>
+<li><a href="overview.html#Method Naming Conventions">Method Naming Conventions</a></li>
+<li><a href="overview.html#Avoid Dollar Signs">Avoid Dollar Signs</a></li>
+</ul><li><a href="overview.html#Optimization Rules">Optimization Rules</a></li>
+<ul><li><a href="overview.html#Simplify Starts With">Simplify Starts With</a></li>
+<li><a href="overview.html#Use Array List Instead Of Vector">Use Array List Instead Of Vector</a></li>
+<li><a href="overview.html#Avoid Instantiating Objects In Loops">Avoid Instantiating Objects In Loops</a></li>
+<li><a href="overview.html#Use String Buffer For String Appends">Use String Buffer For String Appends</a></li>
+</ul><li><a href="overview.html#Strict Exception Rules">Strict Exception Rules</a></li>
+<ul><li><a href="overview.html#Avoid Catching NPE">Avoid Catching NPE</a></li>
+<li><a href="overview.html#Exception Type Checking">Exception Type Checking</a></li>
+<li><a href="overview.html#Exception As Flow Control">Exception As Flow Control</a></li>
+</ul><li><a href="overview.html#java.lang.String Rules">java.lang.String Rules</a></li>
+<ul><li><a href="overview.html#Avoid Concatenating Non Literals In String Buffer">Avoid Concatenating Non Literals In String Buffer</a></li>
+<li><a href="overview.html#Avoid Duplicate Literals">Avoid Duplicate Literals</a></li>
+<li><a href="overview.html#String Instantiation">String Instantiation</a></li>
+</ul><li><a href="overview.html#Security Code Guidelines">Security Code Guidelines</a></li>
+<ul><li><a href="overview.html#Method Returns Internal Array">Method Returns Internal Array</a></li>
+<li><a href="overview.html#Array Is Stored Directly">Array Is Stored Directly</a></li>
+</ul></ul>
+<a name="Basic Rules"><h2>Basic Rules</h2></a>
+<a name="For Loop Should Be While Loop"><h3>For Loop Should Be While Loop</h3></a>
+
+      Some for loops can be simplified to while loops - this makes them more concise.
+      <br><pre>
+  public class Foo {
+      void bar() {
+          for (;true;) true; // No Init or Update part, may as well be: while (true)
+      }
+  }
+      </pre>
+
+<a name="Unnecessary Conversion Temporary"><h3>Unnecessary Conversion Temporary</h3></a>
+
+      Avoid unnecessary temporaries when converting primitives to Strings
+      <br><pre>
+  public String convert(int x) {
+      // this wastes an object
+      String foo = new Integer(x).toString();
+      // this is better
+      return Integer.toString(x);
+    }
+      </pre>
+
+<a name="Double Checked Locking"><h3>Double Checked Locking</h3></a>
+
+      Partially created objects can be returned by the Double Checked Locking pattern when used in Java.
+      An optimizing JRE may assign a reference to the baz variable before it creates the object the
+          reference is intended to point to.  For more details see http://www.javaworld.com/javaworld/jw-02-2001/jw-0209-double.html.
+      <br><pre>
+  public class Foo {
+      Object baz;
+      Object bar() {
+        if(baz == null) { //baz may be non-null yet not fully created
+          synchronized(this){
+            if(baz == null){
+              baz = new Object();
+            }
+          }
+        }
+        return baz;
+      }
+  }
+      </pre>
+
+<a name="Collapsible If Statements"><h3>Collapsible If Statements</h3></a>
+
+      Sometimes two 'if' statements can be consolidated by separating their conditions with a boolean short-circuit operator.
+      <br><pre>
+  public class Foo {
+      void bar() {
+          if (x) {
+           if (y) {
+             // do stuff
+           }
+          }
+      }
+  }
+      </pre>
+
+<a name="Unconditional If Statement"><h3>Unconditional If Statement</h3></a>
+
+      Do not use "if" statements that are always true or always false.
+      <br><pre>
+  public class Foo {
+ public void close() {
+  if (true) {
+       // ...
+   }
+ }
+}
+      </pre>
+
+<a name="Unnecessary Return"><h3>Unnecessary Return</h3></a>
+
+  Avoid unnecessary return statements
+      <br><pre>
+  // this is bad
+  public void bar() {
+      int x = 42;
+      return;
+  }
+      </pre>
+
+<a name="Boolean Instantiation"><h3>Boolean Instantiation</h3></a>
+
+   Avoid instantiating Boolean objects, instead use Boolean.TRUE or Boolean.FALSE.
+   <br><pre>
+   
+public class Foo {
+ private Boolean bar = new Boolean("true"); // just do a Boolean bar = Boolean.TRUE;
+}
+   
+   </pre>
+
+<a name="Jumbled Incrementer"><h3>Jumbled Incrementer</h3></a>
+
+     Avoid jumbled loop incrementers - it's usually a mistake, and it's confusing even if it's what's intended.
+     <br><pre>
+ public class JumbledIncrementerRule1 {
+  public void foo() {
+   for (int i = 0; i < 10; i++) {
+    for (int k = 0; k < 20; i++) {
+     System.out.println("Hello");
+    }
+   }
+  }
+ }
+     </pre>
+
+<a name="Clone Implementation Rules"><h2>Clone Implementation Rules</h2></a>
+<a name="Clone Throws Clone Not Supported Exception"><h3>Clone Throws Clone Not Supported Exception</h3></a>
+
+        The method clone() should throw a CloneNotSupportedException
+         <br><pre>
+             
+ public class MyClass implements Cloneable{
+     public Object clone() // will cause an error {
+          MyClass clone = (MyClass)super.clone();
+          ...
+          return clone;
+     }
+ }
+    
+         </pre>
+
+<a name="Clone Method Must Implement Cloneable"><h3>Clone Method Must Implement Cloneable</h3></a>
+
+       The method clone() should only be implemented if the class implements Cloneable interface
+        <br><pre>
+            
+public class MyClass  {
+   // will cause an error
+   public Object clone() throws CloneNotSupportedException {
+    ...
+   }
+}
+   
+        </pre>
+
+<a name="Proper Clone Implementation"><h3>Proper Clone Implementation</h3></a>
+
+     Object clone() should be implemented with super.clone()
+     <br><pre>
+ 
+class Foo{
+    public Object clone(){
+        return new Foo(); // This is bad
+    }
+}
+
+     </pre>
+
+<a name="Code Size Rules"><h2>Code Size Rules</h2></a>
+<a name="Too Many Fields"><h3>Too Many Fields</h3></a>
+
+       Classes that have too many fields could be redesigned to have less fields
+       and some nested object grouping some of the information collected on the
+       many fields.
+      <br><pre>
+   
+   public Class Person {
+       String street;
+       int number;
+       int floor;
+       String postal;
+       String street;
+       long phone;
+       String city;
+       String state;
+       String Country;
+       // fields above should be in a class for Address or something similar
+       // that information does not really belong to a person, but to a place
+       // fields below are really from person
+       String firstname;
+       String lastname;
+       Date born;
+       Person father;
+       Person mother;
+   }
+   
+      </pre>
+
+<a name="Cyclomatic Complexity"><h3>Cyclomatic Complexity</h3></a>
+
+Complexity is determined by the number of decision points in a method plus one for the
+method entry.  The decision points are 'if', 'while', 'for', and 'case labels'.  Scale:
+1-4 (low complexity)   5-7 (moderate complexity)   8-10 (high complexity)   10+ (very high complexity)
+   <br><pre>
+
+Cyclomatic Complexity = 12
+
+public class Foo
+{
+1   public void example()
+    {
+2       if (a == b)
+        {
+3           if (a1 == b1)
+            {
+                do something;
+            }
+4           else if a2 == b2)
+            {
+                do something;
+            }
+            else
+            {
+                do something;
+            }
+        }
+5       else if (c == d)
+        {
+6           while (c == d)
+            {
+                do something;
+            }
+        }
+7       else if (e == f)
+        {
+8           for (int n = 0; n < h; n++)
+            {
+                do something;
+            }
+        }
+        else
+        {
+            switch (z)
+            {
+9               case 1:
+                    do something;
+                    break;
+
+10              case 2:
+                    do something;
+                    break;
+
+11              case 3:
+                    do something;
+                    break;
+
+12              default:
+                    do something;
+                    break;
+            }
+        }
+    }
+}
+
+   </pre>
+
+<a name="Excessive Parameter List"><h3>Excessive Parameter List</h3></a>
+
+This checks to make sure that the Parameter Lists in the project aren't
+getting too long.  If there are long parameter lists, then that is
+generally indicative that another object is hiding around there.
+
+Basically, try to group the parameters together.
+
+Default value is 2.5 sigma greater than the mean.
+
+NOTE:  In version 0.9 and higher, their are three parameters available:
+minimum - Minimum Length before reporting.
+sigma - Std Deviations away from the mean before reporting.
+topscore - The Maximum Number of reports to generate.
+
+At this time, only one can be used at a time.
+
+   <br><pre>
+
+public void addData(
+  int p00, int p01, int p02, int p03, int p04, int p05,
+  int p05, int p06, int p07, int p08, int p09, int p10) {
+
+  }
+}
+
+   </pre>
+
+<a name="Excessive Class Length"><h3>Excessive Class Length</h3></a>
+
+Long Class files are indications that the class may be trying to
+do too much.  Try to break it down, and reduce the size to something
+managable.
+
+Default value is 2.5 sigma greater than the mean.
+
+NOTE:  In version 0.9 and higher, their are three parameters available:
+minimum - Minimum Length before reporting.
+sigma - Std Deviations away from the mean before reporting.
+topscore - The Maximum Number of reports to generate.
+
+At this time, only one can be used at a time.
+
+   <br><pre>
+
+public class Foo {
+  public void bar() {
+    // 500 lines of code
+  }
+
+  public void baz() {
+    // 500 more lines of code
+  }
+}
+
+   </pre>
+
+<a name="Excessive Public Count"><h3>Excessive Public Count</h3></a>
+
+    A large amount of public methods and attributes declared in an object can indicate the class may need
+    to be broken up as increased effort will be required to thoroughly test such a class.
+    <br><pre>
+    
+
+    public class Foo {
+    public String value;
+    public Bar something;
+    public Variable var;
+    //more public attributes
+    public void doWork() {}
+    public void doMoreWork() {}
+    public void doWorkAgain() {}
+    public void doWorking() {}
+    public void doWorkIt() {}
+    public void doWorkingAgain() {}
+    public void doWorkAgainAgain() {}
+    public void doWorked() {}
+
+    }
+    
+    </pre>
+
+<a name="Excessive Method Length"><h3>Excessive Method Length</h3></a>
+
+Excessive Method Length usually means that the method is doing
+too much.  There is usually quite a bit of Cut and Paste there
+as well.  Try to reduce the method size by creating helper methods,
+and removing cut and paste.
+
+Default value is 2.5 sigma greater than the mean.
+
+There are three parameters available:
+minimum - Minimum Length before reporting.
+sigma - Std Deviations away from the mean before reporting.
+topscore - The Maximum Number of reports to generate.
+
+At this time, only one can be used at a time.
+
+   <br><pre>
+
+public void doSomething() {
+  System.out.println("I am a fish.");
+  System.out.println("I am a fish.");
+  System.out.println("I am a fish.");
+  System.out.println("I am a fish.");
+  System.out.println("I am a fish.");
+  // 495 copies omitted for brevity.
+}
+
+   </pre>
+
+<a name="Controversial Rules"><h2>Controversial Rules</h2></a>
+<a name="Unnecessary Parentheses"><h3>Unnecessary Parentheses</h3></a>
+
+      Sometimes return statement expressions are wrapped in unnecessary parentheses,
+ making them look like a function call.
+      <br><pre>
+  public class Foo {
+      boolean bar() {
+          return (true);
+      }
+  }
+      </pre>
+
+<a name="Null Assignment"><h3>Null Assignment</h3></a>
+
+ Assigning a "null" to a variable (outside of its declaration) is usually in
+ bad form.  Some times, the assignment is an indication that the programmer doesn't
+ completely understand what is going on in the code.  NOTE: This sort of assignment
+ may in rare cases be useful to encourage garbage collection.  If that's what you're using
+ it for, by all means, disregard this rule :-)
+      <br><pre>
+ 
+ public class Foo {
+   public void bar() {
+     Object x = null; // This is OK.
+     x = new Object();
+     // Big, complex piece of code here.
+     x = null; // This is BAD.
+     // Big, complex piece of code here.
+   }
+ }
+
+ 
+      </pre>
+
+<a name="Assignment In Operand"><h3>Assignment In Operand</h3></a>
+
+  Avoid assigments in operands; this can make code more complicated and harder to read.
+  <br><pre>
+  
+  public class Foo {
+   public void bar() {
+int x = 2;
+if ((x = getX()) == 3) {
+ System.out.println("3!");
+}
+   }
+   private int getX() {
+return 3;
+   }
+  }
+
+  
+  </pre>
+
+<a name="Dont Import Sun"><h3>Dont Import Sun</h3></a>
+
+          Avoid importing anything from the 'sun.*' packages.  These packages are not portable and are likely to change.
+       <br><pre>
+
+   import sun.misc.foo;
+   public class Foo {}
+
+       </pre>
+
+<a name="Unnecessary Constructor"><h3>Unnecessary Constructor</h3></a>
+
+  Unnecessary constructor detects when a constructor is not necessary; i.e., when there's only one constructor,
+  it's public, has an empty body, and takes no arguments.
+      <br><pre>
+  
+  public class Foo {
+   public Foo() {}
+  }
+  
+      </pre>
+
+<a name="Singular Field"><h3>Singular Field</h3></a>
+
+              A field that's only used by one method could perhaps be replaced by a local variable
+          <br><pre>
+
+public class Foo {
+    private int x;
+    public void foo(int y) {
+     x = y + 5;
+     return x;
+    }
+}
+
+          </pre>
+
+<a name="Call Super In Constructor"><h3>Call Super In Constructor</h3></a>
+
+      It is a good practice to call super() in a constructor. If super() is not called
+      but another constructor, such as an overloaded constructor, of the class is called, this rule
+      will not report it.
+      <br><pre>
+
+public class Foo extends Bar{
+
+	public Foo() {
+		// call the constructor of Bar
+		super();
+	}
+
+	public Foo(int code) {
+		// do something with code
+		this();
+		// no problem with this
+	}
+}
+
+      </pre>
+
+<a name="Suspicious Octal Escape"><h3>Suspicious Octal Escape</h3></a>
+
+      A suspicious octal escape sequence was found inside a String literal.
+      The Java language specification (section 3.10.6) says an octal
+      escape sequence inside a literal String shall consist of a backslash
+      followed by:
+
+           OctalDigit | OctalDigit OctalDigit | ZeroToThree OctalDigit OctalDigit
+
+      Any octal escape sequence followed by non-octal digits can be confusing,
+      e.g. "\038" is interpreted as the octal escape sequence "\03" followed by
+      the literal character "8".
+      <br><pre>
+
+ public class Foo {
+    public void foo() {
+       // interpreted as octal 12, followed by character '8'
+       System.out.println("suspicious: \128");
+    }
+ }
+
+      </pre>
+
+<a name="At Least One Constructor"><h3>At Least One Constructor</h3></a>
+
+  Each class should declare at least one constructor.
+  <br><pre>
+  
+  public class Foo {
+   // no constructor!  not good!
+  }
+  
+  </pre>
+
+<a name="Only One Return"><h3>Only One Return</h3></a>
+
+     A method should have only one exit point, and that should be the last statement in the method.
+     <br><pre>
+ 
+ public class OneReturnOnly1 {
+  public void foo(int x) {
+   if (x > 0) {
+    return "hey";   // oops, multiple exit points!
+   }
+   return "hi";
+  }
+ }
+ 
+     </pre>
+
+<a name="Coupling Rules"><h2>Coupling Rules</h2></a>
+<a name="Loose Coupling"><h3>Loose Coupling</h3></a>
+
+      Avoid using implementation types (i.e., HashSet); use the interface (i.e, Set) instead
+      <br><pre>
+  
+  import java.util.*;
+  public class Bar {
+
+   // should be "private List list"
+   private ArrayList list = new ArrayList();
+
+   // should be "public Set getFoo()"
+   public HashSet getFoo() {
+    return new HashSet();
+   }
+  }
+
+  
+      </pre>
+
+<a name="Excessive Imports"><h3>Excessive Imports</h3></a>
+
+      A high number of imports can indicate a high degree of coupling within
+      an object. Rule counts the number of unique imports and reports a violation
+      if the count is above the user defined threshold.
+  <br><pre>
+      
+      import blah.blah.Bardo;
+      import blah.blah.Hardo;
+      import blah.blah.Bar;
+      import blah.net.ObjectA;
+      //imports over some threshold
+      public class Foo {
+        public void doWork() {}
+      }
+      
+  </pre>
+
+<a name="Coupling Between Objects"><h3>Coupling Between Objects</h3></a>
+
+        Rule counts unique attributes, local variables and return types within an object. An amount
+        higher than specified threshold can indicate a high degree of couping with in an object
+    <br><pre>
+    
+      import com.Blah;
+      import org.Bar;
+      import org.Bardo;
+      //
+      public class Foo {
+        private Blah var1;
+        private Bar var2;
+        //followed by many imports of unique objects
+
+        void ObjectC doWork() {
+           Bardo var55;
+           ObjectA var44;
+           ObjectZ var93;
+           return something;
+        }
+
+        }
+        
+    </pre>
+
+<a name="Design Rules"><h2>Design Rules</h2></a>
+<a name="Non Case Label In Switch Statement"><h3>Non Case Label In Switch Statement</h3></a>
+
+       A non-case label (e.g. a named break/continue label) was present in a switch statement.
+       This legal, but confusing. It is easy to mix up the case labels and the non-case labels.
+       <br><pre>
+   
+public class Foo {
+ void bar(int a) {
+  switch (a)
+  {
+   case 1:
+      // do something
+      break;
+   mylabel: // this is legal, but confusing!
+      break;
+   default:
+      break;
+  }
+ }
+}
+   
+       </pre>
+
+<a name="Use Singleton"><h3>Use Singleton</h3></a>
+
+    If you have a class that has nothing but static methods, consider making it a Singleton.
+        Note that this doesn't apply to abstract classes, since their subclasses may
+        well include non-static methods.  Also, if you want this class to be a Singleton,
+        remember to add a private constructor to prevent instantiation.
+    <br><pre>
+
+public class MaybeASingleton {
+    public static void foo() {
+     // etc
+    }
+    public static void bar() {
+     // etc
+    }
+}
+
+    </pre>
+
+<a name="Simple Date Format Needs Locale"><h3>Simple Date Format Needs Locale</h3></a>
+
+            Be sure to specify a Locale when creating a new instance of SimpleDateFormat.
+        <br><pre>
+        
+    public class Foo {
+     // Should specify Locale.US (or whatever)
+     private SimpleDateFormat sdf = new SimpleDateFormat("pattern");
+    }
+        
+        </pre>
+
+<a name="Simplify Boolean Expressions"><h3>Simplify Boolean Expressions</h3></a>
+
+  Avoid unnecessary comparisons in boolean expressions - this makes simple code seem complicated.
+      <br><pre>
+  
+public class Bar {
+ // can be simplified to
+ // bar = isFoo();
+ private boolean bar = (isFoo() == true);
+
+ public isFoo() { return false;}
+}
+  
+      </pre>
+
+<a name="Avoid Instanceof Checks In Catch Clause"><h3>Avoid Instanceof Checks In Catch Clause</h3></a>
+
+  Each caught exception type should be handled in its own catch clause.
+      <br><pre>
+
+    // Avoid this
+      try {
+            ...something...
+      }
+      catch (Exception ee) {
+            if (ee instanceof IOException) {
+                cleanup();
+            }
+      }
+
+      // Prefer this:
+      try {
+          ...something...
+      }
+      catch (IOException ee) {
+            cleanup();
+      }
+
+      </pre>
+
+<a name="Simplify Conditional"><h3>Simplify Conditional</h3></a>
+
+      No need to check for null before an instanceof; the instanceof keyword returns false when given a null argument.
+           <br><pre>
+      
+class Foo {
+ void bar(Object x) {
+  if (x != null && x instanceof Bar) {
+   // just drop the "x != null" check
+  }
+ }
+}      
+           </pre>
+
+<a name="Avoid Calling Finalize"><h3>Avoid Calling Finalize</h3></a>
+
+  finalize() is called by the garbage collector on an object when garbage collection determines
+  that there are no more references to the object.
+      <br><pre>
+
+
+	void foo() {
+	    Bar b = new Bar();
+	    b.finalize();
+	}
+
+
+      </pre>
+
+<a name="Simplify Boolean Returns"><h3>Simplify Boolean Returns</h3></a>
+
+Avoid unnecessary if..then..else statements when returning a boolean
+    <br><pre>
+
+public class Foo {
+  private int bar =2;
+  public boolean isBarEqualsTo(int x) {
+    // this bit of code
+    if (bar == x) {
+     return true;
+    } else {
+     return false;
+    }
+    // can be replaced with a simple
+    // return bar == x;
+  }
+}
+
+    </pre>
+
+<a name="Avoid Protected Field In Final Class"><h3>Avoid Protected Field In Final Class</h3></a>
+
+     Do not use protected fields in final classes since they cannot be subclassed.
+    Clarify your intent by using private or package access modifiers instead.
+         <br><pre>
+     public final class Bar {
+      private int x;
+      protected int y;  // <-- Bar cannot be subclassed, so is y really private or package visible???
+      Bar() {}
+   }
+         </pre>
+
+<a name="Assignment To Non Final Static"><h3>Assignment To Non Final Static</h3></a>
+
+       Identifies a possible unsafe usage of a static field.
+       <br><pre>
+   
+   public class StaticField {
+       static int x;
+ 
+       public FinalFields(int y) {
+           x = y;
+       }
+ 
+   }
+   Identifies the unasignment to x as possibly unsafe.
+   
+       </pre>
+
+<a name="Confusing Ternary"><h3>Confusing Ternary</h3></a>
+
+          In an "if" expression with an "else" clause, avoid negation in
+          the test.  For example, rephrase:
+            if (x != y) diff(); else same();
+          as:
+            if (x == y) same(); else diff();
+          Most "if (x != y)" cases without an "else" are often return
+          cases, so consistent use of this rule makes the code easier
+          to read.  Also, this resolves trivial ordering problems, such
+          as "does the error case go first?" or "does the common case
+          go first?".
+        <br><pre>
+          
+          return (x != y) ? diff : same;
+          
+        </pre>
+
+<a name="Instantiation To Get Class"><h3>Instantiation To Get Class</h3></a>
+
+Avoid instantiating an object just to call getClass() on it; use the .class public member instead
+      <br><pre>
+    
+class Foo {
+ Class c = new String().getClass();
+}
+    
+        </pre>
+
+<a name="Avoid Deeply Nested If Stmts"><h3>Avoid Deeply Nested If Stmts</h3></a>
+
+    Deeply nested if..then statements are hard to read.
+    <br><pre>
+
+public class Foo {
+ public void bar() {
+  int x=2;
+  int y=3;
+  int z=4;
+  if (x>y) {
+   if (y>z) {
+    if (z==x) {
+     // this is officially out of control now
+    }
+   }
+  }
+ }
+}
+
+    </pre>
+
+<a name="Default Label Not Last In Switch Stmt"><h3>Default Label Not Last In Switch Stmt</h3></a>
+
+       The default label in a switch statement should be the last label, by convention.
+       Most programmers will expect the default label (if present) to be the last one.
+       <br><pre>
+   
+      switch (a)
+      {
+         case 1:
+            // do something
+            break;
+         default:
+            // the default case should be last, by convention
+            break;
+         case 2:
+            break;
+      }
+   
+       </pre>
+
+<a name="Use Locale With Case Conversions"><h3>Use Locale With Case Conversions</h3></a>
+
+When doing a String.toLowerCase()/toUpperCase() call, use a Locale.  This avoids
+          problems with certain locales, i.e. Turkish.
+      <br><pre>
+    
+class Foo {
+ // BAD
+ if (x.toLowerCase().equals("list"))...
+ /*
+ This will not match "LIST" when in Turkish locale
+ The above could be
+ if (x.toLowerCase(Locale.US).equals("list")) ...
+ or simply
+ if (x.equalsIgnoreCase("list")) ...
+ */
+
+ // GOOD
+ String z = a.toLowerCase(Locale.EN);
+}
+    
+        </pre>
+
+<a name="Avoid Synchronized At Method Level"><h3>Avoid Synchronized At Method Level</h3></a>
+
+  Method level synchronization can backfire when new code is added to the method.  Block-level
+  synchronization helps to ensure that only the code that needs synchronization gets it.
+      <br><pre>
+
+
+    // Try to avoid this
+	synchronized void foo() {
+	}
+
+	// Prefer this:
+	void bar() {
+	    synchronized(mutex) {
+	    }
+	}
+
+
+      </pre>
+
+<a name="Equals Null"><h3>Equals Null</h3></a>
+
+         Newbie programmers sometimes get the comparison concepts confused
+         and use equals() to compare to null.
+        <br><pre>
+       
+    class Bar {
+       void foo() {
+           String x = "foo";
+           if (x.equals(null)) { // bad!
+            doSomething();
+           }
+       }
+    }
+    
+        </pre>
+
+<a name="Close Connection"><h3>Close Connection</h3></a>
+
+      Ensure that Connection objects are always closed after use
+    <br><pre>
+      
+           public void foo() {
+             Connection c = pool.getConnection();
+             try {
+               // do stuff
+             } catch (SQLException ex) {
+               // handle exception
+             } finally {
+               // oops, should close the connection using 'close'!
+               // c.close();
+             }
+           }
+  
+    </pre>
+
+<a name="Accessor Class Generation"><h3>Accessor Class Generation</h3></a>
+
+      Instantiation by way of private constructors from outside of the constructor's class often causes the generation of an accessor.
+      A factory method, or non-privitization of the constructor can eliminate this situation.
+      The generated class file is actually an interface.  It gives the accessing class the ability to invoke a new hidden package
+      scope constructor that takes the interface as a supplementary parameter.  This turns a private constructor effectively into
+      one with package scope, though not visible to the naked eye.
+      <br><pre>
+  
+  public class OuterClass {
+    void method(){
+      InnerClass ic = new InnerClass();//Causes generation of accessor
+    }
+    public class InnerClass {
+      private InnerClass(){
+      }
+    }
+  }
+
+  public class OuterClass {
+    void method(){
+      InnerClass ic = new InnerClass();//OK, due to public constructor
+    }
+    public class InnerClass {
+      public InnerClass(){
+      }
+    }
+  }
+
+  public class OuterClass {
+    void method(){
+      InnerClass ic = InnerClass.getInnerClass();//OK
+    }
+    public static class InnerClass {
+      private InnerClass(){
+      }
+      private static InnerClass getInnerClass(){
+        return new InnerClass();
+      }
+    }
+  }
+
+  public class OuterClass {
+    private OuterClass(){
+    }
+    public class InnerClass {
+      void method(){
+        OuterClass oc = new OuterClass();//Causes generation of accessor
+      }
+    }
+  }
+  
+      </pre>
+
+<a name="Use Notify All Instead Of Notify"><h3>Use Notify All Instead Of Notify</h3></a>
+
+      notify() awakens a thread monitoring the object. If more than one thread is monitoring, then only
+      one is chosen.  The thread chosen is arbitrary; thus it's usually safer to call notifyAll() instead.
+      <br><pre>
+
+	x.notify();
+	// If many threads are monitoring x, only one (and you won't know which) will be notified.
+	// use instead:
+	x.notifyAll();
+
+      </pre>
+
+<a name="Missing Static Method In Non Instantiatable Class"><h3>Missing Static Method In Non Instantiatable Class</h3></a>
+
+  A class that has private constructors and does not have any static method cannot be used.
+      <br><pre>
+
+/* This class is unusable, since it cannot be
+ instantiated (private constructor),
+ and no static method can be called.
+ */
+public class Foo {
+
+    private Foo() {}
+
+	void foo() {
+	}
+
+}
+
+
+      </pre>
+
+<a name="Final Field Could Be Static"><h3>Final Field Could Be Static</h3></a>
+
+      If a final field is assigned to a compile-time constant, it could be
+          made static, thus saving overhead in each object
+      <br><pre>
+  
+public class Foo {
+ public final int BAR = 42; // this could be static and save some space
+}
+  
+      </pre>
+
+<a name="Constructor Calls Overridable Method"><h3>Constructor Calls Overridable Method</h3></a>
+
+      Calling overridable methods during construction poses a risk of invoking methods on an
+          incompletely constructed object.  This situation can be difficult to discern.
+      It may leave the sub-class unable to construct its superclass or forced to
+          replicate the construction process completely within itself, losing the ability to call
+      super().  If the default constructor contains a call to an overridable method,
+          the subclass may be completely uninstantiable.   Note that this includes method calls
+          throughout the control flow graph - i.e., if a constructor Foo() calls a private method
+            bar() that calls a public method buz(), there's a problem.
+      <br><pre>
+  
+    public class SeniorClass {
+      public SeniorClass(){
+          toString(); //may throw NullPointerException if overridden
+      }
+      public String toString(){
+        return "IAmSeniorClass";
+      }
+    }
+    public class JuniorClass extends SeniorClass {
+      private String name;
+      public JuniorClass(){
+        super(); //Automatic call leads to NullPointerException
+        name = "JuniorClass";
+      }
+      public String toString(){
+        return name.toUpperCase();
+      }
+    }
+  
+      </pre>
+
+<a name="Non Static Initializer"><h3>Non Static Initializer</h3></a>
+
+       A nonstatic initializer block will be called any time a constructor
+       is invoked (just prior to invoking the constructor).  While this
+       is a valid language construct, it is rarely used and is confusing.
+       <br><pre>
+   
+public class MyClass {
+ // this block gets run before any call to a constructor
+ {
+  System.out.println("I am about to construct myself");
+ }
+}
+   
+       </pre>
+
+<a name="Optimizable To Array Call"><h3>Optimizable To Array Call</h3></a>
+
+  A call to Collection.toArray can use the Collection's size vs an empty Array of the desired type.
+      <br><pre>
+  
+class Example {
+ void bar() {
+   // A bit inefficient, unlike...
+   x.toArray(new Foo[0]);
+
+   // ..this one, which sizes the destination array, avoiding
+   // a reflection call in some Collection implementations
+   x.toArray(new Foo[x.size()]);
+}
+}  
+      </pre>
+
+<a name="Switch Density"><h3>Switch Density</h3></a>
+
+ A high ratio of statements to labels in a switch statement implies that the switch
+ statement is doing too much work.  Consider moving the statements either into new
+ methods, or creating subclasses based on the switch variable.
+      <br><pre>
+ 
+   public class Foo {
+     private int x;
+     public void bar() {
+       switch (x) {
+         case 1: {
+           System.out.println("I am a fish.");
+           System.out.println("I am a fish.");
+           System.out.println("I am a fish.");
+           System.out.println("I am a fish.");
+           break;
+         }
+
+         case 2: {
+           System.out.println("I am a cow.");
+           System.out.println("I am a cow.");
+           System.out.println("I am a cow.");
+           System.out.println("I am a cow.");
+           break;
+         }
+       }
+     }
+   }
+ 
+      </pre>
+
+<a name="Immutable Field"><h3>Immutable Field</h3></a>
+
+      Identifies private fields whose values never change once they are initialized either in the declaration of the field or by
+      a constructor.  This aids in converting existing classes to immutable classes.
+      <br><pre>
+  
+  public class FinalFields {
+      private int x;
+
+      public FinalFields() {
+          x = 7;
+      }
+
+      public void foo() {
+         int a = x + 2;
+      }
+
+  }
+  Identifies x as being eligible for making final.
+  
+      </pre>
+
+<a name="Finalizer Rules"><h2>Finalizer Rules</h2></a>
+<a name="Explicit Call To Finalize"><h3>Explicit Call To Finalize</h3></a>
+
+       An explicit call was made to a finalize method.  Finalize methods
+       are meant to be executed at most once (by the garbage collector).
+       Calling it explicitly could result in the method being executed
+       twice for that object (once by you, once by the garbage collector).
+       <br><pre>
+   
+public class Foo {
+ public void close()  {
+    finalize();       // this is bad
+    foo.finalize();   // this is also bad
+    this.finalize();  // this is bad but currently not flagged
+    super.finalize(); // this is OK
+    foo.finalize(3);  // this is arguably OK because the method is overloaded
+ }
+}
+   
+       </pre>
+
+<a name="Finalize Does Not Call Super Finalize"><h3>Finalize Does Not Call Super Finalize</h3></a>
+
+       If the finalize() is implemented, its last action should be to call super.finalize
+       <br><pre>
+
+public class Foo {
+   protected void finalize() {
+       something();
+       // neglected to call super.finalize()
+   }
+}
+
+       </pre>
+
+<a name="Empty Finalizer"><h3>Empty Finalizer</h3></a>
+
+       If the finalize() method is empty, then it does not need to exist.
+       <br><pre>
+
+   public class Foo {
+       protected void finalize() {}
+   }
+
+       </pre>
+
+<a name="Finalize Overloaded"><h3>Finalize Overloaded</h3></a>
+
+   Methods named finalize() should not have parameters.  It is
+   confusing and probably a bug to overload finalize().  It will
+   not be called by the VM.
+   <br><pre>
+
+   public class Foo {
+       // this is confusing and probably a bug
+       protected void finalize(int a) {
+       }
+   }
+
+   </pre>
+
+<a name="Finalize Should Be Protected"><h3>Finalize Should Be Protected</h3></a>
+
+      If you override finalize(), make it protected.  Otherwise, subclasses
+          may not called your implementation of finalize.
+      <br><pre>
+  
+public class Foo {
+ public void finalize() {
+  // do something
+ }
+}
+  
+      </pre>
+
+<a name="Finalize Only Calls Super Finalize"><h3>Finalize Only Calls Super Finalize</h3></a>
+
+       If the finalize() is implemented, it should do something besides just calling
+       super.finalize().
+       <br><pre>
+           
+   public class Foo {
+       protected void finalize() {
+         super.finalize();
+       }
+   }
+           
+       </pre>
+
+<a name="JavaBean Rules"><h2>JavaBean Rules</h2></a>
+<a name="Bean Members Should Serialize"><h3>Bean Members Should Serialize</h3></a>
+
+If a class is a bean, or is referenced by a bean, directly or indirectly
+it needs to be serializable. Member variables need to be marked as transient,
+marked as static, or have accessor methods in the class. Marking variables
+as transient is the safest and easiest modification. Accessor methods should
+follow the Java naming conventions, i.e.if you have a variable foo, you should
+provide getFoo and setFoo methods.
+    <br><pre>
+
+  private transient int someFoo;//good, it's transient
+  private static int otherFoo;// also OK
+  private int moreFoo;// OK, has proper accessors, see below
+  private int badFoo;//bad, should be marked transient
+
+
+  private void setMoreFoo(int moreFoo){
+        this.moreFoo = moreFoo;
+  }
+
+  private int getMoreFoo(){
+        return this.moreFoo;
+  }
+
+
+    </pre>
+
+<a name="JUnit Rules"><h2>JUnit Rules</h2></a>
+<a name="Unnecessary Boolean Assertion"><h3>Unnecessary Boolean Assertion</h3></a>
+
+          A (junit test) asserttion with a boolean literal is unnecessary, since it always will eval to the same thing.
+          Consider using flow control (in case of assertTrue(false) or similar) or simply removing
+          statements like assertTrue(true) and assertFalse(false);
+      <br><pre>
+
+public class SimpleTest extends TestCase {
+    public void testX() {
+        code ...
+        // Why on earth would you write this?
+        assertTrue(true);
+    }
+}
+
+          </pre>
+
+<a name="Use Assert Equals Instead Of Assert True"><h3>Use Assert Equals Instead Of Assert True</h3></a>
+
+          This rule detects JUnit assertions in object equality. These assertions
+          should be made by more specific methods, like assertEquals.
+      <br><pre>
+
+public class FooTest extends TestCase {
+    void testCode() {
+        Object a, b;
+        assertTrue(a.equals(b)); // bad usage
+        assertEquals(a, b); // good usage
+    }
+}
+
+      </pre>
+
+<a name="Use Assert Same Instead Of Assert True"><h3>Use Assert Same Instead Of Assert True</h3></a>
+
+          This rule detects JUnit assertions in object references equality. These assertions
+          should be made by more specific methods, like assertSame, assertNotSame.
+      <br><pre>
+
+public class FooTest extends TestCase {
+    void testCode() {
+        Object a, b;
+        assertTrue(a==b); // bad usage
+        assertSame(a, b);  // good usage
+    }
+}
+
+      </pre>
+
+<a name="JUnit Static Suite"><h3>JUnit Static Suite</h3></a>
+
+      The suite() method in a JUnit test needs to be both public and static.
+      <br><pre>
+  
+  import junit.framework.*;
+  public class Foo extends TestCase {
+   public void suite() {} // oops, should be static
+   private static void suite() {} // oops, should be public
+  }
+  
+      </pre>
+
+<a name="JUnit Spelling"><h3>JUnit Spelling</h3></a>
+
+    Some JUnit framework methods are easy to misspell.
+    <br><pre>
+
+import junit.framework.*;
+public class Foo extends TestCase {
+ public void setup() {} // oops, should be setUp
+ public void TearDown() {} // oops, should be tearDown
+}
+
+    </pre>
+
+<a name="Test Class Without Test Cases"><h3>Test Class Without Test Cases</h3></a>
+
+      Test classes end with the suffix Test. Having a non-test class with that name is
+      not a good practice, since most people will assume it is a test case. Test
+      classes have test methods named testXXX.
+      <br><pre>
+
+//Consider changing the name of the class if it is not a test
+//Consider adding test methods if it is a test
+public class CarTest {
+
+   public static void main(String[] args) {
+   ...
+   }
+
+   // code
+}
+
+      </pre>
+
+<a name="JUnit Tests Should Include Assert"><h3>JUnit Tests Should Include Assert</h3></a>
+
+        JUnit assertions should include an assertion - This makes the tests more robust
+            and assert() with messages provide the developer a clearer idea of what
+        the test does.
+        <br><pre>
+    
+    public class Foo extends TestCase {
+      public void testSomething() {
+          Bar b = findBar();
+      // This is better than having a NullPointerException
+      // assertNotNull("bar not found", b);
+      b.work();
+      }
+    }
+    
+        </pre>
+
+<a name="JUnit Assertions Should Include Message"><h3>JUnit Assertions Should Include Message</h3></a>
+
+      JUnit assertions should include a message - i.e., use the three argument version of
+          assertEquals(), not the two argument version.
+      <br><pre>
+  
+  public class Foo extends TestCase {
+    public void testSomething() {
+        assertEquals("foo", "bar");
+        // not good!  use the form:
+        // assertEquals("Foo does not equals bar", "foo", "bar");
+        // instead
+    }
+  }
+  
+      </pre>
+
+<a name="Java Logging Rules"><h2>Java Logging Rules</h2></a>
+<a name="System Println"><h3>System Println</h3></a>
+
+     System.(out|err).print is used, consider using a logger.
+     <br><pre>
+ 
+class Foo{
+    Logger log = Logger.getLogger(Foo.class.getName());
+
+    public void testA () {
+        System.out.println("Entering test");
+        // Better use this
+        log.fine("Entering test");
+    }
+}
+
+     </pre>
+
+<a name="More Than One Logger"><h3>More Than One Logger</h3></a>
+
+     Normally only one logger is used in each class.
+     <br><pre>
+ 
+class Foo{
+    Logger log = Logger.getLogger(Foo.class.getName());
+    // It is very rare to see two loggers on a class, normally 
+    // log information is multiplexed by levels
+    Logger log2= Logger.getLogger(Foo.class.getName());
+}
+
+     </pre>
+
+<a name="Logger Is Not Static Final"><h3>Logger Is Not Static Final</h3></a>
+
+     In most cases, the Logger can be declared static and final.
+     <br><pre>
+ 
+class Foo{
+    Logger log = Logger.getLogger(Foo.class.getName());
+    // It is much better to declare the logger as follows 
+    // static final Logger log = Logger.getLogger(Foo.class.getName());
+}
+
+     </pre>
+
+<a name="Naming Rules"><h2>Naming Rules</h2></a>
+<a name="Suspicious Equals Method Name"><h3>Suspicious Equals Method Name</h3></a>
+
+              The method name and parameter number are suspiciously close to
+     equals(Object), which may mean you are trying (and failing) to override the equals(Object)
+        method.
+        <br><pre>
+        
+    public class Foo {
+         public int equals(Object o) {
+         // oops, this probably was supposed to be boolean equals
+         }
+         public boolean equals(String s) {
+         // oops, this probably was supposed to be equals(Object)
+         }
+    }
+        
+        </pre>
+
+<a name="Long Variable"><h3>Long Variable</h3></a>
+
+Detects when a field, formal or local variable is declared with a long name.
+    <br><pre>
+
+public class Something {
+  int reallyLongIntName = -3;  // VIOLATION - Field
+
+  public static void main( String argumentsList[] ) { // VIOLATION - Formal
+    int otherReallyLongName = -5; // VIOLATION - Local
+
+    for (int interestingIntIndex = 0;  // VIOLATION - For
+             interestingIntIndex < 10;
+             interestingIntIndex ++ ) {
+
+    }
+}
+
+
+    </pre>
+
+<a name="Avoid Non Constructor Methods With Class Name"><h3>Avoid Non Constructor Methods With Class Name</h3></a>
+
+      It is very easy to confuse methods with classname with constructors. It is preferrable
+      to name these non-constructor methods in a different way.
+      <br><pre>
+
+public class Foo {
+	public void Foo() {
+		// not really a constructor...
+	}
+}
+
+      </pre>
+
+<a name="Class Naming Conventions"><h3>Class Naming Conventions</h3></a>
+ Class names should always begin with an upper case character.
+      <br><pre>
+
+public class Foo {}
+
+      </pre>
+
+<a name="Short Method Name"><h3>Short Method Name</h3></a>
+
+Detects when very short method names are used.
+     <br><pre>
+
+public class ShortMethod {
+  public void a( int i ) { // Violation
+  }
+}
+
+     </pre>
+
+<a name="Suspicious Hashcode Method Name"><h3>Suspicious Hashcode Method Name</h3></a>
+
+       The method name and return type are suspiciously close to hashCode(), which
+       may mean you are trying (and failing) to override the hashCode() method.
+       <br><pre>
+    
+public class Foo {
+ public int hashcode() {
+ // oops, this probably was supposed to be hashCode
+ }
+}
+    
+       </pre>
+
+<a name="Short Variable"><h3>Short Variable</h3></a>
+
+Detects when a field, local or parameter has a short name.
+    <br><pre>
+
+public class Something {
+  private int q = 15; // VIOLATION - Field
+
+  public static void main( String as[] ) {  // VIOLATION - Formal
+    int r = 20 + q; // VIOLATION - Local
+
+    for (int i = 0; i < 10; i++) { // Not a Violation (inside FOR)
+      r += q;
+    }
+  }
+}
+
+    </pre>
+
+<a name="Abstract Naming"><h3>Abstract Naming</h3></a>
+
+  Abstract classes should be named 'AbstractXXX'.
+       <br><pre>
+
+public abstract class Foo { // should be AbstractFoo
+}
+
+       </pre>
+
+<a name="Avoid Field Name Matching Type Name"><h3>Avoid Field Name Matching Type Name</h3></a>
+
+      It is somewhat confusing to have a field name matching the declaring class name.
+      This proabably means that type and or field names could be more precise.
+      <br><pre>
+
+public class Foo extends Bar {
+	// There's probably a better name for foo
+	int foo;
+}
+
+      </pre>
+
+<a name="Variable Naming Conventions"><h3>Variable Naming Conventions</h3></a>
+
+    A variable naming conventions rule - customize this to your liking
+    Final variables should be all caps
+    Non-final variables should not include underscores
+        <br><pre>
+
+public class Foo {
+    public static final int MY_NUM = 0;
+    public String myTest = "";
+    DataModule dmTest = new DataModule();
+}
+
+        </pre>
+
+<a name="Avoid Field Name Matching Method Name"><h3>Avoid Field Name Matching Method Name</h3></a>
+
+      It is somewhat confusing to have a field name with the same name as a method.
+      While this is totally legal, having information (field) and actions (method) is
+      not clear naming.
+      <br><pre>
+
+public class Foo {
+	Object bar;
+	// bar is data or an action or both?
+	void bar() {
+	}
+}
+
+      </pre>
+
+<a name="Method With Same Name As Enclosing Class"><h3>Method With Same Name As Enclosing Class</h3></a>
+
+       Non-constructor methods should not have the same name as the enclosing class.
+       <br><pre>
+    
+public class MyClass {
+// this is bad because it is a method
+public void MyClass() {}
+// this is OK because it is a constructor
+public MyClass() {}
+}
+    
+       </pre>
+
+<a name="Method Naming Conventions"><h3>Method Naming Conventions</h3></a>
+
+              Method names should always begin with a lower case character, and should not contain underscores.
+          <br><pre>
+
+public class Foo {
+        public void fooStuff() {
+        }
+}
+
+          </pre>
+
+<a name="Avoid Dollar Signs"><h3>Avoid Dollar Signs</h3></a>
+
+       Avoid using dollar signs in variable/method/class/interface names.
+       <br><pre>
+   
+ public class Fo$o {  // yikes!
+ }
+   
+       </pre>
+
+<a name="Optimization Rules"><h2>Optimization Rules</h2></a>
+<a name="Simplify Starts With"><h3>Simplify Starts With</h3></a>
+
+      Since it passes in a literal of length 1, this call to String.startsWith can be rewritten using String.charAt(0) to save some time.
+      <br><pre>
+  public class Foo {
+      boolean checkIt(String x) {
+          return x.startsWith("a");
+      }
+  }
+      </pre>
+
+<a name="Use Array List Instead Of Vector"><h3>Use Array List Instead Of Vector</h3></a>
+
+          ArrayList is a much better Collection implementation than Vector.
+      <br><pre>
+
+public class SimpleTest extends TestCase {
+    public void testX() {
+    Collection c = new Vector();
+    // This achieves the same with much better performance
+    // Collection c = new ArrayList();
+    }
+}
+
+          </pre>
+
+<a name="Avoid Instantiating Objects In Loops"><h3>Avoid Instantiating Objects In Loops</h3></a>
+
+Detects when a new object is created inside a loop
+    <br><pre>
+
+public class Something {
+  public static void main( String as[] ) {  
+    for (int i = 0; i < 10; i++) {
+      Foo f = new Foo(); //Avoid this whenever you can it's really expensive
+    }
+  }
+}
+
+    </pre>
+
+<a name="Use String Buffer For String Appends"><h3>Use String Buffer For String Appends</h3></a>
+
+      Finds usages of += for appending strings.
+           <br><pre>
+      
+         String a;
+
+         a = "foo";
+         a += " bar";
+
+         // better would be:
+         StringBuffer a = new StringBuffer("foo");
+         a.append(" bar);
+      
+           </pre>
+
+<a name="Strict Exception Rules"><h2>Strict Exception Rules</h2></a>
+<a name="Avoid Catching NPE"><h3>Avoid Catching NPE</h3></a>
+
+      Code should never throw NPE under normal circumstances.  A catch block may hide the original error, causing other more subtle errors in its wake.
+    <br><pre>  
+try {
+  ...
+} catch (NullPointerException npe) {
+  ...
+}
+
+         </pre>
+
+<a name="Exception Type Checking"><h3>Exception Type Checking</h3></a>
+
+At some places Exception is caught and then a check with instanceof is performed.
+This result in messy code. It's considered better to catch all the specific
+exceptions instead.
+      <br><pre>
+                
+SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+try {
+    returnString = sdf.format(value);
+} catch (Exception ex) {
+    /* BAD STUFF !!!*/
+    if (ex instanceof NumberFormatException) {
+        System.out.println("NumberFormat exception!!!");
+    }
+    if (ex instanceof IllegalArgumentException) {
+        System.out.println("illegal argument...!!!");
+    }
+}
+                
+      </pre>
+
+<a name="Exception As Flow Control"><h3>Exception As Flow Control</h3></a>
+
+          Using Exceptions as flow control leads to GOTOish code.
+      <br><pre>
+  
+  public class Foo {
+   void bar() {
+    try {
+     try {
+     } catch (Exception e) {
+      throw new WrapperException(e);
+      // this is essentially a GOTO to the WrapperException catch block
+     }
+    } catch (WrapperException e) {
+     // do some more stuff
+    }
+   }
+  }
+  
+      </pre>
+
+<a name="java.lang.String Rules"><h2>java.lang.String Rules</h2></a>
+<a name="Avoid Concatenating Non Literals In String Buffer"><h3>Avoid Concatenating Non Literals In String Buffer</h3></a>
+
+    Avoid concatenating non literals in a StringBuffer constructor or append().
+    <br><pre>
+
+
+// Avoid this 
+StringBuffer sb=new
+StringBuffer("AAAAAAAAAA"+System.getProperty("java.io.tmpdir"));
+
+// use instead something like this
+StringBuffer sb = new StringBuffer("AAAAAAAAAA");
+sb.append(System.getProperty("java.io.tmpdir"));
+
+
+    </pre>
+
+<a name="Avoid Duplicate Literals"><h3>Avoid Duplicate Literals</h3></a>
+
+Code containing duplicate String literals can usually be improved by declaring the String as a constant field.
+    <br><pre>
+
+public class Foo {
+ private void bar() {
+    buz("Howdy");
+    buz("Howdy");
+    buz("Howdy");
+    buz("Howdy");
+ }
+ private void buz(String x) {}
+}
+
+    </pre>
+
+<a name="String Instantiation"><h3>String Instantiation</h3></a>
+
+    Avoid instantiating String objects; this is usually unnecessary.
+    <br><pre>
+
+public class Foo {
+ private String bar = new String("bar"); // just do a String bar = "bar";
+}
+
+    </pre>
+
+<a name="Security Code Guidelines"><h2>Security Code Guidelines</h2></a>
+<a name="Method Returns Internal Array"><h3>Method Returns Internal Array</h3></a>
+
+      Exposing internal arrays directly allows the user to modify some code that could be critical.
+      It is safer to return a copy of the array.
+      <br><pre>
+  
+  public class SecureSystem {
+      UserData [] ud;
+      
+      public UserData [] getUserData() {
+          // Don't return directly the internal array, return a copy 
+          return ud;
+      }
+  }
+  
+      </pre>
+
+<a name="Array Is Stored Directly"><h3>Array Is Stored Directly</h3></a>
+
+      Constructors and methods receiving arrays shuold clone objects and store the copy.
+      This prevents that future changes from the user affect the internal functionallity.
+      <br><pre>
+  
+  public class Foo {
+  private String [] x;
+  
+      public void foo (String [] param) {
+          // Don't do this, make a copy of the array at least
+          this.x=param;
+      }
+  }
+  
+  
+      </pre>
+
+
+<!--
+<table border="1" width="100%">
+<tr valign="top">
+	<th scope="column" align="left" border="1" width="30%"><font color="#642C00"><b>Category name</b></font></th>
+	<th scope="column" align="left" border="1" width="70%"><font color="#642C00"><b>Rule</b></font></th>
+</tr>
+  <tr valign="top">
+	  <td border="1"> Basic Rules </td>
+	  <td border="1"> <a href="for_should_be_while.html">For Loop Should Be While Loop</a> </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Unconditional If Statement </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Unnecessary Return </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Unnecessary Conversion Temporary Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Double Checked Locking Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Empty Switch Statements </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Jumbled Incrementer </td>
+  </tr>
+
+  <tr valign="top">
+	  <td border="1"> Clone Implementation Rules </td>
+	  <td border="1"> Clone Throws Clone Not Supported Exception </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Clone Method Must Implement Cloneable </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Proper Clone Implementation Rule </td>
+  </tr>
+
+  <tr valign="top">
+	  <td border="1"> Code Size Rules </td>
+	  <td border="1"> Excessive Public Count Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Excessive Parameter List </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Excessive Class Length </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Cyclomatic Complexity Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Controversial Rules </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Null Assignment </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Dont Import Sun Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> At Least One Constructor </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Assignment In Operand Rule </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Only One Return </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Unnecessary Constructor Rule </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Suspicious Octal Escape Rule </td>
+  </tr>
+
+  <tr valign="top">
+	  <td border="1"> Coupling Rules </td>
+	  <td border="1"> Excessive Imports Rule </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Coupling Between Objects Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Loose Coupling Rule </td>
+  </tr>
+
+  <tr valign="top">
+	  <td border="1"> Design Rules </td>
+	  <td border="1"> Equals Null </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Accessor Class Generation Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Non Case Label In Switch Statement </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Simplify Boolean Returns Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Simple Date Format Needs Locale </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Close Connection Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Optimizable To Array Call Rule </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Use Singleton Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Confusing Ternary </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Non Static Initializer </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Instantiation To Get Class </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Avoid Deeply Nested If Stmts </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Default Label Not Last In Switch Stmt </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Switch Density </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Idempotent Operations Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Use Locale With Case Conversions </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Immutable Field Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Constructor Calls Overridable Method Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Boolean Instantiation </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> Finalizer Rules </td>
+	  <td border="1"> Explicit Call To Finalize </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Finalize Does Not Call Super Finalize </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Empty Finalizer </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	  <td border="1"> Finalize Overloaded </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Finalize Should Be Protected </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Finalize Only Calls Super Finalize </td>
+  </tr>
+
+  <tr valign="top">
+	  <td border="1"> JavaBean Rules </td>
+	<td border="1"> Bean Members Should Serialize </td>
+</tr>
+
+  <tr valign="top">
+	  <td border="1"> JUnit Rules </td>
+	<td border="1"> JUnit Assertions Should Include Message Rule </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	<td border="1"> JUnit Tests Should Include Assert Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> JUnit Static Suite </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> JUnit Spelling </td>
+  </tr>
+
+  <tr valign="top">
+	  <td border="1"> Java Logging Rules </td>
+	<td border="1"> Logger Is Not Static Final Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> More Than One Logger Rule </td>
+  </tr>
+
+  <tr valign="top">
+	  <td border="1"> Naming Rules </td>
+	<td border="1"> Suspicious Equals Method Name </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Short Method Name Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Variable Naming Conventions Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Long Variable </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Suspicious Constant Field Name </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Method With Same Name As Enclosing Class </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Class Naming Conventions Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Method Naming Conventions </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Abstract Naming Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Suspicious Hashcode Method Name </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Avoid Dollar Signs </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Short Variable </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> Strict Exception Rules </td>
+	<td border="1"> Avoid Throwing Certain Exception Types Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Avoid Catching NPE Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Exception As Flow Control Rule </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Exception Type Checking </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> Signature Declare Throws Exception </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> java.lang.String Rules </td>
+	<td border="1"> Avoid Duplicate Literals </td>
+  </tr>
+  <tr valign="top">
+	<td border="1"> &nbsp; </td>
+	<td border="1"> String Instantiation </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> Unused Code Rules </td>
+	<td border="1"> Unused Private Method </td>
+  </tr>
+  <tr valign="top">
+	  <td border="1"> &nbsp; </td>
+	<td border="1"> Unused Private Field </td>
+  </tr>
+  </table>
+-->
+    
+</body></html>

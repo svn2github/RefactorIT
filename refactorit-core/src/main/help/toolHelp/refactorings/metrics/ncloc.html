@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Non-Comment Lines of Code (NCLOC, also known as NCSL and
+ELOC): Non-Comment Lines of Code / Non-Comment Source Lines / Effective
+Lines of Code</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Non-Comment Lines of Code </h2>
+<p> NCLOC is also known as (NCLOC, NCSL, and ELOC):
+Non-Comment Lines of Code / Non-Comment Source Lines / Effective Lines
+of Code.  It is used to determine the amount of non-commented source lines
+of code. It counts all lines that are not regular comments, Javadoc
+comments or blank.  The upper limit for NCLOC in RefactorIT is default 80% of the total
+lines of source code and the lower limit is default 60% non-commented
+lines for a class or a file. </p><p>
+Please note that RefactorIT calculates NCLOC as follows: Only
+non-commented method body lines are counted for a method; only
+non-commented class or interface body lines are counted for classes and
+interfaces; non-commented lines of all source files belonging to a
+package are counted for the package. The implications are: </p>
+<ul>
+  <li>
+    <p>Method declarations are not counted on the method level. They
+are counted on the class / interface and package levels.</p>
+  </li>
+  <li>
+    <p>Class or interface declarations are not counted on the class /
+interface level. They are counted on the package level.</p>
+  </li>
+</ul>
+<p> NCLOC for the class containing the code below is incremented by 7
+due to the code lines labelled c and m. NCLOC for the broadcast method
+itself is 5 (lines labelled m): </p>
+<br>
+<pre>  /**<br>   * Sends broadcast message<br>   *<br>   * @return &lt;true&gt; if message successfully sent;<br>   *         &lt;false&gt; otherwise.<br>   */<br><b>c</b> public boolean broadcast(Message message) {<br>    // Sends broadcast message<br>    // to all registered clients<br><b>m</b>   if (!isTransportAvailable()) {<br><b>m</b>     return false; // Message not sent<br><b>m</b>   }<br><br><b>m</b>   getTransport().broadcast(message);<br><br><b>m</b>   return true; // Message sent<br><b>c</b> }<br></pre>
+
+<h3>References</h3>
+
+
+<ul>
+	<li><p><a href="loc.html">Total Lines of Code</a></p></li>
+	<li><p><a href="cloc.html">Comment Lines of Code</a></p></li>
+	<li><p><a href="dc.html">Density of Comments</a></p></li>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+
+</body>
+</html>

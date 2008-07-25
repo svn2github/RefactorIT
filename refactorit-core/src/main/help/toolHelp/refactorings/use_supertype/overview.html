@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<TITLE>Use Supertype Where Possible</TITLE>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</HEAD>
+<BODY>
+<h2>Use Supertype Where Possible</h2>
+<P>RefactorIT will look for possible places to use superclass or super interface instead of
+target subclass. </p>
+
+<h3>Usage</h3>
+
+<p>To utilise, click on a target superclass or target variable/function and select subclasses from dialog.
+When clicked on class or interface name, RefactorIT will search for
+all subtype usages in the project which can be replaced with supertype.  When clicked on variable or parameter name RefactorIT will search only for possible change of variable type. When clicked
+on function declaration RefactorIT will search for possible return type replacement with supertype.</p>
+<p><b>For example:</b></P>
+<PRE>
+<TT>interface MyInterface {</TT>
+<TT>  void m();</TT>
+<TT>}</TT>
+
+<TT>class MyClass implements MyInterface {</TT>
+<TT>  public void m() {</TT>
+<TT>  }</TT>
+<TT>}</TT>
+
+<TT>class Helper {</TT>
+<TT>  MyClass var;</TT>
+<TT>  Helper(MyClass var) {</TT>
+<TT>   this.var=(MyClass)var;</TT>
+<TT>   this.var.m();</TT>
+<TT>  }</TT>
+<TT>  public MyClass getVar() {</TT>
+<TT>    return var;</TT>
+<TT>  }</TT>
+
+<TT>  static void test() {</TT>
+<TT>   MyClass a=new MyClass();</TT>
+<TT>   Helper b=new Helper(a);</TT>
+<TT>  }</TT>
+<TT>}</TT>
+</PRE>
+
+<P>
+When we apply refactoring to <CODE>MyInterface</CODE> and choose
+<CODE>MyClass</CODE> as subtype, then after confirming changes
+code will look like(changes in bold): 
+</P>
+<PRE>
+interface MyInterface {
+  void m();
+}
+
+class MyClass implements MyInterface {
+  public void m() {
+  }
+}
+
+class Helper {
+  <B>MyInterface</B> var;
+  Helper(<B>MyInterface</B> var) {
+   this.var=(<B>MyInterface</B>)var;
+   this.var.m();
+  }
+  public <B>MyInterface</B> getVar() {
+    return var;
+  }
+
+  static void test() {
+   <B>MyInterface</B> a=new MyClass();
+   Helper b=new Helper(a);
+  }
+}
+</PRE>
+
+</BODY>
+</HTML>

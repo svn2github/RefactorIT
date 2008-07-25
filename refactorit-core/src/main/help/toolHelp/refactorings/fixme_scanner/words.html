@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Words Scanned</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Words Scanned</h2>
+
+<h3>Usage</h3>
+
+<p>In the Words Scanned dialog box you can configure the rules that the <a href="overview.html">Fixme Scanner</a> uses to detect FIXMEs. This dialog box is displayed every time you run the FIXME Scanner and if the dialog box is not open, click the Words button (<img src="images/words_icon.png" alt="Words button">) on the left side of the output window. The following figure shows the Words Scanned dialog box:</p>
+
+<p><img src="images/words.png" alt="FIXME Scanner dialog box"> </p>
+<p> You can use the checkboxes on the left to choose which words are included in the current search and the words (or rules in general) are run against every line in a comment to see if there is at least one match. There are two kinds of rules in the list: regular expressions and line prefixes where Regular expression is the default type.</p>
+
+<p> For example, the following regular expression  locates all comments that contain "FIXME" and "John" (in that order): </p>
+<pre>FIXME.*John.</pre>
+
+<h3>References</h3>
+
+<ul>
+  <li><p><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html">API documentation of Java Regex</a> - more information about regular expressions</p></li>
+</ul>
+
+</body>
+</html>

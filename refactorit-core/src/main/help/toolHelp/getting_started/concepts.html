@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Concepts</title>
+	<link rel="StyleSheet" href="../ide.css" type="text/css">
+</head>
+<body>
+<h2>Paths and Parsing</h2>
+<p>When RefactorIT loads your project, it parses all source files to memory and if it cannot find a type in the project source files, it searches the classpath.  Thus, for RefactorIT to work properly with a project, you have to define which source and class files belong to the project and you do this by specifying <a href="#sourcepath">source path</a> and <a href="#classpath">class path</a> respectively.</p>
+
+<h3><a name="sourcepath">Source Path</a></h3>
+<p>
+Source path lists all <tt>.java</tt> source files that should be parsed by RefactorIT. 
+Usually you do not have to individually list files, you simply specify the directory 
+where the source files of the default package are located. 
+</p>
+<p>More information on how to correctly specify the source path for your project can be found <a href="project_settings.html">here</a>.
+</p>
+<p> <i>Note: only files belonging to the source path can be modified in the course of refactoring.</i></p>
+
+<h3><a name="classpath">Class Path</a></h3>
+<p>
+Class path is similar to the Java CLASSPATH that lists 
+all directories and archives (<tt>jar</tt>, <tt>zip</tt>)  to search 
+for compiled classes. Every project at least has to have the 
+J2SE standard classes in the class path, i.e. usually <tt>rt.jar</tt> in the class 
+path. 
+</p>
+<p>More information on how to correctly specify the class path can be found <a href="project_settings.html">here</a>.
+</p>
+<p> <i>Note: as opposed to the Java compiler, RefactorIT ignores the 
+  CLASSPATH environment variable. This means that you have to list all libraries that your project needs in the class path.</i></p>
+
+<h3>Classes in Source Path vs. in Class Path</h3>
+<p>
+Having compiled classes in the class path instead 
+of parsing them from source files lowers memory consumption as well as speeds the process of project loading and refactoring operations. The primary drawback of this 
+approach is that refactoring operations 
+neither scan nor modify methods of compiled classes. This may, for example, lead 
+to not all usages of your classes being found (or alternatively) 
+some members being erroneously reported as not used.  As a result classes located in source files are `first class' citizens and compiled classes are considered as `second class` citizens with respect to the refactoring process. Thus, you should always have a clear idea of  
+which part of your project should be in the source 
+path and which part can be in the class path in the form of compiled classes. 
+</p>
+
+<h3>Running Refactoring Operations</h3>
+<p>
+There are many different ways to run refactoring 
+operations and queries in RefactorIT. The most straightforward 
+way is to right-click  a section of code in the source code window and select the desired action from the popup menu. Similarly, you can right-click packages, classes, methods, and fields in various views of your project in the IDE you are currently using. 
+</p>
+<p> You can also run  refactoring operations 
+  from the RefactorIT menu of your IDE. If 
+  the source window is active,  only refactoring-actions for the 
+  item under the cursor will be presented. If any other window is active (for 
+  instance, a tree-like view of your project),  
+  only  refactoring operations 
+  for the selected item will be presented in the menu. Moreover, you can assign 
+  shortcuts for various  refactoring 
+  operations, enabling direct access via the keyboard. </p>
+<p>
+Click <a href="../refactorings/overview.html">here</a> to go straight to refactorings help section.  
+</p>
+  
+<h3>Results of Queries</h3>
+<p>
+RefactorIT supports  queries like <a href="../refactorings/where_used/overview.html">Where 
+Used</a> or <a href="../refactorings/not_used/overview.html">Not Used</a>, 
+<a href="../refactorings/overview.html">etc.</a> 
+Most of these queries report results to the output window or "results" panel is presented as a tree. This allows you to concentrate on a desired subset. Clicking a tree node will open it in the source code window or panel and right-clicking a node will bring up a list of applicable 
+ refactoring operations or queries. 
+From the results panel, you can copy text to the clipboard and paste into applications for more complex analysis; e.g.  a spreadsheet, statistical package, or text document.
+</p>
+<p>
+Results panel notation guide can be found here <a href="../refactorings/results_panel.html">here</a>.
+</p>
+
+<h3> JSP Files</h3>
+<p>
+RefactorIT fully supports JSP (Java Server Pages) in its refactoring operations and queries. 
+If there is .jsp file in your source path you may want to include servlet-api.jar in your project class path. 
+If RefactorIT is unable to locate your servlet-api.jar, RefactorIT will use a default servlet-api.jar in the RefactorIT home directory. The RefactorIT JSP compiler is based on Jakarta's Jasper <a href="http://jakarta.apache.org/">http://jakarta.apache.org</a> application.
+</p>
+
+</body></html>

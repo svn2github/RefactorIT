@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Executable Statements (EXEC)</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Executable Statements (EXEC)</h2>
+<p> This metric counts the number of executable statements, where an executable statement is a statement specifying an explicit action to be taken; i.e. imperative statement. This metric is more objective than the line coverage metrics such as CLOC and LOC because it is not affected by the coding style. </p><p>
+It is generally accepted that as the number of executable statements increases is directly proportional to the complexity of an algorithm, thus a large EXEC becomes harder to maintain and comprehend. For example: </p>
+<pre>int a = 13;<br>int b;<br>b = a + 4; // &lt;- executable statement<br>a++, b++; // &lt;- two executable statements<br>if (b &lt; 6) {<br>  System.out.println( // &lt;- executable statement<br>    "Hello, World");<br>}<br></pre>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="overview.html">Metrics</a></p></li>
+</ul>
+      
+</body>
+</html>

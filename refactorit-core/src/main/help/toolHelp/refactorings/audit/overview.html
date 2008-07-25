@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Audit</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Audit</h2>
+
+<p>Audit warns about suspicious or redundant code such as assigning a variable to itself, 
+  local variables that have the same names as fields,  and unused import statements. Audit can be implemented on separate files or packages or on entire projects. For some warnings there are automated fixes such as <a href="../clean_imports/overview.html">Clean Imports</a> for the <a href="unused_imports.html">Unused imports</a> warning.</p>
+
+<h3>Sorting Results</h3>
+
+<p>Audit results can be sorted by priority, density of results per file, warning type, and location (default setting). To switch between sort modes,  click  the appropriate column headers in the results table.  Density of results are currently calculated with the following algorithm:</p>
+<pre>
+d = 0
+for each warning in file
+  d = d + priorityCode(warning)
+  d = d / lineCount(file)
+  </pre>
+
+<p>Every warning has a different <i>priority</i>, for instance warnings about
+<a href="unused_imports.html">unused imports</a> have a low priority, whereas <a href="self-assignments.html">field and variable self-assignment</a> have a higher priority.   The default values are: 10 for low priority, 20 for normal priority, and 50 for high priority.  The <tt>priorityCode</tt> in the above formula is read form the <tt>refactorit.cfg</tt> file (from properties named <tt>audit.violation-priority-score.<i>xxxx</i></tt>).
+</p>
+
+<h3>Corrective actions</h3>
+<p>Most of the audits have a feature we call "Corrective action". This feature allows to do an automated fix, that will improve the code and make it more clear, proper or faster.</p>
+<p>To run corrective actions you need to run Audits and then do <b>right click</b> on an item from the results panel. Corrective actions located in the very top of the appeared popup menu. If you have selected more than one item and those items correspond to the different categories, then you will see those categories. Category may be in <b>bold</b>: it means that there are located applicable corrective actions; otherwise you will found only so called "@skip" action. This action adds @skip tag near the violation code, that will make Audit to skip this place next time.</p>
+
+<h3>Audits report generation</h3>
+<p> Audits results can be <a href="../../report/overview.html">saved</a> to files
+in <a href="../../report/formats.html">various formats</a>, so they can be analysed by spreadsheet tools, or, for example, sent via e-mail to the development team as part of the nightly build. To do this - select "Export" on the Results Panel.</p>
+
+<h3>Available Audits</h3>
+
+<p>Below is the list of available Audits. Descriptions for some audits are available by clicking the links.</p>
+<br>
+
+<table border="1" style="width:100%" width="100%">
+  <tr valign="top" nowrap>
+  <th border="1" style="width:33%" width="33%"><font color="#642C00"><b>Category</b></font></th>
+  <th border="1" style="width:33%" width="33%"><font color="#642C00"><b>Audit name</b></font></th>
+  <th border="1" style="width:33%" width="33%" nowrap><font color="#642C00"><b><p>Corrective actions</p></b></font></th>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>J2SE 5.0 constructs</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="forin.html">Possible for/in</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Introduce for/in construct</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="generics.html">Generics usage</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="redundant_boxing.html">Redundant boxing</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove redundant boxing</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="redundant_unboxing.html">Redundant unboxing</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove redundant unboxing</td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>Exception usage</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="dangerous_catch.html">Dangerous catch clauses</a></p></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="dangerous_throw.html">Dangerous throw statements</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="redundant_throws.html">Redundant throws clauses</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="aborted_finally.html">Aborted finally blocks</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>Inheritance</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="abstract_subclass.html">Abstract subclass</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="abstract_override.html">Abstract override</p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="hidden_field.html">Hidden fields</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Rename field</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="hidden_method.html">Hidden static methods</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Rename method</p></td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">  
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>Modifier usage</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="modifier_order.html">Modifier order checker</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Order modifiers correctly</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="pseudo_abstract.html">Pseudo abstract class</font></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove abstract modifier</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="redundant_modifiers.html">Redundant modifiers</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove redundant modifiers</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="staticalizable_methods.html">Staticalizable methods</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Accept static modifiers</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="finalize_methods.html">Finalizable types and methods</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Accept final modifiers for classes, - Accept final modifiers for methods</p></td>
+  </tr>
+  <tr valign="top">
+        <td border="1" style="width:33%" width="33%">&nbsp;</td>
+        <td border="1" style="width:33%" width="33%"><p><a href="finalize_locals.html">Finalizable local vars and parameters</a></p></td>
+        <td border="1" style="width:33%" width="33%"><p>- Accept final modifiers for parameters, - Accept final modifiers for local variables</p></td></tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="constant_field.html">Staticalizable and finalizable fields</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Make field 'final static', - Convert field`s name to uppercase</p></td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	  <td border="1" style="width:33%" width="33%"><p>Program complexity</p></td>
+	  <td border="1" style="width:33%" width="33%"><p><a href="method_calls_method.html">Methods with single method invocation</a></p></td>
+	  <td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="method_body_length.html">Method body length</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	  <td border="1" style="width:33%" width="33%"><p>Serialization</p></td>
+	  <td border="1" style="width:33%" width="33%"><p><a href="not_serializable_super.html">Not serializable superclass</a></p></td>
+	  <td border="1" style="width:33%" width="33%"><p>- Make superclass java.io.Serializable, - Create accessable no-argument constructor for superclass</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="serial_version_uid.html">No serialVersionUID field</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Add serialVersionUID member field, - Correct serialVersionUID modifiers</p></td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>Useless code</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="unused_imports.html">Unused imports</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Clean imports</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="unused_locals.html">Unused local variables</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove unused local variable, - Remove parameter from method's hierarchy signatures</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="empty_statement.html">Empty statements</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>Redudnant code</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="to_string.html">String.toString() conversions</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove redundant toString() call</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="boolean_comparison.html">Boolean literals in comparisions</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="redundant_cast.html">Redundant casts expressions</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove redundant casts</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="redundant_instanceof.html">Redundant instanceof expressions</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="nested_block.html">Loose nested blocks</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="unused_assignment.html">Unused variable assignments</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>Dangerous code</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="vars_shading_fields.html">Shadowed fields...</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Rename variable</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="loop_variable.html">Abstruse loop control variables</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="equals_hashcode.html">equals() and hashCode() not paired</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="equals_on_diff_types.html">equals() comparing variables of diff. type</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="str_equal_compare.html">String compared using "==" and "!="</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Replace with 'str1.equals(str2)'</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="switch_default.html">Switch statements without a default case</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="switch_fallthrough.html">Switch statement fallthrough</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Insert breaks, - Mark with comments</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="method_parameter_modifications.html">Parameter reassignments</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="parameter_order.html">Parameter order checker</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Change arguments places</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="float_equal_compare.html">Floating point variables equal comparision</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Change to 'Math.abs(a - b) &lt; precision'</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="integer_division.html">Integer division in floating point context</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Add cast to 'float'</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="self-assignments.html">Field and variable self-assignments</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove self assignment</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="missing_block.html">Blockless statements</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Surround with brackets</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="empty_blocks.html">Empty blocks and bodies</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Mark empty blocks with 'CAUTION' comments</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="static_access_via_instance.html">Static member accessed via object reference</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="loop_condition.html">Boolean assignment in loop conditions</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Replace assignment with comparison operator</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="string_concat_order.html">String concatenation dangerous order</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Add an empty string before arithmetical expression, - Embrace arithmetical expression</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="lost_override.html">Possible method lost override</a></p></td>
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+  </tr>
+</table><table border="1" style="width:100%" width="100%">    
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%"><p>Miscellaneous</p></td>
+	<td border="1" style="width:33%" width="33%"><p><a href="debug_code.html">Debug code rule</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Remove debug code, - Comment out debug code</p></td>
+  </tr>
+  <tr valign="top">
+	<td border="1" style="width:33%" width="33%">&nbsp;</td>
+	<td border="1" style="width:33%" width="33%"><p><a href="numeric_literals.html">Numeric literals</a></p></td>
+	<td border="1" style="width:33%" width="33%"><p>- Create new constant field, - Use existing constant field, - Make field 'final static'</p></td>
+  </tr>
+<!--  <tr valign="top">
+	<td border="1" colspan="3" align="center"><a href="PMD_audit_rules/overview.html">PMD audit rules</a></td>
+  </tr>-->
+  </table>
+  
+  <p>
+  <b><a href="PMD_audit_rules/overview.html">PMD audit rules</a></b>
+  </p>
+
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head><title>Project Specific Settings</title>
+        <link rel="StyleSheet" href="../ide.css" type="text/css">
+</head>
+<body>
+	
+<h2>Project Specific Settings</h2>
+
+<p>RefactorIT specific project settings are in different locations in different IDE's. Please refer to the subsections for each IDE (<a href="#jdev">JDeveloper</a>, <a href="#eclipse">Eclipse</a>, <a href="#jbuild">JBuilder</a> and <a href="#netbeans">Netbeans</a>) as well as for <a href="#standalone">stand alone</a> version down below to find the exact location.</p>
+
+<h3>General</h3>
+
+<p>For RefactorIT to find all the needed files for your project you need to set the Classpath and Sourcepath for your files and libraries.
+Classpath and sourcepath can be either autodetected or they can be set manually (example screenshots are taken from Eclipse IDE):
+</p>
+<img src="images/RIT_prop_eclipse_classpSourcepDet.png" alt="Classpath and sourcepath detection">
+<br>
+<p>
+Use 'Detect classpath and sourcepath' if you have general project settings and you build and run the project in the IDE. If you build the program outside of the IDE then you might want to use the 'Specify classpath and sourcepath'. The latter will let you manually set the locations but whenever the paths change in your project you will have to update it manually.
+</p>
+
+<h4>Sourcepath</h4>
+
+<p>The sourcepath should include your project files (<tt>.java</tt>). If your project uses source files from several directories, you have to add all source files. Do not forget to add the directories at the default package root as well. Use the buttons provided if you choose to manually specify the sourcepath. Below is an example with an example project called Bingo:
+</p>
+<img src="images/RIT_prop_eclipse_sourcepath.png" alt="Project Options: Sourcepath">
+
+<h4>Classpath</h4>
+
+<p>The classpath should include the libraries of your project (<tt>jar</tt>, <tt>zip</tt>). Note that selecting  the directory where the libraries are located is not the correct approach. Instead, add the libraries themselves that are contained in the directory. Use the bittons provided if you choose to manually specify the libraries for the classpath. Below is an example when the library files have been detected automatically:
+</p>
+<br>
+<img src="images/RIT_prop_eclipse_classpath.png" alt="Project Options: Classpath">
+
+<h4>Ignored Sourcepath</h4>
+
+<p> Using the 'Ignored Source path' tab you can specify packages or filesystems in the source path that are to be ignored. RefactorIT will act as if these items do not exist. This is useful when you need to reduce memory requirements when working with large projects or temporarily hide parseable code from RefactorIT. Ignoring source path items can sometimes make the rest of the code unparseable. One way to solve this is to put the ignored items in the class path as compiled class files. </p>
+
+<h4>Project Dependencies</h4>
+
+<p>Any libraries/files/archives that your existing project is sharing with other project can be specified in 'Project Dependencies' tab. </p>
+
+<h4>Javadoc</h4>
+
+<p>'Javadoc' tab allows you to specify the location on your computer where the files for Javadoc generation are stored. </p>
+
+<h3>General</h3>
+
+<p>Under 'Global Options' you can specify the Java version in case you would like to use different version than the default one. Also non-Java file patterns can be specified.</p>
+
+<p> If all source files are compilable and all libraries have been added, you should see a package tree in the left panel of your IDE. If parsing locates errors, it usually implies that a library is missing or some source code is not compilable and RefactorIT cannot compensate for the errors.</p>
+<p>To be able to perform refactorings in non-java files you may need to specify corresponding file name patterns.</p>
+
+<h2>IDE Specific Locations for RefactorIT Specific Project Properties</h2>
+
+<h3><a name="jdev">JDeveloper</a></h3>
+<p>
+Use the JDeveloper Project Settings dialog box to set the RefactorIT project specific properties for the active project. To open choose Project|Project Settings and in the RefactorIT section of the settings dialog 
+</p>
+
+<h3><a name="eclipse">Eclipse</a></h3>
+<p>
+To open RefactorIT specific project settings in Eclipse go to Project|Properties in the menu and then choose RefactorIT from the list of items in the left panel.
+</p>
+
+<h3><a name="jbuild">JBuilder</a></h3>
+<p>
+Use the JBuilder Project Properties dialog box to set the RefactorIT project specific properties for the active project. To open, choose Project|Project Properties, and then select the RefactorIT tab.
+<br>
+<b>Important: </b>In order to work with a project most effectively, a thorough understanding of how JBuilder uses paths and libraries is beneficial.  Check the list of references in JBuilder help for more information.
+</p>
+
+<h3><a name="netbeans">Netbeans</a></h3>
+
+<p>To open Project Options dialog in Netbeans, choose Tools|RefactorIT|Project Options from the IDE main menu or the same command via contextual menus. 
+</p>
+
+<h3><a name="standalone">Stand alone</a></h3>
+
+<p>To specify Project Options in stand alone version choose Project|Options... from the main menu.</p>
+
+<h4>References</h4>
+
+<ul>
+	<li><p><a href="integrations.html">Integrations</a> - overview of integrations offered for RefactorIT</p></li>
+	<li><p><a href="../refactorings/overview.html">Refactorings</a> - refactorings help section</p></li>
+</ul>
+
+</body></html>

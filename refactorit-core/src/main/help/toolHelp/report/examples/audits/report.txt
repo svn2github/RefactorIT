@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Audits Report. Plain Text Example</title>
+</head>
+<body>
+<pre>
+Redundant unboxing 	 Corrective Action 	 Location 	 Line 	 Density 	 Priority
+Redundant unboxing 	 Remove redundant unboxing 	 bingo.player.PlayerParameters 	 46 	 0.23809524 	 LOW
+Dangerous catch clauses 	 Corrective Action 	 Location 	 Line 	 Density 	 Priority
+Avoid catching subclasses of java.lang.Throwable - java.lang.Throwable 	     -   	 bingo.player.Player 	 125 	 0.30660376 	 HIGH
+Unused imports 	 Corrective Action 	 Location 	 Line 	 Density 	 Priority
+Unnecessary import statements 	 Clean Imports 	 bingo.game.ControlPane 	 6 	 0.16042781 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.CardWindow 	 6 	 0.2542373 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.NumberButton 	 5 	 0.25641027 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.Player 	 6 	 0.30660376 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.Player 	 8 	 0.30660376 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.PlayerParameters 	 4 	 0.23809524 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.PlayerParameters 	 5 	 0.23809524 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.PlayerQueue 	 3 	 0.90909094 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.PlayerQueue 	 5 	 0.90909094 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.player.PlayerQueue 	 7 	 0.90909094 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.BallListener 	 3 	 1.1111112 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.Card 	 7 	 0.12345679 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.GameStatusLabel 	 3 	 0.29411766 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.LightBoardPane 	 4 	 0.2970297 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.PlayerInfoPane 	 4 	 0.85106385 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.PlayerInfoPane 	 6 	 0.85106385 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.PlayerInfoPane 	 7 	 0.85106385 	 LOW
+Unnecessary import statements 	 Clean Imports 	 bingo.shared.PlayerInfoPane 	 8 	 0.85106385 	 LOW
+Unused local variables... 	 Corrective Action 	 Location 	 Line 	 Density 	 Priority
+Unused local variable 	 Remove unused local variable 	 bingo.game.ControlPane 	 135 	 0.16042781 	 NORMAL
+Unused local variable 	 Remove unused local variable 	 bingo.player.CardWindow 	 36 	 0.2542373 	 NORMAL
+Unused method parameter 	 Remove parameter from method's hierarchy signatures 	 bingo.player.PaperPane 	 11 	 1.25 	 NORMAL
+Unused local variable 	 Remove unused local variable 	 bingo.player.Player 	 106 	 0.30660376 	 NORMAL
+Unused method parameter 	 Remove parameter from method's hierarchy signatures 	 bingo.player.Player 	 187 	 0.30660376 	 NORMAL
+Unused method parameter 	 Remove parameter from method's hierarchy signatures 	 bingo.player.Player 	 257 	 0.30660376 	 NORMAL
+Unused method parameter 	 Remove parameter from method's hierarchy signatures 	 bingo.shared.LightBoardPane 	 22 	 0.2970297 	 NORMAL
+Unused local variable 	 Remove unused local variable 	 bingo.shared.OverallStatusPane 	 18 	 0.29411766 	 NORMAL
+</pre>
+</body>
+</html>

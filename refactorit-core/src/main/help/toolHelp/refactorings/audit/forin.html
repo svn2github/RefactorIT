@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Possible for/in</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>Possible for/in</h3>
+
+<p>Search for possible for/in construct candidates.</p>
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Introduce for/in construct</h3>
+
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre><code>
+    List list = getList();
+    for(<font color="red">Iterator it = list.iterator(); it.hasNext();</font> ){
+        <font color="red">Object o = it.next();</font>
+        ...
+    }
+    </code></pre>
+    <h5>after:</h5>
+    <pre><code>
+    List list = getList();
+    for(<font color="green">Object o : list</font>){
+        ...
+    }
+    </code></pre>
+
+</body></html>

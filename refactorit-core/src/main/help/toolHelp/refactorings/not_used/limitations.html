@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Limitations</title>
+        <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+<h2>Limitations</h2>
+
+<p>
+There are some situations when <a href="overview.html">Not Used</a> either
+does not report methods as "not in use" or reports"not in use" when they actually are in use.  As a rule, you should think twice before removing types, methods, or constructors reported by Not Used as not in use. Due to limitations of the Java language, one cannot report usages (or lack there of) with 100% accuracy.  The following situations can cause Not Used to function incorrectly.</p>
+
+<h3>Cyclic Dependencies</h3>
+<pre>
+class Test {
+  private void a() {
+    b();
+  }
+
+  private void b() {
+    a();
+  }
+}
+
+class Client {
+  void test() {
+    Test test = new Test();
+  }
+}
+</pre>
+<p>Not Used will not be able to report that both <tt>Test.a</tt> and <tt>Test.b</tt>
+  are not in use. <tt>Test.a</tt> is only used in <tt>Test.b</tt>, <tt>Test.b</tt>
+  is only used in <tt>Test.a</tt>, so one could remove <i>both</i> methods simultaneously.
+  Not Used does not report these two methods as not in use, since removing only
+  one of them will break the code. </p>
+  <h3>Limitations of Finding Usages</h3>
+<p>Not Used also has all the limitations Where Used has. For example, if a
+method is only invoked  through the Reflection API,
+Not Used will report it as not in use.
+</p>
+
+<h3>References</h3>
+
+<ul>
+	<li><p><a href="../where_used/limitations.html">Limitations of Where Used</a></p></li>
+</ul>
+
+</body></html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<report date="30.03.2005 18:05:27">
+<info>
+<audit active="true" id="redundant_unboxing" name="Redundant unboxing" priority="LOW" category="J2SE 5.0 constructs"/>
+<audit active="true" id="dangerous_catch" name="Dangerous catch clauses" priority="HIGH" category="Exception usage"/>
+<audit active="true" id="dangerous_throw" name="Dangerous throw statements" priority="HIGH" category="Exception usage"/>
+<audit active="true" id="unused_import" name="Unused imports" priority="LOW" category="Useless code"/>
+<audit active="true" id="unused_variable" name="Unused local variables..." priority="NORMAL" category="Useless code">
+<skip method_parameters="false" catch_parameters="true"/>
+</audit>
+<audit active="true" id="to_string" name="String.toString() conversions" priority="LOW" category="Redundant code"/>
+</info>
+<package name="bingo.game">
+<children>
+<class name="ControlPane">
+<violation audit="unused_import" message="Unnecessary import statements" line="6" density="0.16042781">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_variable" message="Unused local variable" line="135" density="0.16042781">
+<corrective-action id="refactorit.audit.action.unused_variable.remove_unused_local" name="Remove unused local variable"/>
+</violation>
+</class>
+</children>
+</package>
+<package name="bingo.player">
+<children>
+<class name="CardWindow">
+<violation audit="unused_import" message="Unnecessary import statements" line="6" density="0.2542373">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_variable" message="Unused local variable" line="36" density="0.2542373">
+<corrective-action id="refactorit.audit.action.unused_variable.remove_unused_local" name="Remove unused local variable"/>
+</violation>
+</class>
+<class name="NumberButton">
+<violation audit="unused_import" message="Unnecessary import statements" line="5" density="0.25641027">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+</class>
+<class name="PaperPane">
+<violation audit="unused_variable" message="Unused method parameter" line="11" density="1.25">
+<corrective-action id="refactorit.audit.action.unused_variable.delete_from_signature" name="Remove parameter from method's hierarchy signatures"/>
+</violation>
+</class>
+<class name="Player">
+<violation audit="unused_import" message="Unnecessary import statements" line="6" density="0.30660376">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_import" message="Unnecessary import statements" line="8" density="0.30660376">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_variable" message="Unused local variable" line="106" density="0.30660376">
+<corrective-action id="refactorit.audit.action.unused_variable.remove_unused_local" name="Remove unused local variable"/>
+</violation>
+<violation audit="dangerous_catch" message="Avoid catching subclasses of java.lang.Throwable - java.lang.Throwable" line="125" density="0.30660376"/>
+<violation audit="unused_variable" message="Unused method parameter" line="187" density="0.30660376">
+<corrective-action id="refactorit.audit.action.unused_variable.delete_from_signature" name="Remove parameter from method's hierarchy signatures"/>
+</violation>
+<violation audit="unused_variable" message="Unused method parameter" line="257" density="0.30660376">
+<corrective-action id="refactorit.audit.action.unused_variable.delete_from_signature" name="Remove parameter from method's hierarchy signatures"/>
+</violation>
+</class>
+<class name="PlayerParameters">
+<violation audit="unused_import" message="Unnecessary import statements" line="4" density="0.23809524">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_import" message="Unnecessary import statements" line="5" density="0.23809524">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="redundant_unboxing" message="Redundant unboxing" line="46" density="0.23809524">
+<corrective-action id="refactorit.audit.action.remove_unboxing.safe" name="Remove redundant unboxing"/>
+</violation>
+</class>
+<class name="PlayerQueue">
+<violation audit="unused_import" message="Unnecessary import statements" line="3" density="0.90909094">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_import" message="Unnecessary import statements" line="5" density="0.90909094">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_import" message="Unnecessary import statements" line="7" density="0.90909094">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+</class>
+</children>
+</package>
+<package name="bingo.shared">
+<children>
+<interface name="BallListener">
+<violation audit="unused_import" message="Unnecessary import statements" line="3" density="1.1111112">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+</interface>
+<class name="Card">
+<violation audit="unused_import" message="Unnecessary import statements" line="7" density="0.12345679">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+</class>
+<class name="GameStatusLabel">
+<violation audit="unused_import" message="Unnecessary import statements" line="3" density="0.29411766">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+</class>
+<class name="LightBoardPane">
+<violation audit="unused_import" message="Unnecessary import statements" line="4" density="0.2970297">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_variable" message="Unused method parameter" line="22" density="0.2970297">
+<corrective-action id="refactorit.audit.action.unused_variable.delete_from_signature" name="Remove parameter from method's hierarchy signatures"/>
+</violation>
+</class>
+<class name="OverallStatusPane">
+<violation audit="unused_variable" message="Unused local variable" line="18" density="0.29411766">
+<corrective-action id="refactorit.audit.action.unused_variable.remove_unused_local" name="Remove unused local variable"/>
+</violation>
+</class>
+<class name="PlayerInfoPane">
+<violation audit="unused_import" message="Unnecessary import statements" line="4" density="0.85106385">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_import" message="Unnecessary import statements" line="6" density="0.85106385">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_import" message="Unnecessary import statements" line="7" density="0.85106385">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+<violation audit="unused_import" message="Unnecessary import statements" line="8" density="0.85106385">
+<corrective-action id="refactorit.audit.action.import.clean" name="Clean Imports"/>
+</violation>
+</class>
+</children>
+</package>
+</report>

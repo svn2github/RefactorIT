@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Results Panel</title>
+	<link rel="StyleSheet" href="../ide.css" type="text/css">
+</head>
+<body>
+
+<h2>RefactorIT Operation Results Panel</h2>
+
+<p>
+A new tabbed result pane appears at the bottom of the IDE's main window for each RefactorIT operation. The same applies for stand alone version. It lists results of the analysis and smart query functions.  These tabs allow you to interact with the source view.  Some RefactorIT operations provide toolbar buttons on the tab that let you restart the current process or customize it and to copy from the result pane. To do that you have to right-click the desired pane, select the text you want to copy, and select "Copy To Clipboard."  You can  close results:
+</p>
+<ul>
+	<li><p> for a particular search by clicking the gray cross button </p></li>
+	<li><p> all results by clicking on the close button in the right-top corner of the results pane.  </p></li>
+</ul>
+<p>
+You can close individual tabs the result pane by right-clicking the message tabs and choosing the Close Tab/Close All buttons.
+</p>
+
+<h3>Running refactorings and Audit corrective actions on results</h3>
+<p>
+If You <b>right-click</b> on an item in the results tree You will access a
+pop up menu, which can contain various refactoring actions related to this item.
+</p>
+<p>
+For example, assume that You wish to find usages of some certain field. You have performed
+<a href="where_used/overview.html">Where Used action</a> and have found out,
+that its usages are gathered in some class X. If You wish now to find all
+usages of this class X, You can simply right-click on it in the results tree,
+and select Where Used action again.
+</p>
+<p>
+In Audits results panel You cannot run any general refactorings (like Where Used action
+or <a href="rename/overview.html">Rename refactoring</a>, for example), but instead You can run Corrective actions, if there are any
+of them available for the selected violation. Read more about running Corrective actions
+in <a href="audit/overview.html">Audits help section</a>.
+</p>
+
+<h3>Notations guide</h3>
+<p>
+Results of queries are shown in the Results Panel. The left section of the panel features the following toolbar:</p>
+<br>
+<img src="images/toolbar.png" alt="Toolbar"><br>
+<p>Actions for the buttons are the following: </p>
+<table border="0" width="100%">
+  <tr>
+    <td width="50" valign="top"><img src="images/CloseView.png" alt="close query result"></td>
+    <td valign="top">close query result.</td>
+  </tr>
+  <tr>
+    <td width="35" valign="top"><img src="images/SingleTabView.png" alt="enable single tab view"></td>
+    <td valign="top">Enables single tab view. Every query will open a new tab.</td>
+  </tr>
+  <tr>
+    <td width="50" valign="top">
+<img src="images/LeftArrow.png" alt="left arrow">
+<img src="images/RightArrow.png" alt="right arrow">
+    </td>
+    <td valign="top">browse (move back and forward between) query results.</td>
+  </tr>
+  <tr>
+    <td width="50" valign="top"><img src="images/Unhide.png" alt="show/hide hidden rows"></td>
+    <td valign="top">show or hide hidden rows, there is a hide/unhide command in
+      popup menu of result rows.</td>
+  </tr>  
+  <tr>
+    <td width="35" valign="top"><img src="images/ExpandAll.png" alt="expand tree"></td>
+    <td valign="top">Expands the results tree of the active query.</td>
+  </tr>
+  <tr>
+    <td width="35" valign="top"><img src="images/CollapseAll.png" alt="collapse tree"></td>
+    <td valign="top">Collapse the results tree of the active query.</td>
+  </tr>  
+  <tr>
+    <td width="35" valign="top"><img src="images/filter.png" alt="filter results"></td>
+    <td valign="top">filter the results of the active query.</td>
+  </tr>
+  <tr>
+    <td width="35" valign="top"><img src="images/Refresh.png" alt="refresh results"></td>
+    <td valign="top">refresh results --reruns the active query after you have made changes.</td>
+  </tr>
+  <tr>
+    <td width="35" valign="top"><img src="images/help.png" alt="show on-line help"></td>
+    <td valign="top">show context-sensitive on-line help.</td>
+  </tr>
+</table>
+
+<p>The right hand side shows the result for the query performed. Items notation for the right hand side of the results panel (applies for JDeveloper and stand alone version only, for other IDE's local notation is used):</p>
+<table width="100%" border=1>
+<tr><th border=1 align="left" width="25"><img src="images/Source.png"></th><th border=1 align="left">source file</th></tr>
+<tr><th border=1 align="left"><img src="images/NonJava.png"></th><th border=1 align="left">Non-Java file</th></tr>
+<tr><th border=1 align="left"><img src="images/Package.png"></th><th border=1 align="left">Package</th></tr>
+<tr><th border=1 align="left">&nbsp;</th><th border=1 align="left">Class</th></tr>
+<tr><td border=1><img src="images/ClassPub.png"></td><td border=1>public class</td></tr>
+<tr><td border=1><img src="images/ClassPubI.png"></td><td border=1>public inner class</td></tr>
+<tr><td border=1><img src="images/ClassAbs.png"></td><td border=1>abstract class</td></tr>
+<tr><td border=1><img src="images/ClassAbsI.png"></td><td border=1>abstract inner class</td></tr>
+<tr><td border=1><img src="images/ClassPkg.png"></td><td border=1>package private class</td></tr>
+<tr><td border=1><img src="images/ClassPkgI.png"></td><td border=1>package private inner class</td></tr>
+<tr><td border=1><img src="images/ClassProI.png"></td><td border=1>protected class</td></tr>
+<tr><td border=1><img src="images/ClassPriI.png"></td><td border=1>private class</td></tr>
+<tr><th border=1 align="left">&nbsp;</th><th border=1 align="left">Interface</th></tr>
+<tr><td border=1><img src="images/InterfacePub.png"></td><td border=1>public interface</td></tr>
+<tr><td border=1><img src="images/InterfacePubI.png"></td><td border=1>public inner interface</td></tr>
+<tr><td border=1><img src="images/InterfacePkg.png"></td><td border=1>package private interface</td></tr>
+<tr><td border=1><img src="images/InterfacePkgI.png"></td><td border=1>package private inner interface</td></tr>
+<tr><td border=1><img src="images/InterfaceProI.png"></td><td border=1>protected interface</td></tr>
+<tr><td border=1><img src="images/InterfacePriI.png"></td><td border=1>private interface</td></tr>
+<tr><th border=1 align="left">&nbsp;</th><th border=1 align="left">Field</th></tr>
+<tr><td border=1><img src="images/FieldPub.png"></td><td border=1>public field</td></tr>
+<tr><td border=1><img src="images/FieldPubS.png"></td><td border=1>public static field</td></tr>
+<tr><td border=1><img src="images/FieldPkg.png"></td><td border=1>package private field</td></tr>
+<tr><td border=1><img src="images/FieldPkgS.png"></td><td border=1>package private static field</td></tr>
+<tr><td border=1><img src="images/FieldPro.png"></td><td border=1>protected field</td></tr>
+<tr><td border=1><img src="images/FieldProS.png"></td><td border=1>protected static field</td></tr>
+<tr><td border=1><img src="images/FieldPri.png"></td><td border=1>private field</td></tr>
+<tr><td border=1><img src="images/FieldPriS.png"></td><td border=1>private static field</td></tr>
+<tr><th border=1 align="left">&nbsp;</th><th border=1 align="left">Method</th></tr>
+<tr><td border=1><img src="images/MethodPub.png"></td><td border=1>public method</td></tr>
+<tr><td border=1><img src="images/MethodPubA.png"></td><td border=1>public abstract method</td></tr>
+<tr><td border=1><img src="images/MethodPubS.png"></td><td border=1>public static method</td></tr>
+<tr><td border=1><img src="images/MethodPkg.png"></td><td border=1>package private method</td></tr>
+<tr><td border=1><img src="images/MethodPkgA.png"></td><td border=1>package private abstract method</td></tr>
+<tr><td border=1><img src="images/MethodPkgS.png"></td><td border=1>package private static method</td></tr>
+<tr><td border=1><img src="images/MethodPro.png"></td><td border=1>protected method</td></tr>
+<tr><td border=1><img src="images/MethodProA.png"></td><td border=1>protected abstract method</td></tr>
+<tr><td border=1><img src="images/MethodProS.png"></td><td border=1>protected static method</td></tr>
+<tr><td border=1><img src="images/MethodPri.png"></td><td border=1>private method</td></tr>
+<tr><td border=1><img src="images/MethodPriS.png"></td><td border=1>private static method</td></tr>
+<tr><th border=1 align="left">&nbsp;</th><th border=1 align="left">Constructor</th></tr>
+<tr><td border=1><img src="images/ConstructorPub.png"></td><td border=1>public constructor</td></tr>
+<tr><td border=1><img src="images/ConstructorPkg.png"></td><td border=1>package private constructor</td></tr>
+<tr><td border=1><img src="images/ConstructorPro.png"></td><td border=1>protected constructor</td></tr>
+<tr><td border=1><img src="images/ConstructorPri.png"></td><td border=1>private constructor</td></tr>
+</table>
+
+</body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>String compared using "==" and "!="</title>
+  <link rel="StyleSheet" href="../../ide.css" type="text/css">
+</head>
+<body>
+
+<h3>String compared using "==" and "!="</h3>
+
+<p>This warning reports cases of comparing <code>java.lang.String</code> type variables
+with '==' or '!=' operators. Such comparisions are unsafe: same string value
+under certain circumstances can be contained in several *different* objects of type
+<code>java.lang.String</code>.</p>
+
+<p>Assume that You have a string literal "apple" and a method,
+that returns string "apple" (we do not know, how does this method work and how
+does it build up the returned string). You can`t be sure, that the method returns
+exactly same object, that contains string "apple".
+    <pre><code>
+    String a = "apple";
+    String b = getApple();
+    if (<font color="red">a == b</font>){ // unsafe, might cause hard-to-find bugs!
+        // might not even get here!
+    }
+    if (a.equals(b)){  // safe
+        // gets here for sure
+    }
+    System.out.println("a = " + a); // prints "apple"
+    System.out.println("b = " + b); // also prints "apple"
+    </code></pre>
+</p>
+
+
+<br><hr>
+<h4>Corrective actions:</h4>
+<h3>Replace with 'str1.equals(str2)'</h3>
+    Replaces 'str1 == str2' expression with 'str1.equals(str2)' expression
+    (or 'str1 != str2' expression with '!str1.equals(str2)' expression).
+    
+    <h4>Example:</h4>
+    <h5>before:</h5>
+    <pre>
+    if (<font color="red">a == b</font>){
+    }
+    </pre>
+    <h5>after:</h5>
+    <pre>
+    if (<font color="green">a.equals(b)</font>){
+    }
+    </pre>
+
+</body></html>
