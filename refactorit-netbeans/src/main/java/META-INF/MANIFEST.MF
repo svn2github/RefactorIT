@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Specification-Title: RefactorIT for NetBeans common
+Implementation-Title: RefactorIT for NetBeans common
+Specification-Vendor: Aqris Software AS
+Implementation-Vendor: Aqris Software AS
+Specification-Version: @VERSION@
+Implementation-Version: @BUILDID@

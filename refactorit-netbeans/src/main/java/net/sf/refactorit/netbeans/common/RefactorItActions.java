@@ -8,9 +8,6 @@
  */
 package net.sf.refactorit.netbeans.common;
 
-
-
-
 import net.sf.refactorit.classmodel.BinCIType;
 import net.sf.refactorit.classmodel.BinClass;
 import net.sf.refactorit.classmodel.BinLocalVariable;
@@ -64,6 +61,15 @@ import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
+import javax.swing.Action;
+import javax.swing.JEditorPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import javax.swing.Timer;
+import javax.swing.text.Keymap;
+import javax.swing.text.StyledDocument;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Font;
@@ -79,15 +85,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-
-import javax.swing.Action;
-import javax.swing.JEditorPane;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
-import javax.swing.Timer;
-import javax.swing.text.Keymap;
-import javax.swing.text.StyledDocument;
 
 
 /**
@@ -254,15 +251,18 @@ public class RefactorItActions extends SystemAction
 
   /**
    * set directory where to find refactory modules to
-   * {netbeans.home}/modules/refactory OR {netbeans.user.home}/modules/refactory
+   * {netbeans.home}/modules/refactorit/ext OR {netbeans.user.home}/modules/refactorit/ext
    */
   private static void installSystemProperties() {
     final File nbModulesPath = discoverNbModulesPath();
-    String modulesPath = nbModulesPath.getAbsolutePath() + File.separator
-            + "refactory";
-    System.setProperty("refactory.modules", modulesPath);
-    System.setProperty("refactory.modules.lib", modulesPath
-            + File.separatorChar + "lib");
+
+    final String libPath = nbModulesPath.getAbsolutePath() +
+        File.separator + "refactorit";
+
+    System.setProperty("refactory.modules",
+        libPath + File.separator + "modules");
+
+    System.setProperty("refactory.modules.lib", libPath);
 
     GlobalOptions.loadOptions();
   }

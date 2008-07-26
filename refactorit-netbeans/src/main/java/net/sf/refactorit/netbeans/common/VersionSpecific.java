@@ -8,9 +8,6 @@
  */
 package net.sf.refactorit.netbeans.common;
 
-
-import javax.swing.JMenuItem;
-
 import net.sf.refactorit.common.exception.SystemException;
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.exception.ErrorCodes;
@@ -19,6 +16,8 @@ import net.sf.refactorit.netbeans.common.projectoptions.PathItemReference;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataFolder;
 
+import javax.swing.JMenuItem;
+
 import java.io.File;
 import java.util.List;
 
@@ -26,31 +25,37 @@ import java.util.List;
 /**
  * Incohesive; I'm slowly moving all functionality out of this hierarchy.
  *
- * @author risto
+ * @author Risto
  */
 public abstract class VersionSpecific {
   private static VersionSpecific instance;
 
   public static VersionSpecific getInstance() {
-      if(instance == null) {
-          try {
-              // order matters! It checks using <isVersionAtLeast>, therefore, the 
-              // the older version should be check first
-              if(RefactorItActions.isNetBeansFive()) {
-                instance = (VersionSpecific) Class.forName(
-                		"net.sf.refactorit.netbeans.ide5.Nb5VersionSpecific").newInstance();
-              } else if(RefactorItActions.isNetBeansFour()) {
-                instance = (VersionSpecific) Class.forName(
-                    "net.sf.refactorit.netbeans.ide4.Nb4VersionSpecific").newInstance();
-              } else {
-                instance = (VersionSpecific) Class.forName(
-                    "net.sf.refactorit.netbeans.ide3.Nb3VersionSpecific").newInstance();
-              }
-            } catch (Exception e) {
-              AppRegistry.getExceptionLogger().error(e, VersionSpecific.class);
-              throw new SystemException(ErrorCodes.INTERNAL_ERROR, e);
-            }
+    if (instance == null) {
+      try {
+        // order matters! It checks using <isVersionAtLeast>, therefore, the 
+        // the older version should be check first
+        Class specific;
+
+        if (RefactorItActions.isNetBeansFive()) {
+          specific = Class.forName(
+          		"net.sf.refactorit.netbeans.ide5.Nb5VersionSpecific");
+        } else if (RefactorItActions.isNetBeansFour()) {
+          specific = Class.forName(
+              "net.sf.refactorit.netbeans.ide4.Nb4VersionSpecific");
+        } else {
+          specific = Class.forName(
+              "net.sf.refactorit.netbeans.ide3.Nb3VersionSpecific");
+        }
+
+        instance = (VersionSpecific) specific.newInstance();
+      } catch (Exception e) {
+        AppRegistry.getExceptionLogger().error(e, VersionSpecific.class);
+
+        throw new SystemException(ErrorCodes.INTERNAL_ERROR, e);
       }
+    }
+
     return instance;
   }
 
@@ -90,8 +95,8 @@ public abstract class VersionSpecific {
   public abstract Object getUniqueProjectIdentifier(Object ideProject);
 
   /**
-   * Netbeans 5 differ from previous netbeans. It uses DynamicMenuContent 
-   * elements to handle dynamic menuItems, while Netbeans 3 and 4 use
+   * NetBeans 5 differ from previous NetBeans. It uses DynamicMenuContent 
+   * elements to handle dynamic menuItems, while NetBeans 3 and 4 use
    * JInlineMenu for this purpose.
    */
   public abstract JMenuItem createMenuItem();
@@ -101,7 +106,6 @@ public abstract class VersionSpecific {
    * always return false. Other implementation should use the GlobalOptions
    * class. After VCS support is implemented, it is necessary to delete this
    * method and use the GlobalOptions directly.
-   * @return
    */
   public abstract boolean isVcsEnabled();
 }
