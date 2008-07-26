@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Specification-Title: RefactorIT for NetBeans 3
+Implementation-Title: RefactorIT for NetBeans 3
+Specification-Vendor: Aqris Software AS
+Implementation-Vendor: Aqris Software AS
+Specification-Version: @VERSION@
+Implementation-Version: @BUILDID@
+Class-Path: refactorit/refactorit.jar 
+ refactorit/refactorit-help.jar 
+ refactorit/ant.jar 
+ refactorit/antlr.jar 
+ refactorit/bsh.jar 
+ refactorit/GraphLayout.jar 
+ refactorit/jaxen-core-1.0-fcs.jar 
+ refactorit/jh.jar 
+ refactorit/jsp20el.jar 
+ refactorit/jsp-api.jar 
+ refactorit/log4j.jar 
+ refactorit/pmd.jar 
+ refactorit/rjasper.jar 
+ refactorit/saxpath-1.0-fcs.jar 
+ refactorit/servlet-api.jar
+OpenIDE-Module: net.sf.refactorit
+OpenIDE-Module-Name: RefactorIT
+OpenIDE-Module-Specification-Version: @VERSION@
+OpenIDE-Module-Implementation-Version: @BUILDID@
+OpenIDE-Module-Display-Category: Tools
+OpenIDE-Module-Short-Description: Refactoring support for Java.
+OpenIDE-Module-Long-Description: RefactorIT integrates several
+ refactoring, metrics, query and audit functions into the IDE
+ (including Extract Method, Rename/Move operations with CVS support,
+ Inline Method/Variable, and many more).
+OpenIDE-Module-Layer: net/sf/refactorit/netbeans/common/mf-layer.xml
+OpenIDE-Module-Install: net/sf/refactorit/netbeans/v3/RefactoritInstall3.class
+OpenIDE-Module-IDE-Dependencies: IDE/1 > 2.10
+OpenIDE-Module-Module-Dependencies: 
+ org.netbeans.api.java/1, 
+ org.netbeans.modules.autoupdate/1, 
+ org.netbeans.modules.classfile/1, 
+ org.netbeans.modules.java/1, 
+ org.netbeans.modules.editor/1, 
+ org.netbeans.modules.vcscore/1, 
+ org.openidex.util/2
+
+Name: net/sf/refactorit/netbeans/common/action/WhereAction.class
+OpenIDE-Module-Class: Action
+
+Name: net/sf/refactorit/netbeans/common/action/RenameAction.class
+OpenIDE-Module-Class: Action
+
+Name: net/sf/refactorit/netbeans/common/action/InfoAction.class
+OpenIDE-Module-Class: Action
+
+Name: net/sf/refactorit/netbeans/common/action/GotoAction.class
+OpenIDE-Module-Class: Action
+
+Name: net/sf/refactorit/netbeans/common/RefactorItActions.class
+OpenIDE-Module-Class: Action
