@@ -174,7 +174,7 @@ public class RefactorItActions extends SystemAction
       staticInitDone = true;
 
 
-      // add listener to system/Projects folder. So that the refactory project
+      // add listener to system/Projects folder. So that the refactorit project
       // file is created
       // under newly created project folder (e.g. system/Projects/test) just in
       // that moment when the user creates it.
@@ -250,7 +250,7 @@ public class RefactorItActions extends SystemAction
   }
 
   /**
-   * set directory where to find refactory modules to
+   * set directory where to find refactorit modules to
    * {netbeans.home}/modules/refactorit/ext OR {netbeans.user.home}/modules/refactorit/ext
    */
   private static void installSystemProperties() {
@@ -259,10 +259,10 @@ public class RefactorItActions extends SystemAction
     final String libPath = nbModulesPath.getAbsolutePath() +
         File.separator + "refactorit";
 
-    System.setProperty("refactory.modules",
+    System.setProperty("refactorit.modules",
         libPath + File.separator + "modules");
 
-    System.setProperty("refactory.modules.lib", libPath);
+    System.setProperty("refactorit.modules.lib", libPath);
 
     GlobalOptions.loadOptions();
   }
@@ -503,18 +503,19 @@ public class RefactorItActions extends SystemAction
                     + ClassFilesLoader.CLASS_FILE_EXT);
     final File module = FileCopier.getFileFromJarUrl(moduleUrl);
     if(isNetBeansFive()) {
-      if (!module.getName().equals("refactoryNB5.jar")) {
-        throw new RuntimeException("Cannot locate refactoryNB5.jar!");
+      if (!module.getName().equals("refactorit-netbeans-5.jar")) {
+        throw new RuntimeException("Cannot locate refactorit-netbeans-5.jar!");
       }
     } else if (isNetBeansFour()) {
-      if (!module.getName().equals("refactoryNB4.jar")) {
-        throw new RuntimeException("Cannot locate refactoryNB4.jar!");
+      if (!module.getName().equals("refactorit-netbeans-4.jar")) {
+        throw new RuntimeException("Cannot locate refactorit-netbeans-4.jar!");
       }
     } else {
-      if (!module.getName().equals("refactoryNB.jar")) {
-        throw new RuntimeException("Cannot locate refactoryNB.jar!");
+      if (!module.getName().equals("refactorit-netbeans-3.jar")) {
+        throw new RuntimeException("Cannot locate refactorit-netbeans-3.jar!");
       }
     }
+
     return module.getParentFile();
   }
 

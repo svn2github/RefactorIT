@@ -16,7 +16,6 @@ import net.sf.refactorit.exception.ErrorCodes;
 import net.sf.refactorit.options.GlobalOptions;
 
 import org.apache.log4j.Logger;
-
 import org.openide.filesystems.FileObject;
 import org.openide.options.SystemOption;
 
@@ -44,7 +43,7 @@ public class RefactorItOptions extends SystemOption {
   public static final transient String HACK                               = "hack";
   public static final transient String PROP_COMPILE                       = "compileBeforeRefactoring";
   public static final transient String PROP_CLASSPATH                     = "userSpecifiedClassPath";
-  public static final transient String PROP_CACHEPATH                     = "refactoryCachePath";
+  public static final transient String PROP_CACHEPATH                     = "refactorItCachePath";
   public static final transient String PROP_SOURCEPATH                    = "userSpecifiedSourcePath";
   public static final transient String PROP_JAVADOCPATH                   = "userSpecifiedJavadocPath";
   public static final transient String PROP_AUTODETECT_PATHS              = "autodetectPaths";
@@ -220,12 +219,12 @@ public class RefactorItOptions extends SystemOption {
   }
 
   /** @deprecated */
-  public void setRefactoryCachePath(String path) {
+  public void setRefactorItCachePath(String path) {
     putProperty(PROP_CACHEPATH, path);
   }
 
   /** @deprecated */
-  public String getRefactoryCachePath() {
+  public String getRefactorItCachePath() {
     return (String) getProperty(PROP_CACHEPATH);
   }
 

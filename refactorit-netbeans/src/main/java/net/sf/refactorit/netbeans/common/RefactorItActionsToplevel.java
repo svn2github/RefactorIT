@@ -8,20 +8,20 @@
  */
 package net.sf.refactorit.netbeans.common;
 
-
-import java.awt.event.ActionEvent;
-
-import javax.swing.JMenuItem;
-
 import net.sf.refactorit.options.GlobalOptions;
 
 import org.openide.util.HelpCtx;
 import org.openide.util.actions.Presenter;
 import org.openide.util.actions.SystemAction;
 
+import javax.swing.JMenuItem;
+
+import java.awt.event.ActionEvent;
+
+
 public class RefactorItActionsToplevel extends SystemAction implements
     Presenter.Menu, Presenter.Popup {
-  //private RefactorItActions refactoryActions = new RefactorItActions();
+//  private RefactorItActions refactorItActions = new RefactorItActions();
   
   private JMenuItem inlineMenu = VersionSpecific.getInstance().createMenuItem(); 
 
@@ -34,7 +34,7 @@ public class RefactorItActionsToplevel extends SystemAction implements
   }
 
   public void actionPerformed(ActionEvent actionEvent) {
-    //refactoryActions.actionPerformed(actionEvent);
+//    refactorItActions.actionPerformed(actionEvent);
   }
 
   public JMenuItem getMenuPresenter() {

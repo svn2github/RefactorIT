@@ -8,9 +8,6 @@
  */
 package net.sf.refactorit.netbeans.common;
 
-
-import javax.swing.SwingUtilities;
-
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.common.exception.SystemException;
 import net.sf.refactorit.common.util.AppRegistry;
@@ -43,7 +40,6 @@ import net.sf.refactorit.utils.XMLSerializer;
 import net.sf.refactorit.vfs.Source;
 
 import org.apache.log4j.Logger;
-
 import org.openide.LifecycleManager;
 import org.openide.actions.SaveAllAction;
 import org.openide.filesystems.FileLock;
@@ -55,6 +51,9 @@ import org.openide.util.actions.SystemAction;
 import org.openide.xml.XMLUtil;
 import org.w3c.dom.Document;
 
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -64,11 +63,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
-import javax.swing.JOptionPane;
-
 
 /**
- *
  *
  * @author Tonis Vaga
  * @author Oleg Golovachov
@@ -81,11 +77,11 @@ public class NBController extends IDEController {
   private ActionRepository repository;
 
   //inited in RefactorItActions
-  private static NBControllerVersionState versionStateObj=null;
+  private static NBControllerVersionState versionStateObj;
 
   /**called from RefactorItActions*/
   public static void setVersionState(NBControllerVersionState versionStateObj) {
-    NBController.versionStateObj=versionStateObj;
+    NBController.versionStateObj = versionStateObj;
   }
 
   public static NBControllerVersionState getVersionState() {
@@ -116,6 +112,7 @@ public class NBController extends IDEController {
 
     FileLock lock = null;
     FileObject loadedCachePath = (FileObject) project.getCachePath();
+
     Assert.must(loadedCachePath != null);
 
     try {
@@ -164,7 +161,7 @@ public class NBController extends IDEController {
    * time after?
    */
   private static void removeOldFormatCacheFileIfExists() {
-    String path = RefactorItOptions.getDefault().getRefactoryCachePath();
+    String path = RefactorItOptions.getDefault().getRefactorItCachePath();
     if (path != null && new File(path).exists()) {
       try {
         File oldCache = new File(path);
@@ -177,7 +174,7 @@ public class NBController extends IDEController {
       } catch (Exception ignore) {
       }
 
-      RefactorItOptions.getDefault().setRefactoryCachePath(null);
+      RefactorItOptions.getDefault().setRefactorItCachePath(null);
     }
   }
 

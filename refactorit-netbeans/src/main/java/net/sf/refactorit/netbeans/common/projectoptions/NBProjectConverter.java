@@ -8,13 +8,10 @@
  */
 package net.sf.refactorit.netbeans.common.projectoptions;
 
-// refactory classes
-
 import net.sf.refactorit.common.util.SerializeUtil;
 import net.sf.refactorit.netbeans.common.RefactorItOptions;
 
 import org.apache.log4j.Logger;
-
 import org.openide.filesystems.FileObject;
 
 import java.util.Iterator;
@@ -22,13 +19,9 @@ import java.util.Map;
 import java.util.Properties;
 
 
-/**
- */
 public class NBProjectConverter {
   private static final Logger log = Logger.getLogger(NBProjectConverter.class);
   
-  /**
-   */
   public static NBProjectConverter getConverter() {
     return new NBProjectConverter();
   }

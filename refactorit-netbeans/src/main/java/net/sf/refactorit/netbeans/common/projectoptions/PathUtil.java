@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.netbeans.common.projectoptions;
 
-
 import net.sf.refactorit.common.util.CollectionUtil;
 import net.sf.refactorit.commonIDE.IDEController;
 import net.sf.refactorit.netbeans.common.RefactorItActions;
@@ -286,24 +285,23 @@ public class PathUtil {
   }
 
   public String getNbInstallFolder() {
-
     File ritHomeDir = InstalledFileLocator.getDefault().
-        locate("modules/refactory", null, false);
+        locate("refactorit/modules", null, false);
 
-    if(ritHomeDir == null) {
+    if (ritHomeDir == null) {
       return null;
     }
 
-    // to find where module/refactory  is placed
-    File moduleParentDir = ritHomeDir.getParentFile().getParentFile();
+    // to find where refactorit/modules is placed
+    File modulesParentDir = ritHomeDir.getParentFile().getParentFile();
 
     if (RefactorItActions.isNetBeansFour()) {
-      moduleParentDir = moduleParentDir.getParentFile();
-      if (moduleParentDir == null) {
+      modulesParentDir = modulesParentDir.getParentFile();
+      if (modulesParentDir == null) {
         return null;
       }
     }
 
-    return moduleParentDir.getAbsolutePath();
+    return modulesParentDir.getAbsolutePath();
   }
 }

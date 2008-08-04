@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.0//EN" "http://www.netbeans.org/dtds/filesystem-1_0.dtd">
+
+<!DOCTYPE filesystem
+  PUBLIC "-//NetBeans//DTD Filesystem 1.0//EN"
+  "http://www.netbeans.org/dtds/filesystem-1_0.dtd">
+
 <filesystem>
 
     <folder name="Services">
@@ -29,15 +33,15 @@ SystemFileSystem
     -->
 
   <folder name="Menu">
-        <!--<attr name="Tools/RefactoryActionsToplevel.instance" boolvalue="true"/>
-        <attr name="RefactoryActionsToplevel.instance/Window" boolvalue="true"/>
-        <file name="RefactoryActionsToplevel.instance" url="tools/">
+        <!--<attr name="Tools/RefactorItActionsToplevel.instance" boolvalue="true"/>
+        <attr name="RefactorItActionsToplevel.instance/Window" boolvalue="true"/>
+        <file name="RefactorItActionsToplevel.instance" url="tools/">
             <attr name="instanceClass" stringvalue="javax.swing.JMenu"/>
             <attr name="instanceCreate" methodvalue="net.sf.refactorit.netbeans.common.RefactorItActionsToplevel.createMenu"/>
         </file>-->
 
         <folder name="Refa&amp;ctorIT">
-            <file name="RefactoryActionsToplevel.instance">
+            <file name="RefactorItActionsToplevel.instance">
 		      <attr name="instanceClass" stringvalue="net.sf.refactorit.netbeans.common.RefactorItActionsToplevel"/>
             </file>
         </folder>
@@ -157,7 +161,7 @@ SystemFileSystem
           <file name="net-sf-refactorit-netbeans-common-action-RenameAction.instance"/>
           <file name="net-sf-refactorit-netbeans-common-action-WhereAction.instance"/>
           <file name="net-sf-refactorit-netbeans-common-action-GotoAction.instance"/>
-          <file name="RefactoryActions.instance">
+          <file name="RefactorItActions.instance">
 		        <attr name="instanceClass" stringvalue="net.sf.refactorit.netbeans.common.RefactorItActions"/>
 		      </file>
           <file name="SeparatorRIT_3.instance">
@@ -169,8 +173,8 @@ SystemFileSystem
           <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-InfoAction.instance/net-sf-refactorit-netbeans-common-action-RenameAction.instance"/>
           <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-RenameAction.instance/net-sf-refactorit-netbeans-common-action-WhereAction.instance"/>
           <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-WhereAction.instance/net-sf-refactorit-netbeans-common-action-GotoAction.instance"/>
-          <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-GotoAction.instance/RefactoryActions.instance"/>
-          <attr boolvalue="true" name="RefactoryActions.instance/SeparatorRIT_3.instance"/>
+          <attr boolvalue="true" name="net-sf-refactorit-netbeans-common-action-GotoAction.instance/RefactorItActions.instance"/>
+          <attr boolvalue="true" name="RefactorItActions.instance/SeparatorRIT_3.instance"/>
         </folder>
       </folder>
     </folder>
