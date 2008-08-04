@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.eclipse;
 
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.commonIDE.IDEController;
 import net.sf.refactorit.eclipse.dialog.SWTDialogFactory;
@@ -20,19 +19,18 @@ import net.sf.refactorit.ui.tree.NodeIcons;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import javax.swing.UIManager;
+
 import java.io.File;
 import java.net.URL;
-
-import javax.swing.UIManager;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.SWT;
 
 
 /**
@@ -46,16 +44,10 @@ public class RitPlugin extends AbstractUIPlugin {
   // The shared instance.
 	private static RitPlugin plugin;
 
-	/**
-	 * The constructor.
-	 */
 	public RitPlugin() {
     plugin = this;
 	}
 
-	/**
-	 * This method is called upon plug-in activation
-	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 
@@ -74,7 +66,7 @@ public class RitPlugin extends AbstractUIPlugin {
     String homePath = getAbsolutePath(pluginHomeUrl);
 
     System.setProperty("refactory.modules",
-        homePath + File.separator + "refactory");
+        homePath + File.separator + "modules");
 
     System.setProperty("refactory.modules.lib",
         homePath + File.separator + "lib");
@@ -94,12 +86,10 @@ public class RitPlugin extends AbstractUIPlugin {
     return result;
   }
 
-  /**
-	 * This method is called when the plug-in is stopped
-	 */
 	public void stop(BundleContext context) throws Exception {
 	  try {
       log.debug("shutdowning plugin");
+
       IDEController.getInstance().onIdeExit();
     } catch (Exception e) {
       log.error(e);
@@ -115,28 +105,26 @@ public class RitPlugin extends AbstractUIPlugin {
 		return plugin;
 	}
 
-  /**
-   * Returns the id of this plugin.
-   */
   public static String getId() {
     return plugin.getBundle().getSymbolicName();
   }
 
   public static Shell getShell() {
-    IWorkbench wb = PlatformUI.getWorkbench();
-    IWorkbenchWindow w = wb.getActiveWorkbenchWindow();
-    if (w != null) {
-      return w.getShell();
-    }
-    return null;
+    IWorkbenchWindow w = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+
+    return (w == null) ? null : w.getShell();
   }
 
   public static void showSwtAwtErrorMessage() {
     MessageBox mb = new MessageBox(getShell(),
         SWT.OK | SWT.ICON_ERROR | SWT.APPLICATION_MODAL);
+
     mb.setMessage(
-        "Failed to initialize SWT_AWT bridge, which prevents RefactorIT from functioning properly.\n" +
-        "Under Linux, please ensure that Eclipse is running with Java version 5.0 or newer.");
+        "Failed to initialize SWT_AWT bridge, which prevents" +
+        " RefactorIT from functioning properly.\n" +
+        "Under Linux, please ensure that Eclipse is running with" +
+        " Java version 5.0 or newer.");
+
     mb.open();
   }
 }

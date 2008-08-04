@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?eclipse version="3.0"?>
 <!-- plugin version is provided during deployment -->
+
 <plugin
-   id="com.refactorit"
+   id="net.sf.refactorit"
    name="RefactorIT"
    version="2.6"
    provider-name="Aqris Software AS"
@@ -15,19 +17,16 @@
       <library name="lib/refactorit.jar">
          <export name="*"/>
       </library>
-      <library name="lib/log4j.jar">
-         <export name="*"/>
-      </library>
       <library name="lib/antlr.jar">
          <export name="*"/>
       </library>
-      <library name="lib/rjasper.jar">
-         <export name="*"/>
-      </library>
-      <library name="lib/servlet-api.jar">
-         <export name="*"/>
-      </library>
       <library name="lib/bsh.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/GraphLayout.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/jaxen-core-1.0-fcs.jar">
          <export name="*"/>
       </library>
       <library name="lib/jsp20el.jar">
@@ -36,22 +35,19 @@
       <library name="lib/jsp-api.jar">
          <export name="*"/>
       </library>
+      <library name="lib/log4j.jar">
+         <export name="*"/>
+      </library>
       <library name="lib/pmd.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/rjasper.jar">
          <export name="*"/>
       </library>
       <library name="lib/saxpath-1.0-fcs.jar">
          <export name="*"/>
       </library>
-      <library name="lib/jaxen-core-1.0-fcs.jar">
-         <export name="*"/>
-      </library>
-      <library name="lib/GraphLayout.jar">
-         <export name="*"/>
-      </library>
       <library name="lib/servlet-api.jar">
-         <export name="*"/>
-      </library>
-      <library name="lib/commons-logging.jar">
          <export name="*"/>
       </library>
    </runtime>
@@ -68,7 +64,6 @@
       <import plugin="org.eclipse.jdt"/>
       <import plugin="org.eclipse.jdt.core"/>
       <import plugin="org.eclipse.jdt.ui"/>
-      <import plugin="org.junit"/>
    </requires>
 
    <extension
@@ -76,7 +71,7 @@
       <page
             name="RefactorIT"
             class="net.sf.refactorit.eclipse.RitPreferencePage"
-            id="com.refactorit.preferences.RootPreferencePage">
+            id="net.sf.refactorit.preferences.RootPreferencePage">
       </page>
    </extension>
 
@@ -86,7 +81,7 @@
             objectClass="org.eclipse.core.resources.IProject"
             class="net.sf.refactorit.eclipse.RitPropertyPage"
             name="RefactorIT"
-            id="com.refactorit.RitPropertyPage">
+            id="net.sf.refactorit.RitPropertyPage">
          <filter
                name="nature"
                value="org.eclipse.jdt.core.javanature">
@@ -96,7 +91,7 @@
             objectClass="org.eclipse.jdt.core.IJavaProject"
             class="net.sf.refactorit.eclipse.RitPropertyPage"
             name="RefactorIT"
-            id="com.refactorit.RitPropertyPage">
+            id="net.sf.refactorit.RitPropertyPage">
          <filter
                name="nature"
                value="org.eclipse.jdt.core.javanature">
@@ -415,7 +410,7 @@
          <menu
                label="Refactor&amp;IT"
                path="edit"
-               id="com.refactorit.menu">
+               id="net.sf.refactorit.menu">
             <separator name="undo"/>
             <separator name="clean"/>
             <separator name="name"/>
@@ -427,7 +422,7 @@
          </menu>
          <menu
                label="More..."
-               path="com.refactorit.menu/group2"
+               path="net.sf.refactorit.menu/group2"
                id="analyzeMenu">
             <separator name="analyze"/>
             <separator name="diff"/>
@@ -457,20 +452,20 @@
                label="Redo"
                definitionId="refactorit.action.RedoAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/undo"
+               menubarPath="net.sf.refactorit.menu/undo"
                id="refactorit.action.RedoAction"/>
          <action
                label="Undo"
                definitionId="refactorit.action.UndoAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/undo"
+               menubarPath="net.sf.refactorit.menu/undo"
                id="refactorit.action.UndoAction"/>
          <!-- clean -->
          <action
                label="Clean Cache"
                definitionId="refactorit.action.CleanAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/clean"
+               menubarPath="net.sf.refactorit.menu/clean"
                id="refactorit.action.CleanAction"/>
          <!-- analyze -->
          <!-- search -->
@@ -478,7 +473,7 @@
                label="%refactorit.action.WhereCaughtAction"
                definitionId="refactorit.action.WhereCaughtAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/search"
                id="refactorit.action.WhereCaughtAction">
             <enablement>
                <or>
@@ -496,7 +491,7 @@
                label="%refactorit.action.FindAction"
                definitionId="refactorit.action.FindAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/search"
                id="refactorit.action.FindAction">
             <enablement>
                <or>
@@ -519,7 +514,7 @@
                label="%refactorit.action.DependenciesAction"
                definitionId="refactorit.action.DependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/search"
                id="refactorit.action.DependenciesAction">
             <enablement>
                <or>
@@ -542,7 +537,7 @@
                label="%refactorit.action.InterAction"
                definitionId="refactorit.action.InterAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/search"
                id="refactorit.action.InterAction">
             <enablement>
                <or>
@@ -565,7 +560,7 @@
                label="%refactorit.action.FixmeScannerAction"
                definitionId="refactorit.action.FixmeScannerAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/search"
                id="refactorit.action.FixmeScannerAction">
             <enablement>
                <or>
@@ -588,7 +583,7 @@
                label="%refactorit.action.SubtypesAction"
                definitionId="refactorit.action.SubtypesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/search"
                id="refactorit.action.SubtypesAction">
             <enablement>
                <or>
@@ -608,7 +603,7 @@
                label="%refactorit.action.DuplicateLiteralsAction"
                definitionId="refactorit.action.DuplicateLiteralsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/search"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/search"
                id="refactorit.action.DuplicateLiteralsAction">
             <enablement>
                <or>
@@ -632,7 +627,7 @@
                label="%refactorit.action.ApiDiffAction"
                definitionId="refactorit.action.ApiDiffAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/diff"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/diff"
                id="refactorit.action.ApiDiffAction">
             <enablement>
                <or>
@@ -655,7 +650,7 @@
                label="%refactorit.action.ApiSnapshotAction"
                definitionId="refactorit.action.ApiSnapshotAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/analyzeMenu/diff"
+               menubarPath="net.sf.refactorit.menu/analyzeMenu/diff"
                id="refactorit.action.ApiSnapshotAction">
             <enablement>
                <or>
@@ -679,7 +674,7 @@
                label="%refactorit.action.RenameAction"
                definitionId="refactorit.action.RenameAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/name"
+               menubarPath="net.sf.refactorit.menu/name"
                id="refactorit.action.RenameAction">
             <enablement>
                <or>
@@ -701,7 +696,7 @@
                label="%refactorit.action.MoveAction"
                definitionId="refactorit.action.MoveAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/name"
+               menubarPath="net.sf.refactorit.menu/name"
                id="refactorit.action.MoveAction">
             <enablement>
                <or>
@@ -723,7 +718,7 @@
                label="%refactorit.useSuperType"
                definitionId="refactorit.useSuperType"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.useSuperType">
             <enablement>
                <or>
@@ -743,7 +738,7 @@
                label="%refactorit.action.PullPushAction"
                definitionId="refactorit.action.PullPushAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.PullPushAction">
             <enablement>
                <or>
@@ -763,7 +758,7 @@
                label="%refactorit.overridemethods"
                definitionId="refactorit.overridemethods"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.overridemethods">
             <enablement>
                <or>
@@ -783,7 +778,7 @@
                label="%refactorit.action.MinimizeAccessAction"
                definitionId="refactorit.action.MinimizeAccessAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.MinimizeAccessAction">
             <enablement>
                <or>
@@ -803,7 +798,7 @@
                label="%refactorit.action.IntroduceTempAction"
                definitionId="refactorit.action.IntroduceTempAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.IntroduceTempAction">
             <enablement>
                <not>
@@ -818,7 +813,7 @@
                label="%refactorit.action.InlineAction"
                definitionId="refactorit.action.InlineAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.InlineAction">
             <enablement>
                <or>
@@ -837,7 +832,7 @@
                label="%refactorit.action.ExtractSuperAction"
                definitionId="refactorit.action.ExtractSuperAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.ExtractSuperAction">
             <enablement>
                <or>
@@ -857,7 +852,7 @@
                label="%refactorit.action.ExtractMethodAction"
                definitionId="refactorit.action.ExtractMethodAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.ExtractMethodAction">
             <enablement>
                <not>
@@ -872,7 +867,7 @@
                label="%refactorit.action.EncapsulateFieldAction"
                definitionId="refactorit.action.EncapsulateFieldAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.EncapsulateFieldAction">
             <enablement>
                <or>
@@ -893,7 +888,7 @@
                label="%refactorit.action.CreateNewMethod"
                definitionId="refactorit.action.CreateNewMethod"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.CreateNewMethod">
             <enablement>
                <or>
@@ -911,7 +906,7 @@
                label="%refactorit.action.FactoryMethodAction"
                definitionId="refactorit.action.FactoryMethodAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.FactoryMethodAction">
             <enablement>
                <or>
@@ -929,7 +924,7 @@
                label="%refactorit.action.CreateConstructorAction"
                definitionId="refactorit.action.CreateConstructorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.CreateConstructorAction">
             <enablement>
                <or>
@@ -947,7 +942,7 @@
                label="%refactorit.convert.temp.to.field"
                definitionId="refactorit.convert.temp.to.field"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.convert.temp.to.field">
             <enablement>
                <or>
@@ -965,7 +960,7 @@
                label="%refactorit.action.CleanImportsAction"
                definitionId="refactorit.action.CleanImportsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.action.CleanImportsAction">
             <enablement>
                <or>
@@ -988,7 +983,7 @@
                label="%refactorit.changeMethodSignature"
                definitionId="refactorit.changeMethodSignature"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.changeMethodSignature">
             <enablement>
                <or>
@@ -1006,7 +1001,7 @@
                label="%refactorit.generate.delegates"
                definitionId="refactorit.generate.delegates"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group1"
+               menubarPath="net.sf.refactorit.menu/group1"
                id="refactorit.generate.delegates">
             <enablement>
                <or>
@@ -1028,7 +1023,7 @@
                label="%refactorit.action.GoToAction"
                definitionId="refactorit.action.GoToAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/goto"
+               menubarPath="net.sf.refactorit.menu/goto"
                id="refactorit.action.GoToAction">
             <enablement>
                <or>
@@ -1049,7 +1044,7 @@
                label="%refactorit.action.WhereAction"
                definitionId="refactorit.action.WhereAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group2"
+               menubarPath="net.sf.refactorit.menu/group2"
                id="refactorit.action.WhereAction">
             <enablement>
                <or>
@@ -1070,7 +1065,7 @@
                label="%refactorit.action.TypeAction"
                definitionId="refactorit.action.TypeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group2"
+               menubarPath="net.sf.refactorit.menu/group2"
                id="refactorit.action.TypeAction">
             <enablement>
                <or>
@@ -1090,7 +1085,7 @@
                label="%refactorit.action.NotUsedAction"
                definitionId="refactorit.action.NotUsedAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group2"
+               menubarPath="net.sf.refactorit.menu/group2"
                id="refactorit.action.NotUsedAction">
             <enablement>
                <or>
@@ -1113,7 +1108,7 @@
                label="%refactorit.action.MetricsAction"
                definitionId="refactorit.action.MetricsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group2"
+               menubarPath="net.sf.refactorit.menu/group2"
                id="refactorit.action.MetricsAction">
             <enablement>
                <or>
@@ -1136,7 +1131,7 @@
                label="%refactorit.action.DrawDependenciesAction"
                definitionId="refactorit.action.DrawDependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group2"
+               menubarPath="net.sf.refactorit.menu/group2"
                id="refactorit.action.DrawDependenciesAction">
             <enablement>
                <or>
@@ -1159,7 +1154,7 @@
                label="%refactorit.action.CallTreeAction"
                definitionId="refactorit.action.CallTreeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group2"
+               menubarPath="net.sf.refactorit.menu/group2"
                id="refactorit.action.CallTreeAction">
             <enablement>
                <or>
@@ -1178,7 +1173,7 @@
                label="%refactorit.action.AuditAction"
                definitionId="refactorit.action.AuditAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.menu/group2"
+               menubarPath="net.sf.refactorit.menu/group2"
                id="refactorit.action.AuditAction">
             <enablement>
                <or>
@@ -1205,7 +1200,7 @@
       <objectContribution
             adaptable="false"
             objectClass="org.eclipse.core.resources.IResource"
-            id="com.refactorit.FilePopupMenuContribution">
+            id="net.sf.refactorit.FilePopupMenuContribution">
          <visibility>
             <not>
                <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
@@ -1214,7 +1209,7 @@
          <menu
                label="Refactor&amp;IT"
                path="additions"
-               id="com.refactorit.filePopup">
+               id="net.sf.refactorit.filePopup">
             <separator name="name"/>
             <separator name="group1"/>
             <separator name="goto"/>
@@ -1224,7 +1219,7 @@
          </menu>
          <menu
                label="More..."
-               path="com.refactorit.filePopup/group2"
+               path="net.sf.refactorit.filePopup/group2"
                id="analyzeMenu">
             <separator name="analyze"/>
             <separator name="diff"/>
@@ -1235,32 +1230,32 @@
                label="%refactorit.action.FindAction"
                definitionId="refactorit.action.FindAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
-               id="com.refactorit.filePopup.FindAction"/>
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/search"
+               id="net.sf.refactorit.filePopup.FindAction"/>
          <action
                label="%refactorit.action.DependenciesAction"
                definitionId="refactorit.action.DependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
-               id="com.refactorit.filePopup.DependenciesAction"/>
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/search"
+               id="net.sf.refactorit.filePopup.DependenciesAction"/>
          <action
                label="%refactorit.action.InterAction"
                definitionId="refactorit.action.InterAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
-               id="com.refactorit.filePopup.InterAction"/>
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/search"
+               id="net.sf.refactorit.filePopup.InterAction"/>
          <action
                label="%refactorit.action.FixmeScannerAction"
                definitionId="refactorit.action.FixmeScannerAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
-               id="com.refactorit.filePopup.FixmeScannerAction"/>
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/search"
+               id="net.sf.refactorit.filePopup.FixmeScannerAction"/>
          <action
                label="%refactorit.action.SubtypesAction"
                definitionId="refactorit.action.SubtypesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
-               id="com.refactorit.filePopup.SubtypesAction">
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/search"
+               id="net.sf.refactorit.filePopup.SubtypesAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1269,34 +1264,34 @@
                label="%refactorit.action.DuplicateLiteralsAction"
                definitionId="refactorit.action.DuplicateLiteralsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/search"
-               id="com.refactorit.filePopup.DuplicateLiteralsAction"/>
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/search"
+               id="net.sf.refactorit.filePopup.DuplicateLiteralsAction"/>
          <!-- diff -->
          <action
                label="%refactorit.action.ApiDiffAction"
                definitionId="refactorit.action.ApiDiffAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/diff"
-               id="com.refactorit.filePopup.ApiDiffAction"/>
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/diff"
+               id="net.sf.refactorit.filePopup.ApiDiffAction"/>
          <action
                label="%refactorit.action.ApiSnapshotAction"
                definitionId="refactorit.action.ApiSnapshotAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/analyzeMenu/diff"
-               id="com.refactorit.filePopup.ApiSnapshotAction"/>
+               menubarPath="net.sf.refactorit.filePopup/analyzeMenu/diff"
+               id="net.sf.refactorit.filePopup.ApiSnapshotAction"/>
          <!-- name -->
          <action
                label="%refactorit.action.RenameAction"
                definitionId="refactorit.action.RenameAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/name"
-               id="com.refactorit.filePopup.RenameAction"/>
+               menubarPath="net.sf.refactorit.filePopup/name"
+               id="net.sf.refactorit.filePopup.RenameAction"/>
          <action
                label="%refactorit.action.MoveAction"
                definitionId="refactorit.action.MoveAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/name"
-               id="com.refactorit.filePopup.MoveAction">
+               menubarPath="net.sf.refactorit.filePopup/name"
+               id="net.sf.refactorit.filePopup.MoveAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1306,8 +1301,8 @@
                label="%refactorit.useSuperType"
                definitionId="refactorit.useSuperType"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.useSuperType">
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.useSuperType">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1316,8 +1311,8 @@
                label="%refactorit.action.PullPushAction"
                definitionId="refactorit.action.PullPushAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.PullPushAction">
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.PullPushAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1326,8 +1321,8 @@
                label="%refactorit.overridemethods"
                definitionId="refactorit.overridemethods"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.overridemethods">
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.overridemethods">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1336,8 +1331,8 @@
                label="%refactorit.action.MinimizeAccessAction"
                definitionId="refactorit.action.MinimizeAccessAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.MinimizeAccessAction">
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.MinimizeAccessAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1346,8 +1341,8 @@
                label="%refactorit.action.ExtractSuperAction"
                definitionId="refactorit.action.ExtractSuperAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.ExtractSuperAction">
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.ExtractSuperAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1356,8 +1351,8 @@
                label="%refactorit.action.EncapsulateFieldAction"
                definitionId="refactorit.action.EncapsulateFieldAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.EncapsulateFieldAction">
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.EncapsulateFieldAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1366,14 +1361,14 @@
                label="%refactorit.action.CleanImportsAction"
                definitionId="refactorit.action.CleanImportsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.CleanImportsAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.CleanImportsAction"/>
          <action
                label="%refactorit.generate.delegates"
                definitionId="refactorit.generate.delegates"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group1"
-               id="com.refactorit.filePopup.generate.delegates">
+               menubarPath="net.sf.refactorit.filePopup/group1"
+               id="net.sf.refactorit.filePopup.generate.delegates">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1383,8 +1378,8 @@
                label="%refactorit.action.GoToAction"
                definitionId="refactorit.action.GoToAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/goto"
-               id="com.refactorit.filePopup.GoToAction">
+               menubarPath="net.sf.refactorit.filePopup/goto"
+               id="net.sf.refactorit.filePopup.GoToAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1394,53 +1389,53 @@
                label="%refactorit.action.WhereAction"
                definitionId="refactorit.action.WhereAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group2"
-               id="com.refactorit.filePopup.WhereAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group2"
+               id="net.sf.refactorit.filePopup.WhereAction"/>
          <action
                label="%refactorit.action.TypeAction"
                definitionId="refactorit.action.TypeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group2"
-               id="com.refactorit.filePopup.TypeAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group2"
+               id="net.sf.refactorit.filePopup.TypeAction"/>
          <action
                label="%refactorit.action.NotUsedAction"
                definitionId="refactorit.action.NotUsedAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group2"
-               id="com.refactorit.filePopup.NotUsedAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group2"
+               id="net.sf.refactorit.filePopup.NotUsedAction"/>
          <action
                label="%refactorit.action.MetricsAction"
                definitionId="refactorit.action.MetricsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group2"
-               id="com.refactorit.filePopup.MetricsAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group2"
+               id="net.sf.refactorit.filePopup.MetricsAction"/>
          <action
                label="%refactorit.action.DrawDependenciesAction"
                definitionId="refactorit.action.DrawDependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group2"
-               id="com.refactorit.filePopup.DrawDependenciesAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group2"
+               id="net.sf.refactorit.filePopup.DrawDependenciesAction"/>
          <action
                label="%refactorit.action.CallTreeAction"
                definitionId="refactorit.action.CallTreeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group2"
-               id="com.refactorit.filePopup.CallTreeAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group2"
+               id="net.sf.refactorit.filePopup.CallTreeAction"/>
          <action
                label="%refactorit.action.AuditAction"
                definitionId="refactorit.action.AuditAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/group2"
-               id="com.refactorit.filePopup.AuditAction"/>
+               menubarPath="net.sf.refactorit.filePopup/group2"
+               id="net.sf.refactorit.filePopup.AuditAction"/>
       </objectContribution>
 
       <objectContribution
             adaptable="false"
             objectClass="org.eclipse.core.resources.IResource"
-            id="com.refactorit.FilePopupMenuContributionDebug">
+            id="net.sf.refactorit.FilePopupMenuContributionDebug">
          <visibility>
             <and>
-               <systemProperty name="com.refactorit.mode" value="debug"/>
+               <systemProperty name="net.sf.refactorit.mode" value="debug"/>
                <not>
                   <objectClass name="org.eclipse.jdt.core.IJavaElement"/>
                </not>
@@ -1451,14 +1446,14 @@
                label="%refactorit.action.ShellAction"
                definitionId="refactorit.action.ShellAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/internal"
-               id="com.refactorit.filePopup.ShellAction"/>
+               menubarPath="net.sf.refactorit.filePopup/internal"
+               id="net.sf.refactorit.filePopup.ShellAction"/>
          <action
                label="%refactorit.action.ClassmodelVisitorAction"
                definitionId="refactorit.action.ClassmodelVisitorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/internal"
-               id="com.refactorit.filePopup.ClassmodelVisitorAction">
+               menubarPath="net.sf.refactorit.filePopup/internal"
+               id="net.sf.refactorit.filePopup.ClassmodelVisitorAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1467,8 +1462,8 @@
                label="%refactorit.action.AstVisitorAction"
                definitionId="refactorit.action.AstVisitorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.filePopup/internal"
-               id="com.refactorit.filePopup.AstVisitorAction">
+               menubarPath="net.sf.refactorit.filePopup/internal"
+               id="net.sf.refactorit.filePopup.AstVisitorAction">
             <enablement>
                <objectClass name="org.eclipse.core.resources.IFile"/>
             </enablement>
@@ -1478,11 +1473,11 @@
       <objectContribution
             adaptable="true"
             objectClass="org.eclipse.jdt.core.IJavaElement"
-            id="com.refactorit.JavaPopupMenuContribution">
+            id="net.sf.refactorit.JavaPopupMenuContribution">
          <menu
                label="Refactor&amp;IT"
                path="additions"
-               id="com.refactorit.javaPopup">
+               id="net.sf.refactorit.javaPopup">
             <separator name="name"/>
             <separator name="group1"/>
             <separator name="goto"/>
@@ -1492,7 +1487,7 @@
          </menu>
          <menu
                label="More..."
-               path="com.refactorit.javaPopup/group2"
+               path="net.sf.refactorit.javaPopup/group2"
                id="analyzeMenu">
             <separator name="analyze"/>
             <separator name="diff"/>
@@ -1503,8 +1498,8 @@
                label="%refactorit.action.WhereCaughtAction"
                definitionId="refactorit.action.WhereCaughtAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
-               id="com.refactorit.javaPopup.WhereCaughtAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/search"
+               id="net.sf.refactorit.javaPopup.WhereCaughtAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IMethod"/>
@@ -1515,8 +1510,8 @@
                label="%refactorit.action.FindAction"
                definitionId="refactorit.action.FindAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
-               id="com.refactorit.javaPopup.FindAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/search"
+               id="net.sf.refactorit.javaPopup.FindAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1531,8 +1526,8 @@
                label="%refactorit.action.DependenciesAction"
                definitionId="refactorit.action.DependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
-               id="com.refactorit.javaPopup.DependenciesAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/search"
+               id="net.sf.refactorit.javaPopup.DependenciesAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1547,8 +1542,8 @@
                label="%refactorit.action.InterAction"
                definitionId="refactorit.action.InterAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
-               id="com.refactorit.javaPopup.InterAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/search"
+               id="net.sf.refactorit.javaPopup.InterAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1563,8 +1558,8 @@
                label="%refactorit.action.FixmeScannerAction"
                definitionId="refactorit.action.FixmeScannerAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
-               id="com.refactorit.javaPopup.FixmeScannerAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/search"
+               id="net.sf.refactorit.javaPopup.FixmeScannerAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1579,8 +1574,8 @@
                label="%refactorit.action.SubtypesAction"
                definitionId="refactorit.action.SubtypesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
-               id="com.refactorit.javaPopup.SubtypesAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/search"
+               id="net.sf.refactorit.javaPopup.SubtypesAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1592,8 +1587,8 @@
                label="%refactorit.action.DuplicateLiteralsAction"
                definitionId="refactorit.action.DuplicateLiteralsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/search"
-               id="com.refactorit.javaPopup.DuplicateLiteralsAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/search"
+               id="net.sf.refactorit.javaPopup.DuplicateLiteralsAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1609,8 +1604,8 @@
                label="%refactorit.action.ApiDiffAction"
                definitionId="refactorit.action.ApiDiffAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/diff"
-               id="com.refactorit.javaPopup.ApiDiffAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/diff"
+               id="net.sf.refactorit.javaPopup.ApiDiffAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1625,8 +1620,8 @@
                label="%refactorit.action.ApiSnapshotAction"
                definitionId="refactorit.action.ApiSnapshotAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/analyzeMenu/diff"
-               id="com.refactorit.javaPopup.ApiSnapshotAction">
+               menubarPath="net.sf.refactorit.javaPopup/analyzeMenu/diff"
+               id="net.sf.refactorit.javaPopup.ApiSnapshotAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1642,8 +1637,8 @@
                label="%refactorit.action.RenameAction"
                definitionId="refactorit.action.RenameAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/name"
-               id="com.refactorit.javaPopup.RenameAction">
+               menubarPath="net.sf.refactorit.javaPopup/name"
+               id="net.sf.refactorit.javaPopup.RenameAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
@@ -1657,8 +1652,8 @@
                label="%refactorit.action.MoveAction"
                definitionId="refactorit.action.MoveAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/name"
-               id="com.refactorit.javaPopup.MoveAction">
+               menubarPath="net.sf.refactorit.javaPopup/name"
+               id="net.sf.refactorit.javaPopup.MoveAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1672,8 +1667,8 @@
                label="%refactorit.useSuperType"
                definitionId="refactorit.useSuperType"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.useSuperType">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.useSuperType">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1685,8 +1680,8 @@
                label="%refactorit.action.PullPushAction"
                definitionId="refactorit.action.PullPushAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.PullPushAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.PullPushAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1698,8 +1693,8 @@
                label="%refactorit.overridemethods"
                definitionId="refactorit.overridemethods"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.overridemethods">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.overridemethods">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1711,8 +1706,8 @@
                label="%refactorit.action.MinimizeAccessAction"
                definitionId="refactorit.action.MinimizeAccessAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.MinimizeAccessAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.MinimizeAccessAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1724,8 +1719,8 @@
                label="%refactorit.action.InlineAction"
                definitionId="refactorit.action.InlineAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.InlineAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.InlineAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IMethod"/>
@@ -1737,8 +1732,8 @@
                label="%refactorit.action.ExtractSuperAction"
                definitionId="refactorit.action.ExtractSuperAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.ExtractSuperAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.ExtractSuperAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1750,8 +1745,8 @@
                label="%refactorit.action.EncapsulateFieldAction"
                definitionId="refactorit.action.EncapsulateFieldAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.EncapsulateFieldAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.EncapsulateFieldAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1764,8 +1759,8 @@
                label="%refactorit.action.CreateNewMethod"
                definitionId="refactorit.action.CreateNewMethod"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.CreateNewMethod">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.CreateNewMethod">
             <enablement>
                <objectClass name="org.eclipse.jdt.core.IMethod"/>
             </enablement>
@@ -1774,8 +1769,8 @@
                label="%refactorit.action.FactoryMethodAction"
                definitionId="refactorit.action.FactoryMethodAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.FactoryMethodAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.FactoryMethodAction">
             <enablement>
                <objectClass name="org.eclipse.jdt.core.IMethod"/>
             </enablement>
@@ -1784,8 +1779,8 @@
                label="%refactorit.action.CreateConstructorAction"
                definitionId="refactorit.action.CreateConstructorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.CreateConstructorAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.CreateConstructorAction">
             <enablement>
                <objectClass name="org.eclipse.jdt.core.IField"/>
             </enablement>
@@ -1794,8 +1789,8 @@
                label="%refactorit.convert.temp.to.field"
                definitionId="refactorit.convert.temp.to.field"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.convert.temp.to.field">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.convert.temp.to.field">
             <enablement>
                <objectClass name="org.eclipse.jdt.core.ILocalVariable"/>
             </enablement>
@@ -1804,8 +1799,8 @@
                label="%refactorit.action.CleanImportsAction"
                definitionId="refactorit.action.CleanImportsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.CleanImportsAction">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.CleanImportsAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1820,8 +1815,8 @@
                label="%refactorit.changeMethodSignature"
                definitionId="refactorit.changeMethodSignature"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.changeMethodSignature">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.changeMethodSignature">
             <enablement>
                <objectClass name="org.eclipse.jdt.core.IMethod"/>
             </enablement>
@@ -1830,8 +1825,8 @@
                label="%refactorit.generate.delegates"
                definitionId="refactorit.generate.delegates"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group1"
-               id="com.refactorit.javaPopup.generate.delegates">
+               menubarPath="net.sf.refactorit.javaPopup/group1"
+               id="net.sf.refactorit.javaPopup.generate.delegates">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1845,8 +1840,8 @@
                label="%refactorit.action.GoToAction"
                definitionId="refactorit.action.GoToAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/goto"
-               id="com.refactorit.javaPopup.GoToAction">
+               menubarPath="net.sf.refactorit.javaPopup/goto"
+               id="net.sf.refactorit.javaPopup.GoToAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1859,8 +1854,8 @@
                label="%refactorit.action.WhereAction"
                definitionId="refactorit.action.WhereAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group2"
-               id="com.refactorit.javaPopup.WhereAction">
+               menubarPath="net.sf.refactorit.javaPopup/group2"
+               id="net.sf.refactorit.javaPopup.WhereAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IPackageFragment"/>
@@ -1873,8 +1868,8 @@
                label="%refactorit.action.TypeAction"
                definitionId="refactorit.action.TypeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group2"
-               id="com.refactorit.javaPopup.TypeAction">
+               menubarPath="net.sf.refactorit.javaPopup/group2"
+               id="net.sf.refactorit.javaPopup.TypeAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1886,8 +1881,8 @@
                label="%refactorit.action.NotUsedAction"
                definitionId="refactorit.action.NotUsedAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group2"
-               id="com.refactorit.javaPopup.NotUsedAction">
+               menubarPath="net.sf.refactorit.javaPopup/group2"
+               id="net.sf.refactorit.javaPopup.NotUsedAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1902,8 +1897,8 @@
                label="%refactorit.action.MetricsAction"
                definitionId="refactorit.action.MetricsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group2"
-               id="com.refactorit.javaPopup.MetricsAction">
+               menubarPath="net.sf.refactorit.javaPopup/group2"
+               id="net.sf.refactorit.javaPopup.MetricsAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1918,8 +1913,8 @@
                label="%refactorit.action.DrawDependenciesAction"
                definitionId="refactorit.action.DrawDependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group2"
-               id="com.refactorit.javaPopup.DrawDependenciesAction">
+               menubarPath="net.sf.refactorit.javaPopup/group2"
+               id="net.sf.refactorit.javaPopup.DrawDependenciesAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1934,8 +1929,8 @@
                label="%refactorit.action.CallTreeAction"
                definitionId="refactorit.action.CallTreeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group2"
-               id="com.refactorit.javaPopup.CallTreeAction">
+               menubarPath="net.sf.refactorit.javaPopup/group2"
+               id="net.sf.refactorit.javaPopup.CallTreeAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IMethod"/>
@@ -1947,8 +1942,8 @@
                label="%refactorit.action.AuditAction"
                definitionId="refactorit.action.AuditAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/group2"
-               id="com.refactorit.javaPopup.AuditAction">
+               menubarPath="net.sf.refactorit.javaPopup/group2"
+               id="net.sf.refactorit.javaPopup.AuditAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.IJavaProject"/>
@@ -1964,23 +1959,23 @@
       <objectContribution
             adaptable="true"
             objectClass="org.eclipse.jdt.core.IJavaElement"
-            id="com.refactorit.JavaPopupMenuContributionDebug">
+            id="net.sf.refactorit.JavaPopupMenuContributionDebug">
          <visibility>
-            <systemProperty name="com.refactorit.mode" value="debug"/>
+            <systemProperty name="net.sf.refactorit.mode" value="debug"/>
          </visibility>
          <!-- internal -->
          <action
                label="%refactorit.action.ShellAction"
                definitionId="refactorit.action.ShellAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/internal"
-               id="com.refactorit.javaPopup.ShellAction"/>
+               menubarPath="net.sf.refactorit.javaPopup/internal"
+               id="net.sf.refactorit.javaPopup.ShellAction"/>
          <action
                label="%refactorit.action.ClassmodelVisitorAction"
                definitionId="refactorit.action.ClassmodelVisitorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/internal"
-               id="com.refactorit.javaPopup.ClassmodelVisitorAction">
+               menubarPath="net.sf.refactorit.javaPopup/internal"
+               id="net.sf.refactorit.javaPopup.ClassmodelVisitorAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -1992,8 +1987,8 @@
                label="%refactorit.action.AstVisitorAction"
                definitionId="refactorit.action.AstVisitorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.javaPopup/internal"
-               id="com.refactorit.javaPopup.AstVisitorAction">
+               menubarPath="net.sf.refactorit.javaPopup/internal"
+               id="net.sf.refactorit.javaPopup.AstVisitorAction">
             <enablement>
                <or>
                   <objectClass name="org.eclipse.jdt.core.ICompilationUnit"/>
@@ -2005,11 +2000,11 @@
 
       <viewerContribution
             targetID="#CompilationUnitEditorContext"
-            id="com.refactorit.EditorPopupMenuContribution">
+            id="net.sf.refactorit.EditorPopupMenuContribution">
          <menu
                label="Refactor&amp;IT"
                path="additions"
-               id="com.refactorit.editorPopup">
+               id="net.sf.refactorit.editorPopup">
             <separator name="name"/>
             <separator name="group1"/>
             <separator name="goto"/>
@@ -2019,7 +2014,7 @@
          </menu>
          <menu
                label="More..."
-               path="com.refactorit.editorPopup/group2"
+               path="net.sf.refactorit.editorPopup/group2"
                id="analyzeMenu">
             <separator name="analyze"/>
             <separator name="diff"/>
@@ -2030,244 +2025,244 @@
                label="%refactorit.action.WhereCaughtAction"
                definitionId="refactorit.action.WhereCaughtAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
-               id="com.refactorit.editorPopup.WhereCaughtAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/search"
+               id="net.sf.refactorit.editorPopup.WhereCaughtAction"/>
          <action
                label="%refactorit.action.FindAction"
                definitionId="refactorit.action.FindAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
-               id="com.refactorit.editorPopup.FindAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/search"
+               id="net.sf.refactorit.editorPopup.FindAction"/>
          <action
                label="%refactorit.action.DependenciesAction"
                definitionId="refactorit.action.DependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
-               id="com.refactorit.editorPopup.DependenciesAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/search"
+               id="net.sf.refactorit.editorPopup.DependenciesAction"/>
          <action
                label="%refactorit.action.InterAction"
                definitionId="refactorit.action.InterAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
-               id="com.refactorit.editorPopup.InterAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/search"
+               id="net.sf.refactorit.editorPopup.InterAction"/>
          <action
                label="%refactorit.action.FixmeScannerAction"
                definitionId="refactorit.action.FixmeScannerAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
-               id="com.refactorit.editorPopup.FixmeScannerAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/search"
+               id="net.sf.refactorit.editorPopup.FixmeScannerAction"/>
          <action
                label="%refactorit.action.SubtypesAction"
                definitionId="refactorit.action.SubtypesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
-               id="com.refactorit.editorPopup.SubtypesAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/search"
+               id="net.sf.refactorit.editorPopup.SubtypesAction"/>
          <action
                label="%refactorit.action.DuplicateLiteralsAction"
                definitionId="refactorit.action.DuplicateLiteralsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/search"
-               id="com.refactorit.editorPopup.DuplicateLiteralsAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/search"
+               id="net.sf.refactorit.editorPopup.DuplicateLiteralsAction"/>
          <!-- diff -->
          <action
                label="%refactorit.action.ApiDiffAction"
                definitionId="refactorit.action.ApiDiffAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/diff"
-               id="com.refactorit.editorPopup.ApiDiffAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/diff"
+               id="net.sf.refactorit.editorPopup.ApiDiffAction"/>
          <action
                label="%refactorit.action.ApiSnapshotAction"
                definitionId="refactorit.action.ApiSnapshotAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/analyzeMenu/diff"
-               id="com.refactorit.editorPopup.ApiSnapshotAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/analyzeMenu/diff"
+               id="net.sf.refactorit.editorPopup.ApiSnapshotAction"/>
          <!-- name -->
          <action
                label="%refactorit.action.RenameAction"
                definitionId="refactorit.action.RenameAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/name"
-               id="com.refactorit.editorPopup.RenameAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/name"
+               id="net.sf.refactorit.editorPopup.RenameAction"/>
          <action
                label="%refactorit.action.MoveAction"
                definitionId="refactorit.action.MoveAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/name"
-               id="com.refactorit.editorPopup.MoveAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/name"
+               id="net.sf.refactorit.editorPopup.MoveAction"/>
          <!-- group1 -->
          <action
                label="%refactorit.useSuperType"
                definitionId="refactorit.useSuperType"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.useSuperType"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.useSuperType"/>
          <action
                label="%refactorit.action.PullPushAction"
                definitionId="refactorit.action.PullPushAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.PullPushAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.PullPushAction"/>
          <action
                label="%refactorit.overridemethods"
                definitionId="refactorit.overridemethods"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.overridemethods"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.overridemethods"/>
          <action
                label="%refactorit.action.MinimizeAccessAction"
                definitionId="refactorit.action.MinimizeAccessAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.MinimizeAccessAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.MinimizeAccessAction"/>
          <action
                label="%refactorit.action.IntroduceTempAction"
                definitionId="refactorit.action.IntroduceTempAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.IntroduceTempAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.IntroduceTempAction"/>
          <action
                label="%refactorit.action.InlineAction"
                definitionId="refactorit.action.InlineAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.InlineAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.InlineAction"/>
          <action
                label="%refactorit.action.ExtractSuperAction"
                definitionId="refactorit.action.ExtractSuperAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.ExtractSuperAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.ExtractSuperAction"/>
          <action
                label="%refactorit.action.ExtractMethodAction"
                definitionId="refactorit.action.ExtractMethodAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.ExtractMethodAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.ExtractMethodAction"/>
          <action
                label="%refactorit.action.EncapsulateFieldAction"
                definitionId="refactorit.action.EncapsulateFieldAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.EncapsulateFieldAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.EncapsulateFieldAction"/>
          <action
                label="%refactorit.action.CreateNewMethod"
                definitionId="refactorit.action.CreateNewMethod"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.CreateNewMethod"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.CreateNewMethod"/>
          <action
                label="%refactorit.action.FactoryMethodAction"
                definitionId="refactorit.action.FactoryMethodAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.FactoryMethodAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.FactoryMethodAction"/>
          <action
                label="%refactorit.action.CreateConstructorAction"
                definitionId="refactorit.action.CreateConstructorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.CreateConstructorAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.CreateConstructorAction"/>
          <action
                label="%refactorit.convert.temp.to.field"
                definitionId="refactorit.convert.temp.to.field"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.convert.temp.to.field"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.convert.temp.to.field"/>
          <action
                label="%refactorit.action.CleanImportsAction"
                definitionId="refactorit.action.CleanImportsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.CleanImportsAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.CleanImportsAction"/>
          <action
                label="%refactorit.changeMethodSignature"
                definitionId="refactorit.changeMethodSignature"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.changeMethodSignature"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.changeMethodSignature"/>
          <action
                label="%refactorit.generate.delegates"
                definitionId="refactorit.generate.delegates"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group1"
-               id="com.refactorit.editorPopup.generate.delegates"/>
+               menubarPath="net.sf.refactorit.editorPopup/group1"
+               id="net.sf.refactorit.editorPopup.generate.delegates"/>
          <!-- goto -->
          <action
                label="%refactorit.action.GoToAction"
                definitionId="refactorit.action.GoToAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/goto"
-               id="com.refactorit.editorPopup.GoToAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/goto"
+               id="net.sf.refactorit.editorPopup.GoToAction"/>
          <!-- group2 -->
          <action
                label="%refactorit.action.WhereAction"
                definitionId="refactorit.action.WhereAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group2"
-               id="com.refactorit.editorPopup.WhereAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group2"
+               id="net.sf.refactorit.editorPopup.WhereAction"/>
          <action
                label="%refactorit.action.TypeAction"
                definitionId="refactorit.action.TypeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group2"
-               id="com.refactorit.editorPopup.TypeAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group2"
+               id="net.sf.refactorit.editorPopup.TypeAction"/>
          <action
                label="%refactorit.action.NotUsedAction"
                definitionId="refactorit.action.NotUsedAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group2"
-               id="com.refactorit.editorPopup.NotUsedAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group2"
+               id="net.sf.refactorit.editorPopup.NotUsedAction"/>
          <action
                label="%refactorit.action.MetricsAction"
                definitionId="refactorit.action.MetricsAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group2"
-               id="com.refactorit.editorPopup.MetricsAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group2"
+               id="net.sf.refactorit.editorPopup.MetricsAction"/>
          <action
                label="%refactorit.action.DrawDependenciesAction"
                definitionId="refactorit.action.DrawDependenciesAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group2"
-               id="com.refactorit.editorPopup.DrawDependenciesAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group2"
+               id="net.sf.refactorit.editorPopup.DrawDependenciesAction"/>
          <action
                label="%refactorit.action.CallTreeAction"
                definitionId="refactorit.action.CallTreeAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group2"
-               id="com.refactorit.editorPopup.CallTreeAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group2"
+               id="net.sf.refactorit.editorPopup.CallTreeAction"/>
          <action
                label="%refactorit.action.AuditAction"
                definitionId="refactorit.action.AuditAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/group2"
-               id="com.refactorit.editorPopup.AuditAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/group2"
+               id="net.sf.refactorit.editorPopup.AuditAction"/>
       </viewerContribution>
 
       <viewerContribution
             targetID="#CompilationUnitEditorContext"
-            id="com.refactorit.EditorPopupMenuContributionDebug">
+            id="net.sf.refactorit.EditorPopupMenuContributionDebug">
          <visibility>
-            <systemProperty name="com.refactorit.mode" value="debug"/>
+            <systemProperty name="net.sf.refactorit.mode" value="debug"/>
          </visibility>
          <!-- internal -->
          <action
                label="%refactorit.action.ShellAction"
                definitionId="refactorit.action.ShellAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/internal"
-               id="com.refactorit.editorPopup.ShellAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/internal"
+               id="net.sf.refactorit.editorPopup.ShellAction"/>
          <action
                label="%refactorit.action.ClassmodelVisitorAction"
                definitionId="refactorit.action.ClassmodelVisitorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/internal"
-               id="com.refactorit.editorPopup.ClassmodelVisitorAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/internal"
+               id="net.sf.refactorit.editorPopup.ClassmodelVisitorAction"/>
          <action
                label="%refactorit.action.AstVisitorAction"
                definitionId="refactorit.action.AstVisitorAction"
                class="net.sf.refactorit.eclipse.RitActionDelegate"
-               menubarPath="com.refactorit.editorPopup/internal"
-               id="com.refactorit.editorPopup.AstVisitorAction"/>
+               menubarPath="net.sf.refactorit.editorPopup/internal"
+               id="net.sf.refactorit.editorPopup.AstVisitorAction"/>
       </viewerContribution>
    </extension>
 
@@ -2277,7 +2272,7 @@
             icon="icons/refactorit.gif"
             class="net.sf.refactorit.eclipse.RitViewPart"
             name="RefactorIT"
-            id="com.refactorit.RitViewPart">
+            id="net.sf.refactorit.RitViewPart">
       </view>
    </extension>
 

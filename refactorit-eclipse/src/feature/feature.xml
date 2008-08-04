@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<feature
+      id="net.sf.refactorit"
+      label="%featureName"
+      version="@VERSION@"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <plugin
+         id="net.sf.refactorit"
+         download-size="0"
+         install-size="0"
+         version="@VERSION@"/>
+
+</feature>
