@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.jdeveloper;
 
-
 import net.sf.refactorit.commonIDE.ActionRepository;
 import net.sf.refactorit.commonIDE.IDEController;
 import net.sf.refactorit.commonIDE.MenuBuilder;
@@ -16,8 +15,9 @@ import net.sf.refactorit.commonIDE.ShortcutAction;
 import net.sf.refactorit.jdeveloper.projectoptions.JDevProjectOptions;
 import net.sf.refactorit.options.GlobalOptions;
 import net.sf.refactorit.ui.RefactorITLock;
-import net.sf.refactorit.ui.module.ModuleManager;
 import net.sf.refactorit.ui.module.ActionProxy;
+import net.sf.refactorit.ui.module.ModuleManager;
+
 import oracle.ide.Ide;
 import oracle.ide.IdeAction;
 import oracle.ide.IdeAdapter;
@@ -33,11 +33,6 @@ import oracle.ide.keyboard.KeyStrokeContextRegistry;
 import oracle.ide.keyboard.KeyStrokeMap;
 import oracle.ide.keyboard.KeyStrokes;
 
-import java.awt.Component;
-import java.io.File;
-import java.lang.reflect.Method;
-import java.util.Iterator;
-
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
@@ -45,14 +40,18 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import java.awt.Component;
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.Iterator;
+
 
 /**
  *
  * @author  Tanel
  */
 public class RefactorItAddin implements Addin {
-
-  public static final String REFACTORY_JDEV_JAR_NAME = "refactoryJDev.jar";
+  public static final String REFACTORIT_JDEV_JAR_NAME = "refactorit-jdeveloper.jar";
   public static final String REFACTORIT_CATEGORY = "RefactorIT";
 
   public static IdeAction aboutAction;
@@ -119,11 +118,12 @@ public class RefactorItAddin implements Addin {
 
     // Get the RefactorIT modules path and set it in System properties because
     // the ModuleManager's loadmodules() function needs to know it.
-    String modulesPath = PropertyManager.getRefactorITModulesInstallDirectory();
-    System.setProperty("refactory.modules", modulesPath);
-    System.setProperty("refactory.modules.lib",
-        modulesPath + File.separatorChar + "lib");
-    //System.err.println("Using " + modulesPath + " as RefactorIT modules path");
+    String libPath = PropertyManager.getRefactorITDirectory();
+
+    System.setProperty("refactorit.modules", libPath +
+        File.separatorChar + "modules");
+
+    System.setProperty("refactorit.modules.lib", libPath);
     System.setProperty("refactorit.platform", "jdev");
 
     // Load the RefactorIT modules. It requires that the modules path is set in
@@ -181,11 +181,11 @@ public class RefactorItAddin implements Addin {
             bar.add(new ToolButton(debugShellAction));
 //
 //    action.setController( this );
-//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORY_BACK_CMD_ID) ) );
-//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORY_WHERE_USED_CMD_ID) ) );
-//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORY_GO_TO_DECLARATION_CMD_ID) ) );
-//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORY_INFO_CMD_ID) ) );
-//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORY_RENAME_CMD_ID) ) );
+//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORIT_BACK_CMD_ID) ) );
+//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORIT_WHERE_USED_CMD_ID) ) );
+//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORIT_GO_TO_DECLARATION_CMD_ID) ) );
+//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORIT_INFO_CMD_ID) ) );
+//              bar.add( new ToolButton( IdeAction.find(RefactorItController.REFACTORIT_RENAME_CMD_ID) ) );
             bar.revalidate();
             bar.repaint();
           }

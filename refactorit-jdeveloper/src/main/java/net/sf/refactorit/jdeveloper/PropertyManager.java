@@ -8,10 +8,9 @@
  */
 package net.sf.refactorit.jdeveloper;
 
-
 import net.sf.refactorit.common.util.FileCopier;
 import net.sf.refactorit.loader.ClassFilesLoader;
-import net.sf.refactorit.utils.FileUtil;
+
 import oracle.ide.Ide;
 
 import java.io.File;
@@ -36,46 +35,25 @@ public class PropertyManager {
   /**
    * Returns the RefactorIT modules absolute path. I.e. the path where the RefactorIT
    * modules are installed by installer. For example under Linux for
-   * JDeveloper it returns for example: /opt/jdeveloper/lib/ext/refactory/modules
+   * JDeveloper it returns for example: /opt/jdeveloper/lib/ext/refactorit/modules
    */
-  public static String getRefactorITModulesInstallDirectory() {
+  public static String getRefactorITDirectory() {
     final URL moduleUrl =
         RefactorItAddin.class.getClassLoader().getResource(
         RefactorItAddin.class.getName().replace('.', '/')
         + ClassFilesLoader.CLASS_FILE_EXT);
+
     final File module = FileCopier.getFileFromJarUrl(moduleUrl);
 
-    if (!module.getName().equals("refactoryJDev.jar")) {
+    if (!module.getName().equals("refactorit-jdeveloper.jar")) {
       throw new RuntimeException(
-          "Cannot locate refactoryJDev.jar!");
+          "Cannot locate refactorit-jdeveloper.jar!");
     }
 
     String modulesPath = module.getParentFile().getAbsolutePath()
-        + File.separator + "refactory";
+        + File.separator + "refactorit";
 
     return modulesPath;
-  }
-
-  /**
-   * Returns the directory path where the Updater installs the packages for
-   * temporary.
-   * FIXME! I guessed it from reading the JBuilder plugin sources.
-   */
-  public static String getUpdatesTempDirectory() {
-
-    String updatesTempDir = getRefactorITModulesInstallDirectory() +
-        File.separator +
-        "update";
-    return updatesTempDir;
-  }
-
-  /**
-   * Returns the IDE (JDeveloper) installation directory. The root directory
-   * where the JDeveloper was installed
-   */
-  public static String getIdeInstallDirectory() {
-
-    return Ide.getHomeDirectory();
   }
 
   /**
@@ -83,19 +61,15 @@ public class PropertyManager {
    * C:\Oracle\JDeveloper\bin\jdeveloper\jdev.exe, or /opt/jdeveloper/bin/jdev)
    */
   public static String getIdeStartProgramPath() {
-
     // Determine the program extension to be used
     String programExtension = "";
     String os = System.getProperty("os.name");
 
     if ((os != null) && os.toLowerCase().startsWith("windows")) {
       programExtension = ".exe";
+//    } else {
+//      programExtension = ".sh";
     }
-    /*
-           else {
-      programExtension = ".sh";
-           }
-     */
 
     // set the executable path and return it
     String binPath = Ide.getBinDirectory() + "jdev" + programExtension;

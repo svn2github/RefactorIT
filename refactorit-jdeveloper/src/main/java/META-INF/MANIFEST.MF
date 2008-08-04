@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Specification-Title: RefactorIT for JDeveloper
+Implementation-Title: RefactorIT for JDeveloper
+Specification-Vendor: Aqris Software AS
+Implementation-Vendor: Aqris Software AS
+Specification-Version: @VERSION@
+Implementation-Version: @TIMESTAMP@
+Class-Path: refactorit/refactorit.jar 
+ refactorit/refactorit-help.jar 
+ refactorit/antlr.jar 
+ refactorit/bsh.jar 
+ refactorit/GraphLayout.jar 
+ refactorit/jaxen-core-1.0-fcs.jar 
+ refactorit/jh.jar 
+ refactorit/log4j.jar 
+ refactorit/pmd.jar 
+ refactorit/rjasper.jar 
+ refactorit/saxpath-1.0-fcs.jar 
+ refactorit/servlet-api.jar
+AddinCount: 1
+Addin0: net.sf.refactorit.jdeveloper.RefactorItAddin
+JDeveloper9i-Addin: net.sf.refactorit.jdeveloper.RefactorItAddin

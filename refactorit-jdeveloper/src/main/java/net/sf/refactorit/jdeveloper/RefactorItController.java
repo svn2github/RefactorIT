@@ -11,8 +11,6 @@ package net.sf.refactorit.jdeveloper;
 import bsh.EvalError;
 import bsh.Interpreter;
 
-
-
 import net.sf.refactorit.classmodel.BinCIType;
 import net.sf.refactorit.classmodel.BinItem;
 import net.sf.refactorit.classmodel.BinPackage;
@@ -82,7 +80,7 @@ public class RefactorItController extends JDevController implements Controller {
 
   private static RefactorItController instance = null;
 
-  public static final String REFACTORY_ACTION = "REFACTORY_ACTION";
+  public static final String REFACTORIT_ACTION = "REFACTORIT_ACTION";
   public static final String CMD_STR = "controller.action.";
 
   /**
@@ -153,7 +151,7 @@ public class RefactorItController extends JDevController implements Controller {
           //          int binSelectionNeccessity = ( (Integer) action.getValue(
 //              OldMenuBuilder.
 //              BINSELECTION_NECCESSITY)).intValue();
-          performRefactoryAction(ritAction, context,
+          performRefactorItAction(ritAction, context,
               JDevMenuBuilder.BINSELECTION_DONT_CARE /*binSelectionNeccessity*/);
         } else {
           net.sf.refactorit.commonIDE.IdeAction ritIdeAction =
@@ -172,10 +170,10 @@ public class RefactorItController extends JDevController implements Controller {
       // When action is null, then the action is either the shortcut action or
       // When action is null, then the action is either the shortcut action or
       // common action.
-//      RefactorItAction refactoryAction = (RefactorItAction)
-//          action.getValue(RefactorItController.REFACTORY_ACTION);
+//      RefactorItAction refactorItAction = (RefactorItAction)
+//          action.getValue(RefactorItController.REFACTORIT_ACTION);
 //
-//      if (refactoryAction == null) {
+//      if (refactorItAction == null) {
 //        int cmdId = action.getCommandId();
 //        String actionKey = getKey(cmdId);
 //        // Check, whether it is shortcut action
@@ -195,7 +193,7 @@ public class RefactorItController extends JDevController implements Controller {
 //
 //        int binSelectionNeccessity = ((Integer) action.getValue(OldMenuBuilder.
 //            BINSELECTION_NECCESSITY)).intValue();
-//        performRefactoryAction(refactoryAction, context, binSelectionNeccessity);
+//        performRefactorItAction(refactorItAction, context, binSelectionNeccessity);
 //        return true;
 //      }
     } finally {
@@ -210,13 +208,13 @@ public class RefactorItController extends JDevController implements Controller {
    * @return action key
    */
 //  private String getKey(int actionId) {
-//    if (actionId == RefactorItController.REFACTORY_WHERE_USED_CMD_ID)
+//    if (actionId == RefactorItController.REFACTORIT_WHERE_USED_CMD_ID)
 //      return net.sf.refactorit.ui.module.where.WhereAction.KEY;
-//    if (actionId == RefactorItController.REFACTORY_GO_TO_DECLARATION_CMD_ID)
+//    if (actionId == RefactorItController.REFACTORIT_GO_TO_DECLARATION_CMD_ID)
 //      return net.sf.refactorit.ui.module.gotomodule.actions.GotoAction.KEY;
-//    if (actionId == RefactorItController.REFACTORY_INFO_CMD_ID)
+//    if (actionId == RefactorItController.REFACTORIT_INFO_CMD_ID)
 //      return net.sf.refactorit.ui.module.type.TypeAction.KEY;
-//    if (actionId == RefactorItController.REFACTORY_RENAME_CMD_ID)
+//    if (actionId == RefactorItController.REFACTORIT_RENAME_CMD_ID)
 //      return net.sf.refactorit.ui.module.rename.RenameAction.KEY;
 //
 //  if (actionId == RefactorItController.REFACTORIT_APIDIFF_CMD_ID)
@@ -374,7 +372,7 @@ public class RefactorItController extends JDevController implements Controller {
 //      }
 //
 //      try {
-//        JDevContext cont = createRefactoryContext(context);
+//        JDevContext cont = createRefactorItContext(context);
 //        boolean res;
 //        if ( bins == null ) {
 //                res = RefactorItActionUtils.run(
@@ -407,12 +405,12 @@ public class RefactorItController extends JDevController implements Controller {
 //  }
 
   /**
-   * Executes the refactory action.
+   * Executes the refactorit action.
    * @param action action
    * @param context context
    * @param binSelectionNeccessity binSelectionNeccessity
    */
-  private void performRefactoryAction(
+  private void performRefactorItAction(
       RefactorItAction action, Context context, int binSelectionNeccessity
       ) {
     if (!ensureProject()) {
@@ -453,17 +451,17 @@ public class RefactorItController extends JDevController implements Controller {
 //    Window oldParent = DialogManager.getDialogParent();
     try {
 //      DialogManager.setDialogParent(AbstractionUtils.getMainWindow());
-      JDevContext refactoryCtx = createRefactoryContext(context);
+      JDevContext refactorItCtx = createRefactorItContext(context);
 
       if (action.getKey() == GotoAction.KEY) {
         BackAction.addRecord(compilationUnit, line);
       }
 
-      if (RefactorItActionUtils.run(action, refactoryCtx, binObject)) {
-        action.updateEnvironment(refactoryCtx);
+      if (RefactorItActionUtils.run(action, refactorItCtx, binObject)) {
+        action.updateEnvironment(refactorItCtx);
         //TODO: refresh navigator view
       } else {
-        action.raiseResultsPane(refactoryCtx);
+        action.raiseResultsPane(refactorItCtx);
       }
     } catch (Exception e) {
       AppRegistry.getExceptionLogger().error(e, this);
@@ -479,20 +477,19 @@ public class RefactorItController extends JDevController implements Controller {
    * @param context context
    * @return new JDev context
    */
-  private JDevContext createRefactoryContext(final Context context) {
-    JDevContext refactoryCtx = (JDevContext)super.createProjectContext();
+  private JDevContext createRefactorItContext(final Context context) {
+    JDevContext refactorItCtx = (JDevContext) super.createProjectContext();
 
-//    JDevContext refactoryCtx = new JDevContext(refactorItProject);
     if (CodeEditor.class.isAssignableFrom(context.getView().getClass())) {
       CodeEditor editor = ((CodeEditor) context.getView());
 
-      Window window = ((AWTContext) refactoryCtx).getWindow();
+      Window window = ((AWTContext) refactorItCtx).getWindow();
 
-      refactoryCtx.setPoint(SwingUtil.positionToClickPoint(
+      refactorItCtx.setPoint(SwingUtil.positionToClickPoint(
           editor.getFocusedEditorPane(), editor.getCaretPosition(), window));
     }
 
-    return refactoryCtx;
+    return refactorItCtx;
   }
 
   private Object getBinObject(Context context, Project project)
@@ -513,14 +510,14 @@ public class RefactorItController extends JDevController implements Controller {
     } else
 
     if (context.getView() instanceof RefactorItWindow) {
-      return getBinObjectFromRefactoryWindow((RefactorItWindow) context.getView());
+      return getBinObjectFromRefactorItWindow((RefactorItWindow) context.getView());
     } else {
       throw new ChainableRuntimeException(
           "Don't know how to find BinObject from " + activeViewClass);
     }
   }
 
-  private Object getBinObjectFromRefactoryWindow(RefactorItWindow w) {
+  private Object getBinObjectFromRefactorItWindow(RefactorItWindow w) {
     JComponent c = w.getHostedComponent();
     if (!(c instanceof JTabbedPane)) {
       return null;
@@ -838,18 +835,18 @@ public class RefactorItController extends JDevController implements Controller {
       }
 
       updateActions(context, activeController, MenuMetadata.GANG_FOUR_KEYS);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_ABOUT_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_HELP_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_UPDATE_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_BROWSER_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_CROSS_HTML_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_OPTIONS_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_REBUILD_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_CLEAN_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_WHERE_USED_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_GO_TO_DECLARATION_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_RENAME_CMD_ID), context);
-//      activeController.update(IdeAction.find(RefactorItController.REFACTORY_INFO_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_ABOUT_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_HELP_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_UPDATE_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_BROWSER_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_CROSS_HTML_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_OPTIONS_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_REBUILD_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_CLEAN_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_WHERE_USED_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_GO_TO_DECLARATION_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_RENAME_CMD_ID), context);
+//      activeController.update(IdeAction.find(RefactorItController.REFACTORIT_INFO_CMD_ID), context);
     }
 
     // Ask the supervisor to update its commands.
@@ -867,7 +864,6 @@ public class RefactorItController extends JDevController implements Controller {
 //      } catch (Exception e) {
 //      }
     }
-
   }
 
   private void updateActions(

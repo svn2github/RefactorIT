@@ -1,0 +1,140 @@
+<project name="RefactorIT for JDeveloper" default="build" basedir=".">
+	<property file="${basedir}/build.properties"/>
+
+	<property name="app.version" value="2.7.beta"/>
+
+	<property name="projects.dir" value="${basedir}/.."/>
+
+	<property name="core.project.dir" value="${projects.dir}/refactorit-core"/>
+	<property name="core.build.dir" value="${core.project.dir}/build"/>
+	<property name="core.jars.dir" value="${core.build.dir}/jars"/>
+	<property name="core.lib.dir" value="${core.project.dir}/lib"/>
+
+	<property name="src.encoding" value="ISO-8859-1"/>
+
+	<property name="src.dir" value="${basedir}/src"/>
+
+	<property name="src.main.java.dir" value="${src.dir}/main/java"/>
+	<property name="src.test.java.dir" value="${src.dir}/test/java"/>
+
+	<property name="ant.build.javac.source" value="1.4"/>
+	<property name="ant.build.javac.target" value="1.4"/>
+
+	<property name="build.dir" value="${basedir}/build"/>
+
+	<property name="build.classes.dir" value="${build.dir}/classes"/>
+	<property name="build.jars.dir" value="${build.dir}/jars"/>
+	<property name="build.dist.dir" value="${build.dir}/dist"/>
+
+	<property name="build.compiler.deprecation" value="no"/>
+	<property name="build.compiler.pedantic" value="no"/>
+	<property name="build.compiler.nowarn" value="no"/>
+
+	<target name="clean" description="Deletes all generated files">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="prepare">
+		<tstamp/>
+
+		<tstamp>
+			<format property="build.date" pattern="ddMMyy"/>
+		</tstamp>
+
+		<tstamp>
+			<format property="build.time" pattern="yyyyMMddHHmm"/>
+		</tstamp>
+
+		<mkdir dir="${build.dir}"/>
+	</target>
+
+	<target name="compile" depends="prepare"
+			description="Compiles source .java files">
+		<mkdir dir="${build.classes.dir}"/>
+
+		<javac destdir="${build.classes.dir}"
+				deprecation="${build.compiler.deprecation}"
+				nowarn="${build.compiler.nowarn}"
+				debug="on" optimize="on"
+				encoding="${src.encoding}">
+			<src path="${src.main.java.dir}"/>
+			<classpath>
+				<fileset dir="${core.jars.dir}">
+					<include name="refactorit.jar"/>
+				</fileset>
+				<fileset dir="${core.lib.dir}">
+					<include name="**.jar"/>
+				</fileset>
+				<fileset dir="${lib.dir}">
+					<include name="**.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+
+		<copy todir="${build.classes.dir}">
+			<fileset dir="${src.main.java.dir}">
+				<exclude name="**/*.java"/>
+				<exclude name="**/*.form"/>
+				<exclude name="**/.nbattrs"/>
+				<exclude name="META-INF/MANIFEST.MF"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${build.classes.dir}" overwrite="true">
+			<fileset dir="${src.main.java.dir}">
+				<include name="META-INF/MANIFEST.MF"/>
+			</fileset>
+			<filterset>
+				<filter token="VERSION" value="${app.version}"/>
+				<filter token="BUILDID" value="${build.time}"/>
+			</filterset>
+		</copy>
+	</target>
+
+	<target name="jars" depends="compile"
+			description="Create RefactorIT for JDeveloper .jar file">
+		<mkdir dir="${build.jars.dir}"/>
+
+		<jar destfile="${build.jars.dir}/refactorit-jdeveloper.jar"
+				basedir="${build.classes.dir}"
+				manifest="${build.classes.dir}/META-INF/MANIFEST.MF"/>
+	</target>
+
+	<target name="dist" depends="jars"
+			description="Create RefactorIT for JDeveloper distribution">
+		<property name="dist.name" value="refactorit-${app.version}-jdeveloper"/>
+
+		<delete dir="${build.dist.dir}/${dist.name}"/>
+		<mkdir dir="${build.dist.dir}/${dist.name}/refactorit/modules"/>
+
+		<copy todir="${build.dist.dir}/${dist.name}"
+			file="${build.jars.dir}/refactorit-jdeveloper.jar"/>
+
+		<copy todir="${build.dist.dir}/${dist.name}/refactorit">
+			<fileset dir="${core.jars.dir}">
+				<include name="refactorit.jar"/>
+				<include name="refactorit-help.jar"/>
+			</fileset>
+			<fileset dir="${core.lib.dir}">
+				<include name="ant.jar"/>
+				<include name="antlr.jar"/>
+				<include name="bsh.jar"/>
+				<include name="GraphLayout.jar"/>
+				<include name="jaxen-core-1.0-fcs.jar"/>
+				<include name="jh.jar"/>
+				<include name="jsp-api.jar"/>
+				<include name="jsp20el.jar"/>
+				<include name="log4j.jar"/>
+				<include name="pmd.jar"/>
+				<include name="rjasper.jar"/>
+				<include name="saxpath-1.0-fcs.jar"/>
+				<include name="servlet-api.jar"/>
+			</fileset>
+		</copy>
+
+		<zip destfile="${build.dist.dir}/${dist.name}.zip"
+				basedir="${build.dist.dir}/${dist.name}"/>
+	</target>
+
+	<target name="build" depends="dist"/>
+</project>

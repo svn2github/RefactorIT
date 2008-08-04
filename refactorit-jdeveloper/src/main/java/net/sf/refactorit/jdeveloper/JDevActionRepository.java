@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.jdeveloper;
 
-
 import net.sf.refactorit.commonIDE.ActionRepository;
 import net.sf.refactorit.commonIDE.IDEController;
 import net.sf.refactorit.ui.module.RefactorItAction;
@@ -111,12 +110,6 @@ public class JDevActionRepository extends ActionRepository {
     jdevAction.putValue(IdeAction.CATEGORY, RefactorItAddin.REFACTORIT_CATEGORY);
     jdevAction.putValue(JDevMenuBuilder.BINSELECTION_NECCESSITY,
         new Integer(JDevMenuBuilder.BINSELECTION_DONT_CARE));
-
-//    IdeAction jdevAction = IdeAction.get(id,
-//        controller.getClass().getName(), refactoryAction.getName());
-//
-//    jdevAction.setController( (Controller) controller);
-//    jdevAction.putValue(IdeAction.CATEGORY, RefactorItAddin.REFACTORIT_CATEGORY);
 
     jdevToRITActionMap.put(new JDevActionKey(jdevAction), ritAction);
 

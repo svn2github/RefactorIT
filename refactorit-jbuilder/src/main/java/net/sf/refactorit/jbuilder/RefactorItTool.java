@@ -8,22 +8,6 @@
  */
 package net.sf.refactorit.jbuilder;
 
-
-
-import com.borland.primetime.PrimeTime;
-import com.borland.primetime.actions.ActionGroup;
-import com.borland.primetime.editor.EditorManager;
-import com.borland.primetime.ide.Browser;
-import com.borland.primetime.ide.BrowserListener;
-import com.borland.primetime.ide.NodeViewer;
-import com.borland.primetime.ide.ProjectView;
-import com.borland.primetime.node.Node;
-import com.borland.primetime.properties.PropertyManager;
-import com.borland.primetime.util.VetoException;
-
-import java.io.File;
-import java.net.URL;
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.common.util.Assert;
 import net.sf.refactorit.common.util.FileCopier;
@@ -39,6 +23,20 @@ import net.sf.refactorit.ui.RefactorITLock;
 import net.sf.refactorit.ui.module.BackAction;
 import net.sf.refactorit.ui.module.ModuleManager;
 import net.sf.refactorit.ui.tree.NodeIcons;
+
+import com.borland.primetime.PrimeTime;
+import com.borland.primetime.actions.ActionGroup;
+import com.borland.primetime.editor.EditorManager;
+import com.borland.primetime.ide.Browser;
+import com.borland.primetime.ide.BrowserListener;
+import com.borland.primetime.ide.NodeViewer;
+import com.borland.primetime.ide.ProjectView;
+import com.borland.primetime.node.Node;
+import com.borland.primetime.properties.PropertyManager;
+import com.borland.primetime.util.VetoException;
+
+import java.io.File;
+import java.net.URL;
 
 
 /**
@@ -169,7 +167,7 @@ public class RefactorItTool extends JBController {
 //        if ( serializeOldProject(browser) ) return;
 //
 //        if ( riProject != null ) {
-//          RefactoryCache.writeCache( riProject.getAstTreeCache(),
+//          RefactorItCache.writeCache( riProject.getAstTreeCache(),
 //          RefactorItPropGroup.PROP_CACHEPATH.getValue( JBController.jbProject ) );
 //        }
 
@@ -237,18 +235,22 @@ public class RefactorItTool extends JBController {
   }
 
   private static void initProperties() {
-    // set directory where to find refactory modules to
-    // {InstallRootDir}/lib/ext/refactory
-    File jbroot = PropertyManager.getInstallRootUrl().getFileObject();
-    String jbhome = jbroot.getAbsolutePath();
+    // set directory where to find refactorit modules to
+    // {InstallRootDir}/lib/ext/refactorit/modules
+    final File jbroot = PropertyManager.getInstallRootUrl().getFileObject();
+    final String jbhome = jbroot.getAbsolutePath();
+
     System.setProperty("jbuilder.home", jbhome);
 
     final File modulesDir = discoverModulesDir();
-    String modulesPath = modulesDir.getAbsolutePath() + File.separator
-        + "refactory";
-    System.setProperty("refactory.modules", modulesPath);
-    System.setProperty("refactory.modules.lib",
-        modulesPath + File.separatorChar + "lib");
+
+    final String libPath = modulesDir.getAbsolutePath() +
+        File.separator + "refactorit";
+
+    System.setProperty("refactorit.modules", libPath +
+        File.separatorChar + "modules");
+
+    System.setProperty("refactorit.modules.lib", libPath);
   }
 
   /**
@@ -263,9 +265,9 @@ public class RefactorItTool extends JBController {
         + ClassFilesLoader.CLASS_FILE_EXT);
     final File module = FileCopier.getFileFromJarUrl(moduleUrl);
 
-    if (!module.getName().equals("refactoryJB.jar")) {
+    if (!module.getName().equals("refactorit-jbuilder.jar")) {
       throw new RuntimeException(
-          "Cannot locate refactoryJB.jar!");
+          "Cannot locate refactorit-jbuilder.jar!");
     }
 
     return module.getParentFile();
@@ -284,13 +286,13 @@ public class RefactorItTool extends JBController {
     try {
 //      Window oldParent = DialogManager.getDialogParent();
 
-      JRefactorItDialog refactory = new JRefactorItDialog(
+      JRefactorItDialog refactorit = new JRefactorItDialog(
           controller.createProjectContext(), controller.getActiveProject());
 
       // FIXME: it is not perfect
-//      DialogManager.setDialogParent(refactory);
+//      DialogManager.setDialogParent(refactorit);
 
-      refactory.show();
+      refactorit.show();
 
 //      if (oldParent != null) {
 //        DialogManager.setDialogParent(oldParent);

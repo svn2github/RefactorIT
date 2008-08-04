@@ -38,9 +38,9 @@ public class RefactorItWindow extends DockableWindow {
    * This is the component that is shown to the user on screen as a
    * result of refactoring.
    */
-  private JComponent refactoryResult = null;
+  private JComponent refactorItResult = null;
 
-  /** This holds the title and tab names of refactory window */
+  /** This holds the title and tab names of refactorit window */
   private String title = null;
 
   private Context context;
@@ -50,8 +50,10 @@ public class RefactorItWindow extends DockableWindow {
     // call superclass constructor and provide it with parent window and
     // a VIEW_ID (title).
     super((View) AbstractionUtils.getMainWindow(), title);
-    this.refactoryResult = component;
+
+    this.refactorItResult = component;
     this.title = title;
+
     this.context = new RefactorItContext(this, Ide.getActiveWorkspace(),
         Ide.getActiveProject(), null, null, null);
   }
@@ -68,7 +70,7 @@ public class RefactorItWindow extends DockableWindow {
    *         result of some refactoring.
    */
   public JComponent getHostedComponent() {
-    return this.refactoryResult;
+    return this.refactorItResult;
   }
 
   /**
@@ -109,7 +111,7 @@ public class RefactorItWindow extends DockableWindow {
   /**
    */
   public Component getGUI() {
-    return this.refactoryResult;
+    return this.refactorItResult;
   }
 
   private class RefactorItContext implements Context {

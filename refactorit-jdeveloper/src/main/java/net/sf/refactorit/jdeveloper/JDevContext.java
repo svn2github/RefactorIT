@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.jdeveloper;
 
-
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.jdeveloper.vfs.JDevSource;
 import net.sf.refactorit.source.SourceHolder;
@@ -63,7 +62,7 @@ public class JDevContext extends TreeRefactorItContext implements AWTContext {
     // Get the titled Panel for previous Dockable
     //TitledPanel titledPanel = DockStation.getInstance().getTitledPanel(dockableWindow);
 
-    // Create the window which holds the refactory result JComponent
+    // Create the window which holds the refactorit result JComponent
     //RefactorItWindow dockableWindow2 = new RefactorItWindow ("another", null);
     //titledPanel.addClient(dockableWindow2, true);
 

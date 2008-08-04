@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Specification-Title: RefactorIT for JBuilder
+Implementation-Title: RefactorIT for JBuilder
+Specification-Vendor: Aqris Software AS
+Implementation-Vendor: Aqris Software AS
+Specification-Version: @VERSION@
+Implementation-Version: @BUILDID@
+Class-Path: refactorit/refactorit.jar 
+ refactorit/refactorit-help.jar 
+ refactorit/antlr.jar 
+ refactorit/bsh.jar 
+ refactorit/GraphLayout.jar 
+ refactorit/jaxen-core-1.0-fcs.jar 
+ refactorit/jh.jar 
+ refactorit/log4j.jar 
+ refactorit/pmd.jar 
+ refactorit/rjasper.jar 
+ refactorit/saxpath-1.0-fcs.jar 
+ refactorit/servlet-api.jar 
+ productivity.jar 
+ productivityPro.jar
+OpenTools-Build: -com.borland.jbuilder.build.JavaBuilder net.sf.refactorit.jbuilder.JavaBuilderRe 
+OpenTools-Core: net.sf.refactorit.jbuilder.RefactorItActions
+OpenTools-UI: net.sf.refactorit.jbuilder.RefactorItTool net.sf.refactorit.jbuilder.RefactorItPropGroup net.sf.refactorit.jbuilder.RefactorItShortcuts

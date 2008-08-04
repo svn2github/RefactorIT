@@ -27,13 +27,13 @@ public class TabbedManager {
     //
     JTabbedPane tabbedPane = new JTabbedPane();
 
-    // Create the window which holds the refactory result JComponent
+    // Create the window which holds the refactorit result JComponent
     this.dockableWindow = new RefactorItWindow("Refactorings", tabbedPane);
 
     // Dock this created window into south area of screen
     AbstractionUtils.dock(dockableWindow, DockStation.SOUTH, true);
 
-    // Create the window which holds the refactory result JComponent
+    // Create the window which holds the refactorit result JComponent
     //RefactorItWindow dockableWindow2 = new RefactorItWindow (title, component);
     // Dock this created window into south area of screen
     //Ide.getDockStation().dock(dockableWindow2, dockableWindow, DockStation.CENTER, true);
@@ -55,7 +55,7 @@ public class TabbedManager {
   public static boolean showTab(Object category) {
     if (JComponent.class.isAssignableFrom(category.getClass())) {
       AbstractionUtils.setDockableVisible(
-          getInstance().getRefactoryWindow(), true);
+          getInstance().getRefactorItWindow(), true);
 
       try {
         getInstance().getTabPane().setSelectedComponent((JComponent) category);
@@ -83,7 +83,7 @@ public class TabbedManager {
     return (JTabbedPane) dockableWindow.getHostedComponent();
   }
 
-  private RefactorItWindow getRefactoryWindow() {
+  private RefactorItWindow getRefactorItWindow() {
     return dockableWindow;
   }
 }

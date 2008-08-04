@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.jbuilder.vfs;
 
-
 import com.borland.jbuilder.node.JBProject;
 import com.borland.jbuilder.paths.ProjectPathSet;
 import com.borland.primetime.vfs.FileFilesystem;

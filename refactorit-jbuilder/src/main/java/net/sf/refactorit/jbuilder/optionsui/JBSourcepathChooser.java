@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.jbuilder.optionsui;
 
-
 import com.borland.primetime.vfs.Url;
 
 import javax.swing.JButton;
