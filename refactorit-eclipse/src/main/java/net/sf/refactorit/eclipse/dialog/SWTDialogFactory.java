@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.eclipse.dialog;
 
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.eclipse.RitPlugin;
 import net.sf.refactorit.ui.dialog.AWTContext;
@@ -16,7 +15,6 @@ import net.sf.refactorit.ui.dialog.RitDialog;
 import net.sf.refactorit.ui.dialog.RitDialogFactory;
 import net.sf.refactorit.ui.dialog.RitMenuItem;
 import net.sf.refactorit.ui.dialog.SwingDialog;
-import net.sf.refactorit.ui.dialog.SwingDialogFactory;
 import net.sf.refactorit.ui.module.IdeWindowContext;
 
 import org.eclipse.swt.SWT;
@@ -29,14 +27,14 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 import java.awt.Frame;
 import java.awt.HeadlessException;
 import java.awt.Point;
 import java.awt.Rectangle;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
-import javax.swing.SwingUtilities;
 
 
 /**

@@ -1,7 +1,9 @@
 <project name="RefactorIT for Eclipse" default="build" basedir=".">
 	<property file="${basedir}/build.properties"/>
 
-	<property name="app.version" value="2.7.beta"/>
+	<property name="app.version.major" value="2"/>
+	<property name="app.version.minor" value="7"/>
+	<property name="app.version.qualifier" value="beta"/>
 
 	<property name="projects.dir" value="${basedir}/.."/>
 
@@ -43,12 +45,14 @@
 		<tstamp/>
 
 		<tstamp>
-			<format property="build.date" pattern="ddMMyy"/>
+			<format property="app.version.micro" pattern="yyyyMMddHHmm"/>
 		</tstamp>
 
-		<tstamp>
-			<format property="build.time" pattern="yyyyMMddHHmm"/>
-		</tstamp>
+		<property name="app.version"
+			value="${app.version.major}.${app.version.minor}.${app.version.micro}.${app.version.qualifier}"/>
+
+		<property name="pkg.version"
+			value="${app.version.major}.${app.version.minor}.${app.version.qualifier}"/>
 
 		<mkdir dir="${build.dir}"/>
 	</target>
@@ -90,8 +94,8 @@
 				<include name="META-INF/MANIFEST.MF"/>
 			</fileset>
 			<filterset>
-				<filter token="VERSION" value="${app.version}"/>
-				<filter token="BUILDID" value="${build.time}"/>
+				<filter token="VERSION" value="${pkg.version}"/>
+				<filter token="BUILDID" value="${app.version}"/>
 			</filterset>
 		</copy>
 	</target>
@@ -107,7 +111,7 @@
 
 	<target name="dist" depends="jar"
 			description="Create RefactorIT for Eclipse distribution">
-		<property name="dist.name" value="refactorit-${app.version}-eclipse"/>
+		<property name="dist.name" value="refactorit-${pkg.version}-eclipse"/>
 
 		<delete dir="${build.dist.dir}/${dist.name}"/>
 
@@ -166,12 +170,18 @@
 				<include name="about.*"/>
 				<include name="plugin.*"/>
 			</fileset>
+			<filterset begintoken="0.0.0" endtoken="development">
+				<filter token="." value="${app.version}"/>
+			</filterset>
 		</copy>
 
 		<mkdir dir="${feature.dir}"/>
 
 		<copy todir="${feature.dir}">
 			<fileset dir="${src.feature.dir}" includes="**"/>
+			<filterset begintoken="0.0.0" endtoken="development">
+				<filter token="." value="${app.version}"/>
+			</filterset>
 		</copy>
 
 		<zip destfile="${build.dist.dir}/${dist.name}.zip"

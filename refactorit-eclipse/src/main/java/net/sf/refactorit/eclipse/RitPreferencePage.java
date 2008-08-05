@@ -8,20 +8,6 @@
  */
 package net.sf.refactorit.eclipse;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Panel;
-import java.util.Properties;
-
-import javax.swing.BorderFactory;
-import javax.swing.JRootPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.options.GlobalOptions;
 import net.sf.refactorit.ui.UIResources;
@@ -41,6 +27,19 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+import javax.swing.BorderFactory;
+import javax.swing.JRootPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Panel;
+import java.util.Properties;
 
 
 /**

@@ -8,14 +8,11 @@
  */
 package net.sf.refactorit.eclipse;
 
-
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.commonIDE.IDEController;
 import net.sf.refactorit.commonIDE.options.ProjectOptionsPanel;
 import net.sf.refactorit.ui.projectoptions.ProjectOptions;
-import net.sf.refactorit.vfs.ClassPath;
-import net.sf.refactorit.vfs.SourcePath;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
@@ -24,12 +21,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.dialogs.PropertyPage;
 
+import javax.swing.JRootPane;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Panel;
-
-import javax.swing.JRootPane;
 
 
 /**

@@ -8,13 +8,9 @@
  */
 package net.sf.refactorit.eclipse;
 
-import java.util.Dictionary;
-import java.io.File;
-
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.common.exception.SystemException;
 import net.sf.refactorit.common.util.AppRegistry;
-import net.sf.refactorit.common.util.CollectionUtil;
 import net.sf.refactorit.commonIDE.ActionRepository;
 import net.sf.refactorit.commonIDE.IDEController;
 import net.sf.refactorit.commonIDE.LoadingProperties;
@@ -39,6 +35,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.text.ITextSelection;
@@ -48,17 +45,13 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import org.eclipse.core.runtime.Platform;
-import org.osgi.framework.Bundle;
-import org.eclipse.ui.ide.IDE;
-import java.util.Enumeration;
-import java.util.Properties;
-import java.net.URL;
+import java.io.File;
 import java.io.InputStream;
+import java.net.URL;
+import java.util.Properties;
 
 
 public class EclipseController extends IDEController {

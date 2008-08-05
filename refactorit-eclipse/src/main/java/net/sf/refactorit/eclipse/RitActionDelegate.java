@@ -8,10 +8,8 @@
  */
 package net.sf.refactorit.eclipse;
 
-
 import net.sf.refactorit.classmodel.BinCIType;
 import net.sf.refactorit.classmodel.BinClass;
-import net.sf.refactorit.classmodel.BinPackage;
 import net.sf.refactorit.classmodel.BinSelection;
 import net.sf.refactorit.classmodel.CompilationUnit;
 import net.sf.refactorit.classmodel.Project;
@@ -74,7 +72,6 @@ import javax.swing.JOptionPane;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 
 /**

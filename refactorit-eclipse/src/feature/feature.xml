@@ -3,7 +3,7 @@
 <feature
       id="net.sf.refactorit"
       label="%featureName"
-      version="@VERSION@"
+      version="0.0.0.development"
       provider-name="%providerName">
 
    <description>
@@ -22,6 +22,6 @@
          id="net.sf.refactorit"
          download-size="0"
          install-size="0"
-         version="@VERSION@"/>
+         version="0.0.0.development"/>
 
 </feature>

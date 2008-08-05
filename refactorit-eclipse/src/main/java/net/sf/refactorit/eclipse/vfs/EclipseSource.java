@@ -8,8 +8,6 @@
  */
 package net.sf.refactorit.eclipse.vfs;
 
-
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.common.util.Assert;
 import net.sf.refactorit.common.util.FileCopier;
@@ -18,11 +16,20 @@ import net.sf.refactorit.vfs.Source;
 import net.sf.refactorit.vfs.SourceMap;
 
 import org.apache.log4j.Logger;
-import org.eclipse.core.resources.*;
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Arrays;
 
 

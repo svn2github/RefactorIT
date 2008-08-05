@@ -8,8 +8,6 @@
  */
 package net.sf.refactorit.eclipse;
 
-
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.eclipse.dialog.SWTContext;
 import net.sf.refactorit.ui.help.TopicDisplayer;
@@ -21,9 +19,6 @@ import org.eclipse.help.IContext;
 import org.eclipse.help.IHelpResource;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.help.WorkbenchHelp;
 
 

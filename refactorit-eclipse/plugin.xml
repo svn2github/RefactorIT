@@ -6,7 +6,7 @@
 <plugin
    id="net.sf.refactorit"
    name="RefactorIT"
-   version="2.6"
+   version="0.0.0.development"
    provider-name="Aqris Software AS"
    class="net.sf.refactorit.eclipse.RitPlugin">
 
