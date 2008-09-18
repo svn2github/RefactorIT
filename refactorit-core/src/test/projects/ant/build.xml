@@ -13,9 +13,9 @@
     <fileset dir="${dist.dir}" includes="**/*.jar"/>
   </path>
   
-  <taskdef name="assert" classname="test.xpdev.refactory.ant.Assertions">
+  <taskdef name="assert" classname="net.sf.refactorit.test.ant.Assertions">
     <classpath refid="ant.task.classpath"/></taskdef>
-  <taskdef name="RefactorIT" classname="com.xpdev.refactory.ant.RefactorIt">
+  <taskdef name="RefactorIT" classname="net.sf.refactorit.ant.RefactorIt">
     <classpath refid="ant.task.classpath"/></taskdef>
 
   <target name="alltests">

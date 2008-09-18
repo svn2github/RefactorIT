@@ -10,7 +10,7 @@
     <property name="refactorit.license" value="${basedir}/../../../refactorit.license"/>
 
     <!-- Defines the RefactorIT task -->
-    <taskdef name="RefactorIT" classname="com.xpdev.refactory.ant.RefactorIt">
+    <taskdef name="RefactorIT" classname="net.sf.refactorit.ant.RefactorIt">
         <classpath>
             <fileset dir="${refactorit.home}" includes="**/*.jar"/>
         </classpath>
