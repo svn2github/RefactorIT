@@ -14,8 +14,6 @@ import org.eclipse.swt.widgets.Shell;
 
 
 /**
- * 
- * 
  * @author Igor Malinin
  */
 public interface SWTContext extends WindowContext {

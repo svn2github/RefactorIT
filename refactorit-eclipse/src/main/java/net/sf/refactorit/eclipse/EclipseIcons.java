@@ -8,8 +8,6 @@
  */
 package net.sf.refactorit.eclipse;
 
-
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.ui.tree.NodeIcons;
 
@@ -24,7 +22,7 @@ import java.net.URL;
 
 
 /**
- * @author  Igor Malinin
+ * @author Igor Malinin
  */
 public class EclipseIcons extends NodeIcons {
   private static final Logger log = AppRegistry.getLogger(EclipseIcons.class);

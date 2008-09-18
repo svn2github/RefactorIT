@@ -12,15 +12,9 @@ import net.sf.refactorit.vfs.JavadocPath;
 
 
 /**
- * EclipseJavadocPath
- * 
- * @author <a href="mailto:tonis.vaga@aqris.com>Tõnis Vaga</a>
- * @version $Revision: 1.2 $ $Date: 2004/11/15 15:27:48 $
+ * @author Tõnis Vaga
  */
 public class EclipseJavadocPath extends JavadocPath {
-  /*
-   * @see net.sf.refactorit.vfs.JavadocPath#getElements()
-   */
   public String[] getElements() {
     return new String[0];
   }

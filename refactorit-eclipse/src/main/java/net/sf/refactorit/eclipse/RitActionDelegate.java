@@ -75,8 +75,6 @@ import java.util.Iterator;
 
 
 /**
- *
- *
  * @author Igor Malinin
  */
 public class RitActionDelegate
@@ -87,9 +85,6 @@ implements
 {
   private static final Logger log = AppRegistry.getLogger(RitActionDelegate.class);
 
-  /*
-   * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
-   */
   public void run(IAction action) {
     final String id = action.getActionDefinitionId();
 
@@ -99,8 +94,7 @@ implements
     ISelectionService service = window.getSelectionService();
     final ISelection selection = service.getSelection();
 
-    //final Point awtPoint = getCursorLocation();//new java.awt.Point(swtPoint.x, swtPoint.y);
-
+//    final Point awtPoint = getCursorLocation();//new java.awt.Point(swtPoint.x, swtPoint.y);
 
     // start in different thread than eclipse
     // interface thread to avoid deadlocks
@@ -420,33 +414,18 @@ implements
     return new BinSelection(source, null, offset, offset + length);
   }
 
-  /*
-   * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction,org.eclipse.jface.viewers.ISelection)
-   */
   public void selectionChanged(IAction action, ISelection selection) {
   }
 
-  /*
-   * @see org.eclipse.ui.IEditorActionDelegate#setActiveEditor(org.eclipse.jface.action.IAction,org.eclipse.ui.IEditorPart)
-   */
   public void setActiveEditor(IAction action, IEditorPart targetEditor) {
   }
 
-  /*
-   * @see org.eclipse.ui.IObjectActionDelegate#setActivePart(org.eclipse.jface.action.IAction, org.eclipse.ui.IWorkbenchPart)
-   */
   public void setActivePart(IAction action, IWorkbenchPart targetPart) {
   }
 
-  /*
-   * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
-   */
   public void dispose() {
   }
 
-  /*
-   * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
-   */
   public void init(IWorkbenchWindow window) {
   }
 }

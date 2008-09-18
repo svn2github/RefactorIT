@@ -8,46 +8,45 @@
  */
 package net.sf.refactorit.eclipse;
 
-
-
 import net.sf.refactorit.common.util.Assert;
 import net.sf.refactorit.ui.projectoptions.ProjectOptions;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IPath;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
+
 
 /**
  * EclipseProjectOptions
  * 
- * @author <a href="mailto:tonis.vaga@aqris.com>Tõnis Vaga </a>
+ * @author Tõnis Vaga
  * @author Jevgeni Holodkov
- * @version $Revision: 1.7 $ $Date: 2006/02/28 07:44:29 $
  */
 public class EclipseProjectOptions extends ProjectOptions {
+  private static final String RIT_QUALIFIER = "net.sf.refactorit";  
 
-  private static final String RIT_QUALIFIER = "com.refactorit";  
   private Properties properties;
   private File propertiesFile;
 
-  /**
-   * 
-   * @param file or null
-   * @throws IOException if file doesn't exist
-   */
   public EclipseProjectOptions(IProject project) {
     Assert.must( project != null && project.exists());
     
     IPath location = project.getLocation();
-    if(location == null) {
+    if (location == null) {
       // cannot happen with the project resources
-      throw new RuntimeException("Project [" + project.getName() + "] location cannot be determined, cannot continue.");
+      throw new RuntimeException("Project [" + project.getName() + "]" +
+      		" location cannot be determined, cannot continue.");
     }
-    
+
     IPath directoryPath = location.append(".settings");
-    
+
     IPath filePath = directoryPath.append(RIT_QUALIFIER + ".prefs");
     File file = filePath.toFile();
 
@@ -55,45 +54,45 @@ public class EclipseProjectOptions extends ProjectOptions {
       directoryPath.toFile().mkdir();
     } catch (SecurityException e) {
       throw new RuntimeException(
-              "Error occured while loading the project settings file: directory '" + 
-              directoryPath + "' cannot be created because of: " + e);
+          "Error occured while loading the project settings file: directory '" + 
+          directoryPath + "' cannot be created because of: " + e);
     }
-      
-    this.propertiesFile=file;
-    if(file.exists()) {
+
+    this.propertiesFile = file;
+
+    if (file.exists()) {
         try {
-          
-          this.properties=load(file);
+          this.properties = load(file);
         } catch (IOException e) {
-        throw new RuntimeException(
-                "Error occured while loading the project settings file ["
-                        + file.toString() + "]: " + e.getMessage());
+          throw new RuntimeException(
+              "Error occured while loading the project settings file" +
+              " [" + file.toString() + "]: " + e.getMessage());
       }
     } else {
-      this.properties=new Properties();
+      this.properties = new Properties();
     } 
   }
+
   private static Properties load(File file) throws IOException {
-    Properties result=new Properties();
+    Properties result = new Properties();
     InputStream input = null;
-    
+
     Assert.must(file.exists());
-    
+
     try {
-      input= new FileInputStream(file);
-      result=new Properties();
+      input = new FileInputStream(file);
+
+      result = new Properties();
       result.load(input) ;
     } finally {
       // Perform CleanUp
       if (input != null) {
         input.close();
       }
-      
     } 
     
     return result;
   }
-
 
   public void set(String propertyName, String value) {
     properties.put(propertyName, value);
@@ -120,12 +119,13 @@ public class EclipseProjectOptions extends ProjectOptions {
   
   public void serialize() {
     super.serialize();
+
     try {
       store();
     } catch (IOException e) {
-        throw new RuntimeException("Error occured while saving the project settings file: " + e.getMessage());
+        throw new RuntimeException(
+            "Error occured while saving the project settings file: " +
+            e.getMessage());
     }
   }
-
-
 }

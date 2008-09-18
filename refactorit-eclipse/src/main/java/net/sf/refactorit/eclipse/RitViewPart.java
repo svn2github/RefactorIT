@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.eclipse;
 
-
 import net.sf.refactorit.common.util.AppRegistry;
 
 import org.eclipse.swt.SWT;
@@ -18,16 +17,17 @@ import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Frame;
 import java.awt.Panel;
-import javax.swing.JComponent;
-import javax.swing.JRootPane;
 
 
 public class RitViewPart extends ViewPart {
-  public static final String ID = "com.refactorit.RitViewPart";
+  public static final String ID = "net.sf.refactorit.RitViewPart";
 
   private static final int EMBEDDED_STYLE = SWT.NO_BACKGROUND | SWT.EMBEDDED;
 
@@ -52,37 +52,29 @@ public class RitViewPart extends ViewPart {
    */
   private JComponent component;
 
-
   // ==================== View Initialization ====================
 
-  /*
-   * @see org.eclipse.ui.part.ViewPart#init(org.eclipse.ui.IViewSite, org.eclipse.ui.IMemento)
-   */
   public void init(IViewSite site) throws PartInitException {
     super.init(site);
 
     setPartName(site.getSecondaryId());
   }
 
-  /*
-   * @see org.eclipse.ui.IWorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
-   */
   public void createPartControl(Composite parent) {
     composite = new Composite(parent, EMBEDDED_STYLE);
+
     try {
       Frame frame = SWT_AWT.new_Frame(composite);
       frame.add(embedded);
+
+      embedded.add(root);
     } catch (Exception e) {
       AppRegistry.getExceptionLogger().error(e, this);
+
       RitPlugin.showSwtAwtErrorMessage();
-      return;
     }
-    embedded.add(root);
   }
 
-  /*
-   * @see org.eclipse.ui.IWorkbenchPart#setFocus()
-   */
 	public void setFocus() {
     composite.setFocus();
 	}

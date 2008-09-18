@@ -46,9 +46,6 @@ public class SWTDialogFactory implements RitDialogFactory {
     Frame frame;
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialogFactory#createDialog(net.sf.refactorit.ui.module.RefactorItContext)
-   */
   public RitDialog createDialog(IdeWindowContext context) {
     if (context instanceof SWTContext) {
       return new SWTDialog(context);
@@ -57,9 +54,6 @@ public class SWTDialogFactory implements RitDialogFactory {
     return new SwingDialog(context);
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialogFactory#createDialog(net.sf.refactorit.ui.module.RefactorItContext, javax.swing.JOptionPane)
-   */
   public RitDialog createDialog(IdeWindowContext context, JOptionPane pane) {
     if (context instanceof SWTContext) {
       return new SWTDialog(context, pane);
@@ -68,9 +62,6 @@ public class SWTDialogFactory implements RitDialogFactory {
     return new SwingDialog(context, pane);
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialogFactory#showFileDialog(net.sf.refactorit.ui.module.RefactorItContext, javax.swing.JFileChooser)
-   */
   public int showFileDialog(IdeWindowContext context, JFileChooser chooser) {
     if (context instanceof SWTContext) {
       return showFileDialog((SWTContext) context, chooser);
@@ -143,9 +134,6 @@ public class SWTDialogFactory implements RitDialogFactory {
     return chooser.showDialog(frame, null);
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialogFactory#showInputDialog(net.sf.refactorit.ui.module.RefactorItContext, java.lang.Object, java.lang.String, int, java.lang.Object[], java.lang.Object)
-   */
   public Object showInputDialog(
       IdeWindowContext context, Object message, String title,
       int messageType, Object[] selectionValues, Object initialSelectionValue
@@ -173,91 +161,93 @@ public class SWTDialogFactory implements RitDialogFactory {
     Object value = pane.getInputValue();
 
     if (value == JOptionPane.UNINITIALIZED_VALUE) {
-        return null;
+      return null;
     }
 
     return value;
   }
 
-
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialogFactory#showOptionDialog(net.sf.refactorit.ui.module.RefactorItContext, java.lang.Object, java.lang.String, int, int, javax.swing.Icon, java.lang.Object[], java.lang.Object)
-   */
   public int showOptionDialog(
       IdeWindowContext context, Object message, String title,
       int optionType, int messageType, Object[] options, Object initialValue
   ) throws HeadlessException {
-      JOptionPane pane = new JOptionPane(
-          message, messageType, optionType, null, options, initialValue);
+    JOptionPane pane = new JOptionPane(
+        message, messageType, optionType, null, options, initialValue);
 
-      pane.setInitialValue(initialValue);
+    pane.setInitialValue(initialValue);
 
 // REVISIT
 //      pane.setComponentOrientation(
 //          ((parentComponent == null) ? getRootFrame() : parentComponent)
 //              .getComponentOrientation());
 
-      RitDialog dialog = RitDialog.create(context, pane);
+    RitDialog dialog = RitDialog.create(context, pane);
 
-      pane.selectInitialValue();
+    pane.selectInitialValue();
 
-      dialog.show();
+    dialog.show();
 //      dialog.dispose();
 
-      Object selectedValue = pane.getValue();
+    Object selectedValue = pane.getValue();
 
-      if (selectedValue == null) {
-          return JOptionPane.CLOSED_OPTION;
-      }
+    if (selectedValue == null) {
+      return JOptionPane.CLOSED_OPTION;
+    }
 
-      if (options == null) {
-          if (selectedValue instanceof Integer) {
-              return ((Integer)selectedValue).intValue();
-          }
-
-          return JOptionPane.CLOSED_OPTION;
-      }
-
-      for (int counter = 0; counter < options.length; counter++) {
-          if (options[counter].equals(selectedValue)) {
-              return counter;
-          }
+    if (options == null) {
+      if (selectedValue instanceof Integer) {
+        return ((Integer)selectedValue).intValue();
       }
 
       return JOptionPane.CLOSED_OPTION;
+    }
+
+    for (int counter = 0; counter < options.length; counter++) {
+      if (options[counter].equals(selectedValue)) {
+        return counter;
+      }
+    }
+
+    return JOptionPane.CLOSED_OPTION;
   }
 
-
-  public void showPopupMenu(IdeWindowContext context, final RitMenuItem[] items, boolean showSingleItemMenu) {
-    if(!showSingleItemMenu && items.length == 1) {
+  public void showPopupMenu(IdeWindowContext context,
+      final RitMenuItem[] items, boolean showSingleItemMenu) {
+    if (!showSingleItemMenu && items.length == 1) {
       items[0].runAction();
       return;
     }
     
     final Point point = context.getPoint();
     final Shell shell = ((SWTContext) context).getShell();
+
     final Display display = shell.getDisplay();
     
     display.syncExec(new Runnable() {
-    
       public void run() {
-        Menu menu = new Menu (shell, SWT.POP_UP);
-        for(int i = 0; i < items.length; i++) {
+        Menu menu = new Menu(shell, SWT.POP_UP);
+
+        for (int i = 0; i < items.length; i++) {
           final RitMenuItem ritItem = items[i];
-          MenuItem item = new MenuItem (menu, SWT.PUSH);
-          item.setText (ritItem.getText());
-          item.addListener (SWT.Selection, new Listener () {
-            public void handleEvent (Event e) {
+
+          MenuItem item = new MenuItem(menu, SWT.PUSH);
+          item.setText(ritItem.getText());
+
+          item.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event e) {
               ritItem.runAction();
             }
           });
         }
-        menu.setLocation (point.x, point.y);
-        menu.setVisible (true);
-        while (!menu.isDisposed () && menu.isVisible ()) {
-          if (!display.readAndDispatch ()) display.sleep ();
+
+        menu.setLocation(point.x, point.y);
+        menu.setVisible(true);
+
+        while (!menu.isDisposed() && menu.isVisible()) {
+          if (!display.readAndDispatch()) display.sleep();
         }
-        menu.dispose ();
+
+        menu.dispose();
       }
     });
   }

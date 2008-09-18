@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.eclipse.dialog;
 
-
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.eclipse.RitPlugin;
 import net.sf.refactorit.ui.dialog.RitDialog;
@@ -22,20 +21,19 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 
 /**
- *
- *
  * @author Igor Malinin
  */
 public class SWTDialog extends RitDialog {
@@ -43,7 +41,6 @@ public class SWTDialog extends RitDialog {
 
   Shell shadowShell;
   Frame shadowFrame;
-
 
   // ===== RitDialog Construction
 
@@ -55,23 +52,21 @@ public class SWTDialog extends RitDialog {
     super(owner, pane);
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialog#createDialogInstance()
-   */
   protected JDialog createDialogInstance() {
     createShadow();
+
     JDialog dialog = createDialogInstance(shadowFrame);
     attachShadow(dialog);
+
     return dialog;
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialog#createDialogInstance(javax.swing.JOptionPane)
-   */
   protected JDialog createDialogInstance(JOptionPane pane) {
     createShadow();
+
     JDialog dialog = createDialogInstance(shadowFrame, pane);
     attachShadow(dialog);
+
     return dialog;
   }
 
@@ -101,34 +96,22 @@ public class SWTDialog extends RitDialog {
 
   private void attachShadow(JDialog dialog) {
     dialog.addWindowListener(new WindowAdapter() {
-      /*
-       * @see java.awt.event.WindowListener#windowClosed(java.awt.event.WindowEvent)
-       */
       public void windowClosed(WindowEvent e) {
         disposed();
       }
     });
 
     dialog.addComponentListener(new ComponentAdapter() {
-      /*
-       * @see java.awt.event.ComponentAdapter#componentShown(java.awt.event.ComponentEvent)
-       */
       public void componentShown(ComponentEvent e) {
         componentMoved(e);
         componentResized(e);
       }
 
-      /*
-       * @see java.awt.event.ComponentAdapter#componentMoved(java.awt.event.ComponentEvent)
-       */
       public void componentMoved(ComponentEvent e) {
         Component c = e.getComponent();
         moved(c.getX(), c.getY());
       }
 
-      /*
-       * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.ComponentEvent)
-       */
       public void componentResized(ComponentEvent e) {
         Component c = e.getComponent();
         setSize(c.getWidth(), c.getHeight());
@@ -136,12 +119,8 @@ public class SWTDialog extends RitDialog {
     });
   }
 
-
   // ===== Public RitDialog interface
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialog#show()
-   */
   public void show() {
     if (shadowShell == null) {
       throw new IllegalStateException("The dialog is disposed already!");
@@ -183,20 +162,18 @@ public class SWTDialog extends RitDialog {
     dialog.dispose();
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.RitDialog#dispose()
-   */
   public void dispose() {
     if (shadowShell == null) {
-      IllegalStateException exception = new IllegalStateException();
       Logger log = AppRegistry.getLogger(SWTDialog.class);
-      log.error("The dialog was disposed already!", exception);
+
+      log.error("The dialog was disposed already!",
+          new IllegalStateException());
+
       return;
     }
 
     dialog.dispose();
   }
-
 
   // ===== Shadow synchronization events
 
@@ -205,24 +182,25 @@ public class SWTDialog extends RitDialog {
       return; // fix bug with double windowClosed() event
     }
 
-    shadowFrame = null;
+    final Shell shell = shadowShell;
 
-    getDisplay().syncExec(new Runnable() {
+    shadowFrame = null;
+    shadowShell = null;
+
+    getDisplay().asyncExec(new Runnable() {
       public void run() {
-        shadowShell.dispose();
-        shadowShell = null;
+        shell.dispose();
       }
     });
   }
 
   void moved(final int x, final int y) {
-    getDisplay().syncExec(new Runnable() {
+    getDisplay().asyncExec(new Runnable() {
       public void run() {
         shadowShell.setLocation(x, y);
       }
     });
   }
-
 
   // ===== Access to SWT context internals
 

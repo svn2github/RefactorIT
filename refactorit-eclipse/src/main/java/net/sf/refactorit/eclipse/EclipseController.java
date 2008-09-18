@@ -57,9 +57,6 @@ import java.util.Properties;
 public class EclipseController extends IDEController {
   static final Logger log = AppRegistry.getLogger(EclipseController.class);
 
-  /**
-   * @see net.sf.refactorit.commonIDE.IDEController#onProjectChanged(net.sf.refactorit.classmodel.Project)
-   */
   protected void onProjectChanged(Project oldProject) {
     super.onProjectChanged(oldProject);
 
@@ -153,16 +150,13 @@ public class EclipseController extends IDEController {
 
     if (project != null && !JavaCore.create(project).exists()) {
       log.debug(project.getName() + " isn't java project");
+
       return null;
     }
 
     return project;
   }
 
-
-  /*
-   * @see net.sf.refactorit.commonIDE.IDEController#getActionRepository()
-   */
   public ActionRepository getActionRepository() {
     if (actionRep == null) {
       actionRep = new EclipseActionRepository();
@@ -173,18 +167,17 @@ public class EclipseController extends IDEController {
 
   /**
    * Returns absolute file path for using with {@link java.io.File}
-   *
-   * @see net.sf.refactorit.commonIDE.IDEController#getCachePathForActiveProject(Object)
    */
   protected Object getCachePathForActiveProject(Object ideProject) {
     IProject project = (IProject) getActiveProjectFromIDE();
-    if(project == null) {
+    if (project == null) {
       // may happen if project active project is not java project
       return null;
     } else {
 	    IPath root = project.getWorkingLocation(RitPlugin.getId());
 
 	    String result = root.toOSString() + File.separator + "cache";
+
 	    log.debug("getCachePath returned " + result);
 
 	    return result;
@@ -200,11 +193,9 @@ public class EclipseController extends IDEController {
     return null;
   }
 
-  /*
-   * @see net.sf.refactorit.commonIDE.IDEController#getIdeInfo()
-   */
   public void getIdeInfo() {
     setIdeName("Eclipse");
+
     try {
       setIdeVersion(
           Platform.getBundle("org.eclipse.jdt.ui").getHeaders().get(
@@ -213,8 +204,11 @@ public class EclipseController extends IDEController {
       AppRegistry.getExceptionLogger().error(e,
           "Couldn't get Eclipse version", this.getClass());
     }
+
     try {
-      URL url = Platform.getBundle("org.eclipse.jdt").getResource("about.mappings");
+      URL url = Platform.getBundle("org.eclipse.jdt")
+          .getResource("about.mappings");
+
       Properties prop = new Properties();
       InputStream in = url.openStream();
       try {
@@ -222,6 +216,7 @@ public class EclipseController extends IDEController {
       } finally {
         in.close();
       }
+
       setIdeBuild(prop.getProperty("0"));
     } catch (Exception e) {
       AppRegistry.getExceptionLogger().error(e,
@@ -229,9 +224,6 @@ public class EclipseController extends IDEController {
     }
   }
 
-  /*
-   * @see net.sf.refactorit.commonIDE.IDEController#saveAllFiles()
-   */
   public boolean saveAllFiles() {
     try {
       final IWorkbench workbench = PlatformUI.getWorkbench();
@@ -249,13 +241,10 @@ public class EclipseController extends IDEController {
     }
   }
 
-  /*
-   * @see net.sf.refactorit.commonIDE.IDEController#createNewProjectFromIdeProject(java.lang.Object)
-   */
   protected Project createNewProjectFromIdeProject(Object ideProject) {
     IProject eclipseProject = (IProject) ideProject;
 
-    if ( eclipseProject == null) {
+    if (eclipseProject == null) {
       log.debug("Ide project == null");
       return null;
     }
@@ -267,8 +256,7 @@ public class EclipseController extends IDEController {
       return null;
     }
 
-
-    // Todo: implement javadoc path
+    // TODO: implement javadoc path
 
     EclipseProjectOptions projectOptions = new EclipseProjectOptions(eclipseProject);
 
@@ -277,7 +265,7 @@ public class EclipseController extends IDEController {
 
     final EclipseClassPath classpath = new EclipseClassPath(eclipseProject, projectOptions);
 
-    //classpath.setSettings(projectSettings);
+//    classpath.setSettings(projectSettings);
 
     newProject = new Project(eclipseProject.getName(), srcPath, classpath, new EclipseJavadocPath());
 
@@ -288,8 +276,8 @@ public class EclipseController extends IDEController {
       }
     });
 
-    // todo: implement writer
-    //newProject.setWriter();
+    // TODO: implement writer
+//    newProject.setWriter();
 
     newProject.setCachePath(getCachePathForActiveProject(ideProject));
 
@@ -306,16 +294,16 @@ public class EclipseController extends IDEController {
       public void run() {
         IWorkbenchWindow window = workbench.getActiveWorkbenchWindow();
 
-        //IWorkbenchPart activePart = window.getActivePage().getActivePart();
+//        IWorkbenchPart activePart = window.getActivePage().getActivePart();
         IEditorPart editor = window.getActivePage().getActiveEditor();
 
-        //        if (activePart instanceof IEditorPart) {
-        //          IEditorPart editor = (IEditorPart) activePart;
+//         if (activePart instanceof IEditorPart) {
+//           IEditorPart editor = (IEditorPart) activePart;
 
         if (editor.getEditorInput() instanceof IFileEditorInput) {
           file[0] = ((IFileEditorInput) editor.getEditorInput()).getFile();
         }
-        //}
+//        }
       }
     });
 
@@ -323,20 +311,21 @@ public class EclipseController extends IDEController {
   }
 
   /**
-   * TODO: currently locks entire workspace for writing, should do more intelligently, for sources and project maybe?
-   *
-   * @see net.sf.refactorit.commonIDE.IDEController#run(net.sf.refactorit.commonIDE.SourcesModificationOperation)
+   * TODO: currently locks entire workspace for writing,
+   * should do more intelligently, for sources and project maybe?
    */
   public void run(final SourcesModificationOperation op) {
     try {
       iWorkspace.run(new IWorkspaceRunnable() {
         public void run(IProgressMonitor monitor) {
           log.debug("executing sources modification operation");
+
           op.run();
         }
       }, iWorkspace.getRoot(), IWorkspace.AVOID_UPDATE, null);
     } catch (CoreException e) {
       log.error(e);
+
       throw new SystemException(ErrorCodes.ECLIPSE_INTERNAL_ERROR, e);
     }
   }

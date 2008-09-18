@@ -8,10 +8,6 @@
  */
 package net.sf.refactorit.eclipse;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Set;
-
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.common.util.BidirectionalMap;
 import net.sf.refactorit.commonIDE.Workspace;
@@ -23,20 +19,26 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 
 public class EclipseWorkspaceManager extends WorkspaceManager {
   private static WorkspaceManager manager;
 
-  private EclipseWorkspaceManager() {}
+  private EclipseWorkspaceManager() {
+    // singleton
+  }
 
   protected Object getIdeProject(String projectIdent) {
     return getWorkspace().getIdeProjects().getValueByKey(projectIdent);
   }
 
   public static WorkspaceManager getInstance() {
-    if(manager == null) {
+    if (manager == null) {
       manager = new EclipseWorkspaceManager();
     }
 
@@ -44,9 +46,10 @@ public class EclipseWorkspaceManager extends WorkspaceManager {
   }
 
   public Workspace getWorkspace() {
-    if(workspace == null) {
+    if (workspace == null) {
       workspace = new EclipseWorkspace(this);
     }
+
     return workspace;
   }
 
@@ -63,7 +66,7 @@ public class EclipseWorkspaceManager extends WorkspaceManager {
     Set ideProjectSet = ideProjects.getValueSetCopy();
     ArrayList referencedProjects = new ArrayList(3);
 
-    for(Iterator it = ideProjectSet.iterator(); it.hasNext(); ) {
+    for (Iterator it = ideProjectSet.iterator(); it.hasNext(); ) {
       IProject ideProject = (IProject)it.next();
       
       if (hasJavaNature(ideProject)) {
@@ -71,6 +74,7 @@ public class EclipseWorkspaceManager extends WorkspaceManager {
         IJavaProject javaProject = JavaCore.create(ideProject);
         try {
           String[] requiredProjectKeys = javaProject.getRequiredProjectNames();
+
           if (Arrays.asList(requiredProjectKeys).contains(projectIdentificator)) {
             referencedProjects.add(getWorkspace().getProject(ideProject));
           }
@@ -87,24 +91,32 @@ public class EclipseWorkspaceManager extends WorkspaceManager {
   public List getDependsOnProjects(Object projectIdentificator) {
     BidirectionalMap ideProjects = getWorkspace().getIdeProjects();
     IProject project = (IProject)ideProjects.getValueByKey(projectIdentificator);
-    ArrayList dependentProjects = new ArrayList(3);
+
     if (project == null) {
       throw new RuntimeException("Specified project (" + projectIdentificator
           + ") cannot be located");
     }
+
+    ArrayList dependentProjects = new ArrayList(3);
+
     try {
       IJavaProject javaProject = JavaCore.create(project);
       String[] requiredProjectKeys = javaProject.getRequiredProjectNames();
-      for(int i = 0; i < requiredProjectKeys.length; i++) {
-        Object candidateProject = ideProjects.getValueByKey(requiredProjectKeys[i]);
-        if(candidateProject == null) {
+
+      for (int i = 0; i < requiredProjectKeys.length; i++) {
+        Object candidateProject =
+          ideProjects.getValueByKey(requiredProjectKeys[i]);
+
+        if (candidateProject == null) {
           continue;
         }
+
         dependentProjects.add(getWorkspace().getProject(candidateProject));
       }
     } catch (JavaModelException e) {
       e.printStackTrace();
     }
+
     return dependentProjects;
   }
   
@@ -114,6 +126,7 @@ public class EclipseWorkspaceManager extends WorkspaceManager {
     } catch (CoreException e) {
       // project does not exist or is not open
     }
+
     return false;
   }
 }

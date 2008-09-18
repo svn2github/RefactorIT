@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.eclipse.vfs;
 
-
 import net.sf.refactorit.common.exception.SystemException;
 import net.sf.refactorit.common.util.AppRegistry;
 import net.sf.refactorit.common.util.Assert;
@@ -41,14 +40,11 @@ import java.util.List;
 
 
 /**
- * EclipseSourcePath
- *
  * TODO: Implement required project dependencies
  * TODO: overlook getAllSources and getFileChangeMonitor performance
  *       and improve using eclipse API when needed.
  *
- * @author <a href="mailto:tonis.vaga@aqris.com>Tonis Vaga</a>
- * @version $Revision: 1.35 $ $Date: 2005/12/09 12:02:59 $
+ * @author Tonis Vaga
  */
 public class EclipseSourcePath extends AbstractSourcePath {
   private static final Logger log = Logger.getLogger(EclipseSourcePath.class);
@@ -65,17 +61,13 @@ public class EclipseSourcePath extends AbstractSourcePath {
   }
 
   /**
-   * Currently we support customized sourcepath only inside autodetected sourcepath
-   *
-   * @see net.sf.refactorit.vfs.SourcePath#getPossibleRootSources()
+   * Currently we support customized sourcepath only inside
+   * autodetected sourcepath
    */
   public Source[] getPossibleRootSources() {
     return getAutodetectedElements();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.SourcePath#getRootSources()
-   */
   public Source[] getRootSources() {
     if (project == null || !project.isOpen()) {
       return Source.NO_SOURCES;

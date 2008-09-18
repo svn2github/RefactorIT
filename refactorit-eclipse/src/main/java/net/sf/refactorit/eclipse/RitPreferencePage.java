@@ -43,8 +43,6 @@ import java.util.Properties;
 
 
 /**
- *
- *
  * @author Igor Malinin
  */
 public class RitPreferencePage extends PreferencePage
@@ -117,9 +115,6 @@ implements IWorkbenchPreferencePage {
     notifyTabSelected(0);
   }
 
-  /*
-   * @see org.eclipse.jface.preference.PreferencePage#createContents(org.eclipse.swt.widgets.Composite)
-   */
   protected Control createContents(Composite parent) {
     composite = new Composite(parent, EMBEDDED_STYLE);
 
@@ -161,9 +156,6 @@ implements IWorkbenchPreferencePage {
     setMessage(MESSAGE_PREFIX + tabs.getTitleAt(index));
   }
 
-  /*
-   * @see org.eclipse.jface.preference.PreferencePage#performDefaults()
-   */
   protected void performDefaults() {
     int selected = tabs.getSelectedIndex();
     OptionsTab tab = VIEW_OPTIONS.getTab(selected);
@@ -190,13 +182,11 @@ implements IWorkbenchPreferencePage {
     tabs.setSelectedIndex(selected);
   }
 
-  /*
-   * @see org.eclipse.jface.preference.IPreferencePage#performOk()
-   */
   public boolean performOk() {
     GlobalOptions.setProperties(properties);
     GlobalOptions.fireOptionsChanged();
     GlobalOptions.save();
+
     return true;
   }
 }

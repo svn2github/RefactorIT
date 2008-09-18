@@ -34,10 +34,7 @@ import java.util.Arrays;
 
 
 /**
- * EclipseSource
- *
- * @author <a href="mailto:tonis.vaga@aqris.com>Tõnis Vaga </a>
- * @version $Revision: 1.53 $ $Date: 2005/12/09 12:02:59 $
+ * @author Tõnis Vaga
  */
 public class EclipseSource extends AbstractSource {
   private static final Logger log = AppRegistry.getLogger(EclipseSource.class);
@@ -97,16 +94,10 @@ public class EclipseSource extends AbstractSource {
     return resource;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#exists()
-   */
   public boolean exists() {
     return resource.exists();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getParent()
-   */
   public Source getParent() {
     IContainer parent = resource.getParent();
     if (!(parent instanceof IFolder || parent instanceof IProject) || !parent.exists()) {
@@ -119,9 +110,6 @@ public class EclipseSource extends AbstractSource {
     return identifier;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getChild(java.lang.String)
-   */
   public Source getChild(String path) {
     if (!isDirectory()) {
       return null;
@@ -161,16 +149,10 @@ public class EclipseSource extends AbstractSource {
     return null;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getName()
-   */
   public String getName() {
     return resource.getName();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getAbsolutePath()
-   */
   public String getAbsolutePath() {
     IPath absolutePath = resource.getLocation();
     if (absolutePath == null) {
@@ -187,32 +169,19 @@ public class EclipseSource extends AbstractSource {
     return absolutePath.toString();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#canWrite()
-   */
   public boolean canWrite() {
     return !resource.isReadOnly();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#startEdit()
-   */
   public boolean startEdit() {
     return canWrite();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#lastModified()
-   */
   public long lastModified() {
     return resource.getLocalTimeStamp();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#setLastModified(long)
-   *
-   * FIXME sometimes doesn't work, like in project rebuild tests
-   */
+  // FIXME sometimes doesn't work, like in project rebuild tests
   public boolean setLastModified(long time) {
     try {
       if (resource.setLocalTimeStamp(time) != time) {
@@ -226,38 +195,28 @@ public class EclipseSource extends AbstractSource {
     }
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#length()
-   */
   public long length() {
     if (!isFile()) {
       return 0;
     }
+
     // FIXME: find better way to do it
     return getFileOrNull().length();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#isFile()
-   */
   public boolean isFile() {
     return resource instanceof IFile;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#isDirectory()
-   */
   public boolean isDirectory() {
     return resource instanceof IFolder || resource instanceof IProject;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getInputStream()
-   */
   public InputStream getInputStream() throws IOException {
     if (!isFile()) {
       return null;
     }
+
     try {
       return ((IFile) resource).getContents(true);
     } catch (CoreException e) {
@@ -271,9 +230,6 @@ public class EclipseSource extends AbstractSource {
       super(Source.DEFAULT_BUFFER_SIZE);
     }
 
-    /*
-     * @see java.io.OutputStream#close()
-     */
     public void close() throws IOException {
       IFile file = (IFile) resource;
 
@@ -327,16 +283,10 @@ public class EclipseSource extends AbstractSource {
     }
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getOutputStream()
-   */
   public OutputStream getOutputStream() {
     return new EclipseOuputStream();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#delete()
-   */
   public boolean delete() {
     if (isDirectory()) {
       if (!isDirEmpty()) {
@@ -346,7 +296,6 @@ public class EclipseSource extends AbstractSource {
     }
 
     try {
-
       resource.delete(true, null);
 
       if (log.isDebugEnabled()) {
@@ -362,9 +311,6 @@ public class EclipseSource extends AbstractSource {
     }
   }
 
-  /**
-   * @returns
-   */
   private boolean isDirEmpty() {
     Source children[] = getChildren();
 
@@ -377,9 +323,6 @@ public class EclipseSource extends AbstractSource {
     return true;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getChildren()
-   */
   public Source[] getChildren() {
     if (!isDirectory()) {
       return Source.NO_SOURCES;
@@ -406,9 +349,6 @@ public class EclipseSource extends AbstractSource {
     return (IContainer) resource;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#mkdir(java.lang.String)
-   */
   public Source mkdir(String name) {
     if (!isDirectory()) {
       return null;
@@ -433,9 +373,6 @@ public class EclipseSource extends AbstractSource {
   }
 
   /**
-   *
-   * @param resource
-   * @param name
    * @return subfolder in current directory
    */
   private static IFolder getFolder(IResource resource, String name) {
@@ -450,9 +387,6 @@ public class EclipseSource extends AbstractSource {
     return null;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#createNewFile(java.lang.String)
-   */
   public Source createNewFile(String name) {
     if (!isDirectory()) {
       return null;
@@ -482,9 +416,6 @@ public class EclipseSource extends AbstractSource {
     return getSource(file);
   }
 
-  /*s
-   * @see net.sf.refactorit.vfs.Source#renameTo(net.sf.refactorit.vfs.Source,java.lang.String)
-   */
   public Source renameTo(Source dir, String name) {
     if (!dir.isDirectory()) {
       log.warn("renameTo called on file " + dir.getAbsolutePath());
@@ -527,16 +458,10 @@ public class EclipseSource extends AbstractSource {
     }
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getFileOrNull()
-   */
   public File getFileOrNull() {
     return resource.getLocation().toFile();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getContent()
-   */
   public byte[] getContent() throws IOException {
     if (!isFile()) {
       return null;
@@ -554,42 +479,25 @@ public class EclipseSource extends AbstractSource {
     return output.toByteArray();
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#renameFormFileIfExists(java.lang.String,java.lang.String)
-   */
   public void renameFormFileIfExists(String oldName, String newName) {
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#moveFormFileIfExists(net.sf.refactorit.vfs.Source)
-   */
   public void moveFormFileIfExists(Source destination) {
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#shouldSupportVcsInFilesystem()
-   */
   public boolean shouldSupportVcsInFilesystem() {
     return false;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#inVcs()
-   */
   public boolean inVcs() {
     return false;
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.Source#getSeparatorChar()
-   */
   public char getSeparatorChar() {
     return '/';
   }
 
   private static final Object getIdentifier(final IResource resource) {
-    String id = resource.getFullPath().toString();
-
-    return id;
+    return resource.getFullPath().toString();
   }
 }

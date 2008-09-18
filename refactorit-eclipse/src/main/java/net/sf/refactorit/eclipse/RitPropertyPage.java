@@ -30,8 +30,6 @@ import java.awt.Panel;
 
 
 /**
- *
- *
  * @author Igor Malinin
  */
 public class RitPropertyPage extends PropertyPage {
@@ -70,9 +68,6 @@ public class RitPropertyPage extends PropertyPage {
     noDefaultAndApplyButton();
   }
 
-  /*
-   * @see org.eclipse.jface.preference.PreferencePage#createContents(org.eclipse.swt.widgets.Composite)
-   */
   protected Control createContents(Composite parent) {
     composite = new Composite(parent, EMBEDDED_STYLE);
 
@@ -101,9 +96,6 @@ public class RitPropertyPage extends PropertyPage {
     return composite;
   }
 
-  /*
-   * @see org.eclipse.jface.preference.IPreferencePage#performOk()
-   */
   public boolean performOk() {
     panel.updateSettings();
     ProjectOptions options = project.getOptions();

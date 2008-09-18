@@ -19,8 +19,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 
 
 public class EclipseWorkspace extends AbstractWorkspace {
-
-  
   public EclipseWorkspace(WorkspaceManager manager) {
     super(manager);
   }
@@ -55,26 +53,32 @@ public class EclipseWorkspace extends AbstractWorkspace {
 
   public BidirectionalMap getIdeProjects() {
     // TODO: optimize me
-    IProject[] ideProjects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+    IProject[] ideProjects = ResourcesPlugin
+        .getWorkspace().getRoot().getProjects();
+
     BidirectionalMap projects = new BidirectionalMap(ideProjects.length, 1f);
-    for(int i = 0; i < ideProjects.length; i++) {
+
+    for (int i = 0; i < ideProjects.length; i++) {
       IProject project = ideProjects[i];
+
       if (project != null && project.isOpen()) {
         projects.put(IDEController.getInstance().getWorkspaceManager()
             .getIdeProjectIdentifier(project), project);
       }
     }
+
     return projects;
   }
   
   public Project getProject(Object ideProject) {
     Object key = getIdeProjects().getKeyByValue(ideProject);
+
     Project project = (Project)getProjects().getValueByKey(key);
-    if(project == null) {
+    if (project == null) {
       project = IDEController.getInstance().createNewProject(ideProject);
       getProjects().put(key, project);
     }
+
     return project;
   }
-
 }

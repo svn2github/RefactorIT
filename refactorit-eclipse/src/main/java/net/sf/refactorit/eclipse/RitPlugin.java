@@ -65,10 +65,10 @@ public class RitPlugin extends AbstractUIPlugin {
 
     String homePath = getAbsolutePath(pluginHomeUrl);
 
-    System.setProperty("refactory.modules",
+    System.setProperty("refactorit.modules",
         homePath + File.separator + "modules");
 
-    System.setProperty("refactory.modules.lib",
+    System.setProperty("refactorit.modules.lib",
         homePath + File.separator + "lib");
 
     ModuleManager.loadModules();

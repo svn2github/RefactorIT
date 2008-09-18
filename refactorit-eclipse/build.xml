@@ -3,6 +3,7 @@
 
 	<property name="app.version.major" value="2"/>
 	<property name="app.version.minor" value="7"/>
+	<property name="app.version.micro" value="0"/>
 	<property name="app.version.qualifier" value="beta"/>
 
 	<property name="projects.dir" value="${basedir}/.."/>
@@ -45,11 +46,11 @@
 		<tstamp/>
 
 		<tstamp>
-			<format property="app.version.micro" pattern="yyyyMMddHHmm"/>
+			<format property="app.version.time" pattern="yyyyMMddHHmm"/>
 		</tstamp>
 
 		<property name="app.version"
-			value="${app.version.major}.${app.version.minor}.${app.version.micro}.${app.version.qualifier}"/>
+			value="${app.version.major}.${app.version.minor}.${app.version.micro}.${app.version.time}-${app.version.qualifier}"/>
 
 		<property name="pkg.version"
 			value="${app.version.major}.${app.version.minor}.${app.version.qualifier}"/>

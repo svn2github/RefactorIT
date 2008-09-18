@@ -14,8 +14,6 @@ import org.eclipse.swt.widgets.Layout;
 
 
 /**
- * 
- * 
  * @author Igor Malinin
  */
 public class FixedLayout extends Layout {
@@ -25,18 +23,12 @@ public class FixedLayout extends Layout {
     this.size = size;
   }
   
-  /*
-   * @see org.eclipse.swt.widgets.Layout#computeSize(org.eclipse.swt.widgets.Composite, int, int, boolean)
-   */
   protected Point computeSize(
       Composite composite, int wHint, int hHint, boolean flushCache
   ) {
     return size;
   }
   
-  /*
-   * @see org.eclipse.swt.widgets.Layout#layout(org.eclipse.swt.widgets.Composite, boolean)
-   */
   protected void layout(Composite composite, boolean flushCache) {
     // no children expected
   }

@@ -27,7 +27,7 @@ class EclipseTopicDisplayer implements TopicDisplayer {
 
   public void displayTopic(IdeWindowContext context, String topicId) {
     // Fully Qualified ContextID: "plugin.name." + "local_context_id"
-    final String contextId = "com.refactorit." + topicId.replace('.', '_');
+    final String contextId = "net.sf.refactorit." + topicId.replace('.', '_');
 
     Shell shell = null;
     if (context instanceof SWTContext) {

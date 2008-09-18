@@ -8,7 +8,6 @@
  */
 package net.sf.refactorit.eclipse;
 
-
 import net.sf.refactorit.classmodel.Project;
 import net.sf.refactorit.eclipse.dialog.SWTContext;
 import net.sf.refactorit.eclipse.vfs.EclipseSource;
@@ -32,8 +31,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.texteditor.AbstractTextEditor;
 
-import java.awt.Point;
 import javax.swing.JComponent;
+
+import java.awt.Point;
 
 
 public class EclipseContext extends TreeRefactorItContext implements SWTContext {
@@ -67,9 +67,6 @@ public class EclipseContext extends TreeRefactorItContext implements SWTContext 
 		return project;
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#open(net.sf.refactorit.classmodel.CompilationUnit)
-	 */
 	public void open(SourceHolder cu) {
     final EclipseSource src = (EclipseSource) cu.getSource();
     getShell().getDisplay().asyncExec(new Runnable() {
@@ -81,9 +78,6 @@ public class EclipseContext extends TreeRefactorItContext implements SWTContext 
     });
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#show(net.sf.refactorit.classmodel.CompilationUnit, int, boolean)
-	 */
 	public void show(SourceHolder cu, final int line, final boolean mark) {
     // TODO: line/mark
     final EclipseSource src = (EclipseSource) cu.getSource();
@@ -104,24 +98,15 @@ public class EclipseContext extends TreeRefactorItContext implements SWTContext 
     });
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#reload()
-	 */
 	public void reload() {
 		// Should not be needed if all filesystem operations are done
     // through IResource or any other Eclipse interface
 	}
 
-  /*
-   * @see net.sf.refactorit.ui.module.RefactorItContext#getWindowId()
-   */
   public String getWindowId() {
     return "Eclipse" + System.identityHashCode(page);
   }
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#addTab(java.lang.String, javax.swing.JComponent)
-	 */
 	public Object addTab(final String title, final JComponent component) {
     getShell().getDisplay().syncExec(new Runnable() {
       public void run() {
@@ -138,9 +123,6 @@ public class EclipseContext extends TreeRefactorItContext implements SWTContext 
     return title;
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#removeTab(java.lang.Object)
-	 */
 	public void removeTab(Object tab) {
     final String secondary = (String) tab;
 
@@ -155,9 +137,6 @@ public class EclipseContext extends TreeRefactorItContext implements SWTContext 
     });
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#showTab(java.lang.Object)
-	 */
 	public boolean showTab(Object tab) {
     final String secondary = (String) tab;
 
@@ -174,44 +153,26 @@ public class EclipseContext extends TreeRefactorItContext implements SWTContext 
     return true; // Can't detect from Eclipse if view already exists
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#setPoint(java.awt.Point)
-	 */
 	public void setPoint(Point point) {
 		this.point = point;
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#getPoint()
-	 */
 	public Point getPoint() {
 		return point;
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#setState(java.lang.Object)
-	 */
 	public void setState(Object state) {
 		this.state = state;
 	}
 
-	/*
-	 * @see net.sf.refactorit.ui.module.RefactorItContext#getState()
-	 */
 	public Object getState() {
 		return state;
 	}
 
-  /*
-   * @see net.sf.refactorit.ui.module.RefactorItContext#copy(net.sf.refactorit.ui.dialog.RitDialog)
-   */
   public IdeWindowContext copy(RitDialog owner) {
     return new ContextWrapper(this, owner);
   }
 
-  /*
-   * @see net.sf.refactorit.ui.dialog.SWTContext#getShell()
-   */
   public Shell getShell() {
     return page.getWorkbenchWindow().getShell();
   }

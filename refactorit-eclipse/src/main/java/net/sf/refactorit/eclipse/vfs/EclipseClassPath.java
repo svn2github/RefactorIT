@@ -32,10 +32,7 @@ import java.util.List;
 
 
 /**
- * EclipseClassPath
- *
- * @author <a href="mailto:tonis.vaga@aqris.com>Tonis Vaga</a>
- * @version $Revision: 1.19 $ $Date: 2005/05/17 12:53:14 $
+ * @author Tonis Vaga
  *
  * TODO: test that resolving classpath entries outside of project is correct
  * TODO: test that resolving  entries describing folder for .class files are correct
@@ -52,15 +49,14 @@ public class EclipseClassPath extends AbstractClassPath {
   public EclipseClassPath(IProject project, ProjectOptions projectOptions) {
     this.project = project;
     this.options = projectOptions;
+
     if (project != null && JavaCore.create(project) == null) {
       log.warn("Not java project " + project.getName());
+
       project = null;
     }
   }
 
-  /*
-   * @see net.sf.refactorit.vfs.AbstractClassPath#createElements()
-   */
   public ClassPathElement[] createElements() {
     if (project == null || !project.isOpen()) {
       return new ClassPathElement[0];
